@@ -1,0 +1,1204 @@
+<!doctype html>
+<html lang="de-DE">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Softwareentwicklung, Web &amp; KI Lübeck | DatenpflegeNord</title>
+  <meta name="description" content="DatenpflegeNord entwickelt Software, Websites und KI-Automatisierungen für Unternehmen in Lübeck und Schleswig-Holstein. APIs, n8n, KI-Agenten und Integrationen.">
+  <meta name="author" content="Dustin Zander, DatenpflegeNord">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#0b0b0b">
+  <link rel="canonical" href="https://datenpflege-nord.de/">
+  <link rel="alternate" hreflang="de-DE" href="https://datenpflege-nord.de/">
+<link rel="alternate" hreflang="en" href="https://datenpflege-nord.de/en/">
+<link rel="alternate" hreflang="x-default" href="https://datenpflege-nord.de/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+  <link rel="preconnect" href="https://raw.githubusercontent.com" crossorigin>
+  <link rel="dns-prefetch" href="//raw.githubusercontent.com">
+  <link rel="preconnect" href="https://api.github.com" crossorigin>
+
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:locale:alternate" content="en_GB">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="DatenpflegeNord">
+  <meta property="og:title" content="DatenpflegeNord | Software, Web &amp; KI aus Lübeck">
+  <meta property="og:description" content="Softwareentwicklung, Webentwicklung und KI-Automatisierung aus Lübeck. Von Webanwendungen und APIs bis zu n8n-Workflows und KI-Agenten.">
+  <meta property="og:url" content="https://datenpflege-nord.de/">
+  <meta property="og:image" content="https://datenpflege-nord.de/og-datenpflege-nord.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:alt" content="DatenpflegeNord – Softwareentwicklung, Webentwicklung und KI-Automatisierung">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="DatenpflegeNord | Software, Web &amp; KI aus Lübeck">
+  <meta name="twitter:description" content="Softwareentwicklung, Webentwicklung und KI-Automatisierung für Unternehmen in Lübeck und Schleswig-Holstein.">
+  <meta name="twitter:image" content="https://datenpflege-nord.de/og-datenpflege-nord.png">
+  <meta name="twitter:image:alt" content="DatenpflegeNord – Softwareentwicklung, Webentwicklung und KI-Automatisierung">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://datenpflege-nord.de/#organization",
+      "name": "Green Vector Energo GmbH",
+      "legalName": "Green Vector Energo GmbH",
+      "alternateName": [
+        "DatenpflegeNord",
+        "Datenpflege Nord"
+      ],
+      "url": "https://datenpflege-nord.de/",
+      "email": "kontakt@datenpflege-nord.de",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://datenpflege-nord.de/assets/branding/datenpflegenord-logo.svg"
+      },
+      "image": "https://datenpflege-nord.de/og-datenpflege-nord.png",
+      "brand": {
+        "@type": "Brand",
+        "name": "DatenpflegeNord"
+      },
+      "employee": {
+        "@type": "Person",
+        "name": "Dustin Zander",
+        "jobTitle": "Geschäftsführer"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Arnimstraße 35",
+        "postalCode": "23566",
+        "addressLocality": "Lübeck",
+        "addressRegion": "Schleswig-Holstein",
+        "addressCountry": "DE"
+      },
+      "areaServed": [
+        "Lübeck",
+        "Schleswig-Holstein"
+      ],
+      "sameAs": [
+        "https://github.com/DatenpflegeNordHL"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://datenpflege-nord.de/#website",
+      "url": "https://datenpflege-nord.de/",
+      "name": "DatenpflegeNord",
+      "alternateName": "Datenpflege Nord",
+      "publisher": {
+        "@id": "https://datenpflege-nord.de/#organization"
+      },
+      "inLanguage": [
+        "de-DE",
+        "en"
+      ]
+    }
+  ]
+}
+  </script>
+
+  <style>
+    :root {
+      --black: #0b0b0b;
+      --ink: #151515;
+      --paper: #f4f3ef;
+      --white: #fff;
+      --muted: #686863;
+      --line: rgba(21,21,21,.14);
+      --line-dark: rgba(255,255,255,.16);
+      --accent: #c8ff46;
+      --blue: #315ee7;
+      --max: 1120px;
+      --radius: 18px;
+      --body: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      --display: "Helvetica Neue", "Arial Nova", Arial, sans-serif;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: var(--body);
+      font-size: 16px;
+      line-height: 1.5;
+      text-rendering: optimizeLegibility;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea, select { font: inherit; }
+    :focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+    .shell { width: min(calc(100% - 32px), var(--max)); margin-inline: auto; }
+    .mono { font-family: var(--mono); }
+    .skip-link { position: fixed; top: -80px; left: 16px; z-index: 100; padding: 10px 14px; border-radius: 999px; background: #fff; color: #000; }
+    .skip-link:focus { top: 14px; }
+
+    .nav {
+      position: absolute; inset: 0 0 auto; z-index: 20;
+      display: flex; align-items: center; justify-content: space-between; gap: 20px;
+      min-height: 72px; color: #080808;
+    }
+    .brand { display: inline-flex; align-items: center; min-height: 40px; }
+    .brand-logo { display: block; width: clamp(205px, 19vw, 286px); height: auto; overflow: visible; }
+    .nav-links { display: flex; gap: 5px; }
+    .nav-links a {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 34px; padding: 0 13px; border: 1px solid rgba(0,0,0,.14);
+      border-radius: 999px; background: rgba(255,255,255,.58); backdrop-filter: blur(12px);
+      font-size: .78rem; transition: background .18s ease, transform .18s ease;
+    }
+    .nav-links a:hover { background: #fff; transform: translateY(-1px); }
+    .nav-actions { display: flex; align-items: center; gap: 6px; }
+    .github-icon {
+      width: 40px; height: 40px; display: inline-grid; place-items: center;
+      border: 1px solid rgba(0,0,0,.14); border-radius: 50%;
+      background: rgba(255,255,255,.64); backdrop-filter: blur(12px);
+      transition: background .18s ease, transform .18s ease;
+    }
+    .github-icon:hover { background: #fff; transform: translateY(-1px); }
+    .github-icon svg { width: 18px; height: 18px; }
+    .lang-switch {
+      display: inline-flex; align-items: center; min-height: 40px; padding: 3px;
+      border: 1px solid rgba(0,0,0,.14); border-radius: 999px;
+      background: rgba(255,255,255,.64); backdrop-filter: blur(12px);
+    }
+    .lang-switch a {
+      min-width: 38px; height: 34px; padding: 0 8px; border: 0; border-radius: 999px;
+      display: inline-flex; align-items: center; justify-content: center;
+      background: transparent; color: rgba(0,0,0,.58); font: 650 .68rem/1 var(--mono);
+      cursor: pointer; transition: background .18s ease, color .18s ease;
+    }
+    .lang-switch a[aria-current="page"] { background: #0b0b0b; color: #fff; }
+    .lang-switch a:hover { color: #000; }
+    .lang-switch a[aria-current="page"]:hover { color: #fff; }
+
+    .hero {
+      position: relative; min-height: 72svh; color: #080808; overflow: hidden; isolation: isolate;
+      background: linear-gradient(120deg, #d8dade 0 48%, #80868e 72%, #282d32 100%);
+    }
+    .hero-video { position: absolute; inset: 0; z-index: -4; width: 100%; height: 100%; object-fit: cover; object-position: 68% center; filter: saturate(.78) contrast(1.03); }
+    .hero::before {
+      content: ""; position: absolute; inset: 0; z-index: -2;
+      background: linear-gradient(90deg, rgba(244,243,239,.94) 0%, rgba(244,243,239,.72) 34%, rgba(244,243,239,.08) 68%, rgba(0,0,0,.08) 100%);
+    }
+    .hero::after {
+      content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: .12;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.3'/%3E%3C/svg%3E");
+    }
+    .hero-inner { min-height: 72svh; display: flex; align-items: center; padding: 84px 0 28px; }
+    .hero-copy { width: min(610px, 94%); }
+    .hero-label { margin: 0 0 16px; color: rgba(0,0,0,.68); font: 500 .77rem/1.4 var(--mono); text-transform: uppercase; letter-spacing: .09em; }
+    h1 {
+      min-height: 2.55em; margin: 0 0 22px; max-width: 610px;
+      font-family: var(--display); font-size: clamp(2rem, 4vw, 3.35rem); line-height: 1.02;
+      letter-spacing: -.047em; font-weight: 500;
+    }
+    .cursor { display: inline-block; width: 2px; height: .92em; margin-left: 4px; background: currentColor; vertical-align: -.05em; animation: blink 1s steps(1) infinite; }
+    .hero-pills { display: flex; flex-wrap: wrap; gap: 6px; }
+    .pill {
+      display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+      min-height: 36px; padding: 0 14px; border: 1px solid rgba(0,0,0,.15); border-radius: 999px;
+      background: rgba(255,255,255,.86); color: #090909; font-size: .79rem; cursor: pointer;
+      transition: background .18s ease, color .18s ease, transform .18s ease;
+    }
+    .pill:hover { background: #0b0b0b; color: #fff; transform: translateY(-1px); }
+    .pill-dark { background: rgba(11,11,11,.88); color: #fff; border-color: transparent; }
+    .pill-dark:hover { background: #fff; color: #000; }
+
+    .stats-strip { border-bottom: 1px solid var(--line); background: var(--paper); }
+    .stats-grid { display: grid; grid-template-columns: 1.25fr repeat(4, .8fr); }
+    .stat-intro, .stat { min-height: 94px; padding: 15px 16px; border-right: 1px solid var(--line); }
+    .stat-intro { padding-left: 0; display: flex; flex-direction: column; justify-content: space-between; }
+    .stat:last-child { border-right: 0; }
+    .stat-label { font: 500 .67rem/1.3 var(--mono); text-transform: uppercase; letter-spacing: .09em; }
+    .stat-intro p { margin: 10px 0 0; max-width: 280px; color: var(--muted); font-size: .81rem; line-height: 1.45; }
+    .stat strong { display: block; margin-top: 13px; font-family: var(--display); font-size: clamp(2rem, 4vw, 3rem); line-height: .9; letter-spacing: -.055em; font-weight: 500; }
+    .stat span:last-child { display: block; margin-top: 8px; color: var(--muted); font-size: .72rem; }
+
+
+    .brand-belt-section {
+      contain: paint;
+      overflow: hidden;
+      padding: 8px 0 0;
+      background: var(--paper);
+    }
+    .brand-belt {
+      --slot: 180px;
+      --gap: 64px;
+      min-height: 68px;
+      padding: 10px 0;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: rgba(255,255,255,.78);
+      box-shadow: 0 12px 30px rgba(15,20,30,.04);
+      overflow: hidden;
+    }
+    .brand-belt-viewport {
+      width: 100%;
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 7%, #000 93%, transparent 100%);
+      mask-image: linear-gradient(90deg, transparent 0, #000 7%, #000 93%, transparent 100%);
+    }
+    .brand-belt-track {
+      display: flex;
+      width: max-content;
+      animation: brandBeltScroll 22s linear infinite;
+      will-change: transform;
+    }
+    .brand-belt:hover .brand-belt-track { animation-play-state: paused; }
+    .brand-belt-group {
+      display: flex;
+      flex: 0 0 auto;
+      align-items: center;
+      gap: var(--gap);
+      padding-right: var(--gap);
+    }
+    .brand-logo-slot {
+      display: grid;
+      flex: 0 0 var(--slot);
+      width: var(--slot);
+      height: 46px;
+      place-items: center;
+    }
+    .brand-logo-slot img {
+      display: block;
+      width: auto;
+      height: auto;
+      max-width: 158px;
+      max-height: 36px;
+      object-fit: contain;
+      opacity: .9;
+    }
+    @keyframes brandBeltScroll {
+      from { transform: translate3d(0,0,0); }
+      to { transform: translate3d(-50%,0,0); }
+    }
+    .brand-belt-section + .section { padding-top: 20px; }
+
+    .section { padding: 62px 0; }
+    .section-head { display: grid; grid-template-columns: .82fr 1.18fr; gap: 24px; align-items: center; margin-bottom: 24px; }
+    .eyebrow { font: 500 .69rem/1.4 var(--mono); text-transform: uppercase; letter-spacing: .11em; }
+    h2 { margin: 7px 0 0; font-family: var(--display); font-size: clamp(2.4rem, 5vw, 4.45rem); line-height: .93; letter-spacing: -.055em; font-weight: 500; }
+    .section-copy { margin: 0; max-width: 620px; color: var(--muted); font-size: .95rem; line-height: 1.62; }
+
+    .feed-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 11px 0; border-block: 1px solid var(--line); }
+    .feed-live { display: inline-flex; align-items: center; gap: 9px; font-size: .77rem; }
+    .live-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px rgba(200,255,70,.14); }
+    .feed-note { color: var(--muted); font-size: .72rem; }
+    .feed-list { border-bottom: 1px solid var(--line); margin-top: 2px; }
+    .feed-item {
+      display: grid; grid-template-columns: 34px 104px minmax(0,1fr) 82px; gap: 14px; align-items: center;
+      min-height: 82px; padding: 14px 0; border-bottom: 1px solid var(--line);
+      transition: transform .18s ease;
+    }
+    .feed-item:last-child { border-bottom: 0; }
+    .feed-item:hover { transform: translateX(4px); }
+    .feed-index { color: #96968f; font-size: .66rem; }
+    .feed-kind { display: grid; gap: 5px; }
+    .feed-badge { width: max-content; padding: 5px 8px; border-radius: 999px; background: #111; color: #fff; font: 500 .61rem/1 var(--mono); text-transform: uppercase; letter-spacing: .06em; }
+    .feed-scope { color: var(--muted); font-size: .65rem; }
+    .feed-main { min-width: 0; }
+    .feed-repo { display: block; margin-bottom: 4px; color: var(--blue); font: 500 .69rem/1.3 var(--mono); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .feed-main h3 { margin: 0; overflow-wrap: anywhere; font-family: var(--display); font-size: clamp(1rem, 1.7vw, 1.28rem); line-height: 1.15; letter-spacing: -.025em; font-weight: 500; }
+    .feed-meta { display: flex; justify-content: flex-end; align-items: center; gap: 10px; color: var(--muted); font-size: .68rem; white-space: nowrap; }
+    .feed-arrow { color: #111; font-size: 1rem; }
+    .feed-actions { display: flex; justify-content: flex-end; margin-top: 16px; }
+
+    .github-layout { display: grid; grid-template-columns: minmax(320px, .9fr) minmax(0, 1.1fr); gap: 18px; align-items: stretch; }
+    .feed-column { min-width: 0; display: flex; }
+    .feed-box {
+      width: 100%;
+      height: 100%;
+      min-width: 0;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.82), rgba(255,255,255,.62)),
+        var(--paper);
+      box-shadow: 0 18px 40px rgba(15,20,30,.05);
+    }
+    .feed-head {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(240px, .85fr);
+  gap: 24px;
+  align-items: start;
+  margin-bottom: 16px;
+}
+
+.feed-head > * {
+  min-width: 0;
+}
+
+.feed-head h2 {
+  font-size: clamp(2.2rem, 3.6vw, 3.6rem);
+}
+
+.feed-head .section-copy {
+  width: 100%;
+  max-width: 34rem;
+}
+
+@media (max-width: 1120px) {
+  .feed-head {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .feed-head .section-copy {
+    max-width: 46rem;
+  }
+}
+
+    .feed-head .section-copy { max-width: 500px; }
+    .service-column { min-width: 0; position: sticky; top: 98px; height: 100%; }
+    .service-box {
+      height: 100%;
+      position: relative;
+      min-height: 100%;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      background:
+        radial-gradient(circle at 18% 10%, rgba(92,111,135,.18), transparent 24%),
+        radial-gradient(circle at 85% 8%, rgba(27,49,84,.10), transparent 22%),
+        linear-gradient(180deg, rgba(255,255,255,.75), rgba(255,255,255,.55)),
+        var(--paper);
+      overflow: hidden;
+      box-shadow: 0 18px 40px rgba(15,20,30,.06);
+    }
+    .service-box::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(27,49,84,.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(27,49,84,.06) 1px, transparent 1px);
+      background-size: 30px 30px;
+      mask-image: linear-gradient(180deg, rgba(0,0,0,.18), transparent 55%);
+      pointer-events: none;
+    }
+    .service-box::after {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      top: -55px;
+      right: -60px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 35% 35%, rgba(255,255,255,.85), rgba(255,255,255,.15) 38%, rgba(27,49,84,.10) 60%, rgba(27,49,84,.02) 72%, transparent 73%),
+        conic-gradient(from 180deg, rgba(27,49,84,.07), rgba(90,111,135,.18), rgba(27,49,84,.07));
+      opacity: .95;
+      animation: serviceFloat 9s ease-in-out infinite;
+      pointer-events: none;
+    }
+    .service-label {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(27,49,84,.12);
+      background: rgba(255,255,255,.72);
+      font: 500 .66rem/1 var(--mono);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+    .service-label::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--blue);
+      box-shadow: 0 0 0 4px rgba(90,111,135,.10);
+    }
+    .service-box h2 {
+      position: relative;
+      margin: 12px 0 10px;
+      max-width: 420px;
+      font-family: var(--display);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: .94;
+      letter-spacing: -.055em;
+      font-weight: 500;
+    }
+    .service-intro {
+      position: relative;
+      margin: 0;
+      max-width: 480px;
+      color: var(--muted);
+      font-size: .92rem;
+      line-height: 1.62;
+    }
+    .service-topics {
+      position: relative;
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .service-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: 52px minmax(0,1fr);
+      gap: 12px;
+      padding: 14px;
+      border: 1px solid rgba(27,49,84,.10);
+      border-radius: 18px;
+      background: rgba(255,255,255,.74);
+      backdrop-filter: blur(6px);
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+    .service-item:hover {
+      transform: translateY(-2px);
+      border-color: rgba(27,49,84,.20);
+      box-shadow: 0 10px 24px rgba(20,26,36,.07);
+    }
+    .service-icon {
+      display: grid;
+      place-items: center;
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      background: linear-gradient(180deg, rgba(27,49,84,.96), rgba(58,85,122,.86));
+      color: #fff;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 8px 18px rgba(27,49,84,.16);
+    }
+    .service-icon svg {
+      width: 22px;
+      height: 22px;
+      display: block;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.9;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .service-item > div:last-child { min-width: 0; }
+    .service-item h3 {
+      margin: 2px 0 7px;
+      font-family: var(--display);
+      font-size: 1.22rem;
+      line-height: 1.05;
+      letter-spacing: -.03em;
+      font-weight: 500;
+    }
+    .service-item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .86rem;
+      line-height: 1.54;
+    }
+
+    .work-section { background: #0b0b0b; color: #fff; }
+    .work-section .section-copy { color: #a7a7a1; }
+    .work-rows { border-top: 1px solid var(--line-dark); }
+    .work-row { display: grid; grid-template-columns: 42px 1fr 1.2fr; gap: 20px; align-items: start; padding: 22px 0; border-bottom: 1px solid var(--line-dark); }
+    .work-row > span { color: #74746f; font-size: .72rem; }
+    .work-row h3 { margin: 0; font-family: var(--display); font-size: clamp(1.4rem, 2.8vw, 2.1rem); line-height: 1.05; letter-spacing: -.035em; font-weight: 500; }
+    .work-row p { margin: 0; max-width: 520px; color: #aaa; font-size: .9rem; line-height: 1.55; }
+
+    .profile-grid { display: grid; grid-template-columns: .84fr 1.16fr; gap: 12px; align-items: start; }
+    .profile-card, .contact-card { border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+    .profile-card { position: sticky; top: 94px; min-height: 320px; padding: 22px; background: #d9d9d4; display: flex; flex-direction: column; justify-content: space-between; }
+    .profile-orb { position: absolute; width: 245px; height: 245px; top: -34px; right: -40px; border-radius: 50%; background: radial-gradient(circle at 34% 30%, #fff, #c8cbd0 34%, #666d75 68%, #111); box-shadow: 0 34px 70px rgba(0,0,0,.16); }
+    .profile-card h3 { position: relative; margin: 0; font-family: var(--display); font-size: clamp(2.8rem, 5vw, 4.8rem); line-height: .9; letter-spacing: -.06em; font-weight: 500; }
+    .profile-card footer { position: relative; display: flex; justify-content: space-between; align-items: end; gap: 18px; }
+    .profile-card footer p { margin: 0; max-width: 300px; font-size: .88rem; line-height: 1.5; }
+    .profile-status { padding: 7px 9px; border-radius: 999px; background: var(--accent); font-size: .68rem; white-space: nowrap; }
+
+    .contact-card { padding: clamp(22px, 3.2vw, 34px); background: #fff; }
+    .contact-card h3 { margin: 0 0 10px; font-family: var(--display); font-size: clamp(2rem, 4vw, 3.6rem); line-height: .95; letter-spacing: -.05em; font-weight: 500; }
+    .contact-card > p { margin: 0; max-width: 560px; color: var(--muted); font-size: .9rem; line-height: 1.55; }
+    .contact-links { display: grid; margin: 18px 0; border-top: 1px solid var(--line); }
+    .contact-link { display: flex; justify-content: space-between; gap: 14px; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: .82rem; }
+    .contact-link span { color: var(--muted); }
+    .contact-link strong { text-align: right; }
+    #profil { padding-top: 40px; padding-bottom: 54px; }
+    #profil .section-head { grid-template-columns: .78fr 1.22fr; gap: 18px; margin-bottom: 18px; }
+    #profil .section-copy { max-width: 700px; }
+    #profil .profile-card, #profil .contact-card { box-shadow: 0 14px 32px rgba(15,20,30,.04); }
+    #profil .contact-card { min-height: 300px; display: grid; align-content: start; }
+    #profil .contact-form { margin-top: 4px; }
+    .contact-form { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .field { display: grid; gap: 5px; }
+    .field-wide { grid-column: 1 / -1; }
+    .field label { font: 500 .65rem/1.3 var(--mono); text-transform: uppercase; letter-spacing: .07em; }
+    .field input, .field textarea, .field select { width: 100%; border: 1px solid var(--line); border-radius: 10px; background: var(--paper); padding: 11px 12px; color: #111; }
+    .field textarea { min-height: 78px; resize: vertical; }
+    .submit { justify-self: start; border: 0; }
+    .form-note { grid-column: 1 / -1; color: var(--muted); font-size: .72rem; line-height: 1.45; }
+
+    .footer { padding: 18px 0 24px; border-top: 1px solid var(--line); color: var(--muted); font-size: .71rem; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+    .footer-links { display: flex; gap: 14px; }
+    .reveal { opacity: 1; transform: none; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+    @keyframes blink { 50% { opacity: 0; } }
+    @keyframes serviceFloat {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(8px) rotate(6deg); }
+    }
+
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .stat-intro { grid-column: 1 / -1; min-height: 82px; border-right: 0; border-bottom: 1px solid var(--line); }
+      .stat:nth-child(odd) { border-right: 0; }
+      .section-head, .profile-grid, .feed-head, .github-layout { grid-template-columns: 1fr; }
+      #profil .section-head { grid-template-columns: 1fr; align-items: start; }
+      .service-column { position: static; top: auto; height: auto; }
+      .profile-card { position: relative; top: auto; }
+      .work-row { grid-template-columns: 34px 1fr; }
+      .work-row p { grid-column: 2; }
+    }
+
+    @media (max-width: 620px) {
+      .shell { width: min(calc(100% - 20px), var(--max)); }
+      .nav { gap: 6px; min-height: 66px; }
+      .brand-logo { width: clamp(128px, 46vw, 180px); }
+      .nav-actions { gap: 4px; }
+      .github-icon { width: 40px; height: 40px; }
+      .lang-switch { min-height: 40px; padding: 2px; }
+      .lang-switch a { min-width: 38px; height: 36px; padding-inline: 6px; }
+      .hero-pills .pill, .submit { min-height: 42px; }
+      .feed-badge { font-size: .66rem; }
+      .feed-scope, .feed-index, .feed-meta { font-size: .7rem; }
+      .field label { font-size: .69rem; }
+      .brand-belt { --slot: 150px; --gap: 40px; min-height: 66px; padding-block: 9px; border-radius: 18px; }
+      .brand-logo-slot { height: 42px; }
+      .brand-logo-slot img { max-width: 138px; max-height: 32px; }
+      .brand-belt-section + .section { padding-top: 18px; }
+      .hero, .hero-inner { min-height: 74svh; }
+      .hero-inner { align-items: end; padding-bottom: 34px; }
+      .hero::before { background: linear-gradient(180deg, rgba(244,243,239,.18) 0%, rgba(244,243,239,.42) 30%, rgba(244,243,239,.94) 68%, rgba(244,243,239,.99) 100%); }
+      h1 { min-height: 3.2em; font-size: clamp(2rem, 10vw, 2.85rem); }
+      .pill { min-height: 34px; padding-inline: 12px; font-size: .74rem; }
+      .submit { min-height: 42px; }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .stat { min-height: 94px; padding: 15px 12px; }
+      .stat strong { font-size: 2.15rem; }
+      .section { padding: 48px 0; }
+      .section-head { gap: 16px; margin-bottom: 18px; }
+      h2 { font-size: clamp(2.45rem, 14vw, 3.7rem); }
+      .feed-toolbar { align-items: flex-start; flex-direction: column; gap: 5px; }
+      .feed-box { padding: 20px; border-radius: 22px; }
+      .service-box { padding: 20px; border-radius: 22px; }
+      .service-box h2 { max-width: 290px; }
+      .service-item { grid-template-columns: 44px minmax(0,1fr); gap: 12px; padding: 14px; }
+      .service-icon { width: 44px; height: 44px; border-radius: 12px; }
+      .service-icon svg { width: 19px; height: 19px; }
+      .feed-item { grid-template-columns: 28px 1fr 58px; gap: 9px; min-height: 76px; padding: 12px 0; }
+      .feed-kind { grid-column: 2; display: flex; align-items: center; gap: 7px; }
+      .feed-main { grid-column: 2; }
+      .feed-meta { grid-column: 3; grid-row: 1 / 3; flex-direction: column; gap: 6px; align-self: center; }
+      .feed-main h3 { font-size: 1rem; }
+      .work-row { gap: 10px; }
+      .profile-card { min-height: 280px; }
+      .profile-orb { width: 210px; height: 210px; right: -56px; top: -26px; }
+      .profile-card footer { align-items: start; flex-direction: column; }
+      .contact-form { grid-template-columns: 1fr; }
+      .field-wide, .form-note { grid-column: auto; }
+      .contact-link { flex-direction: column; gap: 3px; }
+      .contact-link strong { text-align: left; overflow-wrap: anywhere; }
+      #profil { padding-top: 34px; padding-bottom: 42px; }
+      #profil .section-head { margin-bottom: 16px; }
+      #profil .contact-card { min-height: auto; }
+    }
+
+    @media (max-width: 300px) {
+      .shell { width: min(calc(100% - 16px), var(--max)); }
+      .brand-logo { width: 116px; }
+      .nav { gap: 4px; }
+      .github-icon { width: 38px; height: 38px; }
+      .lang-switch { min-height: 38px; }
+      .lang-switch a { min-width: 34px; height: 34px; padding-inline: 4px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  
+    @media (prefers-reduced-motion: reduce) {
+      .brand-belt-viewport {
+        overflow-x: auto;
+        -webkit-mask-image: none;
+        mask-image: none;
+        scrollbar-width: thin;
+      }
+      .brand-belt-track { animation: none !important; }
+      .brand-belt-group[aria-hidden="true"] { display: none; }
+    }
+
+  
+    .service-more {
+      display: inline-flex;
+      margin-top: 8px;
+      font-size: .72rem;
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="skip">Zum Inhalt springen</a>
+
+  <header class="nav shell">
+    <a class="brand" href="/" aria-label="DatenpflegeNord Startseite" data-i18n-aria="brandAria"><img class="brand-logo" src="/assets/branding/datenpflegenord-logo.svg" width="523" height="104" alt=""></a>
+    <nav class="nav-links" aria-label="Hauptnavigation" data-i18n-aria="navAria">
+      <a href="#arbeit" data-i18n="navServices">Leistungen</a>
+      <a href="#profil" data-i18n="navProfile">Profil</a>
+      <a href="#kontakt" data-i18n="navContact">Kontakt</a>
+    </nav>
+    <div class="nav-actions">
+      <nav class="lang-switch" aria-label="Sprache wählen" data-i18n-aria="langAria">
+        <a href="/" hreflang="de-DE" lang="de" aria-current="page">DE</a>
+        <a href="/en/" hreflang="en" lang="en">EN</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <video class="hero-video" id="heroVideo" muted playsinline preload="none" aria-hidden="true" poster="https://raw.githubusercontent.com/pulkitxm/claude-directory/main/hero-sections/mainframe-hero-landing/poster.jpg">
+        <source data-src="https://raw.githubusercontent.com/pulkitxm/claude-directory/main/hero-sections/mainframe-hero-landing/public/assets/hf_20260530_042513_df96a13b-6155-4f6e-8b93-c9dee66fba08.mp4" type="video/mp4">
+      </video>
+      <div class="shell hero-inner">
+        <div class="hero-copy">
+          <p class="hero-label" data-i18n="heroLabel">SOFTWAREENTWICKLUNG · WEBENTWICKLUNG · KI-AUTOMATISIERUNG</p>
+          <h1 id="hero-title" aria-label="Softwareentwicklung, Webentwicklung &amp; KI-Automatisierung aus Lübeck." data-i18n-aria="heroText">
+            <span id="typeText" aria-hidden="true" data-i18n="heroText">Softwareentwicklung, Webentwicklung &amp; KI-Automatisierung aus Lübeck.</span><span class="cursor" id="typeCursor" aria-hidden="true"></span>
+          </h1>
+          <div class="hero-pills" aria-label="Direkte Aktionen">
+            <a class="pill" href="#arbeit">Leistungen ansehen</a>
+            <a class="pill pill-dark" href="#kontakt">Kontakt aufnehmen ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+
+
+    
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+<section class="stats-strip" id="stats" aria-label="GitHub-Statistik" data-i18n-aria="statsAria">
+      <div class="shell stats-grid">
+        <div class="stat-intro">
+          <span class="stat-label" data-i18n="statsIntroLabel">Öffentliche Bilanz</span>
+          <p data-i18n="statsIntroText">Live-Werte werden im Browser ergänzt. Die GitHub-Referenzen darunter bleiben auch ohne Live-Abfrage direkt überprüfbar.</p>
+        </div>
+        <div class="stat"><span class="stat-label" data-i18n="statReposLabel">Öffentliche Repos</span><strong data-stat="repos">2</strong><span data-i18n="statReposSub">eigene Repositories</span></div>
+        <div class="stat"><span class="stat-label" data-i18n="statPrsLabel">Pull Requests</span><strong data-stat="prs">—</strong><span data-i18n="statPrsSub">öffentlich eingereicht</span></div>
+        <div class="stat"><span class="stat-label" data-i18n="statProjectsLabel">Repos zuletzt</span><strong data-stat="projects">—</strong><span data-i18n="statProjectsSub">im Aktivitätsfenster</span></div>
+        <div class="stat"><span class="stat-label" data-i18n="statExternalLabel">Open Source</span><strong data-stat="external">—</strong><span data-i18n="statExternalSub">externe Repositories</span></div>
+      </div>
+    </section>
+
+<section class="brand-belt-section" aria-hidden="true">
+      <div class="shell">
+        <div class="brand-belt">
+          <div class="brand-belt-viewport" aria-hidden="true">
+            <div class="brand-belt-track">
+              <div class="brand-belt-group"><span class="brand-logo-slot"><img src="/images/clients-logo/logo-1.svg" width="125" height="29" alt="" decoding="async"></span><span class="brand-logo-slot"><img src="/images/clients-logo/logo-2.svg" width="106" height="31" alt="" decoding="async"></span><span class="brand-logo-slot"><img src="/images/clients-logo/logo-3.svg" width="159" height="29" alt="" decoding="async"></span><span class="brand-logo-slot"><img src="/images/clients-logo/logo-4.svg" width="140" height="37" alt="" decoding="async"></span><span class="brand-logo-slot"><img src="/images/clients-logo/logo-5.svg" width="108" height="30" alt="" decoding="async"></span></div>
+              <div class="brand-belt-group" aria-hidden="true"><span class="brand-logo-slot"><img src="/images/clients-logo/logo-1.svg" width="125" height="29" alt="" decoding="async"></span><span class="brand-logo-slot"><img src="/images/clients-logo/logo-2.svg" width="106" height="31" alt="" decoding="async"></span><span class="brand-logo-slot"><img src="/images/clients-logo/logo-3.svg" width="159" height="29" alt="" decoding="async"></span><span class="brand-logo-slot"><img src="/images/clients-logo/logo-4.svg" width="140" height="37" alt="" decoding="async"></span><span class="brand-logo-slot"><img src="/images/clients-logo/logo-5.svg" width="108" height="30" alt="" decoding="async"></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<section class="section" id="github" aria-labelledby="github-title">
+      <div class="shell github-layout">
+        <aside class="service-column reveal" id="arbeit" aria-labelledby="work-title">
+          <div class="service-box">
+            <span class="service-label">DatenpflegeNord</span>
+            <h2 id="work-title" data-i18n-html="workTitle">Softwareentwicklung, Webentwicklung und KI-Automatisierung.</h2>
+            <p class="service-intro" data-i18n="workCopy">Wir entwickeln individuelle Software, moderne Websites und KI-gestützte Automatisierungen für Unternehmen in Lübeck und Schleswig-Holstein. Von Webanwendungen und APIs bis zu KI-Agenten, n8n-Workflows und Systemintegrationen.</p>
+
+            <div class="service-topics">
+              <article class="service-item">
+                <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="6" ry="2.5"></ellipse><path d="M6 6v5c0 1.4 2.7 2.5 6 2.5s6-1.1 6-2.5V6"></path><path d="M6 11v5c0 1.4 2.7 2.5 6 2.5s6-1.1 6-2.5v-5"></path></svg></div>
+                <div>
+                  <h3 data-i18n="work1Title">Software entwickeln</h3>
+                  <p data-i18n="work1Copy">Individuelle Anwendungen, interne Tools, APIs und Integrationen für konkrete Geschäftsprozesse entwickeln.</p>
+                  <a class="service-more" href="/softwareentwicklung-luebeck/">Softwareentwicklung im Detail ↗</a>
+                </div>
+              </article>
+              <article class="service-item">
+                <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="14" rx="2"></rect><path d="M3.5 9h17"></path><path d="M7 7h.01M10 7h.01"></path><path d="M7 13h4"></path><path d="M13 13h4"></path></svg></div>
+                <div>
+                  <h3 data-i18n="work2Title">Websites &amp; Webanwendungen</h3>
+                  <p data-i18n="work2Copy">Unternehmenswebsites, Landingpages und Webanwendungen entwickeln sowie bestehende Systeme technisch und inhaltlich weiterentwickeln.</p>
+                  <a class="service-more" href="/webentwicklung-luebeck/">Webentwicklung im Detail ↗</a>
+                </div>
+              </article>
+              <article class="service-item">
+                <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="5" height="5" rx="1"></rect><rect x="15" y="4" width="5" height="5" rx="1"></rect><rect x="15" y="15" width="5" height="5" rx="1"></rect><path d="M9 6.5h6"></path><path d="M17.5 9v6"></path><path d="M12 17.5h3"></path><path d="M6.5 9v8.5h8.5"></path></svg></div>
+                <div>
+                  <h3 data-i18n="work3Title">KI &amp; Automatisierung</h3>
+                  <p data-i18n="work3Copy">KI-Agenten, n8n-Workflows, LLM-Integrationen und automatisierte Abläufe entwickeln und mit vorhandenen Systemen verbinden.</p>
+                  <a class="service-more" href="/ki-automatisierung-luebeck/">KI-Automatisierung im Detail ↗</a>
+                </div>
+              </article>
+              <article class="service-item">
+                <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"></circle><circle cx="12" cy="12" r="2.5"></circle><path d="M19 5l-2.5 2.5"></path><path d="M5 19l2.5-2.5"></path></svg></div>
+                <div>
+                  <h3 data-i18n="work4Title">Systeme &amp; Schnittstellen</h3>
+                  <p data-i18n="work4Copy">APIs, Datenbanken, Webhooks und bestehende Anwendungen verbinden und zuverlässige Datenflüsse automatisieren.</p>
+                </div>
+              </article>
+            </div>
+</div>
+</aside>
+
+        <div class="feed-column">
+          <div class="feed-box reveal">
+            <div class="feed-head">
+              <div>
+                <span class="eyebrow" data-i18n="feedEyebrow">Öffentliche Entwicklungsarbeit</span>
+                <h2 id="github-title" data-i18n-html="feedTitle">Technische Arbeit.<br>Öffentlich nachvollziehbar.</h2>
+              </div>
+              <p class="section-copy" data-i18n="feedCopy">Öffentliche Pull Requests und Repositories zeigen nachvollziehbar, wie wir an eigenen und bestehenden Codebasen arbeiten. Open-Source-Beiträge dienen als technische Arbeitsproben und werden nicht als Kundenprojekte dargestellt.</p>
+            </div>
+
+            <div class="feed-toolbar">
+              <div class="feed-live"><span class="live-dot" aria-hidden="true"></span><span id="feedStatus" aria-live="polite" data-i18n="feedStatusStatic">Öffentliche Aktivität · statischer Stand</span></div>
+              <div class="feed-note" data-i18n="feedNote">Live-Daten ersetzen diesen SEO-Fallback im Browser</div>
+            </div>
+
+            <div class="feed-list" id="githubFeed">
+            <a class="feed-item" href="https://github.com/open-jarvis/OpenJarvis/pull/708" target="_blank" rel="noopener noreferrer">
+              <span class="feed-index mono">01</span>
+              <span class="feed-kind"><span class="feed-badge" data-i18n="prOpened">PR geöffnet</span><span class="feed-scope" data-i18n="scopeExternal">Open Source</span></span>
+              <span class="feed-main"><span class="feed-repo">open-jarvis/OpenJarvis</span><h3 data-i18n="staticFeed1">Gemini-Tool-Calls beim Streaming erhalten</h3></span>
+              <span class="feed-meta"><span data-i18n="current">aktuell</span><span class="feed-arrow">↗</span></span>
+            </a>
+            <a class="feed-item" href="https://github.com/open-jarvis/OpenJarvis/pull/702" target="_blank" rel="noopener noreferrer">
+              <span class="feed-index mono">02</span>
+              <span class="feed-kind"><span class="feed-badge" data-i18n="prClosed">PR geschlossen</span><span class="feed-scope" data-i18n="scopeExternal">Open Source</span></span>
+              <span class="feed-main"><span class="feed-repo">open-jarvis/OpenJarvis</span><h3 data-i18n="staticFeed2">Skill-Quellen korrekt aus TOML laden</h3></span>
+              <span class="feed-meta"><span data-i18n="current">aktuell</span><span class="feed-arrow">↗</span></span>
+            </a>
+            <a class="feed-item" href="https://github.com/DatenpflegeNordHL/Codex-Looper/pull/24" target="_blank" rel="noopener noreferrer">
+              <span class="feed-index mono">03</span>
+              <span class="feed-kind"><span class="feed-badge" data-i18n="prMerged">PR gemergt</span><span class="feed-scope" data-i18n="scopeOwn">Eigenes Projekt</span></span>
+              <span class="feed-main"><span class="feed-repo">DatenpflegeNordHL/Codex-Looper</span><h3 data-i18n="staticFeed3">README-Hero und Frontpage-Navigation ergänzen</h3></span>
+              <span class="feed-meta"><span data-i18n="current">aktuell</span><span class="feed-arrow">↗</span></span>
+            </a>
+            <a class="feed-item" href="https://github.com/DatenpflegeNordHL/Codex-Looper/pull/23" target="_blank" rel="noopener noreferrer">
+              <span class="feed-index mono">04</span>
+              <span class="feed-kind"><span class="feed-badge" data-i18n="prMerged">PR gemergt</span><span class="feed-scope" data-i18n="scopeOwn">Eigenes Projekt</span></span>
+              <span class="feed-main"><span class="feed-repo">DatenpflegeNordHL/Codex-Looper</span><h3 data-i18n="staticFeed4">Öffentliche Repository-Hygiene-Dateien ergänzen</h3></span>
+              <span class="feed-meta"><span data-i18n="current">aktuell</span><span class="feed-arrow">↗</span></span>
+            </a>
+            <a class="feed-item" href="https://github.com/DatenpflegeNordHL/Codex-Looper/pull/22" target="_blank" rel="noopener noreferrer">
+              <span class="feed-index mono">05</span>
+              <span class="feed-kind"><span class="feed-badge" data-i18n="prMerged">PR gemergt</span><span class="feed-scope" data-i18n="scopeOwn">Eigenes Projekt</span></span>
+              <span class="feed-main"><span class="feed-repo">DatenpflegeNordHL/Codex-Looper</span><h3 data-i18n="staticFeed5">Projektüberblick und Beitragsleitfäden veröffentlichen</h3></span>
+              <span class="feed-meta"><span data-i18n="current">aktuell</span><span class="feed-arrow">↗</span></span>
+            </a>
+          </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<section class="section" id="profil" aria-labelledby="profile-title">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow" data-i18n="profileEyebrow">Person & Kontakt</span>
+            <h2 id="profile-title" data-i18n-html="profileTitle">Ihr Ansprechpartner<br>in Lübeck.</h2>
+          </div>
+          <p class="section-copy" data-i18n="profileCopy">Dustin Zander ist Ihr direkter Ansprechpartner für Softwareentwicklung, Webentwicklung und KI-Automatisierung in Lübeck und Schleswig-Holstein. Von individuellen Anwendungen und APIs bis zu KI-Agenten, n8n-Workflows und KI-gestützter Entwicklung mit Claude Code und OpenAI Codex.</p>
+        </div>
+
+        <div class="profile-grid">
+          <article class="profile-card reveal">
+            <div class="profile-orb" aria-hidden="true"></div>
+            <h3>Dustin Zander.</h3>
+            <footer>
+              <p data-i18n="profileCardCopy">Softwareentwicklung, Webentwicklung, KI-Agenten und Automatisierung aus Lübeck.</p>
+              <span class="profile-status" data-i18n="profileStatus">persönlicher Ansprechpartner</span>
+            </footer>
+          </article>
+
+          <article class="contact-card reveal" id="kontakt">
+            <h3 data-i18n-html="contactTitle">Kurze Anfrage.<br>Klare Antwort.</h3>
+            <p data-i18n="contactCopy">Beschreiben Sie kurz, welche Software, Website oder Automatisierung Sie umsetzen oder verbessern möchten. Sie erhalten eine direkte Einschätzung zu Machbarkeit und dem nächsten sinnvollen Schritt.</p>
+            <div class="contact-links">
+              <a class="contact-link" href="mailto:kontakt@datenpflege-nord.de"><span data-i18n="emailLabel">E-Mail</span><strong>kontakt@datenpflege-nord.de</strong></a>
+            </div>
+            <form class="contact-form" id="contactForm" action="mailto:kontakt@datenpflege-nord.de" method="post" enctype="text/plain">
+              <div class="field"><label for="name" data-i18n="formName">Name</label><input id="name" name="name" autocomplete="name" required></div>
+              <div class="field"><label for="email" data-i18n="formEmail">E-Mail</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+              <div class="field field-wide"><label for="topic" data-i18n="formTopic">Thema</label><select id="topic" name="topic"><option value="software" data-i18n="topicSoftware">Softwareentwicklung</option><option value="website" data-i18n="topicWebsite">Website</option><option value="automation" data-i18n="topicAutomation">Automatisierung</option><option value="other" data-i18n="topicOther">Sonstiges</option></select></div>
+              <div class="field field-wide"><label for="message" data-i18n="formMessage">Worum geht es?</label><textarea id="message" name="message" minlength="5" maxlength="5000" required></textarea></div>
+                            <div aria-hidden="true" style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;">
+                <label for="website">Website</label><input id="website" name="website" tabindex="-1" autocomplete="off">
+              </div>
+<button class="pill pill-dark submit" type="submit" data-i18n="formSubmit">Nachricht senden ↗</button>
+              <div class="form-note" id="contactStatus" role="status" aria-live="polite">Die Nachricht wird direkt über unser Kontakt-System versendet. Ohne JavaScript öffnet sich als Fallback das lokale E-Mail-Programm.</div>
+            </form>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell footer-inner">
+      <span>© <span id="year">2026</span> DatenpflegeNord · Green Vector Energo GmbH</span>
+      <div class="footer-links">
+        <a href="/impressum/">Impressum</a><a href="/datenschutz/">Datenschutz</a>
+      </div>
+    </div>
+  </footer>
+
+  <noscript><p class="shell">Die Seite funktioniert ohne JavaScript; nur der GitHub-Feed und die Statistik bleiben auf dem statischen Stand.</p></noscript>
+
+  <script>
+    window.DPN = {
+      user: "DatenpflegeNordHL",
+      email: "kontakt@datenpflege-nord.de",
+      feedLimit: 5,
+    };
+  </script>
+
+
+  <script>
+    (() => {
+      const dictionaries = {
+        de: {
+          current:"aktuell", feedStatusStatic:"Öffentliche Aktivität · statischer Stand",
+          feedStatusUpdated:"Öffentliche Aktivität · aktualisiert",
+          scopeExternal:"Open Source", scopeOwn:"Eigenes Projekt",
+          prMerged:"PR gemergt", prOpened:"PR geöffnet", prClosed:"PR geschlossen", pullRequest:"Pull Request",
+          issueOpened:"Issue eröffnet", issue:"Issue", issueContribution:"Issue-Beitrag", codeUpdate:"Code-Update", release:"Release",
+          fallbackPr:"Pull Request", fallbackIssue:"GitHub Issue", fallbackIssueContribution:"Beitrag zu einem Issue",
+          fallbackCode:"Änderungen veröffentlicht", fallbackRelease:"Neue Version",
+          today:"heute", hoursAgo:"vor {n} Std.", dayAgo:"vor {n} Tag", daysAgo:"vor {n} Tagen",
+          mailSubject:"Anfrage DatenpflegeNord", mailName:"Name", mailEmail:"E-Mail", mailTopic:"Thema",
+          topicSoftware:"Softwareentwicklung", topicWebsite:"Website", topicAutomation:"Automatisierung", topicOther:"Sonstiges"
+        },
+        en: {
+          current:"recent", feedStatusStatic:"Public activity · static snapshot",
+          feedStatusUpdated:"Public activity · updated",
+          scopeExternal:"Open source", scopeOwn:"Own project",
+          prMerged:"PR merged", prOpened:"PR opened", prClosed:"PR closed", pullRequest:"Pull request",
+          issueOpened:"Issue opened", issue:"Issue", issueContribution:"Issue contribution", codeUpdate:"Code update", release:"Release",
+          fallbackPr:"Pull request", fallbackIssue:"GitHub issue", fallbackIssueContribution:"Contribution to an issue",
+          fallbackCode:"Changes published", fallbackRelease:"New release",
+          today:"today", hoursAgo:"{n}h ago", dayAgo:"{n} day ago", daysAgo:"{n} days ago",
+          mailSubject:"DatenpflegeNord enquiry", mailName:"Name", mailEmail:"Email", mailTopic:"Topic",
+          topicSoftware:"Software development", topicWebsite:"Website", topicAutomation:"Automation", topicOther:"Other"
+        }
+      };
+      const language = document.documentElement.lang.toLowerCase().startsWith("en") ? "en" : "de";
+      const t = key => dictionaries[language][key] ?? dictionaries.de[key] ?? key;
+      const format = (key, values = {}) => Object.entries(values).reduce(
+        (text, [name, value]) => text.replace(`{${name}}`, value), t(key)
+      );
+      window.DPN_I18N = { language, t, format };
+    })();
+  </script>
+
+  <script>
+    (() => {
+      const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const video = document.getElementById("heroVideo");
+      const source = video?.querySelector("source[data-src]");
+      const typeText = document.getElementById("typeText");
+      const typeCursor = document.getElementById("typeCursor");
+      let typeTimer = null;
+
+      const typewrite = (text, delay = 0) => {
+        if (!typeText || !typeCursor) return;
+        clearTimeout(typeTimer);
+        typeCursor.hidden = reduceMotion;
+        typeCursor.style.opacity = "1";
+        if (reduceMotion) { typeText.textContent = text; return; }
+        typeText.textContent = "";
+        let index = 0;
+        const step = () => {
+          typeText.textContent = text.slice(0, index++);
+          if (index <= text.length) typeTimer = setTimeout(step, 22);
+          else typeTimer = setTimeout(() => { typeCursor.style.opacity = ".45"; }, 400);
+        };
+        typeTimer = setTimeout(step, delay);
+      };
+      typewrite(typeText?.textContent.trim() || "", 260);
+
+      const allowVideo = Boolean(video && source && !reduceMotion && matchMedia("(pointer:fine)").matches);
+      if (allowVideo) {
+        source.src = source.dataset.src;
+        video.load();
+
+        let prevX = null;
+        let targetTime = 0;
+        let seeking = false;
+        const seek = () => {
+          if (!video.duration || seeking) return;
+          seeking = true;
+          video.currentTime = Math.max(0, Math.min(video.duration, targetTime));
+        };
+        video.addEventListener("loadedmetadata", () => {
+          targetTime = Math.min(video.duration * .35, video.duration);
+          video.currentTime = targetTime;
+        }, { once:true });
+        video.addEventListener("seeked", () => {
+          seeking = false;
+          if (Math.abs(video.currentTime - targetTime) > .025) seek();
+        });
+        addEventListener("mousemove", event => {
+          if (!video.duration) return;
+          if (prevX === null) { prevX = event.clientX; return; }
+          const delta = event.clientX - prevX;
+          prevX = event.clientX;
+          targetTime = Math.max(0, Math.min(video.duration, targetTime + (delta / innerWidth) * .68 * video.duration));
+          seek();
+        }, { passive:true });
+      }
+
+      const elements = [...document.querySelectorAll(".reveal")];
+      if (!reduceMotion && innerWidth > 620 && "IntersectionObserver" in window) {
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            entry.target.animate([
+              { opacity:.82, transform:"translateY(8px)" },
+              { opacity:1, transform:"translateY(0)" }
+            ], { duration:380, easing:"cubic-bezier(.22,1,.36,1)", fill:"forwards" });
+            observer.unobserve(entry.target);
+          });
+        }, { threshold:.08, rootMargin:"0px 0px -24px 0px" });
+        elements.forEach(el => observer.observe(el));
+      }
+    })();
+  </script>
+
+  <script>
+    (() => {
+      const cfg = window.DPN;
+      const feed = document.getElementById("githubFeed");
+      const status = document.getElementById("feedStatus");
+      const owner = cfg.user.toLowerCase();
+      const escapeHtml = (s = "") => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"})[c]);
+      const apiToWeb = (url = "") => url.replace("https://api.github.com/repos/", "https://github.com/").replace("/pulls/", "/pull/").replace("/commits/", "/commit/");
+      const relDate = value => {
+        const i18n = window.DPN_I18N;
+        const d = new Date(value);
+        if (Number.isNaN(d.getTime())) return i18n.t("current");
+        const hours = Math.max(0, Math.floor((Date.now() - d.getTime()) / 36e5));
+        if (hours < 24) return hours <= 1 ? i18n.t("today") : i18n.format("hoursAgo", { n: hours });
+        const days = Math.floor(hours / 24);
+        if (days < 8) return i18n.format(days === 1 ? "dayAgo" : "daysAgo", { n: days });
+        return new Intl.DateTimeFormat(i18n.language === "de" ? "de-DE" : "en-GB", { day:"2-digit", month:"2-digit", year:"2-digit" }).format(d);
+      };
+      const normalize = e => {
+        const p = e.payload || {};
+        const repo = e.repo?.name || "GitHub";
+        const external = !repo.toLowerCase().startsWith(`${owner}/`);
+        let type, title, url;
+        if (e.type === "PullRequestEvent") {
+          const pr = p.pull_request || {};
+          type = pr.merged ? "prMerged" : p.action === "opened" ? "prOpened" : "pullRequest";
+          title = pr.title || `${window.DPN_I18N.t("fallbackPr")} #${p.number || pr.number || ""}`;
+          url = pr.html_url || apiToWeb(pr.url) || `https://github.com/${repo}/pull/${p.number}`;
+        } else if (e.type === "IssuesEvent") {
+          type = p.action === "opened" ? "issueOpened" : "issue";
+          title = p.issue?.title || window.DPN_I18N.t("fallbackIssue");
+          url = p.issue?.html_url || apiToWeb(p.issue?.url) || `https://github.com/${repo}/issues`;
+        } else if (e.type === "IssueCommentEvent") {
+          type = "issueContribution";
+          title = p.issue?.title || window.DPN_I18N.t("fallbackIssueContribution");
+          url = p.comment?.html_url || p.issue?.html_url || `https://github.com/${repo}/issues`;
+        } else if (e.type === "PushEvent") {
+          const commit = p.commits?.[0];
+          type = "codeUpdate";
+          title = commit?.message?.split("\n")[0] || window.DPN_I18N.t("fallbackCode");
+          url = commit?.url ? apiToWeb(commit.url) : `https://github.com/${repo}`;
+        } else if (e.type === "ReleaseEvent") {
+          type = "release";
+          title = p.release?.name || p.release?.tag_name || window.DPN_I18N.t("fallbackRelease");
+          url = p.release?.html_url || `https://github.com/${repo}/releases`;
+        } else return null;
+        return { id:e.id, type, title, repo, url, date:e.created_at, external };
+      };
+      const choose = events => {
+        const seen = new Set();
+        const items = [];
+        events.map(normalize).filter(Boolean).forEach(item => {
+          const key = item.url || `${item.repo}-${item.title}`;
+          if (!seen.has(key)) { seen.add(key); items.push(item); }
+        });
+        return [...items.filter(i => i.external), ...items.filter(i => !i.external)].slice(0, cfg.feedLimit);
+      };
+      let currentItems = null;
+      const render = items => {
+        if (!items.length) return;
+        currentItems = items;
+        const i18n = window.DPN_I18N;
+        feed.innerHTML = items.map((item, index) => `
+          <a class="feed-item" href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer">
+            <span class="feed-index mono">${String(index + 1).padStart(2,"0")}</span>
+            <span class="feed-kind"><span class="feed-badge">${escapeHtml(i18n.t(item.type))}</span><span class="feed-scope">${item.external ? i18n.t("scopeExternal") : i18n.t("scopeOwn")}</span></span>
+            <span class="feed-main"><span class="feed-repo">${escapeHtml(item.repo)}</span><h3>${escapeHtml(item.title)}</h3></span>
+            <span class="feed-meta"><span>${relDate(item.date)}</span><span class="feed-arrow">↗</span></span>
+          </a>`).join("");
+      };
+      const countUp = (el, target) => {
+        if (!Number.isFinite(target)) { el.textContent = "—"; return; }
+        const start = performance.now();
+        const duration = 600;
+        const frame = now => {
+          const p = Math.min((now - start) / duration, 1);
+          el.textContent = Math.round(target * (1 - Math.pow(1-p, 3)));
+          if (p < 1) requestAnimationFrame(frame);
+        };
+        requestAnimationFrame(frame);
+      };
+      const setStats = stats => Object.entries(stats).forEach(([key, value]) => {
+        const el = document.querySelector(`[data-stat="${key}"]`);
+        if (el) countUp(el, value);
+      });
+      const fetchJson = async url => {
+        const response = await fetch(url, { headers: { "Accept":"application/vnd.github+json", "X-GitHub-Api-Version":"2022-11-28" } });
+        if (!response.ok) throw new Error(`${response.status} ${url}`);
+        return response.json();
+      };
+      const load = async () => {
+        try {
+          const [profileResult, prResult, eventsResult] = await Promise.allSettled([
+            fetchJson(`https://api.github.com/users/${cfg.user}`),
+            fetchJson(`https://api.github.com/search/issues?q=${encodeURIComponent(`author:${cfg.user} type:pr`)}`),
+            fetchJson(`https://api.github.com/users/${cfg.user}/events/public?per_page=100&page=1`)
+          ]);
+
+          const events = eventsResult.status === "fulfilled" ? eventsResult.value : [];
+          const items = choose(events);
+          if (items.length) render(items);
+
+          const repos = new Set(events.map(e => e.repo?.name).filter(Boolean));
+          const external = new Set([...repos].filter(name => !name.toLowerCase().startsWith(`${owner}/`)));
+          const stats = {};
+          if (profileResult.status === "fulfilled") stats.repos = profileResult.value.public_repos ?? 0;
+          if (prResult.status === "fulfilled") stats.prs = prResult.value.total_count ?? 0;
+          if (events.length) {
+            stats.projects = repos.size;
+            stats.external = external.size;
+          }
+          setStats(stats);
+
+          const updated = profileResult.status === "fulfilled" || prResult.status === "fulfilled" || events.length;
+          status.textContent = window.DPN_I18N.t(updated ? "feedStatusUpdated" : "feedStatusStatic");
+        } catch (error) {
+          console.warn("GitHub-Feed konnte nicht aktualisiert werden", error);
+          status.textContent = window.DPN_I18N.t("feedStatusStatic");
+        }
+      };
+
+      document.getElementById("contactForm").addEventListener("submit", async event => {
+        event.preventDefault();
+
+        const form = event.currentTarget;
+        const data = new FormData(form);
+        const i18n = window.DPN_I18N;
+        const button = form.querySelector('button[type="submit"]');
+        const status = document.getElementById("contactStatus");
+        const en = i18n.language === "en";
+
+        const idleText = en ? "Send message ↗" : "Nachricht senden ↗";
+        const sendingText = en ? "Sending…" : "Wird gesendet…";
+        const successText = en
+          ? "Message sent. Thank you."
+          : "Nachricht gesendet. Vielen Dank.";
+        const errorText = en
+          ? "Sending failed. Please try again or email kontakt@datenpflege-nord.de."
+          : "Versand fehlgeschlagen. Bitte erneut versuchen oder an kontakt@datenpflege-nord.de schreiben.";
+        const rateText = en
+          ? "Too many requests. Please wait a few minutes."
+          : "Zu viele Anfragen. Bitte einige Minuten warten.";
+
+        const payload = {
+          name: String(data.get("name") || "").trim(),
+          email: String(data.get("email") || "").trim(),
+          topic: String(data.get("topic") || "other"),
+          message: String(data.get("message") || "").trim(),
+          website: String(data.get("website") || "")
+        };
+
+        if (payload.message.length < 5) {
+          status.textContent = "Bitte mindestens 5 Zeichen als Nachricht eingeben.";
+          return;
+        }
+
+        button.disabled = true;
+        button.textContent = sendingText;
+        status.textContent = "";
+
+        try {
+          const response = await fetch("/api/contact", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "Accept": "application/json"
+            },
+            body: JSON.stringify(payload)
+          });
+
+          const result = await response.json().catch(() => ({}));
+
+          if (!response.ok || !result.ok) {
+            status.textContent =
+              response.status === 429 ? rateText : errorText;
+            return;
+          }
+
+          form.reset();
+          status.textContent = successText;
+
+        } catch (error) {
+          console.warn(
+            "Kontaktformular konnte nicht gesendet werden",
+            error
+          );
+          status.textContent = errorText;
+
+        } finally {
+          button.disabled = false;
+          button.textContent = idleText;
+        }
+      });
+      document.getElementById("year").textContent = new Date().getFullYear();
+      load();
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"
+ role="img" aria-labelledby="favTitle favDesc">
+  <title id="favTitle">DatenpflegeNord</title>
+  <desc id="favDesc">DN-Monogramm</desc>
+  <rect x="6" y="6" width="116" height="116" rx="25" fill="#F3F2EF"/>
+  <rect x="6.5" y="6.5" width="115" height="115" rx="24.5"
+        fill="none" stroke="#D7DBE2"/>
+  
+    <g transform="translate(24 23) scale(1.25)" fill="none" stroke="#1B3154" stroke-width="9.5"
+       stroke-linecap="square" stroke-linejoin="miter">
+      <path d="M10 58V14H31C46 14 55 23 55 36"/>
+      <path d="M10 58L26 48"/>
+      <path d="M25 36L61 59V13"/>
+    </g>
+    
+</svg>

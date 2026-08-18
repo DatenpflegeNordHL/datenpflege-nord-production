@@ -1,0 +1,914 @@
+<!doctype html>
+<html lang="de-DE">
+<head>
+  <meta charset="utf-8">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1">
+
+  <title>KI-Automatisierung Lübeck | KI-Agenten &amp; Workflows | DatenpflegeNord</title>
+
+  <meta name="description"
+        content="KI-Automatisierung in Lübeck: KI-Agenten, n8n-Workflows, API-Integrationen und LLM-gestützte Prozesse für klar abgegrenzte Unternehmensaufgaben.">
+
+  <meta name="author"
+        content="Dustin Zander, DatenpflegeNord">
+
+  <meta name="robots"
+        content="index,follow,max-image-preview:large">
+
+  <meta name="theme-color"
+        content="#0b0b0b">
+
+  <link rel="canonical"
+        href="https://datenpflege-nord.de/ki-automatisierung-luebeck/">
+
+  <link rel="icon"
+        href="/favicon.svg"
+        type="image/svg+xml">
+
+  <link rel="apple-touch-icon"
+        href="/apple-touch-icon.png"
+        sizes="180x180">
+
+  <meta property="og:locale"
+        content="de_DE">
+
+  <meta property="og:type"
+        content="website">
+
+  <meta property="og:site_name"
+        content="DatenpflegeNord">
+
+  <meta property="og:title"
+        content="KI-Automatisierung in Lübeck | DatenpflegeNord">
+
+  <meta property="og:description"
+        content="KI-Agenten, n8n-Workflows und API-Integrationen für Unternehmen in Lübeck und Schleswig-Holstein.">
+
+  <meta property="og:url"
+        content="https://datenpflege-nord.de/ki-automatisierung-luebeck/">
+
+  <meta property="og:image"
+        content="https://datenpflege-nord.de/og-datenpflege-nord.png">
+
+  <meta property="og:image:width"
+        content="1200">
+
+  <meta property="og:image:height"
+        content="630">
+
+  <meta property="og:image:type"
+        content="image/png">
+
+  <meta property="og:image:alt"
+        content="DatenpflegeNord – KI-Automatisierung in Lübeck">
+
+  <meta name="twitter:card"
+        content="summary_large_image">
+
+  <meta name="twitter:title"
+        content="KI-Automatisierung in Lübeck | DatenpflegeNord">
+
+  <meta name="twitter:description"
+        content="KI-Agenten, n8n-Workflows und API-Integrationen für Unternehmen in Lübeck und Schleswig-Holstein.">
+
+  <meta name="twitter:image"
+        content="https://datenpflege-nord.de/og-datenpflege-nord.png">
+
+  <meta name="twitter:image:alt"
+        content="DatenpflegeNord – KI-Automatisierung in Lübeck">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://datenpflege-nord.de/#organization",
+      "name": "Green Vector Energo GmbH",
+      "alternateName": "DatenpflegeNord",
+      "url": "https://datenpflege-nord.de/"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://datenpflege-nord.de/ki-automatisierung-luebeck/#webpage",
+      "url": "https://datenpflege-nord.de/ki-automatisierung-luebeck/",
+      "name": "KI-Automatisierung Lübeck | KI-Agenten & Workflows | DatenpflegeNord",
+      "description": "KI-Automatisierung in Lübeck: KI-Agenten, n8n-Workflows, API-Integrationen und LLM-gestützte Prozesse für klar abgegrenzte Unternehmensaufgaben.",
+      "inLanguage": "de-DE",
+      "about": {
+        "@id": "https://datenpflege-nord.de/ki-automatisierung-luebeck/#service"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://datenpflege-nord.de/ki-automatisierung-luebeck/#service",
+      "name": "KI-Automatisierung",
+      "serviceType": "KI-Automatisierung",
+      "provider": {
+        "@id": "https://datenpflege-nord.de/#organization"
+      },
+      "areaServed": [
+        "Lübeck",
+        "Schleswig-Holstein"
+      ],
+      "url": "https://datenpflege-nord.de/ki-automatisierung-luebeck/"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://datenpflege-nord.de/ki-automatisierung-luebeck/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Startseite",
+          "item": "https://datenpflege-nord.de/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "KI-Automatisierung Lübeck",
+          "item": "https://datenpflege-nord.de/ki-automatisierung-luebeck/"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+
+  <style>
+
+    :root {
+      --ink: #151515;
+      --paper: #f4f3ef;
+      --muted: #686863;
+      --line: rgba(21,21,21,.14);
+      --line-dark: rgba(255,255,255,.16);
+      --accent: #c8ff46;
+      --blue: #315ee7;
+      --max: 1120px;
+      --radius: 18px;
+      --body: -apple-system, BlinkMacSystemFont,
+              "Segoe UI", Helvetica, Arial, sans-serif;
+      --display: "Helvetica Neue",
+                 "Arial Nova", Arial, sans-serif;
+      --mono: ui-monospace, SFMono-Regular,
+              Menlo, Monaco, Consolas, monospace;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: var(--body);
+      font-size: 16px;
+      line-height: 1.5;
+      text-rendering: optimizeLegibility;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--blue);
+      outline-offset: 3px;
+    }
+
+    .shell {
+      width: min(calc(100% - 32px), var(--max));
+      margin-inline: auto;
+    }
+
+    .mono { font-family: var(--mono); }
+
+    .skip-link {
+      position: fixed;
+      top: -80px;
+      left: 16px;
+      z-index: 100;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: #fff;
+      color: #000;
+    }
+
+    .skip-link:focus { top: 14px; }
+
+    .nav {
+      position: absolute;
+      inset: 0 0 auto;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      min-height: 72px;
+      color: #080808;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      min-height: 40px;
+    }
+
+    .brand-logo {
+      display: block;
+      width: clamp(205px, 19vw, 286px);
+      height: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 5px;
+    }
+
+    .nav-links a,
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 34px;
+      padding: 0 13px;
+      border: 1px solid rgba(0,0,0,.14);
+      border-radius: 999px;
+      background: rgba(255,255,255,.7);
+      font-size: .78rem;
+      transition:
+        background .18s ease,
+        transform .18s ease;
+    }
+
+    .nav-links a:hover,
+    .pill:hover {
+      background: #fff;
+      transform: translateY(-1px);
+    }
+
+    .pill-dark {
+      background: #0b0b0b;
+      color: #fff;
+      border-color: transparent;
+    }
+
+    .hero {
+      min-height: 620px;
+      display: flex;
+      align-items: end;
+      padding: 138px 0 72px;
+      background:
+        radial-gradient(
+          circle at 86% 18%,
+          rgba(200,255,70,.38),
+          transparent 28%
+        ),
+        linear-gradient(
+          180deg,
+          #f4f3ef 0%,
+          #ecebe5 100%
+        );
+      border-bottom: 1px solid var(--line);
+    }
+
+    .breadcrumb {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-bottom: 28px;
+      color: var(--muted);
+      font: 600 .69rem/1.4 var(--mono);
+    }
+
+    .breadcrumb a {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .hero-label,
+    .eyebrow {
+      font: 500 .69rem/1.4 var(--mono);
+      text-transform: uppercase;
+      letter-spacing: .11em;
+    }
+
+    h1 {
+      max-width: 920px;
+      margin: 0;
+      font-family: var(--display);
+      font-size: clamp(3.2rem, 8.2vw, 7.1rem);
+      line-height: .88;
+      letter-spacing: -.065em;
+      font-weight: 500;
+    }
+
+    .lead {
+      max-width: 740px;
+      margin: 26px 0 0;
+      color: #3f3f3b;
+      font-size: clamp(1rem, 1.7vw, 1.22rem);
+      line-height: 1.58;
+    }
+
+    .hero-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 26px;
+    }
+
+    .section {
+      padding: 66px 0;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: .82fr 1.18fr;
+      gap: 24px;
+      align-items: start;
+      margin-bottom: 24px;
+    }
+
+    .section-head h2 {
+      margin: 8px 0 0;
+      font-family: var(--display);
+      font-size: clamp(2.2rem, 4.8vw, 4.6rem);
+      line-height: .94;
+      letter-spacing: -.055em;
+      font-weight: 500;
+    }
+
+    .section-copy {
+      margin: 0;
+      max-width: 650px;
+      color: var(--muted);
+      font-size: .95rem;
+      line-height: 1.65;
+    }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      padding: clamp(20px, 3vw, 30px);
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-family: var(--display);
+      font-size: clamp(1.5rem, 2.7vw, 2.1rem);
+      line-height: 1;
+      letter-spacing: -.04em;
+      font-weight: 500;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .91rem;
+      line-height: 1.6;
+    }
+
+    .dark {
+      background: #0b0b0b;
+      color: #fff;
+    }
+
+    .dark .section-copy { color: #aaa; }
+
+    .rows {
+      border-top: 1px solid var(--line-dark);
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 42px 1fr 1.2fr;
+      gap: 20px;
+      align-items: start;
+      padding: 22px 0;
+      border-bottom:
+        1px solid var(--line-dark);
+    }
+
+    .row > span {
+      color: #74746f;
+      font-size: .72rem;
+    }
+
+    .row h3 {
+      margin: 0;
+      font-family: var(--display);
+      font-size: clamp(1.4rem, 2.8vw, 2.1rem);
+      line-height: 1.05;
+      letter-spacing: -.035em;
+      font-weight: 500;
+    }
+
+    .row p {
+      margin: 0;
+      max-width: 540px;
+      color: #aaa;
+      font-size: .9rem;
+      line-height: 1.55;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .step-no {
+      display: block;
+      margin-bottom: 32px;
+      color: var(--muted);
+      font: 600 .68rem/1 var(--mono);
+    }
+
+    .tech-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tech-list span {
+      padding: 8px 11px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      font: 650 .72rem/1 var(--mono);
+    }
+
+    .related {
+      display: grid;
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .related a { display: block; }
+
+    .related-link {
+      display: inline-block;
+      margin-top: 16px;
+      font-size: .76rem;
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .cta {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 22px;
+      align-items: end;
+      margin-top: 28px;
+      padding: clamp(24px, 4vw, 42px);
+      border-radius: var(--radius);
+      background: #0b0b0b;
+      color: #fff;
+    }
+
+    .cta h2 {
+      margin: 0;
+      font-family: var(--display);
+      font-size: clamp(2.2rem, 5vw, 4.4rem);
+      line-height: .93;
+      letter-spacing: -.055em;
+      font-weight: 500;
+    }
+
+    .cta p {
+      margin: 0 0 18px;
+      color: #aaa;
+      line-height: 1.6;
+    }
+
+    .cta .pill {
+      background: #fff;
+      color: #000;
+      border-color: transparent;
+    }
+
+    .footer {
+      padding: 18px 0 24px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .71rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .section-head,
+      .detail-grid,
+      .steps,
+      .related,
+      .cta {
+        grid-template-columns: 1fr;
+      }
+
+      .row {
+        grid-template-columns: 34px 1fr;
+      }
+
+      .row p {
+        grid-column: 2;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .shell {
+        width: min(
+          calc(100% - 20px),
+          var(--max)
+        );
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        min-height: 520px;
+        padding: 118px 0 48px;
+      }
+
+      h1 {
+        font-size: clamp(3rem, 15vw, 5rem);
+      }
+
+      .section {
+        padding: 50px 0;
+      }
+
+      .row {
+        gap: 10px;
+      }
+    }
+  
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">
+    Zum Inhalt springen
+  </a>
+
+  <header class="nav shell">
+    <a class="brand"
+       href="/"
+       aria-label="DatenpflegeNord Startseite">
+      <img class="brand-logo"
+           src="/assets/branding/datenpflegenord-logo.svg"
+           width="523"
+           height="104"
+           alt="">
+    </a>
+
+    <nav class="nav-links"
+         aria-label="Hauptnavigation">
+      <a href="/#arbeit">Leistungen</a>
+      <a href="/#profil">Profil</a>
+      <a href="/#kontakt">Kontakt</a>
+    </nav>
+
+    <a class="pill" href="/">
+      Startseite
+    </a>
+  </header>
+
+  <main id="main">
+
+    <section class="hero"
+             aria-labelledby="page-title">
+      <div class="shell">
+
+        <nav class="breadcrumb"
+             aria-label="Breadcrumb">
+          <a href="/">Startseite</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">
+            KI-Automatisierung Lübeck
+          </span>
+        </nav>
+
+        <p class="hero-label">
+          KI · AUTOMATISIERUNG · LÜBECK
+        </p>
+
+        <h1 id="page-title">
+          KI-Automatisierung für Unternehmen in Lübeck.
+        </h1>
+
+        <p class="lead">
+          Wir verbinden KI-Modelle, APIs und Automatisierungswerkzeuge zu klar abgegrenzten Workflows. Ziel ist nicht möglichst viel KI, sondern ein überprüfbarer Prozess mit sinnvollen Ein- und Ausgaben.
+        </p>
+
+        <div class="hero-pills">
+          <a class="pill pill-dark"
+             href="/#kontakt">
+            Projekt besprechen ↗
+          </a>
+
+          <a class="pill"
+             href="#leistungen">
+            Leistungen ansehen
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+
+    <section class="section"
+             id="leistungen"
+             aria-labelledby="leistungen-title">
+      <div class="shell">
+
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">
+              Leistungen
+            </span>
+
+            <h2 id="leistungen-title">
+              Automatisieren, wo der Prozess dafür geeignet ist.
+            </h2>
+          </div>
+
+          <p class="section-copy">
+            KI kann Informationen strukturieren, Inhalte klassifizieren oder Arbeitsschritte unterstützen. Entscheidend ist, welche Aufgabe zuverlässig abgegrenzt werden kann und wo menschliche Kontrolle sinnvoll bleibt.
+          </p>
+        </div>
+
+        <div class="detail-grid">
+
+          <article class="card">
+            <h3>n8n-Workflows</h3>
+            <p>Wiederkehrende Schritte zwischen Anwendungen, APIs und Datenquellen orchestrieren.</p>
+          </article>
+
+          <article class="card">
+            <h3>KI-Agenten</h3>
+            <p>Agentische Abläufe für klar definierte Aufgaben mit festgelegten Werkzeugen und Grenzen aufbauen.</p>
+          </article>
+
+          <article class="card">
+            <h3>LLM-Integrationen</h3>
+            <p>Sprachmodelle in bestehende Anwendungen oder interne Arbeitsabläufe integrieren.</p>
+          </article>
+
+          <article class="card">
+            <h3>APIs &amp; Systeme verbinden</h3>
+            <p>Bestehende Software, Datenquellen und externe Dienste über Schnittstellen zusammenführen.</p>
+          </article>
+        </div>
+
+      </div>
+    </section>
+
+
+    <section class="section dark"
+             aria-labelledby="umsetzung-title">
+      <div class="shell">
+
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">
+              Umsetzung
+            </span>
+
+            <h2 id="umsetzung-title">
+              Konkrete KI-Workflows statt allgemeiner Versprechen.
+            </h2>
+          </div>
+
+          <p class="section-copy">
+            Ein sinnvoller Workflow beginnt mit einer überprüfbaren Aufgabe. Eingaben, Ausgaben, Fehlerfälle und Freigaben werden deshalb vor der Automatisierung definiert.
+          </p>
+        </div>
+
+        <div class="rows">
+
+          <div class="row">
+            <span class="mono">01</span>
+            <h3>Informationen verarbeiten</h3>
+            <p>Texte oder strukturierte Daten erfassen, aufbereiten und für den nächsten Prozessschritt bereitstellen.</p>
+          </div>
+
+          <div class="row">
+            <span class="mono">02</span>
+            <h3>Klassifizieren &amp; extrahieren</h3>
+            <p>Relevante Informationen aus Eingaben ableiten und in eine definierte Datenstruktur überführen.</p>
+          </div>
+
+          <div class="row">
+            <span class="mono">03</span>
+            <h3>Workflows verbinden</h3>
+            <p>n8n, APIs, Webhooks und vorhandene Dienste zu einem nachvollziehbaren Ablauf verbinden.</p>
+          </div>
+
+          <div class="row">
+            <span class="mono">04</span>
+            <h3>Freigaben einbauen</h3>
+            <p>Kritische Schritte nicht blind automatisieren, sondern bei Bedarf mit menschlicher Prüfung versehen.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <section class="section"
+             aria-labelledby="vorgehen-title">
+      <div class="shell">
+
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">
+              Vorgehen
+            </span>
+
+            <h2 id="vorgehen-title">
+              Erst Prozess, dann Modell.
+            </h2>
+          </div>
+
+          <p class="section-copy">
+            Bevor Tools ausgewählt werden, wird geklärt, welche Aufgabe automatisiert werden soll und wie Erfolg oder Fehler messbar erkannt werden können.
+          </p>
+        </div>
+
+        <div class="steps">
+
+          <article class="card">
+            <span class="step-no">01</span>
+            <h3>Prozess abgrenzen</h3>
+            <p>Eingaben, gewünschte Ergebnisse, Regeln und Ausnahmen des Arbeitsablaufs erfassen.</p>
+          </article>
+
+          <article class="card">
+            <span class="step-no">02</span>
+            <h3>Systeme anbinden</h3>
+            <p>Benötigte APIs, Datenquellen, Modelle und Automatisierungsschritte technisch verbinden.</p>
+          </article>
+
+          <article class="card">
+            <span class="step-no">03</span>
+            <h3>Testen &amp; kontrollieren</h3>
+            <p>Ergebnisse gegen reale Fälle prüfen und Fehlerbehandlung sowie Freigaben ergänzen.</p>
+          </article>
+        </div>
+
+      </div>
+    </section>
+
+
+    <section class="section"
+             aria-labelledby="tech-title">
+      <div class="shell">
+
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">
+              Technologie
+            </span>
+
+            <h2 id="tech-title">
+              KI ist ein Baustein im technischen System.
+            </h2>
+          </div>
+
+          <p class="section-copy">
+            Claude Code und OpenAI Codex können die Entwicklung unterstützen. Für produktive Workflows zählen zusätzlich saubere APIs, strukturierte Daten, Logging, Tests und kontrollierte Übergaben zwischen den Systemen.
+          </p>
+        </div>
+
+        <div class="tech-list"
+             aria-label="Technologien und Werkzeuge">
+          <span>n8n</span>
+          <span>LLM APIs</span>
+          <span>Claude Code</span>
+          <span>OpenAI Codex</span>
+          <span>APIs</span>
+          <span>Webhooks</span>
+          <span>Structured Outputs</span>
+          <span>GitHub</span>
+        </div>
+
+      </div>
+    </section>
+
+
+    <section class="section"
+             aria-labelledby="weiter-title">
+      <div class="shell">
+
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">
+              Verwandte Leistungen
+            </span>
+
+            <h2 id="weiter-title">
+              Automatisierung braucht oft Software und Webtechnik.
+            </h2>
+          </div>
+
+          <p class="section-copy">
+            Ein Workflow endet selten beim Sprachmodell. Häufig gehören eigene Anwendungen, Schnittstellen oder Weboberflächen zur gleichen technischen Lösung.
+          </p>
+        </div>
+
+        <div class="related">
+
+          <a class="card" href="/softwareentwicklung-luebeck/">
+            <h3>Softwareentwicklung</h3>
+            <p>Individuelle Anwendungen, interne Tools und APIs für Prozesse, die Standardsoftware nicht abbildet.</p>
+            <span class="related-link">
+              Im Detail ansehen ↗
+            </span>
+          </a>
+
+          <a class="card" href="/webentwicklung-luebeck/">
+            <h3>Webentwicklung</h3>
+            <p>Websites und Weblösungen als Oberfläche oder Bestandteil einer größeren technischen Lösung.</p>
+            <span class="related-link">
+              Im Detail ansehen ↗
+            </span>
+          </a>
+        </div>
+
+        <div class="cta">
+          <h2>
+            Einen konkreten Prozess auf Automatisierung prüfen.
+          </h2>
+
+          <div>
+            <p>
+              Beschreiben Sie den heutigen Ablauf und den gewünschten Zustand. Daraus lässt sich prüfen, ob KI, klassische Automatisierung oder eine Kombination sinnvoll ist.
+            </p>
+
+            <a class="pill"
+               href="/#kontakt">
+              Kontakt aufnehmen ↗
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <footer class="footer">
+    <div class="shell footer-inner">
+
+      <span>
+        © <span id="year">2026</span>
+        DatenpflegeNord · Green Vector Energo GmbH
+      </span>
+
+      <div class="footer-links">
+        <a href="/impressum/">Impressum</a>
+        <a href="/datenschutz/">Datenschutz</a>
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+# macOS
+.DS_Store
+
+# Secrets
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Editor / temporary
+*.swp
+*.tmp
+*.bak
+*~
+
+# Local deployment artifacts
+*.tar
+*.tar.gz
+*.zip
