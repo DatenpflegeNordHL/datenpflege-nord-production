@@ -1,0 +1,2 @@
+Deployment smoke test marker.
+This file is intentionally excluded from the production webroot by /usr/local/sbin/dpn-deploy.
