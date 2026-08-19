@@ -25,11 +25,14 @@ class Page:
     lang: str | None = None
     title: str = ""
     description: str | None = None
+    description_count: int = 0
     canonical: str | None = None
+    canonical_count: int = 0
     h1_count: int = 0
     ids: set[str] = field(default_factory=set)
     duplicate_ids: set[str] = field(default_factory=set)
     hrefs: list[str] = field(default_factory=list)
+    resources: list[tuple[str, str]] = field(default_factory=list)
     jsonld_blocks: list[str] = field(default_factory=list)
     labels_for: set[str] = field(default_factory=set)
     controls: list[tuple[str, str, dict[str, str]]] = field(default_factory=list)
@@ -67,11 +70,18 @@ class SiteHTMLParser(HTMLParser):
         elif tag == "h1":
             self.page.h1_count += 1
         elif tag == "meta" and a.get("name", "").lower() == "description":
+            self.page.description_count += 1
             self.page.description = a.get("content", "").strip() or None
         elif tag == "link":
             rel_tokens = {token.lower() for token in a.get("rel", "").split()}
+            href = a.get("href", "").strip()
             if "canonical" in rel_tokens:
-                self.page.canonical = a.get("href", "").strip() or None
+                self.page.canonical_count += 1
+                self.page.canonical = href or None
+            if href and rel_tokens.intersection(
+                {"stylesheet", "icon", "apple-touch-icon", "preload", "modulepreload"}
+            ):
+                self.page.resources.append(("link", href))
         elif tag == "a":
             href = a.get("href", "").strip()
             if href:
@@ -81,21 +91,37 @@ class SiteHTMLParser(HTMLParser):
                 if "noopener" not in rel_tokens:
                     self.page.unsafe_blank_links.append(href or "<empty href>")
         elif tag == "img":
+            src = a.get("src", "").strip()
             if "alt" not in a:
-                self.page.images_missing_alt.append(a.get("src", "<unknown src>"))
+                self.page.images_missing_alt.append(src or "<unknown src>")
+            if src:
+                self.page.resources.append(("img", src))
+        elif tag == "script":
+            src = a.get("src", "").strip()
+            if src:
+                self.page.resources.append(("script", src))
+            if a.get("type", "").lower() == "application/ld+json":
+                self._in_jsonld = True
+                self._jsonld_parts = []
+        elif tag == "source":
+            src = a.get("src", "").strip()
+            if src:
+                self.page.resources.append(("source", src))
+        elif tag == "video":
+            poster = a.get("poster", "").strip()
+            if poster:
+                self.page.resources.append(("poster", poster))
         elif tag == "label":
             target = a.get("for", "").strip()
             if target:
                 self.page.labels_for.add(target)
         elif tag in {"input", "select", "textarea"}:
-            if tag == "input" and a.get("type", "text").lower() in {"hidden", "submit", "button", "reset", "image"}:
+            if tag == "input" and a.get("type", "text").lower() in {
+                "hidden", "submit", "button", "reset", "image"
+            }:
                 return
             control_id = a.get("id", "").strip()
-            if control_id:
-                self.page.controls.append((tag, control_id, a))
-        elif tag == "script" and a.get("type", "").lower() == "application/ld+json":
-            self._in_jsonld = True
-            self._jsonld_parts = []
+            self.page.controls.append((tag, control_id, a))
 
     def handle_endtag(self, tag: str) -> None:
         tag = tag.lower()
@@ -124,7 +150,7 @@ def route_to_file(path: str) -> Path:
 
 
 def parse_internal_target(current: Path, href: str) -> tuple[Path, str] | None:
-    if href.startswith(("mailto:", "tel:", "javascript:", "data:")):
+    if href.startswith(("mailto:", "tel:", "javascript:", "data:", "blob:")):
         return None
 
     parsed = urlparse(href)
@@ -160,6 +186,10 @@ def parse_pages() -> dict[Path, Page]:
     return pages
 
 
+def display_target(target: Path) -> str:
+    return str(target.relative_to(ROOT)) if target.is_relative_to(ROOT) else str(target)
+
+
 def validate_pages(pages: dict[Path, Page]) -> list[str]:
     errors: list[str] = []
     titles: dict[str, Path] = {}
@@ -174,39 +204,71 @@ def validate_pages(pages: dict[Path, Page]) -> list[str]:
         if not page.title:
             errors.append(f"{prefix}: missing <title>")
         elif page.title in titles:
-            errors.append(f"{prefix}: duplicate title also used by {titles[page.title].relative_to(ROOT)}")
+            errors.append(
+                f"{prefix}: duplicate title also used by "
+                f"{titles[page.title].relative_to(ROOT)}"
+            )
         else:
             titles[page.title] = path
-        if not page.description:
-            errors.append(f"{prefix}: missing meta description")
+
+        if page.description_count != 1:
+            errors.append(
+                f"{prefix}: expected exactly one meta description, "
+                f"found {page.description_count}"
+            )
+        elif not page.description:
+            errors.append(f"{prefix}: meta description is empty")
+
         if page.h1_count != 1:
             errors.append(f"{prefix}: expected exactly one <h1>, found {page.h1_count}")
         if page.duplicate_ids:
             errors.append(f"{prefix}: duplicate id(s): {', '.join(sorted(page.duplicate_ids))}")
         if page.images_missing_alt:
-            errors.append(f"{prefix}: image(s) missing alt attribute: {', '.join(page.images_missing_alt)}")
+            errors.append(
+                f"{prefix}: image(s) missing alt attribute: "
+                f"{', '.join(page.images_missing_alt)}"
+            )
         if page.unsafe_blank_links:
-            errors.append(f"{prefix}: target=_blank link(s) missing rel=noopener: {', '.join(page.unsafe_blank_links)}")
+            errors.append(
+                f"{prefix}: target=_blank link(s) missing rel=noopener: "
+                f"{', '.join(page.unsafe_blank_links)}"
+            )
 
-        if not page.canonical:
-            errors.append(f"{prefix}: missing canonical link")
+        if page.canonical_count != 1:
+            errors.append(
+                f"{prefix}: expected exactly one canonical link, "
+                f"found {page.canonical_count}"
+            )
+        elif not page.canonical:
+            errors.append(f"{prefix}: canonical link is empty")
         else:
             parsed = urlparse(page.canonical)
             if f"{parsed.scheme}://{parsed.netloc}" != ORIGIN:
                 errors.append(f"{prefix}: canonical is not on {ORIGIN}: {page.canonical}")
             if page.canonical in canonicals:
-                errors.append(f"{prefix}: canonical duplicates {canonicals[page.canonical].relative_to(ROOT)}")
+                errors.append(
+                    f"{prefix}: canonical duplicates "
+                    f"{canonicals[page.canonical].relative_to(ROOT)}"
+                )
             else:
                 canonicals[page.canonical] = path
 
         for tag, control_id, attrs in page.controls:
-            has_name = (
-                control_id in page.labels_for
-                or bool(attrs.get("aria-label", "").strip())
-                or bool(attrs.get("aria-labelledby", "").strip())
+            aria_name = bool(attrs.get("aria-label", "").strip()) or bool(
+                attrs.get("aria-labelledby", "").strip()
             )
+            if not control_id and not aria_name:
+                errors.append(
+                    f"{prefix}: {tag} has no id and no explicit accessible name; "
+                    "project policy requires an id+label or ARIA name"
+                )
+                continue
+            has_name = aria_name or (control_id in page.labels_for)
             if not has_name:
-                errors.append(f"{prefix}: {tag}#{control_id} has no associated label or accessible name")
+                errors.append(
+                    f"{prefix}: {tag}#{control_id} has no associated label "
+                    "or accessible name"
+                )
 
         for index, block in enumerate(page.jsonld_blocks, start=1):
             if not block:
@@ -226,12 +288,28 @@ def validate_pages(pages: dict[Path, Page]) -> list[str]:
             target, fragment = target_info
             target = target.resolve()
             if not target.exists():
-                errors.append(f"{prefix}: broken internal link {href!r} -> {target.relative_to(ROOT) if target.is_relative_to(ROOT) else target}")
+                errors.append(
+                    f"{prefix}: broken internal link {href!r} -> {display_target(target)}"
+                )
                 continue
             if fragment and target.suffix.lower() == ".html":
                 target_page = pages.get(target)
                 if target_page is not None and fragment not in target_page.ids:
-                    errors.append(f"{prefix}: link {href!r} points to missing fragment #{fragment}")
+                    errors.append(
+                        f"{prefix}: link {href!r} points to missing fragment #{fragment}"
+                    )
+
+        for kind, resource in page.resources:
+            target_info = parse_internal_target(path, resource)
+            if target_info is None:
+                continue
+            target, _ = target_info
+            target = target.resolve()
+            if not target.exists():
+                errors.append(
+                    f"{prefix}: missing local {kind} resource {resource!r} -> "
+                    f"{display_target(target)}"
+                )
 
     return errors
 
@@ -295,7 +373,7 @@ def main() -> int:
         print("ERROR: no index.html files found", file=sys.stderr)
         return 1
 
-    errors = []
+    errors: list[str] = []
     errors.extend(validate_pages(pages))
     errors.extend(validate_sitemap(pages))
     errors.extend(validate_robots())
