@@ -15,6 +15,10 @@
 *.bak
 *~
 
+# Python bytecode
+__pycache__/
+*.py[cod]
+
 # Local deployment artifacts
 *.tar
 *.tar.gz
