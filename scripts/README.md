@@ -19,6 +19,11 @@ It currently verifies:
 - `rel="noopener"` on links that open a new tab
 - internal page links and URL fragments
 - existence of local HTML resources referenced by images, scripts, video posters/sources and relevant `<link>` elements
+- existence of local resources referenced by `srcset`, lazy-load attributes and CSS `url(...)`
+- reciprocal `hreflang` mappings and DE/EN semantic structure consistency
+- required OpenGraph and Twitter card fields
+- CSP-relevant unsafe inline scripts, style attributes and event handlers
+- the project-wide reduced-motion rule for animated styles
 - consistency between canonical pages and `sitemap.xml`
 - the sitemap declaration in `robots.txt`
 

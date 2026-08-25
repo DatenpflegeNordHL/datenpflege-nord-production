@@ -25,4 +25,9 @@ jobs:
           python-version: '3.13'
 
       - name: Run deterministic site checks
-        run: python scripts/site_audit.py
+        run: |
+          python -m unittest discover -s tests
+          python scripts/site_audit.py
+          node --check assets/home-de.js
+          node --check assets/home-en.js
+          node --check assets/service.js
