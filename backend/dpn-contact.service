@@ -1,0 +1,19 @@
+[Unit]
+Description=DatenpflegeNord Contact API
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+EnvironmentFile=/etc/datenpflege-nord-contact.env
+ExecStart=/usr/bin/python3 /opt/dpn-contact/contact_api.py
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+
+[Install]
+WantedBy=multi-user.target
