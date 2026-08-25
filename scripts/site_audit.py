@@ -30,6 +30,13 @@ SOCIAL_META_REQUIRED = {
     "twitter:image",
 }
 CSS_URL = re.compile(r"url\(\s*(['\"]?)(.*?)\1\s*\)", re.IGNORECASE)
+EXPECTED_SCRIPTS = {
+    Path("index.html"): "/assets/home-de.js",
+    Path("en/index.html"): "/assets/home-en.js",
+    Path("webentwicklung-luebeck/index.html"): "/assets/service.js",
+    Path("softwareentwicklung-luebeck/index.html"): "/assets/service.js",
+    Path("ki-automatisierung-luebeck/index.html"): "/assets/service.js",
+}
 
 
 @dataclass
@@ -516,6 +523,20 @@ def validate_sitemap(pages: dict[Path, Page]) -> list[str]:
     return errors
 
 
+def validate_expected_scripts(pages: dict[Path, Page]) -> list[str]:
+    errors: list[str] = []
+    for relative_path, expected_script in EXPECTED_SCRIPTS.items():
+        page = pages.get((ROOT / relative_path).resolve())
+        if page is None:
+            continue
+        scripts = {resource for kind, resource in page.resources if kind == "script"}
+        if expected_script not in scripts:
+            errors.append(
+                f"{relative_path}: missing expected script {expected_script!r}"
+            )
+    return errors
+
+
 def validate_robots() -> list[str]:
     robots = ROOT / "robots.txt"
     if not robots.exists():
@@ -535,6 +556,7 @@ def main() -> int:
 
     errors: list[str] = []
     errors.extend(validate_pages(pages))
+    errors.extend(validate_expected_scripts(pages))
     errors.extend(validate_sitemap(pages))
     errors.extend(validate_robots())
 

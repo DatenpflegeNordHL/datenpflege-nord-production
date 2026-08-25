@@ -100,6 +100,19 @@ class SiteAuditTests(unittest.TestCase):
         )
         self.assertIn("DE/EN semantic structure differs", "\n".join(self.errors()))
 
+    def test_detects_missing_expected_script(self) -> None:
+        self.write_page("", self.page_html("https://datenpflege-nord.de/"))
+        errors = site_audit.validate_expected_scripts(site_audit.parse_pages())
+        self.assertIn("missing expected script '/assets/home-de.js'", "\n".join(errors))
+
+        html = self.page_html("https://datenpflege-nord.de/").replace(
+            "</body>", '<script src="/assets/home-de.js" defer></script></body>'
+        )
+        self.write_page("", html)
+        self.assertEqual(
+            [], site_audit.validate_expected_scripts(site_audit.parse_pages())
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
