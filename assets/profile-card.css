@@ -1,0 +1,171 @@
+/* Profile portrait integration for the home-page contact card. */
+.profile-card {
+  isolation: isolate;
+  min-width: 0;
+  max-width: 100%;
+  min-height: 360px;
+  background:
+    radial-gradient(circle at 18% 12%, rgba(255,255,255,.42), transparent 30%),
+    #d9d9d4;
+}
+
+.profile-card .profile-orb {
+  display: none;
+}
+
+.profile-portrait-link {
+  position: absolute;
+  z-index: 0;
+  inset: 0 0 0 auto;
+  width: 58%;
+  max-width: 100%;
+  height: 100%;
+  display: block;
+  overflow: hidden;
+}
+
+.profile-portrait {
+  position: absolute;
+  right: -3%;
+  bottom: -2%;
+  width: auto;
+  height: 104%;
+  max-width: none;
+  display: block;
+  object-fit: contain;
+  object-position: right bottom;
+  filter: drop-shadow(0 16px 26px rgba(15,20,30,.10));
+}
+
+.profile-card::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background: linear-gradient(90deg, #d9d9d4 0 43%, rgba(217,217,212,.96) 51%, rgba(217,217,212,.72) 60%, rgba(217,217,212,0) 76%);
+  pointer-events: none;
+}
+
+.profile-card h3,
+.profile-card footer {
+  z-index: 2;
+  min-width: 0;
+}
+
+.profile-card h3 {
+  max-width: 72%;
+}
+
+.profile-card footer {
+  max-width: 60%;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.profile-card footer p {
+  max-width: 100%;
+}
+
+.profile-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  max-width: 100%;
+  min-height: 32px;
+  overflow-wrap: anywhere;
+  transition: transform .18s ease, background .18s ease, box-shadow .18s ease;
+}
+
+.profile-status:hover {
+  transform: translateY(-1px);
+  background: #d4ff72;
+  box-shadow: 0 8px 18px rgba(20,26,36,.08);
+}
+
+.profile-status:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 3px;
+}
+
+@media (max-width: 900px) {
+  .profile-card {
+    min-height: 350px;
+  }
+
+  .profile-portrait-link {
+    width: 52%;
+  }
+
+  .profile-portrait {
+    right: -1%;
+    height: 102%;
+  }
+
+  .profile-card::after {
+    background: linear-gradient(90deg, #d9d9d4 0 42%, rgba(217,217,212,.96) 50%, rgba(217,217,212,.66) 60%, rgba(217,217,212,0) 78%);
+  }
+
+  .profile-card footer {
+    max-width: 56%;
+  }
+}
+
+@media (max-width: 620px) {
+  .profile-card {
+    min-height: 330px;
+    padding: 20px;
+  }
+
+  .profile-portrait-link {
+    width: 57%;
+  }
+
+  .profile-portrait {
+    right: -15%;
+    bottom: -1%;
+    height: 91%;
+  }
+
+  .profile-card::after {
+    background: linear-gradient(90deg, #d9d9d4 0 46%, rgba(217,217,212,.98) 53%, rgba(217,217,212,.74) 62%, rgba(217,217,212,0) 82%);
+  }
+
+  .profile-card h3 {
+    max-width: 76%;
+    font-size: clamp(2.55rem, 13.5vw, 4rem);
+  }
+
+  .profile-card footer {
+    max-width: 60%;
+    gap: 10px;
+  }
+
+  .profile-card footer p {
+    font-size: .8rem;
+    line-height: 1.45;
+  }
+
+  .profile-status {
+    min-height: 34px;
+    padding-inline: 10px;
+    white-space: normal;
+    text-align: center;
+  }
+}
+
+@media (max-width: 380px) {
+  .profile-portrait-link {
+    width: 55%;
+  }
+
+  .profile-portrait {
+    right: -22%;
+    height: 87%;
+  }
+
+  .profile-card footer {
+    max-width: 62%;
+  }
+}

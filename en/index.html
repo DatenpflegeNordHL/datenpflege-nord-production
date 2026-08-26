@@ -95,6 +95,7 @@
 }
   </script>
   <link rel="stylesheet" href="/assets/home.css">
+  <link rel="stylesheet" href="/assets/profile-card.css">
 </head>
 <body>
 <a class="skip-link" data-i18n="skip" href="#main">Skip to content</a>
@@ -270,11 +271,13 @@
 </div>
 <div class="profile-grid">
 <article class="profile-card reveal">
-<div aria-hidden="true" class="profile-orb"></div>
+<a class="profile-portrait-link" href="#kontakt" aria-label="Contact Dustin Zander">
+<img alt="Dustin Zander" class="profile-portrait" decoding="async" height="600" loading="lazy" src="/assets/profile/dustin-zander.webp" width="480"/>
+</a>
 <h3>Dustin Zander.</h3>
 <footer>
 <p data-i18n="profileCardCopy">Software development, web development, AI agents and automation from Lübeck.</p>
-<span class="profile-status" data-i18n="profileStatus">personal contact</span>
+<a class="profile-status" data-i18n="profileStatus" href="#kontakt">personal contact</a>
 </footer>
 </article>
 <article class="contact-card reveal" id="kontakt">
