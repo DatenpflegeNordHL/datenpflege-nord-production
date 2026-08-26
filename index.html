@@ -98,6 +98,7 @@
 }
   </script>
   <link rel="stylesheet" href="/assets/home.css">
+  <link rel="stylesheet" href="/assets/profile-card.css">
 </head>
 <body>
   <a class="skip-link" href="#main" data-i18n="skip">Zum Inhalt springen</a>
@@ -288,11 +289,13 @@
 
         <div class="profile-grid">
           <article class="profile-card reveal">
-            <div class="profile-orb" aria-hidden="true"></div>
+            <a class="profile-portrait-link" href="#kontakt" aria-label="Kontakt mit Dustin Zander aufnehmen">
+              <img class="profile-portrait" src="/assets/profile/dustin-zander.webp" alt="Dustin Zander" width="480" height="600" loading="lazy" decoding="async">
+            </a>
             <h3>Dustin Zander.</h3>
             <footer>
               <p data-i18n="profileCardCopy">Softwareentwicklung, Webentwicklung, KI-Agenten und Automatisierung aus Lübeck.</p>
-              <span class="profile-status" data-i18n="profileStatus">persönlicher Ansprechpartner</span>
+              <a class="profile-status" href="#kontakt" data-i18n="profileStatus">persönlicher Ansprechpartner</a>
             </footer>
           </article>
 
