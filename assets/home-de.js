@@ -1,7 +1,7 @@
 window.DPN = {
       user: "DatenpflegeNordHL",
       email: "kontakt@datenpflege-nord.de",
-      feedLimit: 5,
+      feedLimit: innerWidth > 900 ? 7 : 5,
     };
 
 (() => {
