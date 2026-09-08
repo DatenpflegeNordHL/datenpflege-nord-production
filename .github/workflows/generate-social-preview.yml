@@ -1,0 +1,44 @@
+name: Generate social preview
+
+on:
+  push:
+    branches:
+      - fix/whatsapp-og-20260908
+    paths:
+      - 'scripts/generate_social_preview.py'
+      - '.github/workflows/generate-social-preview.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Install Pillow
+        run: python -m pip install --disable-pip-version-check pillow
+
+      - name: Generate preview
+        run: python scripts/generate_social_preview.py
+
+      - name: Commit generated PNG
+        run: |
+          git add og-datenpflege-nord.png
+          if git diff --cached --quiet; then
+            echo "Social preview already current."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "fix: replace legacy social preview artwork"
+          git push
