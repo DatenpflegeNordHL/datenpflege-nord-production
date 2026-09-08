@@ -1,0 +1,45 @@
+name: Generate Open Graph card
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'assets/branding/datenpflegenord-logo.svg'
+      - 'scripts/generate_og_card.py'
+      - '.github/workflows/generate-og-card.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate-og-card:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Install image dependencies
+        run: python -m pip install --disable-pip-version-check pillow cairosvg
+
+      - name: Generate social preview image
+        run: python scripts/generate_og_card.py
+
+      - name: Commit generated image when changed
+        run: |
+          git add og-datenpflege-nord-2026.png
+          if git diff --cached --quiet; then
+            echo "Open Graph image is already current."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore: refresh Open Graph preview image"
+          git push
