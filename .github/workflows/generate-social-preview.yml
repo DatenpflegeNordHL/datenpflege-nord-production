@@ -6,6 +6,7 @@ on:
       - fix/whatsapp-og-20260908
     paths:
       - 'scripts/generate_social_preview.py'
+      - 'scripts/update_social_metadata.py'
       - '.github/workflows/generate-social-preview.yml'
   workflow_dispatch:
 
@@ -28,17 +29,28 @@ jobs:
       - name: Install Pillow
         run: python -m pip install --disable-pip-version-check pillow
 
-      - name: Generate preview
+      - name: Generate clean preview artwork
         run: python scripts/generate_social_preview.py
 
-      - name: Commit generated PNG
+      - name: Refresh social metadata and cache-bust image URL
+        run: python scripts/update_social_metadata.py
+
+      - name: Commit generated preview and metadata
         run: |
-          git add og-datenpflege-nord.png
+          git add \
+            og-datenpflege-nord.png \
+            index.html \
+            en/index.html \
+            softwareentwicklung-luebeck/index.html \
+            webentwicklung-luebeck/index.html \
+            ki-automatisierung-luebeck/index.html \
+            impressum/index.html \
+            datenschutz/index.html
           if git diff --cached --quiet; then
-            echo "Social preview already current."
+            echo "Social preview and metadata already current."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "fix: replace legacy social preview artwork"
+          git commit -m "fix: refresh WhatsApp social preview"
           git push
