@@ -37,13 +37,14 @@ jobs:
 
       - name: Build deterministic public release
         run: |
-          python scripts/build_public_release.py --output release-webroot
-          test -s release-webroot/RELEASE-MANIFEST.sha256
+          python scripts/build_public_release.py --output release-package
+          test -d release-package/webroot
+          test -s release-package/RELEASE-MANIFEST.sha256
 
       - name: Upload tested public release
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: public-webroot-${{ github.event.pull_request.head.sha || github.sha }}
-          path: release-webroot/
+          path: release-package/
           if-no-files-found: error
           retention-days: 14
