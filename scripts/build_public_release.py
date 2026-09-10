@@ -7,7 +7,7 @@ import shutil
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_OUTPUT = ROOT / "release-webroot"
+DEFAULT_OUTPUT = ROOT / "release-package"
 
 # Explicit allowlist. Anything not listed here is deployment-internal by default.
 PUBLIC_ENTRIES = (
@@ -39,6 +39,7 @@ FORBIDDEN_OUTPUT_NAMES = {
 
 FORBIDDEN_SUFFIXES = {".pem", ".key", ".p12", ".pfx"}
 MANIFEST_NAME = "RELEASE-MANIFEST.sha256"
+WEBROOT_NAME = "webroot"
 
 
 def sha256(path: Path) -> str:
@@ -69,26 +70,26 @@ def copy_entry(source: Path, destination: Path) -> None:
         shutil.copy2(source, destination)
 
 
-def validate_output(output: Path) -> None:
-    top_level = {p.name for p in output.iterdir() if p.name != MANIFEST_NAME}
+def validate_webroot(webroot: Path) -> None:
+    top_level = {p.name for p in webroot.iterdir()}
     forbidden = sorted(top_level & FORBIDDEN_OUTPUT_NAMES)
     if forbidden:
         raise RuntimeError(f"Forbidden top-level release entries present: {', '.join(forbidden)}")
 
-    for path in output.rglob("*"):
+    for path in webroot.rglob("*"):
         if path.is_symlink():
-            raise RuntimeError(f"Symlink present in built release: {path.relative_to(output)}")
+            raise RuntimeError(f"Symlink present in built release: {path.relative_to(webroot)}")
         if path.is_file():
             if path.name.startswith(".env") or path.suffix.lower() in FORBIDDEN_SUFFIXES:
-                raise RuntimeError(f"Sensitive-looking file present in release: {path.relative_to(output)}")
+                raise RuntimeError(f"Sensitive-looking file present in release: {path.relative_to(webroot)}")
 
 
-def write_manifest(output: Path) -> None:
+def write_manifest(webroot: Path, manifest: Path) -> None:
     rows: list[str] = []
-    for path in sorted(p for p in output.rglob("*") if p.is_file() and p.name != MANIFEST_NAME):
-        rel = path.relative_to(output).as_posix()
+    for path in sorted(p for p in webroot.rglob("*") if p.is_file()):
+        rel = path.relative_to(webroot).as_posix()
         rows.append(f"{sha256(path)}  {rel}")
-    (output / MANIFEST_NAME).write_text("\n".join(rows) + "\n", encoding="utf-8")
+    manifest.write_text("\n".join(rows) + "\n", encoding="utf-8")
 
 
 def build(output: Path) -> None:
@@ -97,7 +98,9 @@ def build(output: Path) -> None:
 
     if output.exists():
         shutil.rmtree(output)
-    output.mkdir(parents=True)
+
+    webroot = output / WEBROOT_NAME
+    webroot.mkdir(parents=True)
 
     missing: list[str] = []
     for relative in PUBLIC_ENTRIES:
@@ -105,21 +108,27 @@ def build(output: Path) -> None:
         if not source.exists():
             missing.append(relative)
             continue
-        copy_entry(source, output / relative)
+        copy_entry(source, webroot / relative)
 
     if missing:
         raise RuntimeError(f"Missing required public release entries: {', '.join(missing)}")
 
-    validate_output(output)
-    write_manifest(output)
-    validate_output(output)
+    validate_webroot(webroot)
+    write_manifest(webroot, output / MANIFEST_NAME)
 
-    file_count = sum(1 for p in output.rglob("*") if p.is_file() and p.name != MANIFEST_NAME)
-    print(f"Built deterministic public release with {file_count} files at {output}")
+    package_entries = {p.name for p in output.iterdir()}
+    expected_package_entries = {WEBROOT_NAME, MANIFEST_NAME}
+    if package_entries != expected_package_entries:
+        raise RuntimeError(
+            f"Unexpected release-package entries: {sorted(package_entries - expected_package_entries)}"
+        )
+
+    file_count = sum(1 for p in webroot.rglob("*") if p.is_file())
+    print(f"Built deterministic public release with {file_count} webroot files at {output}")
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Build the allowlisted DatenpflegeNord public webroot.")
+    parser = argparse.ArgumentParser(description="Build the allowlisted DatenpflegeNord release package.")
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
     args = parser.parse_args()
     build(args.output.resolve())
