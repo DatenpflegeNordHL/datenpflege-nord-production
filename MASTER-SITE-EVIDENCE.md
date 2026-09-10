@@ -100,14 +100,27 @@ Homepage search metadata and visible content position the business as software d
 
 Do not reconcile this by guess. First determine whether Website-Checks/SEO/GEO/Performance are a current sellable service or stale campaign/social copy. Then make title, visible copy, social metadata, schema and landing-page ownership consistent.
 
-## 6. Search visibility baseline
+## 6. Search visibility and brand baseline
 
 Current evidence on 2026-09-10:
 
 - Ubersuggest returned no domain-overview data for `datenpflege-nord.de` in Germany.
 - Multiple exact public searches combining the brand with core services produced no result in the queried search corpus.
+- The visually similar domain `datenpflegenord.de` **without the hyphen** resolves in current search results to a different automotive-care/e-commerce site. It must never be treated as the DatenpflegeNord canonical domain or as first-party evidence.
 
-Interpretation: this does **not** prove that the domain is unindexed. It means no independently measured organic visibility baseline is currently available from the checked sources. Google Search Console remains the preferred first-party source for coverage, impressions, queries, positions and CTR.
+Interpretation: this does **not** prove that `datenpflege-nord.de` is unindexed. It means no independently measured organic visibility baseline is currently available from the checked sources. Google Search Console remains the preferred first-party source for coverage, impressions, queries, positions and CTR.
+
+### Brand/domain-confusion risk
+
+Because the no-hyphen domain is already associated with a different indexed website, protect brand/entity consistency aggressively:
+
+- canonical domain remains exactly `https://datenpflege-nord.de/`;
+- use the same domain in schema, social profiles, business listings, citations and backlinks;
+- do not add `datenpflegenord.de` to `sameAs`, redirects, canonicals or citations unless ownership and purpose are independently verified in the future;
+- monitor branded queries for spelling variants in Search Console once connected;
+- strengthen independent brand/entity signals rather than attempting doorway pages for misspellings.
+
+A structured local-business search did not produce a reliable DatenpflegeNord entity result in the checked source. Treat Google Business Profile / local-entity presence as a data gap, not as proof of absence.
 
 ## 7. Measured keyword evidence — first pass
 
@@ -184,7 +197,10 @@ Golden-build branch changes:
 
 - canonical evidence pack added;
 - static site audit additionally runs on pushes to `main` as a **post-push backstop**;
-- social-preview workflow changed to manual-only and its GitHub Actions dependencies pinned to immutable SHAs.
+- social-preview workflow changed to manual-only;
+- GitHub Actions dependencies are pinned to immutable SHAs;
+- the social-preview Python dependency is pinned to `Pillow==12.3.0` for reproducible installation;
+- audit workflow documentation was aligned with its actual trigger behavior.
 
 Important: the push audit is not a substitute for branch protection. Preventive protection with required PR/status checks remains a P0 administrative gate.
 
@@ -215,6 +231,7 @@ No fresh lab/field Core Web Vitals result is currently in this evidence pack. Do
 - Google Search Console query/index/CTR evidence;
 - fresh Lighthouse/CrUX/Core Web Vitals evidence;
 - verified provenance/rights for client-logo belt;
+- verified local/business-profile entity signals;
 - business decision/evidence for Website-Checks / SEO / GEO / Performance as a public service;
 - expanded metrics for Website-erstellen-lassen/Webdesign, Individualsoftware, API/Integration and AI-consulting clusters;
 - SERP-overlap gate before splitting AI automation, n8n, AI agents and process automation into separate URLs;
