@@ -3,7 +3,7 @@
 Status: canonical evidence pack for Golden Website Build 2.0
 Last checked: 2026-09-10
 Production repository: `DatenpflegeNordHL/datenpflege-nord-production`
-Baseline commit: `65468e875fa0f4318cc07d7e4cbe843cacb24569`
+Baseline production commit: `65468e875fa0f4318cc07d7e4cbe843cacb24569`
 Primary domain: `https://datenpflege-nord.de/`
 
 ## 1. Evidence policy
@@ -34,6 +34,8 @@ P0/P1 changes must not rely on D evidence.
 
 Until a current independent register source confirms the renaming, `Green Vector Energo GmbH` remains the legal organization name in Impressum and Organization schema. `NordWerk Digital GmbH` must not replace it as established legal identity merely because the filing is pending.
 
+Issue #13 tracks the legal-purpose/name reconciliation before aggressive external entity/profile work.
+
 ## 3. Verified service truth
 
 Current first-party service offer:
@@ -60,6 +62,8 @@ Current first-party service offer:
 
 Tools named publicly include GitHub, Claude Code and OpenAI Codex. They are implementation tools, not separate customer outcomes, and must not become primary SEO targets without search and business evidence.
 
+Website-Checks / SEO / GEO / Performance remain a business-truth decision because social-preview messaging references them while the visible commercial architecture currently centers on software, web and AI automation.
+
 ## 4. Current production URL inventory
 
 Indexable URLs present in the current sitemap:
@@ -78,7 +82,7 @@ Robots currently allows crawling and references `/sitemap.xml`.
 
 The sitemap reports 2026-08-09 for most pages and 2026-08-08 for Impressum. Repository history contains later file changes, including frontend hardening on 2026-08-25 and a site-wide Open Graph/social-preview refresh on 2026-09-08.
 
-The deeper history review changes the initial conclusion: a later file commit is **not automatically a later sitemap `lastmod`**. The 2026-09-08 change was primarily social-preview metadata/cache-busting, and 2026-08-25 contains technical hardening. Neither alone proves that the page's primary indexed content changed enough to justify a new `lastmod`.
+A later file commit is **not automatically a later sitemap `lastmod`**. The 2026-09-08 change was primarily social-preview metadata/cache-busting, and 2026-08-25 contains technical hardening. Neither alone proves that primary indexed content changed enough to justify a new `lastmod`.
 
 Golden rule: sitemap dates must represent meaningful page changes and be traceable to a deterministic content/release rule. Do not stamp deployment dates, current dates or every file commit blindly. The current dates therefore remain **under review, not proven defective**.
 
@@ -102,13 +106,18 @@ Do not reconcile this by guess. First determine whether Website-Checks/SEO/GEO/P
 
 ## 6. Search visibility and brand baseline
 
-Current evidence on 2026-09-10:
+Current measured evidence on 2026-09-10:
 
-- Ubersuggest returned no domain-overview data for `datenpflege-nord.de` in Germany.
-- Multiple exact public searches combining the brand with core services produced no result in the queried search corpus.
+- Ubersuggest backlink/domain data: Domain Authority 1, 0 backlinks, 0 referring domains.
+- SE Ranking independently reports 0 backlinks, 0 referring domains and Domain InLink Rank 0.
+- SE Ranking's German domain-keyword database returns no current organic keyword rows for `datenpflege-nord.de`.
+- A manual SE Ranking project was created for `datenpflege-nord.de` with site audit disabled and position checking set to manual, preventing recurring trial-credit use.
+- Ten priority keywords are attached to Google Germany rank tracking. Eight returned first position rows and were outside the tracked top 100; two had not yet produced position rows in the first status pull.
+- Multiple exact public searches combining the brand with core services produced no result in the queried public search corpus.
 - The visually similar domain `datenpflegenord.de` **without the hyphen** resolves in current search results to a different automotive-care/e-commerce site. It must never be treated as the DatenpflegeNord canonical domain or as first-party evidence.
+- Google Search Console is not connected to the SE Ranking project and remains the preferred first-party source for impressions, queries, rankings, canonical/index status and CTR.
 
-Interpretation: this does **not** prove that `datenpflege-nord.de` is unindexed. It means no independently measured organic visibility baseline is currently available from the checked sources. Google Search Console remains the preferred first-party source for coverage, impressions, queries, positions and CTR.
+Interpretation: this does **not** prove that `datenpflege-nord.de` is unindexed. It does prove that the checked third-party datasets currently show no measurable organic footprint for the domain.
 
 ### Brand/domain-confusion risk
 
@@ -122,19 +131,39 @@ Because the no-hyphen domain is already associated with a different indexed webs
 
 A structured local-business search did not produce a reliable DatenpflegeNord entity result in the checked source. Treat Google Business Profile / local-entity presence as a data gap, not as proof of absence.
 
-## 7. Measured keyword evidence — first pass
+## 7. Measured keyword evidence
 
-Germany, German-language data checked 2026-09-10:
+### Preferred SE Ranking batch snapshot
 
-| Query | Monthly volume | SEO difficulty | CPC | Decision signal |
+Germany database, one batch endpoint, checked 2026-09-10:
+
+| Query | Monthly volume | KD | CPC | Intent |
 |---|---:|---:|---:|---|
-| softwareentwicklung lübeck | 110 | 17 | €2.74 | Strong local commercial target |
-| webentwicklung lübeck | 70 | 55 | €4.58 | Existing page valid, but commercial wording needs SERP comparison |
-| ki automatisierung | 1,600 | 35 | ~€8.50 | Large non-local market; requires service-area decision + overlap gate |
-| ki automatisierung agentur | 170 | 17 | €11.76 | Commercial sub-intent, likely same hub initially |
-| n8n automatisierung | 110 | 10 | €5.51 | Strong specialist candidate, not yet approved as separate URL |
-| ki agenten unternehmen | 20 | 31 | ~€11.67 | Relevant but low volume; likely section/supporting intent initially |
-| ki automatisierung für unternehmen | 10 | 23 | ~€9.86 | Supporting commercial long-tail |
+| individuelle softwareentwicklung | 320 | 12 | €13.67 | Local + Commercial |
+| softwareentwicklung agentur | 140 | 30 | €9.11 | Local + Commercial |
+| ki automatisierung agentur | 140 | 17 | €6.10 | Informational classifier |
+| softwareentwicklung lübeck | 110 | 34 | €0.62 | Local + Commercial |
+| softwareentwicklung dienstleister | 110 | 39 | €15.14 | Local + Commercial |
+| n8n automatisierung | 110 | 16 | €1.73 | Informational classifier |
+| webentwicklung lübeck | 40 | 52 | €2.11 | Local + Commercial |
+| ki agenten unternehmen | 20 | 15 | €3.81 | Informational classifier |
+| website erstellen lassen lübeck | 10 | 45 | €0 | Local + Commercial |
+| ki automatisierung lübeck | no data | no data | no data | no data |
+
+The same SE Ranking history window shows `n8n automatisierung` rising from roughly 20/month in late 2025 to 110/month in the latest snapshot. `website erstellen lassen lübeck` remained around 10/month across the returned history.
+
+### Cross-provider variance
+
+Earlier Ubersuggest data estimated:
+
+- `softwareentwicklung lübeck`: ~110/month, lower KD estimate;
+- `webentwicklung lübeck`: ~70/month, KD ~55;
+- `ki automatisierung`: ~1,600/month, KD ~35;
+- `ki automatisierung agentur`: ~170/month, KD ~17;
+- `n8n automatisierung`: ~110/month, KD ~10;
+- `ki agenten unternehmen`: ~20/month.
+
+Do not average provider disagreement into fake precision. Search Console remains the first-party tie-breaker after indexing/visibility exists.
 
 Autocomplete evidence additionally repeats variants around `KI Automatisierung Beratung`, `KI Automatisierung für KMU`, `KI Automatisierung Mittelstand`, `KI Automatisierung Prozesse`, `n8n Automatisierung Unternehmen`, `n8n Workflow Automatisierung`, `Website erstellen lassen Lübeck` and `Homepage erstellen lassen Lübeck`.
 
@@ -142,26 +171,78 @@ Do not publish a separate page because an autocomplete suggestion exists. Volume
 
 ## 8. Current SERP evidence and competitor archetypes
 
-Observed current result patterns include:
+### Softwareentwicklung Lübeck
 
-- local software providers targeting individualized software and business-process solutions;
-- local web providers targeting **“Website erstellen lassen”** more directly than the technical phrase “Webentwicklung”;
-- AI-automation providers leading with business process, integration, control/governance and measurable outcomes;
-- n8n specialists using dedicated commercial service pages, connected-system examples and workflow/use-case proof;
-- AI-agent pages using distinct process examples but substantial semantic overlap with broader AI automation.
+A city-targeted Lübeck Google snapshot shows a mixed-intent SERP with substantial job/study noise, but genuine commercial software providers also rank prominently. EXORD and RXM are among the visible commercial providers. DatenpflegeNord did not appear in the returned snapshot.
 
-Common useful patterns, only where truthfully supportable:
+Implication: the existing `/softwareentwicklung-luebeck/` owner is valid, but copy must clearly signal buyer/service intent rather than competing semantically with employment/education pages.
 
-- problem/outcome framing before tool lists;
-- concrete use cases and connected systems;
-- implementation/process steps;
-- verifiable project/repository/customer proof;
-- FAQ coverage for real decision questions;
-- direct commercial CTA;
-- explicit audience such as SMEs/Mittelstand when it matches the offer;
-- privacy/hosting/governance claims only with evidence.
+### Webentwicklung Lübeck / Website erstellen lassen Lübeck
 
-## 9. Proof / E-E-A-T inventory
+The Lübeck web-development SERP strongly blends Webentwicklung, Webdesign, Website-Erstellung and agency intent. Review-rich/local-business providers are common. The exact `website erstellen lassen lübeck` SERP is smaller and noisier while clearly belonging to the same procurement journey.
+
+Implication: keep `/webentwicklung-luebeck/` as one owner and expand semantic/commercial coverage. Do not create a duplicate `website-erstellen-lassen-luebeck` page.
+
+### n8n Automatisierung
+
+The tracked German top-30 snapshot for `n8n automatisierung` is mixed informational + commercial:
+
+- informational/vendor results include IONOS and n8n itself;
+- commercial service providers also rank;
+- `n8n-agentur.de` ranked at position 6 in the tracked snapshot;
+- TEAM23's n8n service page ranked at position 10.
+
+The SERP-distinction gate therefore passes more strongly than in the first audit, but the intent is not purely transactional. A future standalone n8n page must combine implementation/service value with real educational/process substance.
+
+### Competitor content architecture
+
+- EXORD can rank its homepage for the exact local software cluster, showing that a lexical child page is not required for every term.
+- Netzhirsch distributes web visibility across a commercial agency/service page and supporting knowledge content.
+- Established local web competitors frequently combine service clarity, reviews, local entity signals, proof and explicit conversion CTAs.
+
+## 9. Authority and AI-search evidence
+
+### Referring-domain benchmark
+
+SE Ranking snapshot 2026-09-10:
+
+| Domain | Backlinks | Referring domains | Domain InLink Rank |
+|---|---:|---:|---:|
+| `datenpflege-nord.de` | 0 | 0 | 0 |
+| `exord.de` | 326 | 127 | 55 |
+| `hansolu.de` | 24,288 | 374 | 67 |
+| `www.iseo.de` | 1,599 | 396 | 63 |
+| `www.netzhirsch.de` | 9,196 | 458 | 71 |
+
+HANSOLU and Netzhirsch have large sitewide design-credit/footer-link patterns, so raw backlink counts overstate unique authority. The referring-domain and source-quality gap remains material even after that caveat.
+
+### AI Search baseline
+
+SE Ranking does not currently resolve a stored AI-search brand for `datenpflege-nord.de`. Explicit `DatenpflegeNord` analysis across Google AI Overview, Google AI Mode, ChatGPT, Perplexity and Gemini returns:
+
+- brand presence: 0;
+- link presence: 0;
+- share of voice: 0;
+- AI opportunity traffic: 0;
+- average position: not measurable.
+
+Competitor comparison:
+
+| Brand | Brand presence | Link presence | Share of voice |
+|---|---:|---:|---:|
+| Netzhirsch | 39 | 92 | 61.20% |
+| ISEO | 32 | 23 | 30.33% |
+| HANSOLU | 1 | 15 | 6.36% |
+| EXORD | 2 | 2 | 2.11% |
+| DatenpflegeNord | 0 | 0 | 0% |
+
+In this comparison the measurable competitor signal came from **Google AI Overview**. ChatGPT, Perplexity, Gemini and Google AI Mode returned zero for all five compared brands in the same dataset.
+
+Netzhirsch's AI Overview-specific snapshot reports brand presence 39, link presence 92, AI opportunity traffic 26 and average position 10.82.
+
+Interpretation: there is no evidence that an AI-specific schema trick will solve this. The measurable gap is broader entity/content/authority distribution.
+
+## 10. Proof / E-E-A-T inventory
 
 Verified proof currently available:
 
@@ -171,76 +252,97 @@ Verified proof currently available:
 - named direct contact person with portrait and role;
 - repository contains deterministic site checks and documented contact-backend deployment/rollback procedure.
 
-### Client-logo proof gap
+### Template client-logo belt — resolved in Draft PR #12
 
-The homepage contains five graphics under `images/clients-logo/` in a visual brand belt. Before treating any as client/customer proof, verify for every logo:
+The five homepage `images/clients-logo/` graphics were traced to the upstream `pulkitxm/claude-directory` Tailgrids/SynthAI template and are not verified DatenpflegeNord clients.
 
-1. identity of organization/brand;
-2. actual relationship to DatenpflegeNord;
-3. permission/right to display the mark;
-4. permitted wording: client, project, partner, technology/reference, or decorative only.
+Draft PR #12 removes the complete logo belt, associated CSS and the five SVG assets. It also corrects static GitHub proof fallbacks, including OpenJarvis PR status/date accuracy and removal of an unverifiable hard-coded public-repository count.
 
-Until verified, do not turn these graphics into accessible customer claims, schema, case studies or SEO proof.
+The proof gap is therefore **resolved in the staged code**, but not yet production truth because PR #12 remains unmerged/unreleased.
 
-## 10. Technical / deployment evidence
+## 11. Technical / deployment evidence
 
-Baseline state:
+Baseline production state:
 
 - `main` is **not branch protected**;
 - required status checks are not enforced on `main`;
-- the baseline static audit ran for pull requests to `main` and manual dispatch only;
-- latest reviewed baseline `main` commit returned no combined commit statuses;
-- deterministic checks already cover core metadata/canonical structure, H1 count, duplicate IDs, resources, labels, JSON-LD parseability, selected hreflang/DE-EN drift, social metadata and CSP-related static rules;
+- deterministic checks cover core metadata/canonical structure, H1 count, duplicate IDs, resources, labels, JSON-LD parseability, selected hreflang/DE-EN drift, social metadata and CSP-related static rules;
 - backend inventory documents loopback contact service, nginx route, external secret storage, rate limiting and rollback; its explicit production-parity statement dates to 2026-08-25 and must be re-verified before backend deployment.
 
-Golden-build branch changes:
+Golden staged work:
 
-- canonical evidence pack added;
-- static site audit additionally runs on pushes to `main` as a **post-push backstop**;
-- social-preview workflow changed to manual-only;
-- GitHub Actions dependencies are pinned to immutable SHAs;
-- the social-preview Python dependency is pinned to `Pillow==12.3.0` for reproducible installation;
-- audit workflow documentation was aligned with its actual trigger behavior.
+- PR #9: evidence baseline, keyword/authority maps, release verification runbook, local third-party MIT license, workflow hardening;
+- PR #11: content strengthening of the three existing service pages only;
+- PR #12: template-logo/proof cleanup;
+- PR #14: contact-service systemd hardening + backend tests/CI;
+- PR #16: deterministic allowlist-based public release package, SHA-256 manifest, strict verifier and CI artifact upload.
 
-Important: the push audit is not a substitute for branch protection. Preventive protection with required PR/status checks remains a P0 administrative gate.
+### Release-package proof
 
-## 11. Performance evidence
+PR #16 builds a deterministic package:
+
+- `release-package/webroot/` = explicitly allowlisted public files only;
+- `release-package/RELEASE-MANIFEST.sha256` = metadata outside public webroot;
+- manifest verification rejects changed, missing, extra and symlinked files;
+- the verified package contains 28 public files;
+- CI uploads the tested package as a GitHub Actions artifact.
+
+This solves the repository-side publication boundary. Issue #15 remains P0 for the **server-side transport/activation contract**: actual `/usr/local/sbin/dpn-deploy`, nginx/webroot mapping, ownership/modes, rollback and production parity still require server evidence.
+
+### Branch protection
+
+Issue #10 remains P0. GitHub Rulesets for this private repository require a plan/visibility capability not currently available through the checked API path, and the connected GitHub App cannot use classic administration endpoints. Do not make the production repository public merely to obtain protection.
+
+## 12. Performance evidence
 
 Repository asset evidence:
 
 - hero video: ~4.59 MB;
 - hero poster: ~57 KB;
 - homepage JS: ~15 KB per language file;
-- homepage CSS: ~26 KB plus profile CSS ~3 KB;
+- homepage CSS: ~26 KB before the staged proof-cleanup removal of the logo-belt CSS;
 - profile WebP: ~14 KB.
 
 The hero video is `preload="none"`, has a poster, and its source is assigned by JS only for fine-pointer/non-reduced-motion sessions. Size alone is therefore not proof of poor LCP. Eligible desktop transfer/CPU impact still requires measurement.
 
 No fresh lab/field Core Web Vitals result is currently in this evidence pack. Do not invent a performance pass.
 
-## 12. Data gaps blocking final architecture / release
+Live HTTP/nginx/Cloudflare verification remains a data gap because the current shell environment could not resolve external DNS reliably. That environment failure is not evidence that the production domain is down.
+
+## 13. Data gaps blocking final architecture / release
 
 ### P0
 
 - branch protection + required PR/status-check gate for `main`;
-- fresh production-vs-repository parity check before any deployment;
+- server-side deployment-contract verification for `/usr/local/sbin/dpn-deploy`, document root, ownership, activation and rollback;
+- fresh production-vs-reviewed-release parity check before any deployment;
 - verified live HTTP/security/cache headers before final technical sign-off.
 
 ### P1
 
-- Google Search Console query/index/CTR evidence;
+- Google Search Console query/index/CTR/canonical evidence;
 - fresh Lighthouse/CrUX/Core Web Vitals evidence;
-- verified provenance/rights for client-logo belt;
 - verified local/business-profile entity signals;
 - business decision/evidence for Website-Checks / SEO / GEO / Performance as a public service;
-- expanded metrics for Website-erstellen-lassen/Webdesign, Individualsoftware, API/Integration and AI-consulting clusters;
-- SERP-overlap gate before splitting AI automation, n8n, AI agents and process automation into separate URLs;
-- deterministic sitemap `lastmod` policy.
+- Business Truth decision whether n8n implementation is a named standalone sellable service;
+- explicit service-area decision before a national `/ki-automatisierung/` hub;
+- deterministic sitemap `lastmod` policy;
+- post-release browser verification of CSP report-only → enforcing eligibility.
 
-## 13. Golden release rule
+Resolved/staged rather than still open:
+
+- template client-logo provenance is resolved through Draft PR #12 removal;
+- repository-side deterministic public webroot packaging/parity mechanism is implemented and tested in Draft PR #16;
+- backend static/systemd hardening is implemented and CI-verified in Draft PR #14, though production parity remains open.
+
+## 14. Golden release rule
 
 No change is complete until all applicable stages pass:
 
 `Business Truth → Search/Intent Evidence → URL Ownership → Implementation → Static CI → Preview Review → Merge Gate → Production Deploy → Live HTTP/HTML/Schema/CWV Verification → Index/Ranking Monitoring`
+
+Release truth must additionally satisfy:
+
+`Repository Truth → Preview Truth → Production Truth`
 
 A green repository alone is not production proof, and a working production page alone is not migration/deployment proof.
