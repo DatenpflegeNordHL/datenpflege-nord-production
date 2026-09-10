@@ -26,16 +26,19 @@ Statuses:
 
 ## 2. Evidence-source rule
 
-Keyword metrics are third-party estimates, not ground truth. Current evidence combines Ubersuggest, SE Ranking and direct current Google SERP snapshots. Where providers disagree, the disagreement is retained rather than averaged into a fake precision.
+Keyword metrics are third-party estimates, not ground truth. Current evidence combines Ubersuggest, SE Ranking and direct current Google SERP snapshots. Where providers disagree, the disagreement is retained rather than averaged into fake precision.
 
 Google Search Console remains the first-party tie-breaker for actual impressions, clicks, CTR, ranking URLs and cannibalization once connected.
 
 Current SE Ranking pre-deployment baseline (Germany, 2026-09-10):
 
 - `datenpflege-nord.de` returned no organic keyword rows in the SE Ranking domain database;
-- the first manual rank-tracking check returned eight measured priority queries, all outside the tracked Google top 100;
+- a manual Google Germany rank-tracking project was created with audits disabled and manual checking only;
+- the first tracked priority-query set is outside the tracked Google top 100;
 - backlink baseline: 0 backlinks / 0 referring domains / Domain InLink Rank 0;
-- AI Search baseline: Link Presence 0, AI Opportunity Traffic 0, Brand Presence not yet measurable.
+- AI Search baseline across AI Overview, AI Mode, ChatGPT, Perplexity and Gemini: Brand Presence 0, Link Presence 0, Share of Voice 0;
+- SE Ranking does not currently resolve a stored AI-search brand entity for the domain; an explicit `DatenpflegeNord` brand query likewise returns no measurable presence;
+- Google Search Console is not connected to the SE Ranking project yet.
 
 These are baseline measurements, not permanent conclusions about Google indexing.
 
@@ -51,17 +54,43 @@ These are baseline measurements, not permanent conclusions about Google indexing
 | `/impressum/` | legal provider identity | company/register/contact | OWN | Legal truth only; no SEO expansion |
 | `/datenschutz/` | privacy information | contact-system processing | OWN | Legal/privacy truth only; no SEO expansion |
 
-## 4. High-priority candidate intents
+## 4. Exact SE Ranking batch metrics
+
+Germany database, batch checked 2026-09-10. These values are the preferred SE Ranking comparison set because all tracked keywords were measured in one endpoint and one snapshot.
+
+| Query | Volume/mo | KD | CPC | Intent | Current URL decision |
+|---|---:|---:|---:|---|---|
+| `individuelle softwareentwicklung` | 320 | 12 | €13.67 | Local + Commercial | EXPAND software page |
+| `softwareentwicklung agentur` | 140 | 30 | €9.11 | Local + Commercial | Supporting intent on software page |
+| `ki automatisierung agentur` | 140 | 17 | €6.10 | Informational in provider classifier | HOLD within AI cluster; commercial SERP evidence still required |
+| `softwareentwicklung lübeck` | 110 | 34 | €0.62 | Local + Commercial | OWN software page |
+| `softwareentwicklung dienstleister` | 110 | 39 | €15.14 | Local + Commercial | Supporting procurement intent on software page |
+| `n8n automatisierung` | 110 | 16 | €1.73 | Informational in provider classifier | HOLD specialist child candidate |
+| `webentwicklung lübeck` | 40 | 52 | €2.11 | Local + Commercial | OWN web page |
+| `ki agenten unternehmen` | 20 | 15 | €3.81 | Informational | HOLD / section first |
+| `website erstellen lassen lübeck` | 10 | 45 | €0 | Local + Commercial | EXPAND existing web page |
+| `ki automatisierung lübeck` | no data | no data | no data | no data | Keep local business owner; no volume-driven expansion claim |
+
+Notable trend evidence from the same batch:
+
+- `n8n automatisierung` rose from roughly 20/month in late 2025 to 110/month in the latest 2026 snapshot;
+- `individuelle softwareentwicklung` remained materially larger than the exact Lübeck software query, despite easing from earlier 480/month readings to 320/month;
+- `website erstellen lassen lübeck` stayed around 10/month across the returned twelve-month history.
+
+Do not treat trend estimates as first-party traffic forecasts.
+
+## 5. High-priority candidate intents
 
 ### A. `Softwareentwicklung Lübeck`
 
 SE Ranking exact/local evidence on 2026-09-10:
 
-- estimated DE volume: ~110/month;
+- estimated DE volume: 110/month;
 - KD: 34;
-- intent: Local + Commercial in keyword data;
+- intent: Local + Commercial;
 - city-level Lübeck SERP is mixed: many job/study results, but genuine development providers also rank prominently;
-- DatenpflegeNord was not present in the returned city-level snapshot.
+- EXORD appears in both the local pack / local-result layer and organic results for the query;
+- DatenpflegeNord was not present in the returned city-level snapshot and the tracked rank was outside top 100.
 
 **Status: OWN `/softwareentwicklung-luebeck/` + EXPAND.**
 
@@ -69,21 +98,22 @@ The query is worth defending, but not every estimated search is a buyer. The pag
 
 ### B. `Individualsoftware` / `individuelle Softwareentwicklung`
 
-SE Ranking signal for `individuelle softwareentwicklung`:
+SE Ranking batch evidence:
 
-- estimated DE volume: ~320/month;
-- KD: 12 in the keyword-expansion dataset;
-- CPC signal is high in the expansion dataset (up to ~€13.67);
-- strong commercial fit with the existing software offer.
+- estimated DE volume: 320/month;
+- KD: 12;
+- CPC: €13.67;
+- Local + Commercial classifier;
+- strong business fit with the existing software offer.
 
 **Status: EXPAND existing `/softwareentwicklung-luebeck/`.**
 
 Do not create `/individualsoftware-luebeck/` as a lexical duplicate. The existing software page already owns the buyer journey and should absorb this terminology naturally.
 
-Supporting commercial software phrases also reinforce the same owner:
+Supporting commercial software phrases reinforce the same owner:
 
-- `softwareentwicklung agentur`: ~140/month, KD ~30, high CPC;
-- `softwareentwicklung dienstleister`: ~110/month, KD ~39, very high CPC signal.
+- `softwareentwicklung agentur`: 140/month, KD 30, CPC €9.11;
+- `softwareentwicklung dienstleister`: 110/month, KD 39, CPC €15.14.
 
 These are supporting procurement terms, not automatic new URLs.
 
@@ -91,11 +121,11 @@ These are supporting procurement terms, not automatic new URLs.
 
 SE Ranking exact/local evidence:
 
-- `webentwicklung lübeck`: ~40/month, KD 52, Local + Commercial;
+- `webentwicklung lübeck`: 40/month, KD 52, CPC €2.11, Local + Commercial;
 - earlier Ubersuggest data estimated a somewhat higher volume; retain this as cross-provider variance, not a contradiction to be averaged away;
 - city-level Google SERP strongly blends Webentwicklung, Webdesign, Website-Erstellung and agency intent;
 - review-rich/local-business style competitors are common;
-- DatenpflegeNord was not present in the returned city-level snapshot.
+- DatenpflegeNord was not present in the returned city-level snapshot and tracked outside top 100.
 
 **Status: OWN + EXPAND existing `/webentwicklung-luebeck/`.**
 
@@ -105,9 +135,10 @@ Proof, reviews, local/entity authority, service clarity and conversion value are
 
 SE Ranking exact/local evidence:
 
-- estimated DE volume: ~10/month;
+- estimated DE volume: 10/month;
 - KD: 45;
 - Local + Commercial;
+- twelve-month trend is essentially flat at ~10/month;
 - city-level SERP is much thinner and noisier than `webentwicklung lübeck`, with ads and several irrelevant/weak organic results;
 - the query overlaps the same website-procurement journey.
 
@@ -119,19 +150,20 @@ This now has stronger evidence than the earlier autocomplete-only decision. A se
 
 Earlier Ubersuggest evidence showed materially larger broad demand for `KI Automatisierung`, while SE Ranking's related-query set shows broad terms are often informational and commercially ambiguous.
 
-SE Ranking does show a stronger procurement phrase:
+SE Ranking exact batch evidence for the procurement-adjacent phrase:
 
-- `ki automatisierung agentur`: ~140/month;
+- `ki automatisierung agentur`: 140/month;
 - KD: 17;
-- CPC: ~€6.10.
+- CPC: €6.10;
+- provider classifier labels the phrase informational, so commercial intent must be established from the SERP rather than assumed from wording alone.
 
 **Status: HOLD.**
 
 Why it remains attractive:
 
-- commercial agency/procurement demand exists;
 - current service truth includes agents, n8n, LLM and API workflows;
-- national AI-automation SERPs contain service providers.
+- national AI-automation SERPs contain service providers;
+- broader demand is materially larger than the exact local AI phrase.
 
 Blockers before `/ki-automatisierung/` may exist:
 
@@ -144,27 +176,37 @@ If approved later: national hub owns broad national procurement intent, while th
 
 ### F. `n8n Automatisierung`
 
-SE Ranking exact tracked keyword evidence:
+SE Ranking exact batch + tracked SERP evidence:
 
-- estimated DE volume: ~110/month;
-- CPC: ~€1.66 in the tracked dataset;
-- first tracked position: outside top 100 on 2026-09-10;
-- the current German SERP is mixed informational + commercial and contains AI Overview;
-- dedicated commercial n8n agency/service URLs occur repeatedly, including specialist implementation providers.
+- estimated DE volume: 110/month;
+- KD: 16;
+- CPC: €1.73;
+- provider classifier: Informational;
+- estimated search demand rose substantially across the returned twelve-month history;
+- first tracked position for DatenpflegeNord: outside top 100 on 2026-09-10;
+- current German top-30 SERP is mixed informational + commercial;
+- high-authority information/vendor results include IONOS and n8n itself;
+- commercial/service pages also rank, including `n8n-agentur.de` at position 6 and TEAM23 at position 10 in the tracked snapshot.
 
 **Status: HOLD — strongest specialist child candidate.**
 
-The SERP-distinction gate now passes much more strongly than in the first audit. The remaining blockers are Business Truth and proof: DatenpflegeNord must explicitly sell n8n implementation as a named standalone service, and the page must be able to show real integration/process substance rather than generic tool copy.
+The SERP-distinction gate now passes materially better than in the first audit: Google accepts both education and procurement/service pages for this query. The remaining blockers are Business Truth and proof. DatenpflegeNord must explicitly sell n8n implementation as a named standalone service, and the page must contain real integration/process substance rather than generic tool copy.
 
 Until then, `/ki-automatisierung-luebeck/` owns n8n intent as a substantial section.
 
 ### G. `KI Agenten für Unternehmen`
 
-Earlier measured exact-ish demand was low, but current SERPs support a distinct commercial concept around permissions, integrations, human approval and governance.
+SE Ranking batch evidence for `ki agenten unternehmen`:
+
+- 20/month;
+- KD 15;
+- CPC €3.81;
+- provider classifier: Informational;
+- demand is small and volatile compared with the software/n8n clusters.
 
 **Status: HOLD.**
 
-Start as a substantial decision/use-case cluster under AI automation. Promote to its own URL only if Search Console, expanded keyword evidence and SERP overlap show independent demand and the page can contain concrete implementation proof.
+Start as a substantial decision/use-case cluster under AI automation. Promote to its own URL only if Search Console, expanded keyword evidence and SERP overlap show independent demand and the page can contain concrete implementation proof around permissions, integrations, human approval and governance.
 
 ### H. API / Schnittstellen / Systemintegration
 
@@ -182,21 +224,43 @@ Homepage social metadata currently references website checks and digital obligat
 
 If this is an actual sellable DatenpflegeNord service, it needs its own evidence, scope, conversion path and keyword analysis. If it is stale social copy, remove the mismatch instead of inventing an SEO service architecture around it.
 
-## 5. Authority implications from current SERPs
+## 6. Authority and AI-search implications
 
 SE Ranking backlink evidence shows a material authority gap:
 
 - DatenpflegeNord: 0 referring domains;
-- Software-and-Testing: 37;
 - EXORD: 127;
 - HANSOLU: 374;
+- ISEO: 396;
 - Netzhirsch: 458.
 
-Raw backlink counts for established web agencies are often inflated by sitewide footer/design-credit links, so referring-domain quality and relevance are the planning metric, not raw link count.
+Raw backlink counts for established web agencies can be inflated by sitewide footer/design-credit links. Referring-domain quality, editorial relevance and local/entity value are therefore the planning metrics, not raw backlink count.
 
-For local web SERPs, review-rich and local/entity-heavy competitors are common. Therefore external entity proof, legitimate reviews/citations and relevant referring domains are a core growth requirement, not an optional off-page afterthought.
+AI-search comparison in the SE Ranking German database across Google AI Overview, Google AI Mode, ChatGPT, Perplexity and Gemini:
 
-## 6. Explicitly prohibited page patterns
+| Brand | AI brand presence | AI link presence | Share of voice |
+|---|---:|---:|---:|
+| Netzhirsch | 39 | 92 | 61.20% |
+| ISEO | 32 | 23 | 30.33% |
+| HANSOLU | 1 | 15 | 6.36% |
+| EXORD | 2 | 2 | 2.11% |
+| DatenpflegeNord | 0 | 0 | 0% |
+
+In this comparison, measurable competitor presence came from **Google AI Overview**; the same comparison returned zero for all five brands in ChatGPT, Perplexity, Gemini and Google AI Mode.
+
+Netzhirsch's AI Overview-specific snapshot reported brand presence 39, link presence 92, AI opportunity traffic 26 and average position 10.82.
+
+Implication: DatenpflegeNord's current problem is not an isolated missing AI tag or schema trick. It lacks the broader authority/entity/content footprint that already allows some competitors to be cited in Google's AI layer.
+
+## 7. Competitor keyword evidence
+
+EXORD currently ranks for the exact local software cluster, including `softwareentwicklung lübeck` and `softwareentwickler lübeck`; the returned SE Ranking data shows top local/organic visibility for the homepage. This demonstrates that a dedicated lexical child URL is not required to compete for the core local software intent.
+
+Netzhirsch distributes web visibility across a commercial webdesign-agency page and supporting knowledge content. Its ranking portfolio includes broad terms such as `webdesign agentur`, `webagentur`, `webentwicklung agentur` and `professionelles webdesign`.
+
+Implication: our next gains should come from stronger service-page substance, evidence and authority rather than multiplying location/keyword variants.
+
+## 8. Explicitly prohibited page patterns
 
 Do not create:
 
@@ -208,7 +272,7 @@ Do not create:
 - FAQ pages detached from the commercial page just to manufacture indexable URLs;
 - customer/case-study pages without verified relationship and publication rights.
 
-## 7. Current architecture target
+## 9. Current architecture target
 
 ### Core commercial layer
 
@@ -232,7 +296,7 @@ This remains the approved production architecture while the candidate gates are 
 6. evaluate AI-agent intent separately;
 7. only then evaluate API/integration and additional web-intent pages.
 
-## 8. Content gap requirements for existing commercial pages
+## 10. Content gap requirements for existing commercial pages
 
 Before new URLs multiply, each core page should be able to answer:
 
@@ -249,7 +313,7 @@ Before new URLs multiply, each core page should be able to answer:
 
 No fabricated prices, project counts, turnaround promises, ROI percentages, certifications, hosting locations or customer names.
 
-## 9. Measurement loop after launch
+## 11. Measurement loop after launch
 
 For every approved target URL, track at minimum:
 
