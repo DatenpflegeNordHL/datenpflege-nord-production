@@ -7,7 +7,7 @@ import shutil
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_OUTPUT = ROOT / ".release-webroot"
+DEFAULT_OUTPUT = ROOT / "release-webroot"
 
 # Explicit allowlist. Anything not listed here is deployment-internal by default.
 PUBLIC_ENTRIES = (
