@@ -34,3 +34,8 @@ jobs:
           node --check assets/home-de.js
           node --check assets/home-en.js
           node --check assets/service.js
+
+      - name: Build deterministic public release
+        run: |
+          python scripts/build_public_release.py --output .release-webroot
+          test -s .release-webroot/RELEASE-MANIFEST.sha256
