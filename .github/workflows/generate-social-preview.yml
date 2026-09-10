@@ -22,7 +22,7 @@ jobs:
           python-version: '3.13'
 
       - name: Install Pillow
-        run: python -m pip install --disable-pip-version-check pillow
+        run: python -m pip install --disable-pip-version-check "pillow==12.3.0"
 
       - name: Generate clean preview artwork
         run: python scripts/generate_social_preview.py
