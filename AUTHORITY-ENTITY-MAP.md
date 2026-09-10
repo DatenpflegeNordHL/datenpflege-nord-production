@@ -9,14 +9,56 @@ Canonical domain: `https://datenpflege-nord.de/`
 Current measured/public evidence:
 
 - Ubersuggest backlink overview reports Domain Authority 1, 0 backlinks and 0 referring domains for `datenpflege-nord.de`.
+- SE Ranking independently reports 0 backlinks, 0 referring domains and Domain InLink Rank 0 for `datenpflege-nord.de`.
+- SE Ranking's German organic-domain database currently returns no ranking keyword rows for `datenpflege-nord.de`.
 - Current public searches do not return a reliable DatenpflegeNord local-business entity for the checked Lübeck queries.
+- SE Ranking AI Search does not currently resolve a stored brand entity for `datenpflege-nord.de`; explicit `DatenpflegeNord` analysis returns 0 brand presence, 0 link presence and 0 share of voice across the checked AI engines.
 - The no-hyphen domain `datenpflegenord.de` belongs to a different indexed automotive/e-commerce website and must never be treated as the canonical brand domain.
 - Public GitHub work under `DatenpflegeNordHL` is independently discoverable in search and is already linked from homepage Organization `sameAs`.
 - The private production repository is intentionally not an authority surface and should remain private unless a separate security/release decision says otherwise.
 
 Interpretation: external authority is currently weak enough that every new public citation should be treated as entity-building infrastructure, not as a volume backlink campaign.
 
-## 2. Canonical entity tuple
+## 2. Competitor authority benchmark
+
+SE Ranking backlink snapshot, Germany workflow, 2026-09-10:
+
+| Domain | Backlinks | Referring domains | Domain InLink Rank |
+|---|---:|---:|---:|
+| `datenpflege-nord.de` | 0 | 0 | 0 |
+| `exord.de` | 326 | 127 | 55 |
+| `hansolu.de` | 24,288 | 374 | 67 |
+| `www.iseo.de` | 1,599 | 396 | 63 |
+| `www.netzhirsch.de` | 9,196 | 458 | 71 |
+
+Do not compare raw backlink totals naively. HANSOLU and Netzhirsch receive many repeated sitewide design-credit/footer links. Referring-domain quality, topical/local relevance, editorial context and entity value are more useful planning signals than raw backlink count.
+
+Even after that caveat, DatenpflegeNord's gap is material: the nearest checked competitor still has 127 referring domains while DatenpflegeNord has none in the measured dataset.
+
+## 3. AI-search authority benchmark
+
+SE Ranking German AI-search comparison across Google AI Overview, Google AI Mode, ChatGPT, Perplexity and Gemini:
+
+| Brand | Brand presence | Link presence | Share of voice |
+|---|---:|---:|---:|
+| Netzhirsch | 39 | 92 | 61.20% |
+| ISEO | 32 | 23 | 30.33% |
+| HANSOLU | 1 | 15 | 6.36% |
+| EXORD | 2 | 2 | 2.11% |
+| DatenpflegeNord | 0 | 0 | 0% |
+
+In this comparison, measurable competitor presence came from **Google AI Overview**. The same comparison returned zero for all five brands in ChatGPT, Perplexity, Gemini and Google AI Mode.
+
+Netzhirsch's AI Overview-specific snapshot reported:
+
+- brand presence: 39;
+- link presence: 92;
+- AI opportunity traffic: 26;
+- average position: 10.82.
+
+Implication: AI visibility is currently an authority/entity/content-distribution problem, not a missing schema keyword or a reason to manufacture AI-only landing pages.
+
+## 4. Canonical entity tuple
 
 Use the following consistently on every controlled public profile unless a platform requires a shorter format:
 
@@ -34,7 +76,7 @@ Use the following consistently on every controlled public profile unless a platf
 
 Do not replace the legal entity with `NordWerk Digital GmbH` until registration is independently verified.
 
-## 3. Priority authority surfaces
+## 5. Priority authority surfaces
 
 ### A — verify/control first
 
@@ -49,7 +91,7 @@ Do not replace the legal entity with `NordWerk Digital GmbH` until registration 
    - Goal: create a concise public organization profile that identifies DatenpflegeNord, links the canonical domain, states Lübeck/Schleswig-Holstein and describes software/web/AI work without exposing the private production repository.
 
 3. **Search Console**
-   - Status: first-party data not connected in this workflow yet.
+   - Status: not connected to the SE Ranking project in the current workflow.
    - Goal: verify canonical indexing, branded spelling variants, query ownership, CTR and any accidental association with the no-hyphen domain.
 
 ### B — useful local/industry citations after A is correct
@@ -71,7 +113,7 @@ Do not replace the legal entity with `NordWerk Digital GmbH` until registration 
 - Handelsregister / independent company-data pages support legal-entity corroboration but should not be manipulated as marketing profiles.
 - Generic low-quality directory submissions, mass citation tools and paid backlink packages are not approved authority work.
 
-## 4. Link acquisition rule
+## 6. Link acquisition rule
 
 A backlink opportunity is approved only when at least one of these is true:
 
@@ -91,7 +133,18 @@ Reject:
 - fabricated partner/client pages;
 - links built around the wrong no-hyphen domain.
 
-## 5. Anchor and naming policy
+## 7. Competitor-link interpretation
+
+Observed patterns in the checked competitors:
+
+- EXORD's strongest anchors are primarily branded/domain anchors, and most backlinks point to the homepage;
+- HANSOLU has very large sitewide design-credit backlink volume, so raw backlink count strongly overstates unique authority sources;
+- Netzhirsch likewise has substantial design-credit/sitewide linkage, but still has hundreds of distinct referring domains and a specifically linked Lübeck webdesign page;
+- ISEO has a broad multi-page footprint and hundreds of referring domains.
+
+Golden rule: copy the **authority mechanism**, not the raw backlink pattern. DatenpflegeNord should earn legitimate branded/entity/project citations and relevant editorial links, not reproduce footer-credit spam merely because a competitor has many of them.
+
+## 8. Anchor and naming policy
 
 Preferred natural anchors:
 
@@ -102,7 +155,7 @@ Preferred natural anchors:
 
 Do not force exact-match commercial anchors across multiple listings. Brand/entity consistency matters more than an artificial anchor ratio at this stage.
 
-## 6. Publication proof required before sameAs expansion
+## 9. Publication proof required before sameAs expansion
 
 Do not add a URL to Organization `sameAs` until:
 
@@ -111,7 +164,7 @@ Do not add a URL to Organization `sameAs` until:
 3. the URL is stable and indexable enough to function as identity evidence;
 4. no conflicting old brand/domain data remain on the profile.
 
-## 7. Authority measurement loop
+## 10. Authority measurement loop
 
 Record monthly after launch:
 
@@ -122,6 +175,8 @@ Record monthly after launch:
 - new independent mentions;
 - wrong-domain or wrong-entity mentions;
 - lost links/citations;
-- which URLs receive authority, not only domain totals.
+- which URLs receive authority, not only domain totals;
+- Google AI Overview brand/link presence;
+- AI source domains that repeatedly cite competitors but not DatenpflegeNord.
 
 The target is not an arbitrary DA score. The target is a verifiable entity graph around the correct brand, domain, services and location, followed by relevant editorial/project authority.
