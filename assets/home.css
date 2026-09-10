@@ -117,66 +117,6 @@
     .stat strong { display: block; margin-top: 13px; font-family: var(--display); font-size: clamp(2rem, 4vw, 3rem); line-height: .9; letter-spacing: -.055em; font-weight: 500; }
     .stat span:last-child { display: block; margin-top: 8px; color: var(--muted); font-size: .72rem; }
 
-
-    .brand-belt-section {
-      contain: paint;
-      overflow: hidden;
-      padding: 8px 0 0;
-      background: var(--paper);
-    }
-    .brand-belt {
-      --slot: 180px;
-      --gap: 64px;
-      min-height: 68px;
-      padding: 10px 0;
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      background: rgba(255,255,255,.78);
-      box-shadow: 0 12px 30px rgba(15,20,30,.04);
-      overflow: hidden;
-    }
-    .brand-belt-viewport {
-      width: 100%;
-      overflow: hidden;
-      -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 7%, #000 93%, transparent 100%);
-      mask-image: linear-gradient(90deg, transparent 0, #000 7%, #000 93%, transparent 100%);
-    }
-    .brand-belt-track {
-      display: flex;
-      width: max-content;
-      animation: brandBeltScroll 22s linear infinite;
-      will-change: transform;
-    }
-    .brand-belt:hover .brand-belt-track { animation-play-state: paused; }
-    .brand-belt-group {
-      display: flex;
-      flex: 0 0 auto;
-      align-items: center;
-      gap: var(--gap);
-      padding-right: var(--gap);
-    }
-    .brand-logo-slot {
-      display: grid;
-      flex: 0 0 var(--slot);
-      width: var(--slot);
-      height: 46px;
-      place-items: center;
-    }
-    .brand-logo-slot img {
-      display: block;
-      width: auto;
-      height: auto;
-      max-width: 158px;
-      max-height: 36px;
-      object-fit: contain;
-      opacity: .9;
-    }
-    @keyframes brandBeltScroll {
-      from { transform: translate3d(0,0,0); }
-      to { transform: translate3d(-50%,0,0); }
-    }
-    .brand-belt-section + .section { padding-top: 20px; }
-
     .section { padding: 62px 0; }
     .section-head { display: grid; grid-template-columns: .82fr 1.18fr; gap: 24px; align-items: center; margin-bottom: 24px; }
     .eyebrow { font: 500 .69rem/1.4 var(--mono); text-transform: uppercase; letter-spacing: .11em; }
@@ -477,10 +417,6 @@
       .feed-badge { font-size: .66rem; }
       .feed-scope, .feed-index, .feed-meta { font-size: .7rem; }
       .field label { font-size: .69rem; }
-      .brand-belt { --slot: 150px; --gap: 40px; min-height: 66px; padding-block: 9px; border-radius: 18px; }
-      .brand-logo-slot { height: 42px; }
-      .brand-logo-slot img { max-width: 138px; max-height: 32px; }
-      .brand-belt-section + .section { padding-top: 18px; }
       .hero, .hero-inner { min-height: 74svh; }
       .hero-inner { align-items: end; padding-bottom: 34px; }
       .hero-copy { width: 100%; max-width: 100%; min-width: 0; }
@@ -547,13 +483,6 @@
     }
   
     @media (prefers-reduced-motion: reduce) {
-      .brand-belt-viewport {
-        overflow-x: auto;
-        -webkit-mask-image: none;
-        mask-image: none;
-        scrollbar-width: thin;
-      }
-      .brand-belt-track { animation: none !important; }
       .brand-belt-group[aria-hidden="true"] { display: none; }
     }
 
