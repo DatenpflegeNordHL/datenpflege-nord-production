@@ -31,6 +31,7 @@ jobs:
         run: |
           python -m unittest discover -s tests
           python scripts/site_audit.py
+          python scripts/golden_audit.py
           node --check assets/home-de.js
           node --check assets/home-en.js
           node --check assets/service.js

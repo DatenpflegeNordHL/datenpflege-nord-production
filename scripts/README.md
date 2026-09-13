@@ -4,9 +4,18 @@ Run the deterministic repository checks locally with:
 
 ```bash
 python scripts/site_audit.py
+python scripts/golden_audit.py
 ```
 
 The audit intentionally checks only facts that can be verified from the repository. It does not assign SEO scores or guess at search-engine rankings.
+
+The supplementary Golden audit traverses HTML links from home to detect orphan
+canonical pages, checks indexability directives, heading order and image dimensions,
+and verifies metadata/provider/area/breadcrumb relationships on the three service
+owners. Legal and service-area restrictions encode the current reviewed evidence;
+future expansions require an explicit evidence and test update. Run all unit tests
+with `python -m unittest discover -s tests` (use `python3` if `python` is unavailable).
+These are static checks, not hosted-CI, browser, rich-result or production proof.
 
 It currently verifies:
 

@@ -20,6 +20,11 @@
 
     html { scroll-behavior: smooth; }
 
+    h1, h2, h3 {
+      overflow-wrap: anywhere;
+      hyphens: auto;
+    }
+
     body {
       margin: 0;
       color: var(--ink);
@@ -217,6 +222,60 @@
       grid-template-columns:
         repeat(2, minmax(0, 1fr));
       gap: 12px;
+    }
+
+    .decision-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 24px;
+      margin: 24px 0;
+      font-size: .9rem;
+    }
+
+    .decision-nav a,
+    .decision-note a,
+    .card p a {
+      text-decoration: underline;
+      text-underline-offset: .2em;
+    }
+
+    .decision-table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+    }
+
+    .decision-table {
+      width: 100%;
+      min-width: 640px;
+      border-collapse: collapse;
+      font-size: .95rem;
+      line-height: 1.6;
+    }
+
+    .decision-table caption {
+      padding: 20px;
+      text-align: left;
+      font-weight: 700;
+    }
+
+    .decision-table th,
+    .decision-table td {
+      padding: 16px;
+      border-top: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+      hyphens: auto;
+    }
+
+    .decision-table thead {
+      background: #f3f3ef;
+    }
+
+    .decision-note {
+      margin-top: 24px;
+      line-height: 1.6;
     }
 
     .card {
