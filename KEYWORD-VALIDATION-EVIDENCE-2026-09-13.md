@@ -71,9 +71,14 @@ Exact Lübeck/Kiel/Schleswig-Holstein KI modifiers and regional Prozessautomatis
 | Keyword | Volume | KD | CPC | Intent label | SERP interpretation |
 |---|---:|---:|---:|---|---|
 | api integration | 390 | 0 reported | 2.13 | Informational | SERP is overwhelmingly explanatory/knowledge content; GUIDE/AUTHORITY candidate, not primary money page |
-| api entwicklung | 110 | 16 | 2.21 | Informational | Needs separate commerciality check before page decision |
+| api programmierung | 140 | 30 | 1.85 | Informational | Valuable adjacent phrase; commerciality still needs direct SERP gate |
+| api entwicklung | 110 | 16 | 2.21 | Informational | Valuable adjacent phrase; commerciality still needs direct SERP gate |
 | schnittstellenentwicklung | 110 | 6 | 3.72 | Informational | SERP strongly mixed toward real commercial service pages; high-value niche candidate |
 | schnittstellenprogrammierung | 70 | 6 | 2.70 | Informational | Strong adjacent niche/supporting term; likely same commercial cluster pending overlap check |
+| systemintegration | 3600 | 93 | 1.11 | Informational | Extremely broad/high-difficulty term; not a practical primary money keyword for current strategy |
+| api agentur | 0 | 7 | 0 | Informational + Navigational | Reject as priority term |
+
+No reliable row in this batch for `schnittstelle entwickeln lassen`, `systeme verbinden`, `api schnittstellenentwicklung`, `api programmieren lassen` or `schnittstellen agentur`.
 
 ### Direct SERP gate: `api integration`
 
@@ -89,23 +94,35 @@ SERP features include **AI Overview** and People Also Ask.
 
 Decision: **STRONG NICHE / COMMERCIAL CLUSTER CANDIDATE**. This keyword materially outperforms the generic `api integration` phrase for DatenpflegeNord's actual business fit.
 
+The neighboring metric set supports a broader but still focused cluster:
+- `schnittstellenentwicklung`: 110 / KD 6
+- `schnittstellenprogrammierung`: 70 / KD 6
+- `api entwicklung`: 110 / KD 16
+- `api programmierung`: 140 / KD 30
+
+This is materially stronger than trying to target broad `systemintegration` (3600 / KD 93) as a primary acquisition term.
+
 Potential positioning to validate further:
 - Schnittstellenentwicklung
 - API- & Schnittstellenentwicklung
-- Systeme verbinden / Systemintegration
+- API-Entwicklung
+- API-Programmierung
+- Systeme verbinden / Systemintegration as semantic support
 - Schnittstelle entwickeln lassen
 - API-Schnittstellen für Unternehmen
 
-Do not rename a product category yet. First validate neighboring terms, SERP overlap, regional modifiers and proof depth.
+Do not rename a product category yet. First validate SERP overlap, regional modifiers and proof depth.
 
 ## Current first-wave priority changes
 
 1. **Schnittstellenentwicklung moves up** into the top niche-validation tier because of 110 volume, KD 6, strong business fit and commercial SERP composition.
-2. **API Integration moves down** as a money keyword despite 390 volume; it is primarily authority/content intent.
-3. **Kiel Web remains one of the strongest regional acquisition opportunities.**
-4. **Hamburg KI remains a strong regional opportunity** with unusually low KD relative to commercial intent.
-5. **Kiel Software remains lower priority than Kiel Web** because raw volume is heavily diluted by jobs.
-6. **Statewide Schleswig-Holstein Web remains meaningful**, especially Webdesigner/Webdesign, but statewide page ownership still requires overlap/uniqueness proof.
+2. **API- & Schnittstellenentwicklung now looks like a coherent niche family**, supported by adjacent measurable terms rather than one lucky query.
+3. **API Integration moves down** as a money keyword despite 390 volume; it is primarily authority/content intent.
+4. **Systemintegration is rejected as a primary target** despite 3600 volume because it is too broad, informational and extremely difficult (KD 93).
+5. **Kiel Web remains one of the strongest regional acquisition opportunities.**
+6. **Hamburg KI remains a strong regional opportunity** with unusually low KD relative to commercial intent.
+7. **Kiel Software remains lower priority than Kiel Web** because raw volume is heavily diluted by jobs.
+8. **Statewide Schleswig-Holstein Web remains meaningful**, especially Webdesigner/Webdesign, but statewide page ownership still requires overlap/uniqueness proof.
 
 ## Data gaps / next steps
 
@@ -115,10 +132,11 @@ Do not rename a product category yet. First validate neighboring terms, SERP ove
    - `NICHE-OPPORTUNITIES.md`
    - `KEYWORD-VALIDATION-QUEUE.md`
 2. Replace this provisional watchlist with the exact P0/P1 queue once committed.
-3. Validate `api entwicklung`, `schnittstellenprogrammierung`, `schnittstelle entwickeln lassen`, `systemintegration`, `systeme verbinden`, and regional interface/API modifiers.
-4. Run full metrics on the exact P0 60 from Codex.
-5. Run targeted SERP checks only for terms whose metrics + business fit justify the cost.
-6. Connect GSC for first-party impressions/CTR/query evidence when available.
+3. Run direct SERP gates for `api entwicklung`, `api programmierung`, `schnittstellenprogrammierung` and buyer-language variants.
+4. Validate regional API/interface modifiers only where the exact queue flags them as P0/P1.
+5. Run full metrics on the exact P0 60 from Codex once available in GitHub.
+6. Run targeted SERP checks only for terms whose metrics + business fit justify the cost.
+7. Connect GSC for first-party impressions/CTR/query evidence when available.
 
 Golden rule remains:
 
