@@ -103,11 +103,18 @@ Installed executable metadata observed:
 - size: `17000` bytes
 - mtime: `2026-08-26 19:43:56.669844501 +0200`
 
-The exact SHA-256 of the installed executable could **not** be read under the current non-interactive account because the file is root-only and general passwordless sudo is unavailable. This limitation is recorded rather than inventing an identity.
+The exact SHA-256 of the installed executable remains **unproven**. A fresh non-interactive privileged read-only attempt on 2026-09-13 failed because `sudo` requires authentication. The ordinary account can read `stat` metadata but cannot read the file bytes. This limitation is recorded rather than inventing an identity.
 
-A local operations-checkout candidate at `/home/adminzander/projekte/datenpflege-nord-production/scripts/dpn-deploy` is also 17000 bytes and has SHA-256 `7e818ca2c76a2767a4b3887d0add25df98e66544e42e989fc16f1ee3e097e2e7`, but it is **untracked** in that checkout and byte identity with `/usr/local/sbin/dpn-deploy` is not proven. It must not be reported as the installed hash.
+Safe administrator commands required to close this evidence gap are read-only:
 
-This is a P0 contract-evidence gap: before deployment authorization, an administrator must record the installed script hash read-only and reconcile it with the reviewed/versioned deployment implementation.
+```bash
+sudo sha256sum /usr/local/sbin/dpn-deploy
+sudo stat -c 'path=%n owner=%U group=%G mode=%a size=%s mtime=%y inode=%i' /usr/local/sbin/dpn-deploy
+```
+
+A local operations-checkout candidate at `/home/adminzander/projekte/datenpflege-nord-production/scripts/dpn-deploy` is also 17000 bytes and has SHA-256 `7e818ca2c76a2767a4b3887d0add25df98e66544e42e989fc16f1ee3e097e2e7`, but it is **untracked** in that checkout and byte identity with `/usr/local/sbin/dpn-deploy` is not proven. The comparison result is therefore **UNKNOWN**, not MATCH.
+
+This is a P0 contract-evidence gap: before production configuration activation or deployment authorization, an administrator must record the installed script hash read-only and reconcile it with the reviewed/versioned deployment implementation.
 
 ## Main protection gate
 

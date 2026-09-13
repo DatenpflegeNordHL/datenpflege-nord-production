@@ -45,6 +45,39 @@ All requests below used read-only HTTP GETs. `rc=35` is curl/OpenSSL `wrong vers
 
 A representative `https://www.datenpflege-nord.de/softwareentwicklung-luebeck` chain also fails after two redirects at `https://datenpflege-nord.de:8080/softwareentwicklung-luebeck/`.
 
+## Fresh pre-change public baseline — 2026-09-13T21:33:45+02:00
+
+This recheck was captured before any nginx change. `follow rc=35` denotes the known TLS failure after the chain reaches the exposed origin port.
+
+| Path | Variant | Initial | Location | Redirects | Final effective URL | Final | Follow rc | `:8080` | HTTPS→HTTP |
+| --- | --- | ---: | --- | ---: | --- | ---: | ---: | --- | --- |
+| `softwareentwicklung-luebeck` | `https+slash` | 200 | `—` | 0 | `https://datenpflege-nord.de/softwareentwicklung-luebeck/` | 200 | 0 | no | no |
+| `softwareentwicklung-luebeck` | `https-noslash` | 301 | `http://datenpflege-nord.de:8080/softwareentwicklung-luebeck/` | 1 | `https://datenpflege-nord.de:8080/softwareentwicklung-luebeck/` | 301 | 35 | yes | yes |
+| `softwareentwicklung-luebeck` | `http+slash` | 301 | `https://datenpflege-nord.de/softwareentwicklung-luebeck/` | 1 | `https://datenpflege-nord.de/softwareentwicklung-luebeck/` | 200 | 0 | no | no |
+| `softwareentwicklung-luebeck` | `http-noslash` | 301 | `https://datenpflege-nord.de/softwareentwicklung-luebeck` | 2 | `https://datenpflege-nord.de:8080/softwareentwicklung-luebeck/` | 301 | 35 | yes | no |
+| `webentwicklung-luebeck` | `https+slash` | 200 | `—` | 0 | `https://datenpflege-nord.de/webentwicklung-luebeck/` | 200 | 0 | no | no |
+| `webentwicklung-luebeck` | `https-noslash` | 301 | `http://datenpflege-nord.de:8080/webentwicklung-luebeck/` | 1 | `https://datenpflege-nord.de:8080/webentwicklung-luebeck/` | 301 | 35 | yes | yes |
+| `webentwicklung-luebeck` | `http+slash` | 301 | `https://datenpflege-nord.de/webentwicklung-luebeck/` | 1 | `https://datenpflege-nord.de/webentwicklung-luebeck/` | 200 | 0 | no | no |
+| `webentwicklung-luebeck` | `http-noslash` | 301 | `https://datenpflege-nord.de/webentwicklung-luebeck` | 2 | `https://datenpflege-nord.de:8080/webentwicklung-luebeck/` | 301 | 35 | yes | no |
+| `ki-automatisierung-luebeck` | `https+slash` | 200 | `—` | 0 | `https://datenpflege-nord.de/ki-automatisierung-luebeck/` | 200 | 0 | no | no |
+| `ki-automatisierung-luebeck` | `https-noslash` | 301 | `http://datenpflege-nord.de:8080/ki-automatisierung-luebeck/` | 1 | `https://datenpflege-nord.de:8080/ki-automatisierung-luebeck/` | 301 | 35 | yes | yes |
+| `ki-automatisierung-luebeck` | `http+slash` | 301 | `https://datenpflege-nord.de/ki-automatisierung-luebeck/` | 1 | `https://datenpflege-nord.de/ki-automatisierung-luebeck/` | 200 | 0 | no | no |
+| `ki-automatisierung-luebeck` | `http-noslash` | 301 | `https://datenpflege-nord.de/ki-automatisierung-luebeck` | 2 | `https://datenpflege-nord.de:8080/ki-automatisierung-luebeck/` | 301 | 35 | yes | no |
+| `en` | `https+slash` | 200 | `—` | 0 | `https://datenpflege-nord.de/en/` | 200 | 0 | no | no |
+| `en` | `https-noslash` | 301 | `http://datenpflege-nord.de:8080/en/` | 1 | `https://datenpflege-nord.de:8080/en/` | 301 | 35 | yes | yes |
+| `en` | `http+slash` | 301 | `https://datenpflege-nord.de/en/` | 1 | `https://datenpflege-nord.de/en/` | 200 | 0 | no | no |
+| `en` | `http-noslash` | 301 | `https://datenpflege-nord.de/en` | 2 | `https://datenpflege-nord.de:8080/en/` | 301 | 35 | yes | no |
+| `impressum` | `https+slash` | 200 | `—` | 0 | `https://datenpflege-nord.de/impressum/` | 200 | 0 | no | no |
+| `impressum` | `https-noslash` | 301 | `http://datenpflege-nord.de:8080/impressum/` | 1 | `https://datenpflege-nord.de:8080/impressum/` | 301 | 35 | yes | yes |
+| `impressum` | `http+slash` | 301 | `https://datenpflege-nord.de/impressum/` | 1 | `https://datenpflege-nord.de/impressum/` | 200 | 0 | no | no |
+| `impressum` | `http-noslash` | 301 | `https://datenpflege-nord.de/impressum` | 2 | `https://datenpflege-nord.de:8080/impressum/` | 301 | 35 | yes | no |
+| `datenschutz` | `https+slash` | 200 | `—` | 0 | `https://datenpflege-nord.de/datenschutz/` | 200 | 0 | no | no |
+| `datenschutz` | `https-noslash` | 301 | `http://datenpflege-nord.de:8080/datenschutz/` | 1 | `https://datenpflege-nord.de:8080/datenschutz/` | 301 | 35 | yes | yes |
+| `datenschutz` | `http+slash` | 301 | `https://datenpflege-nord.de/datenschutz/` | 1 | `https://datenpflege-nord.de/datenschutz/` | 200 | 0 | no | no |
+| `datenschutz` | `http-noslash` | 301 | `https://datenpflege-nord.de/datenschutz` | 2 | `https://datenpflege-nord.de:8080/datenschutz/` | 301 | 35 | yes | no |
+
+Fresh baseline result: canonical HTTPS slash URLs pass for all six paths; every HTTPS slashless URL fails the invariant by exposing `http://datenpflege-nord.de:8080/.../`. HTTP slashless requests also fail after the HTTPS hop reaches the same origin-port redirect defect.
+
 ## Origin isolation
 
 The active canonical nginx server listens on `127.0.0.1:8080`, has `server_name datenpflege-nord.de`, `root /srv/datenpflege-nord/current`, and serves the static site with:

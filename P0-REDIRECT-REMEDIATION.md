@@ -29,9 +29,29 @@ This makes nginx-generated redirects relative, so a request that arrived publicl
 
 ## Configuration ownership
 
-The active file is `/etc/nginx/sites-available/datenpflege-nord.conf`, enabled via `/etc/nginx/sites-enabled/datenpflege-nord.conf` symlink. Infrastructure configuration is not currently proven to be version-controlled by the production repository. The locally visible `scripts/dpn-deploy` and `tests/test_dpn_deploy.py` in the older operations checkout are untracked files.
+The active file is `/etc/nginx/sites-available/datenpflege-nord.conf`, enabled via `/etc/nginx/sites-enabled/datenpflege-nord.conf` symlink. Its pre-change SHA-256 is `883cdfa48bb8a6f872db01717669c9b258cd4fe524dade03c593a8344c338373`.
 
-Before applying the fix, version the reviewed nginx site definition in an operations-controlled path, preferably a dedicated infrastructure repository. If kept with this repository, use a non-public path such as `infra/nginx/datenpflege-nord.conf`; the deployment allowlist must continue to exclude it from the webroot.
+A local repository search found no separate operations/infrastructure Git repository. To avoid inventing a second source of truth, this P0 branch carries only the exact audited change representation at `ops/nginx/datenpflege-nord-absolute-redirect.patch`. The live `/etc/nginx/sites-available/datenpflege-nord.conf` remains the operational configuration until an explicitly approved change is applied. The public-file deployment allowlist must continue to exclude `ops/`.
+
+## Staged candidate validation
+
+A non-production staging copy was generated from the active site file with only the intended `absolute_redirect off;` behavior change, plus test-only substitutions for an unprivileged listener and log paths. No live nginx file was modified.
+
+- isolated `nginx -t`: **PASS**; syntax is OK and the staged configuration test is successful;
+- versioned patch dry-run: **PASS** against a copy of the active nginx site file; the patch adds exactly `absolute_redirect off;`;
+- six slashless staged routes: `301` with relative `Location: /<path>/`;
+- matching slash routes: `200`;
+- staged homepage: `200`;
+- no staged `Location` exposed `:8080`;
+- the temporary staged nginx process was stopped after the test;
+- read-only production contact health baseline returned HTTP `200`; no contact submission was sent;
+- active production nginx configuration SHA-256 remained `883cdfa48bb8a6f872db01717669c9b258cd4fe524dade03c593a8344c338373` after staging.
+
+A direct unprivileged `nginx -t` against the live configuration reports syntax OK but cannot complete because it cannot open `/run/nginx.pid`. A privileged production-target `nginx -t` therefore remains required before any live reload.
+
+## Change gate status
+
+**BLOCKED.** The installed `/usr/local/sbin/dpn-deploy` SHA-256 has not been proven because non-interactive sudo authentication is unavailable. The privileged production-target `nginx -t` is also not complete. Consequently no production configuration change or reload is authorized by this evidence set.
 
 ## Dry-run and regression test
 
