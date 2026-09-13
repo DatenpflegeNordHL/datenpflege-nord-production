@@ -51,25 +51,33 @@ City-targeted Lübeck SERP evidence confirms significant job/study contamination
 | Query | Volume DE | KD | Intent | Decision signal |
 |---|---:|---:|---|---|
 | webdesign lübeck | 390 | 55 | Local + Commercial | Major Lübeck demand cluster |
+| webdesigner lübeck | 390 | 0 reported | Provider labels informational | Same lexical market, but intent flag needs SERP interpretation |
 | webagentur lübeck | 320 | 55 | Local + Commercial | Major supporting procurement term |
 | webdesign agentur lübeck | 50 | 66 | Local + Commercial | Same cluster, high competition |
+| internetagentur lübeck | 50 | 67 | Local + Commercial | Supporting legacy/procurement wording |
 | webentwicklung lübeck | 40 | 52 | Local + Commercial | Existing owner terminology is narrower than market language |
 | wordpress agentur lübeck | 30 | 28 | Local + Commercial | Only target if WordPress is genuinely sold as a service |
-| website erstellen lassen lübeck | 10 | 45 | Local + Commercial | Same buyer journey, not a separate URL |
+| website erstellen lassen lübeck | 10 | 45 | Local + Commercial | Same buyer journey, not a separate URL by itself |
 | webdesign kiel | 390 | 32 | Local + Commercial | Very strong regional opportunity |
-| webagentur kiel | 320 | 0 reported | Provider labels informational; manual SERP validation required | Strong lexical demand but intent flag is inconsistent |
+| webdesigner kiel | 390 | 12 | Local + Commercial | Strong low-KD Kiel supporting term |
+| webagentur kiel | 320 | 0 reported | Provider labels informational | Strong lexical demand but intent flag is inconsistent |
 | webdesign agentur kiel | 110 | 24 | Local + Commercial | Strong Kiel procurement signal |
 | webentwicklung kiel | 30 | 20 | Local + Commercial | Supporting term |
 | wordpress agentur kiel | 20 | 20 | Local + Commercial | Conditional on service truth |
+| internetagentur kiel | 10 | 61 | Local + Commercial | Small supporting term |
 | webdesign agentur hamburg | 320 | 49 | Local + Commercial | Large competitive market |
 | website erstellen lassen hamburg | 260 | 37 | Local + Commercial | Strong direct buyer intent |
 | webagentur hamburg | 160 | 52 | Local + Commercial | Strong supporting procurement term |
 | webentwicklung hamburg | 140 | 44 | Local + Commercial | Strong supporting term |
+| internetagentur hamburg | 110 | 59 | Local + Commercial | Supporting procurement terminology |
 | wordpress agentur hamburg | 110 | 23 | Provider labels informational | Conditional on service truth/intent validation |
-| webdesign schleswig-holstein | 110 | 28 | Local + Commercial | Only SH-modified term with material measured demand in this pass |
+| website agentur hamburg | 30 | 67 | Local + Commercial | Small high-competition supporting term |
+| webdesign schleswig-holstein | 110 | 28 | Local + Commercial | Material statewide demand |
+| webdesigner schleswig-holstein | 170 | 27 | Local + Commercial | Strongest measured SH web modifier in this pass |
+| internetagentur schleswig-holstein | 40 | 13 | Provider labels informational | Supporting term, not standalone evidence |
 | webdesign agentur schleswig-holstein | 10 | 27 | Local + Commercial | Supporting SH term |
 
-Key implication: the market calls the service `Webdesign` and `Webagentur` much more often than `Webentwicklung` in Lübeck/Kiel. Existing `/webentwicklung-luebeck/` should therefore own these terms naturally rather than creating lexical sibling pages.
+Key implication: the market uses `Webdesign`, `Webdesigner` and `Webagentur` far more often than `Webentwicklung` in Lübeck/Kiel. The existing Lübeck owner therefore needs broader market-language coverage. However, this does **not** yet approve a second Webdesign URL; the SERP-overlap evidence below is deliberately more nuanced.
 
 ### AI / Automation / n8n
 
@@ -88,7 +96,7 @@ The lack of city-modified n8n rows does not invalidate n8n as a service topic. T
 
 ### Lübeck
 
-Software SERP is mixed with jobs and education. Genuine commercial competitors include RXM, EXORD and Software-and-Testing. Webdesign SERPs contain strongly location-focused providers and local directories. Current examples include Webdesign Lübeck / WEDEON, Northbay, Jamp and multiple directory surfaces.
+Software SERP is mixed with jobs and education. Genuine commercial competitors include RXM, EXORD and Software-and-Testing. Webdesign SERPs contain strongly location-focused providers and local directories, with reviews, pricing language, references and location signals frequently visible.
 
 Implication: service copy alone is insufficient. Local proof, reviews/entity signals, clear service scope and external citations are material competitive factors.
 
@@ -106,11 +114,30 @@ Implication: Hamburg should be treated as a separate expansion market. A Hamburg
 
 ### Schleswig-Holstein
 
-The strongest directly measured state-modified opportunity in this pass is `webdesign schleswig-holstein` (~110, KD 28). Regional SERPs include statewide agency pages and marketplaces.
+The strongest directly measured state-modified opportunities in this pass are `webdesigner schleswig-holstein` (~170, KD 27) and `webdesign schleswig-holstein` (~110, KD 28). Regional SERPs include statewide agency pages and marketplaces.
 
 Implication: Schleswig-Holstein is strategically important as the service-area/entity layer. A dedicated SH page remains HOLD pending SERP-overlap and uniqueness review against Lübeck/Kiel content.
 
-## 5. GEO / AI-search benchmark
+## 5. Lübeck SERP-overlap gate — Webdesign vs Webentwicklung
+
+City-targeted Google snapshots were run for both `webdesign lübeck` and `webentwicklung lübeck` from the Lübeck location.
+
+Observed pattern:
+
+- `webdesign lübeck` is overwhelmingly commercial/local in the upper organic result set. Agency/service pages dominate and review signals appear frequently.
+- `webentwicklung lübeck` is still commercially useful, but its result set contains materially more job/career intent.
+- Several strong domains occur in both result sets, including Netzhirsch, Augustin Marketing, Web Labels, Popien, Jamp, Vicon, Northbay and other local web providers.
+- The top results are **not identical enough** to claim the two phrases are a perfect SERP synonym.
+
+Decision:
+
+- **EXPAND** existing `/webentwicklung-luebeck/` now so visible copy, headings/decision content and supporting semantics naturally cover Webdesign, Webagentur, Website-Erstellung and Webentwicklung.
+- **HOLD** a separate `/webdesign-luebeck/` page. It may become justified later only if a formal ranking-URL/cannibalization review shows independent ownership is safer and the proposed page has materially distinct user value.
+- Do not create lexical siblings for `webdesigner`, `webagentur`, `internetagentur` or `website erstellen lassen` merely because their exact volumes differ.
+
+This protects against both under-targeting the real buyer vocabulary and over-fragmenting one local commercial journey.
+
+## 6. GEO / AI-search benchmark
 
 Selected regional competitor comparison in SE Ranking, Germany, all five supported AI engines:
 
@@ -128,12 +155,12 @@ In this selected comparison, the measurable signal is concentrated in Google AI 
 
 Regional GEO implication: the priority is not sprinkling “GEO” wording into pages. Build sources worth citing: concrete decision content, original tools/checklists, transparent process, verifiable local/project proof, consistent entity data, external references and strong internal topic relationships.
 
-## 6. URL ownership decision — current safe architecture
+## 7. URL ownership decision — current safe architecture
 
 ### Existing production owners
 
 - `/softwareentwicklung-luebeck/` remains owner for software development / software developer / individual-software procurement in Lübeck.
-- `/webentwicklung-luebeck/` remains owner for web development + webdesign + web agency + website creation intent in Lübeck.
+- `/webentwicklung-luebeck/` remains owner and is **EXPAND** for web development + webdesign + webdesigner + web agency + website creation intent in Lübeck while separate Webdesign ownership remains HOLD.
 - `/ki-automatisierung-luebeck/` remains owner for local AI/automation plus n8n supporting intent.
 
 ### Candidate future regional layers
@@ -141,7 +168,7 @@ Regional GEO implication: the priority is not sprinkling “GEO” wording into 
 **Kiel**
 
 - Software Kiel: CANDIDATE / HOLD. Demand and competition justify deeper SERP-overlap review.
-- Web Kiel: STRONG CANDIDATE / HOLD. Demand is material (`webdesign kiel` ~390, `webdesign agentur kiel` ~110).
+- Web Kiel: STRONG CANDIDATE / HOLD. Demand is material (`webdesign kiel` ~390, `webdesigner kiel` ~390, `webdesign agentur kiel` ~110).
 - AI Kiel: HOLD. Current SERPs show competition, but provider keyword database did not return reliable exact local volume in this pass.
 
 **Hamburg**
@@ -153,12 +180,12 @@ Regional GEO implication: the priority is not sprinkling “GEO” wording into 
 
 **Schleswig-Holstein**
 
-- Statewide web cluster: CANDIDATE / HOLD because `webdesign schleswig-holstein` shows material demand.
+- Statewide web cluster: CANDIDATE / HOLD because `webdesigner schleswig-holstein` and `webdesign schleswig-holstein` show material demand.
 - Statewide software/AI/n8n pages: HOLD; current exact-modifier demand is not sufficient by itself.
 
 No candidate is a BUILD decision yet.
 
-## 7. Regional + national content model
+## 8. Regional + national content model
 
 Use two complementary layers:
 
@@ -188,24 +215,35 @@ National/region-agnostic supporting assets should feed authority into the commer
 
 These should be built only where DatenpflegeNord can add first-hand technical value, useful examples or working tools/checklists.
 
-## 8. Next research gates before BUILD
+## 9. Terms deliberately rejected or conditional
 
-1. Expand regional seed universe to long-tail procurement combinations and remove irrelevant IT/marketing terms.
-2. Run city-targeted SERP overlap for the strongest Kiel/Hamburg candidates.
-3. Compare ranking-page overlap between city terms and existing Lübeck owners.
-4. Verify public service-area wording for Hamburg before any Hamburg page.
-5. Connect Google Search Console and inspect actual query/location signals after current pages are indexed.
-6. Build legitimate external authority/entity signals before multiplying landing pages.
-7. For each proposed location page, require a uniqueness brief: local audience/problem context, relevant proof, service/logistics difference, references/partners where verified, distinct FAQ/decision content and a unique conversion reason.
-8. Re-run AI-search benchmark after authority/content changes.
+Do not chase measured traffic merely because a phrase exists.
 
-## 9. Current strategic conclusion
+- `IT-Dienstleister`: use only if DatenpflegeNord genuinely sells the services users expect from that term; do not blur software/web/automation into managed IT/support merely for volume.
+- `Digitalagentur`: use only where the actual service mix and public positioning support it; do not imply full-service marketing capability if it is not offered.
+- WordPress/technology-specific city terms: conditional on explicit sellable service truth.
+- City-modified n8n pages: rejected at this stage; no measured local demand and high doorway/copy risk.
 
-The research does support a regional expansion strategy, but not a four-region copy/paste architecture.
+Qualified traffic is the objective, not the largest possible keyword count.
+
+## 10. Next research gates before BUILD
+
+1. Expand the strongest Kiel/Hamburg commercial clusters with city-targeted SERPs and ranking-page overlap.
+2. Compare Kiel/Hamburg ranking-page ownership against the existing Lübeck architecture and against each other.
+3. Verify public service-area wording for Hamburg before any Hamburg page.
+4. Connect Google Search Console and inspect actual query/location signals after current pages are indexed.
+5. Build legitimate external authority/entity signals before multiplying landing pages.
+6. For each proposed location page, require a uniqueness brief: local audience/problem context, relevant proof, service/logistics difference, references/partners where verified, distinct FAQ/decision content and a unique conversion reason.
+7. Re-run AI-search benchmark after authority/content changes.
+8. Only after those gates classify every proposed URL as BUILD / EXPAND / HOLD / BLOCK.
+
+## 11. Current strategic conclusion
+
+The research supports a regional expansion strategy, but not a four-region copy/paste architecture.
 
 Priority order from current evidence:
 
-1. **Lübeck core pages** — strengthen wording around the actual market language, especially `webdesign` / `webagentur` and `softwareentwickler`.
+1. **Lübeck core pages** — strengthen wording around actual market language, especially `webdesign` / `webdesigner` / `webagentur` and `softwareentwickler`.
 2. **Kiel web + software** — strongest next regional research/build candidates.
 3. **Hamburg AI + web + software** — large opportunity, but harder competition and a service-area truth gate.
 4. **Schleswig-Holstein** — use as a strong entity/service-area layer; only build dedicated state pages where a distinct SERP and unique page value are proven.
