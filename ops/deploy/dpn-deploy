@@ -232,8 +232,24 @@ check_html_basics() {
     done
 }
 
+check_asset_versions() {
+    local ROOT="$1" HELPER REPORT RESULT=0
+    HELPER="$(mktemp)" || fail "Asset checker staging failed."
+    if ! git --git-dir="$CACHE" show "$TARGET:ops/deploy/check_asset_versions.py" > "$HELPER"; then
+        rm -f "$HELPER"
+        fail "Pinned asset checker missing from TARGET."
+    fi
+    REPORT="$(python3 "$HELPER" --root "$ROOT")" || RESULT=$?
+    rm -f "$HELPER"
+    if [ "$RESULT" -ne 0 ]; then
+        printf '%s\n' "$REPORT" >&2
+        fail "Final-byte asset version gate failed: $ROOT"
+    fi
+}
+
 validate_release() {
     check_required_files "$1"
+    check_asset_versions "$1"
     check_release_manifest "$1"
     check_local_references "$1"
     check_forbidden_files "$1"

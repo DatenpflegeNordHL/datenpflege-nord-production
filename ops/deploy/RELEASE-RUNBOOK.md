@@ -60,13 +60,42 @@ Use a freshly created private TMPDIR for a future invocation; do not copy an exp
 
 Selected asset policy: **B — `?v=<full SHA-256 of final asset bytes>`**. Content-hashed filenames are also acceptable, but introducing them now would require changing the fixed filename allowlist. Query versions preserve existing names and Git-blob/package validation. No timestamps, randomness or documentation-only commit IDs are used as cache busters.
 
-For a future reviewed website-source migration:
+The freshness candidate implements this gate; it is not installed or released.
 
-1. Finalize changed image/font/media bytes and calculate their hashes. Update local HTML/CSS dependency URLs with their exact deterministic versions.
-2. Finalize changed CSS/JS bytes after dependency versions are updated; hash the final bytes and update HTML references. Process dependency graphs from leaves upward; do not create circular hash/version dependencies.
-3. Run `python3 ops/deploy/check_asset_versions.py --root <reviewed-source-or-extracted-artifact>`. It is read-only and rejects stable or incorrect versions. It checks HTML src/href/data-src/poster/srcset and CSS url/import references. Runtime-generated local asset URLs need a separate source review; they are not claimed to be exhaustively parsed from arbitrary JavaScript.
-4. Commit the final source references and validate the exact Git archive against the same content-version rule. Integrate the gate into mandatory release CI when that migration lands; it is not yet enforced in the runtime entrypoint or existing site workflow because current production references fail it.
-5. After separately authorized deployment, verify new HTML discovers changed asset URLs, new URLs deliver the committed bytes, old/new query keys remain distinct and normal browsers fetch changed assets. Keep the existing seven-day TTL initially; do not add `immutable` before every relevant reference/update control is proven.
+1. Finalize meaningful source content and leaf asset bytes. Run
+   `python3 ops/deploy/check_asset_versions.py --root . --generate`.
+   The public allowlist defines the production graph. HTML attributes/srcsets,
+   inline CSS, literal JS module/resource URLs, CSS imports/URLs, SVG resources,
+   social metadata and structured-data image URLs are inspected. Navigation,
+   canonical, hreflang, API, external and fragment URLs are excluded. Dynamic
+   local resource construction must be resolved to explicit URLs; arbitrary
+   JavaScript execution is not inferred by an offline parser.
+2. The graph is validated before writes. Deterministic sorted DFS detects cycles
+   and missing/unpackaged dependencies. Dependencies are rewritten and hashed
+   before their parents, using full SHA-256 of final bytes. Run generation again:
+   `changed_files` must be empty and the working-tree byte snapshot unchanged.
+3. OG image, favicon and apple-touch-icon receive final-byte query hashes. OG's
+   existing nginx no-cache/no-store rule stays unchanged; canonical identity and
+   sitemap lastmod are not changed for cache-busting alone.
+4. Run all Golden/static/unit/browser gates and commit finalized source. Hosted
+   CI checks out the exact head commit, not a synthetic PR merge, and repeats
+   the generator/checker, isolated nginx and browser tests, privileged install
+   fixtures, signature secret scan and exact-archive package verification.
+5. `python3 ops/deploy/verify_release_candidate.py --repo . --commit <full-sha>`
+   extracts a local Git archive, rejects non-finalized versions, runs Golden
+   checks, builds the allowlisted package, runs canonical deploy validators,
+   then computes the final-byte manifest. No mutation is permitted after it.
+   The version-controlled deployment validator stages the checker from the
+   pinned target Git object and checks versions BEFORE Git-blob manifest parity.
+   No generated file or checker is added to the public webroot.
+6. Never run the live deployment entrypoint for a candidate. Issue #10 remains
+   mandatory: main protection must actually be enforced before Golden release.
+   An updated deploy executable itself requires separate reviewed installation.
+
+HTML candidate and browser acceptance instructions are in
+`ops/nginx/FRESHNESS-CANDIDATE.md`. No production nginx or media configuration
+has been changed. Future edge acceptance must repeat the tests through the
+actual public release URL; local origin tests cannot prove CDN overrides.
 
 Read-only edge evidence: at the sampled WAW POP, the content-version query was MISS then HIT; a distinct deterministic probe label was MISS. All bodies remained the current CSS bytes. This demonstrates sampled query-key separation, not a universal management-rule guarantee or a changed asset rollout.
 

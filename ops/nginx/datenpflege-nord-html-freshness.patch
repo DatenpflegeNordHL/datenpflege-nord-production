@@ -1,0 +1,22 @@
+--- a/datenpflege-nord.conf
++++ b/datenpflege-nord.conf
+@@ -1,3 +1,11 @@
++# HTML may be stored, but every normal reuse must revalidate.
++# nginx clears Content-Type for 304; resolved .html URIs retain this policy.
++map "$status:$sent_http_content_type:$uri" $dpn_html_cache_control {
++    default "";
++    ~^[0-9]+:text/html no-cache;
++    ~^304::.*[.]html$ no-cache;
++}
++
+ server {
+     listen 127.0.0.1:8080;
+     server_name www.datenpflege-nord.de;
+@@ -21,6 +29,7 @@
+     add_header X-Content-Type-Options "nosniff" always;
+     add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+     add_header X-Frame-Options "SAMEORIGIN" always;
++    add_header Cache-Control $dpn_html_cache_control always;
+ 
+     gzip on;
+     gzip_vary on;
