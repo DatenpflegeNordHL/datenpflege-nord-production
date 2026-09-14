@@ -1,6 +1,8 @@
 # P0 Sanitized Deployment Contract
 
-Status: read-only contract capture. No production deployment, nginx reload/restart, webroot replacement, deploy-script edit, Cloudflare change, backend change or main merge was performed.
+Current update — 2026-09-14: privileged read-only hash verification confirms installed dpn-deploy SHA-256 `d853a8c32c0179b70705d7ea307a038d7f0bc0f23adc4c961f13c193880cec01` and local untracked copy SHA-256 `7e818ca2c76a2767a4b3887d0add25df98e66544e42e989fc16f1ee3e097e2e7`. The files are not byte-identical. The only known difference is ordering of `assets/profile-card.css` and `assets/profile/dustin-zander.webp` in the public allowlist. Allowlist membership is identical; no functional deployment difference has been identified from this ordering change because the allowlist is iterated and manifest validation sorts it. Neither file was modified or overwritten. **Issue #15 remains OPEN: canonical versioned dpn-deploy source of truth is still required.** The separately authorized nginx remediation passed; see `P0-REDIRECT-EVIDENCE.md`. Read-only/no-reload and unproven-hash statements below are historical observations from 2026-09-13.
+
+Historical capture status (2026-09-13): read-only contract capture. No production deployment, nginx reload/restart, webroot replacement, deploy-script edit, Cloudflare change, backend change or main merge was performed.
 
 ## Contract chain
 
@@ -103,20 +105,15 @@ Installed executable metadata observed:
 - size: `17000` bytes
 - mtime: `2026-08-26 19:43:56.669844501 +0200`
 
-The exact SHA-256 of the installed executable remains **unproven**. A fresh non-interactive privileged read-only attempt on 2026-09-13 failed because `sudo` requires authentication. The ordinary account can read `stat` metadata but cannot read the file bytes. This limitation is recorded rather than inventing an identity.
+Read-only verification on 2026-09-14 confirmed installed executable SHA-256 `d853a8c32c0179b70705d7ea307a038d7f0bc0f23adc4c961f13c193880cec01`. The 2026-09-13 non-interactive sudo authentication failure was a historical evidence limitation; the installed-hash gap is now resolved.
 
-Safe administrator commands required to close this evidence gap are read-only:
+The local operations-checkout candidate at `/home/adminzander/projekte/datenpflege-nord-production/scripts/dpn-deploy` remains **untracked**, with SHA-256 `7e818ca2c76a2767a4b3887d0add25df98e66544e42e989fc16f1ee3e097e2e7`. It is not byte-identical to the installed executable. The supplied audited difference is solely the ordering of `assets/profile-card.css` and `assets/profile/dustin-zander.webp`; allowlist membership is identical and no functional deployment difference has been identified from this ordering change. Neither file was overwritten.
 
-```bash
-sudo sha256sum /usr/local/sbin/dpn-deploy
-sudo stat -c 'path=%n owner=%U group=%G mode=%a size=%s mtime=%y inode=%i' /usr/local/sbin/dpn-deploy
-```
-
-A local operations-checkout candidate at `/home/adminzander/projekte/datenpflege-nord-production/scripts/dpn-deploy` is also 17000 bytes and has SHA-256 `7e818ca2c76a2767a4b3887d0add25df98e66544e42e989fc16f1ee3e097e2e7`, but it is **untracked** in that checkout and byte identity with `/usr/local/sbin/dpn-deploy` is not proven. The comparison result is therefore **UNKNOWN**, not MATCH.
-
-This is a P0 contract-evidence gap: before production configuration activation or deployment authorization, an administrator must record the installed script hash read-only and reconcile it with the reviewed/versioned deployment implementation.
+**Issue #15: OPEN.** The canonical version-controlled dpn-deploy source of truth remains unresolved; recording hashes and the known ordering difference does not close the deployment contract or authorize a website deployment.
 
 ## Main protection gate
+
+**Issue #10: OPEN.** This evidence finalization does not change repository protection.
 
 GitHub currently reports `main` as unprotected. Branch-protection and repository-ruleset API requests return HTTP 403 with GitHub's explicit limitation: upgrade the account/plan or make the repository public to enable the feature. Making a production repository public is not an acceptable automatic workaround.
 

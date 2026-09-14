@@ -1,6 +1,6 @@
 # P0 Redirect Remediation Design
 
-Status: design only. **No production configuration change has been applied.**
+Status: **Redirect P0: CLOSED; production remediation applied and public matrix 24/24 PASS on 2026-09-14**. See `P0-REDIRECT-EVIDENCE.md` for hashes, exact diff, duplicate deactivation, reload and complete origin/public matrices. Issue #15 remains OPEN. The design/staging notes below describe the historical pre-change evidence.
 
 ## Proven cause
 
@@ -8,11 +8,11 @@ The canonical nginx server for `datenpflege-nord.de` listens on plain HTTP at `1
 
 Direct origin tests reproduce the defect even when standard `X-Forwarded-Proto`, `X-Forwarded-Port`, and `X-Forwarded-Host` headers are supplied, so the current static redirect path does not derive its public redirect from those headers.
 
-## Minimal proposed change
+## Applied minimal change
 
 Scope the correction to the canonical `server_name datenpflege-nord.de` server in `/etc/nginx/sites-available/datenpflege-nord.conf`.
 
-Preferred minimal change to validate in a staged copy:
+The staged candidate was applied in production with exactly this directive addition:
 
 ```nginx
 server {
@@ -31,9 +31,9 @@ This makes nginx-generated redirects relative, so a request that arrived publicl
 
 The active file is `/etc/nginx/sites-available/datenpflege-nord.conf`, enabled via `/etc/nginx/sites-enabled/datenpflege-nord.conf` symlink. Its pre-change SHA-256 is `883cdfa48bb8a6f872db01717669c9b258cd4fe524dade03c593a8344c338373`.
 
-A local repository search found no separate operations/infrastructure Git repository. To avoid inventing a second source of truth, this P0 branch carries only the exact audited change representation at `ops/nginx/datenpflege-nord-absolute-redirect.patch`. The live `/etc/nginx/sites-available/datenpflege-nord.conf` remains the operational configuration until an explicitly approved change is applied. The public-file deployment allowlist must continue to exclude `ops/`.
+A local repository search found no separate operations/infrastructure Git repository. To avoid inventing a second source of truth, this P0 branch carries only the exact audited change representation at `ops/nginx/datenpflege-nord-absolute-redirect.patch`. The live `/etc/nginx/sites-available/datenpflege-nord.conf` remains the operational configuration; the explicitly authorized directive addition was applied on 2026-09-14. The public-file deployment allowlist must continue to exclude `ops/`.
 
-## Staged candidate validation
+## Historical staged candidate validation
 
 A non-production staging copy was generated from the active site file with only the intended `absolute_redirect off;` behavior change, plus test-only substitutions for an unprivileged listener and log paths. No live nginx file was modified.
 
@@ -49,7 +49,7 @@ A non-production staging copy was generated from the active site file with only 
 
 A direct unprivileged `nginx -t` against the live configuration reports syntax OK but cannot complete because it cannot open `/run/nginx.pid`. A privileged production-target `nginx -t` therefore remains required before any live reload.
 
-## Change gate status
+## Historical change gate status (superseded for this authorized nginx change)
 
 **BLOCKED.** The installed `/usr/local/sbin/dpn-deploy` SHA-256 has not been proven because non-interactive sudo authentication is unavailable. The privileged production-target `nginx -t` is also not complete. Consequently no production configuration change or reload is authorized by this evidence set.
 

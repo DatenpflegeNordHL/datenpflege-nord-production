@@ -1,5 +1,115 @@
 # P0 Redirect Evidence
 
+## Production remediation — 2026-09-14 (current evidence)
+
+**Redirect P0: CLOSED (24/24 public variants PASS). Issue #10: OPEN. Issue #15: OPEN.** This supersedes the historical redirect failures below; it does not authorize a website deployment.
+
+Controlled production change: 2026-09-14T09:23:03Z to 2026-09-14T09:25:03Z (11:23–11:25 Europe/Berlin). HTTP matrix window: 2026-09-14T09:24:45.657071+00:00 to 2026-09-14T09:24:53.764275+00:00.
+
+- Active config: `/etc/nginx/sites-available/datenpflege-nord.conf`; enabled symlink unchanged.
+- Exact pre-change backup: `/etc/nginx/sites-available/datenpflege-nord.conf.p0-20260914T092303Z.backup`; `cp -p`, matching SHA-256 and `cmp` PASS. Production metadata retained.
+- Before / backup SHA-256: `883cdfa48bb8a6f872db01717669c9b258cd4fe524dade03c593a8344c338373`.
+- After SHA-256: `56fb8e9b224fb6ce191e9a8911f626a48481650af64d875ea3b9873fc17444f3`.
+- Extra pre-fix checkpoint: `/etc/nginx/sites-available/datenpflege-nord.conf.p0-20260914T092449Z.pre-fix.backup` (created 09:23:56Z; same pre-change hash).
+- Duplicate moved from `/etc/nginx/sites-enabled/datenpflege-nord.conf.backup-og` to `/etc/nginx/sites-available/datenpflege-nord.conf.backup-og.p0-20260914T092303Z.disabled`; not deleted. Before/after duplicate SHA-256: `1debe37ef7c9e25e0f994feb963439f461d848a623bcb09e977e97e7ee2e2e72`.
+- Initial privileged `nginx -t`: syntax OK / test successful, with exactly the known canonical and www conflicting-server-name warnings.
+- After duplicate deactivation, before directive edit, after directive edit / pre-reload and final privileged `nginx -t`: syntax OK / test successful, no warnings.
+- Pre-change Contact Health: HTTP 200, `{"ok": true}`. Pre-change origin `/softwareentwicklung-luebeck`: 301, `Location: http://datenpflege-nord.de:8080/softwareentwicklung-luebeck/`.
+- `sudo systemctl reload nginx`: exit 0, graceful reload only. No restart. Post-reload and final service status: `active`.
+- Only the canonical server changed; the www explicit HTTPS redirect and contact proxy configuration are byte-unchanged.
+
+Exact applied config diff:
+
+```diff
+--- before/datenpflege-nord.conf
++++ after/datenpflege-nord.conf
+@@ -8,6 +8,7 @@
+ server {
+     listen 127.0.0.1:8080;
+     server_name datenpflege-nord.de;
++    absolute_redirect off;
+
+     root /srv/datenpflege-nord/current;
+     index index.html;
+```
+
+### Origin matrix
+
+GETs to `127.0.0.1:8080`, `Host: datenpflege-nord.de`. Slashless response must be 301 with relative Location; slash response must be 200.
+
+| Path | Without slash | Location | With slash | Result |
+| --- | ---: | --- | ---: | --- |
+| `softwareentwicklung-luebeck` | 301 | `/softwareentwicklung-luebeck/` | 200 | PASS |
+| `webentwicklung-luebeck` | 301 | `/webentwicklung-luebeck/` | 200 | PASS |
+| `ki-automatisierung-luebeck` | 301 | `/ki-automatisierung-luebeck/` | 200 | PASS |
+| `en` | 301 | `/en/` | 200 | PASS |
+| `impressum` | 301 | `/impressum/` | 200 | PASS |
+| `datenschutz` | 301 | `/datenschutz/` | 200 | PASS |
+
+### Public matrix
+
+Direct HTTP GETs, no insecure TLS option, each hop inspected and authority validated before following; maximum five redirects. All final URLs are canonical HTTPS slash URLs, HTTP 200. No internal authority/port, loop or TLS error.
+
+| Start URL | Status | Location | Redirect count | Final URL | Final HTTP | Result |
+| --- | ---: | --- | ---: | --- | ---: | --- |
+| `https://datenpflege-nord.de/softwareentwicklung-luebeck/` | 200 | `—` | 0 | `https://datenpflege-nord.de/softwareentwicklung-luebeck/` | 200 | PASS |
+| `https://datenpflege-nord.de/softwareentwicklung-luebeck` | 301 | `/softwareentwicklung-luebeck/` | 1 | `https://datenpflege-nord.de/softwareentwicklung-luebeck/` | 200 | PASS |
+| `http://datenpflege-nord.de/softwareentwicklung-luebeck/` | 301 | `https://datenpflege-nord.de/softwareentwicklung-luebeck/` | 1 | `https://datenpflege-nord.de/softwareentwicklung-luebeck/` | 200 | PASS |
+| `http://datenpflege-nord.de/softwareentwicklung-luebeck` | 301 | `https://datenpflege-nord.de/softwareentwicklung-luebeck` | 2 | `https://datenpflege-nord.de/softwareentwicklung-luebeck/` | 200 | PASS |
+| `https://datenpflege-nord.de/webentwicklung-luebeck/` | 200 | `—` | 0 | `https://datenpflege-nord.de/webentwicklung-luebeck/` | 200 | PASS |
+| `https://datenpflege-nord.de/webentwicklung-luebeck` | 301 | `/webentwicklung-luebeck/` | 1 | `https://datenpflege-nord.de/webentwicklung-luebeck/` | 200 | PASS |
+| `http://datenpflege-nord.de/webentwicklung-luebeck/` | 301 | `https://datenpflege-nord.de/webentwicklung-luebeck/` | 1 | `https://datenpflege-nord.de/webentwicklung-luebeck/` | 200 | PASS |
+| `http://datenpflege-nord.de/webentwicklung-luebeck` | 301 | `https://datenpflege-nord.de/webentwicklung-luebeck` | 2 | `https://datenpflege-nord.de/webentwicklung-luebeck/` | 200 | PASS |
+| `https://datenpflege-nord.de/ki-automatisierung-luebeck/` | 200 | `—` | 0 | `https://datenpflege-nord.de/ki-automatisierung-luebeck/` | 200 | PASS |
+| `https://datenpflege-nord.de/ki-automatisierung-luebeck` | 301 | `/ki-automatisierung-luebeck/` | 1 | `https://datenpflege-nord.de/ki-automatisierung-luebeck/` | 200 | PASS |
+| `http://datenpflege-nord.de/ki-automatisierung-luebeck/` | 301 | `https://datenpflege-nord.de/ki-automatisierung-luebeck/` | 1 | `https://datenpflege-nord.de/ki-automatisierung-luebeck/` | 200 | PASS |
+| `http://datenpflege-nord.de/ki-automatisierung-luebeck` | 301 | `https://datenpflege-nord.de/ki-automatisierung-luebeck` | 2 | `https://datenpflege-nord.de/ki-automatisierung-luebeck/` | 200 | PASS |
+| `https://datenpflege-nord.de/en/` | 200 | `—` | 0 | `https://datenpflege-nord.de/en/` | 200 | PASS |
+| `https://datenpflege-nord.de/en` | 301 | `/en/` | 1 | `https://datenpflege-nord.de/en/` | 200 | PASS |
+| `http://datenpflege-nord.de/en/` | 301 | `https://datenpflege-nord.de/en/` | 1 | `https://datenpflege-nord.de/en/` | 200 | PASS |
+| `http://datenpflege-nord.de/en` | 301 | `https://datenpflege-nord.de/en` | 2 | `https://datenpflege-nord.de/en/` | 200 | PASS |
+| `https://datenpflege-nord.de/impressum/` | 200 | `—` | 0 | `https://datenpflege-nord.de/impressum/` | 200 | PASS |
+| `https://datenpflege-nord.de/impressum` | 301 | `/impressum/` | 1 | `https://datenpflege-nord.de/impressum/` | 200 | PASS |
+| `http://datenpflege-nord.de/impressum/` | 301 | `https://datenpflege-nord.de/impressum/` | 1 | `https://datenpflege-nord.de/impressum/` | 200 | PASS |
+| `http://datenpflege-nord.de/impressum` | 301 | `https://datenpflege-nord.de/impressum` | 2 | `https://datenpflege-nord.de/impressum/` | 200 | PASS |
+| `https://datenpflege-nord.de/datenschutz/` | 200 | `—` | 0 | `https://datenpflege-nord.de/datenschutz/` | 200 | PASS |
+| `https://datenpflege-nord.de/datenschutz` | 301 | `/datenschutz/` | 1 | `https://datenpflege-nord.de/datenschutz/` | 200 | PASS |
+| `http://datenpflege-nord.de/datenschutz/` | 301 | `https://datenpflege-nord.de/datenschutz/` | 1 | `https://datenpflege-nord.de/datenschutz/` | 200 | PASS |
+| `http://datenpflege-nord.de/datenschutz` | 301 | `https://datenpflege-nord.de/datenschutz` | 2 | `https://datenpflege-nord.de/datenschutz/` | 200 | PASS |
+
+### Regression, logs and rollback
+
+Homepage, all six canonical pages, `/robots.txt`, `/sitemap.xml` and `/healthz`: public HTTP 200 without redirects. Contact Backend `http://127.0.0.1:8091/health`: HTTP 200, `{"ok": true}` before and after. No contact submission sent.
+
+Log baseline at 09:23:56Z, final check at 09:25:03Z: `/var/log/nginx/error.log` inode 19280212, 0 → 0 bytes; `/var/log/nginx/datenpflege-nord.error.log` inode 19280210, 177 → 177 bytes. No rotation and no new log entries. Existing site-log content was not treated as a new regression. Final nginx service `active`.
+
+Rollback ready, not required or executed: restore the byte-verified saved site config with preserved metadata; restore the duplicate enabled state only if required to restore the original state; privileged `nginx -t`; graceful reload only after a successful test; recheck contact health and known slashless origin baseline, then STOP. The saved duplicate remains available outside sites-enabled. The original baseline contains the known duplicate warnings and redirect defect.
+
+### Independent deployment contract and remaining gates
+
+Read-only SHA-256 verification on this server confirms:
+
+- Installed `/usr/local/sbin/dpn-deploy`: `d853a8c32c0179b70705d7ea307a038d7f0bc0f23adc4c961f13c193880cec01`.
+- Local unversioned `scripts/dpn-deploy`: `7e818ca2c76a2767a4b3887d0add25df98e66544e42e989fc16f1ee3e097e2e7`.
+
+Per the supplied audited difference, only the ordering of `assets/profile-card.css` and `assets/profile/dustin-zander.webp` differs in the public allowlist. Allowlist membership is identical; no functional deployment difference has been identified from this ordering change because the allowlist is iterated and manifest validation sorts it. The files are not byte-identical. The local copy remains untracked in its operations checkout. Neither file was edited, overwritten or copied over the other.
+
+Issue #15 remains OPEN until there is a canonically versioned dpn-deploy source of truth and the deployment contract is reconciled with it. No GitHub issue state was modified.
+
+Remaining P0 gates from the evidence pack: main branch protection / required checks (#10); versioned deployment contract (#15); production-versus-reviewed-release parity before deployment; full security/cache-header sign-off. Remaining P1 gates: Search Console index/query/CTR/canonical evidence; fresh Lighthouse/CrUX/CWV; local/business entity validation; business/service-area decisions; deterministic sitemap lastmod; post-release browser and CSP enforcement eligibility. These were not closed by this nginx change.
+
+Raw per-hop HTTP evidence: `ops/evidence/p0-nginx-20260914.json`.
+
+No website deployment performed
+
+No merge to main performed
+
+No Cloudflare configuration changed
+
+No contact backend configuration changed
+
+## Historical pre-remediation evidence
+
 Observation window: 2026-09-13, final origin isolation at `2026-09-13T21:22:25+02:00`.
 
 Evidence classes are deliberately separated:
