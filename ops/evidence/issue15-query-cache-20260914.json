@@ -1,0 +1,44 @@
+{
+  "scope": "read-only query-key probe; current content SHA label twice and a deterministic distinct test label; no changed CSS bytes deployed",
+  "observations": [
+    {
+      "query_label": "f4971f2cf3937a01edca19d4585131bfad01d728bdb93db3544fbba385c4d96d",
+      "status": 200,
+      "headers": {
+        "cache-control": "public, max-age=604800",
+        "etag": "W/\"6a9fa562-6770\"",
+        "last-modified": "Tue, 08 Sep 2026 06:04:18 GMT",
+        "cf-cache-status": "MISS",
+        "cf-ray": "a3ae840d6fdabbca-WAW"
+      },
+      "decoded_sha256": "f4971f2cf3937a01edca19d4585131bfad01d728bdb93db3544fbba385c4d96d"
+    },
+    {
+      "query_label": "f4971f2cf3937a01edca19d4585131bfad01d728bdb93db3544fbba385c4d96d",
+      "status": 200,
+      "headers": {
+        "cache-control": "public, max-age=604800",
+        "etag": "W/\"6a9fa562-6770\"",
+        "last-modified": "Tue, 08 Sep 2026 06:04:18 GMT",
+        "age": "0",
+        "cf-cache-status": "HIT",
+        "cf-ray": "a3ae840e4837bbca-WAW"
+      },
+      "decoded_sha256": "f4971f2cf3937a01edca19d4585131bfad01d728bdb93db3544fbba385c4d96d"
+    },
+    {
+      "query_label": "cceb7fd376694fd43976128cf35b7b77c2c50010b05cc34e001e8b752e1afc88",
+      "status": 200,
+      "headers": {
+        "cache-control": "public, max-age=604800",
+        "etag": "W/\"6a9fa562-6770\"",
+        "last-modified": "Tue, 08 Sep 2026 06:04:18 GMT",
+        "cf-cache-status": "MISS",
+        "cf-ray": "a3ae840e8858bbca-WAW"
+      },
+      "decoded_sha256": "f4971f2cf3937a01edca19d4585131bfad01d728bdb93db3544fbba385c4d96d"
+    }
+  ],
+  "body_identity": "PASS",
+  "limit": "Cache status is a bounded edge snapshot, not proof of every Cloudflare rule/POP or future configuration."
+}

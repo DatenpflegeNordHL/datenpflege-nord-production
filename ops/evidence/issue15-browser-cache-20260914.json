@@ -1,0 +1,92 @@
+{
+  "scope": "Headless Chromium, same-origin GET/fetch only; no deployment, contact request or configuration change",
+  "observations": [
+    {
+      "path": "/",
+      "requestedCacheMode": "default",
+      "status": 200,
+      "headers": {
+        "last-modified": "Tue, 08 Sep 2026 06:04:18 GMT",
+        "cf-cache-status": "DYNAMIC"
+      },
+      "transferSize": 0,
+      "decodedBodySize": 22410,
+      "deliveryType": "cache",
+      "cacheReuseObserved": true
+    },
+    {
+      "path": "/",
+      "requestedCacheMode": "default",
+      "status": 200,
+      "headers": {
+        "last-modified": "Tue, 08 Sep 2026 06:04:18 GMT",
+        "cf-cache-status": "DYNAMIC"
+      },
+      "transferSize": 0,
+      "decodedBodySize": 22410,
+      "deliveryType": "cache",
+      "cacheReuseObserved": true
+    },
+    {
+      "path": "/",
+      "requestedCacheMode": "no-cache",
+      "status": 200,
+      "headers": {
+        "last-modified": "Tue, 08 Sep 2026 06:04:18 GMT",
+        "cf-cache-status": "DYNAMIC"
+      },
+      "transferSize": 300,
+      "decodedBodySize": 22410,
+      "deliveryType": "cache",
+      "cacheReuseObserved": false
+    },
+    {
+      "path": "/assets/home.css",
+      "requestedCacheMode": "default",
+      "status": 200,
+      "headers": {
+        "cache-control": "public, max-age=604800",
+        "age": "813",
+        "etag": "W/\"6a9fa562-6770\"",
+        "last-modified": "Tue, 08 Sep 2026 06:04:18 GMT",
+        "cf-cache-status": "HIT"
+      },
+      "transferSize": 0,
+      "decodedBodySize": 26480,
+      "deliveryType": "cache",
+      "cacheReuseObserved": true
+    },
+    {
+      "path": "/assets/home.css",
+      "requestedCacheMode": "default",
+      "status": 200,
+      "headers": {
+        "cache-control": "public, max-age=604800",
+        "age": "813",
+        "etag": "W/\"6a9fa562-6770\"",
+        "last-modified": "Tue, 08 Sep 2026 06:04:18 GMT",
+        "cf-cache-status": "HIT"
+      },
+      "transferSize": 0,
+      "decodedBodySize": 26480,
+      "deliveryType": "cache",
+      "cacheReuseObserved": true
+    },
+    {
+      "path": "/assets/home.css",
+      "requestedCacheMode": "no-cache",
+      "status": 200,
+      "headers": {
+        "cache-control": "public, max-age=604800",
+        "age": "888",
+        "etag": "W/\"6a9fa562-6770\"",
+        "last-modified": "Tue, 08 Sep 2026 06:04:18 GMT",
+        "cf-cache-status": "HIT"
+      },
+      "transferSize": 300,
+      "decodedBodySize": 26480,
+      "deliveryType": "cache",
+      "cacheReuseObserved": false
+    }
+  ]
+}

@@ -94,7 +94,7 @@ Read-only SHA-256 verification on this server confirms:
 
 Per the supplied audited difference, only the ordering of `assets/profile-card.css` and `assets/profile/dustin-zander.webp` differs in the public allowlist. Allowlist membership is identical; no functional deployment difference has been identified from this ordering change because the allowlist is iterated and manifest validation sorts it. The files are not byte-identical. The local copy remains untracked in its operations checkout. Neither file was edited, overwritten or copied over the other.
 
-Issue #15 remains OPEN. A byte-identical runtime baseline is now versioned at `ops/deploy/dpn-deploy`; operational adoption, future cache/freshness controls and authorized dry-run/rollback acceptance remain OPEN. See `P0-DEPLOYMENT-CONTRACT.md` for the current acceptance matrix. No GitHub issue state was modified.
+Issue #15 remains OPEN. The byte-identical canonical runtime source, pinned-source update tooling, controlled check entrypoint and isolated script rollback proof are now PASS. Only live normal-asset version migration and bounded HTML-freshness acceptance remain OPEN. See `P0-DEPLOYMENT-CONTRACT.md` and `ops/deploy/RELEASE-RUNBOOK.md`. No GitHub issue state was modified.
 
 Remaining P0 gates from the evidence pack: main branch protection / required checks (#10); versioned deployment contract (#15); production-versus-reviewed-release parity before deployment; full security/cache-header sign-off. Remaining P1 gates: Search Console index/query/CTR/canonical evidence; fresh Lighthouse/CrUX/CWV; local/business entity validation; business/service-area decisions; deterministic sitemap lastmod; post-release browser and CSP enforcement eligibility. These were not closed by this nginx change.
 

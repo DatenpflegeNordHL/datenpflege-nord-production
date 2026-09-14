@@ -29,7 +29,11 @@ jobs:
 
       - name: Run deterministic site checks
         run: |
+          bash -n ops/deploy/dpn-deploy
+          bash -n ops/deploy/verify-dpn-deploy.sh
+          bash -n ops/deploy/install-dpn-deploy.sh
           python -m unittest discover -s tests
+          sudo python3 -m unittest discover -s tests -p test_deploy_install.py
           python scripts/site_audit.py
           python scripts/golden_audit.py
           node --check assets/home-de.js
