@@ -1,0 +1,58 @@
+{
+  "at": "2026-09-14T09:42:54.143254+00:00",
+  "canonical_path": "ops/deploy/dpn-deploy",
+  "canonical_sha256": "d853a8c32c0179b70705d7ea307a038d7f0bc0f23adc4c961f13c193880cec01",
+  "installed_sha256": "d853a8c32c0179b70705d7ea307a038d7f0bc0f23adc4c961f13c193880cec01",
+  "local_untracked_sha256": "7e818ca2c76a2767a4b3887d0add25df98e66544e42e989fc16f1ee3e097e2e7",
+  "runtime_bytes": 17000,
+  "runtime_lines": 409,
+  "identity": "MATCH",
+  "allowlist_membership_identical": true,
+  "outside_allowlist_byte_identical": true,
+  "exact_diff": "--- installed\n+++ local\n@@ -40,13 +40,13 @@\n     \"apple-touch-icon.png\"\n     \"og-datenpflege-nord.png\"\n     \"assets/home.css\"\n+    \"assets/profile-card.css\"\n+    \"assets/profile/dustin-zander.webp\"\n     \"assets/home-de.js\"\n     \"assets/home-en.js\"\n     \"assets/legal.css\"\n     \"assets/service.css\"\n     \"assets/service.js\"\n-    \"assets/profile-card.css\"\n-    \"assets/profile/dustin-zander.webp\"\n     \"assets/branding/datenpflegenord-logo.svg\"\n     \"assets/hero/mainframe-hero.mp4\"\n     \"assets/hero/mainframe-poster.jpg\"\n",
+  "source_review": "Complete runtime script manually reviewed after literal-secret screening; only required secret file paths, no embedded secret values found. Runtime copied byte-identically; neither original overwritten.",
+  "metadata": [
+    {
+      "path": "/usr/local/sbin/dpn-deploy",
+      "uid": 0,
+      "gid": 0,
+      "mode": "0o750",
+      "bytes": 17000
+    },
+    {
+      "path": "/etc/datenpflege-nord-contact.env",
+      "uid": 0,
+      "gid": 0,
+      "mode": "0o600",
+      "bytes": 58
+    },
+    {
+      "path": "/etc/dpn-deploy",
+      "uid": 0,
+      "gid": 0,
+      "mode": "0o700",
+      "bytes": 4096
+    },
+    {
+      "path": "/etc/cloudflared/token",
+      "uid": 0,
+      "gid": 0,
+      "mode": "0o600",
+      "bytes": 184
+    }
+  ],
+  "nginx_sha256": "56fb8e9b224fb6ce191e9a8911f626a48481650af64d875ea3b9873fc17444f3",
+  "contact_route": "/api/contact -> http://127.0.0.1:8091",
+  "contact_health": {
+    "http_status": 200,
+    "body": {
+      "ok": true
+    }
+  },
+  "services": {
+    "nginx": "active",
+    "dpn-contact": "active",
+    "cloudflared": "active"
+  },
+  "runtime_release_validators": "PASS: all five runtime validators called read-only after loading definitions only; no deployment entrypoint, lock, fetch, state write, installation, switch or reload executed."
+}

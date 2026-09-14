@@ -1,0 +1,365 @@
+{
+  "at": "2026-09-14T09:42:32.998709+00:00",
+  "scope": "headless Chromium desktop, seven canonical pages; waited for existing H1 typewriter animation to settle; no contact form interaction",
+  "launch_note": "Initial Chromium sandbox launch failed; isolated audit browser relaunched with --no-sandbox; no host configuration changed.",
+  "pages": [
+    {
+      "path": "/",
+      "observed": {
+        "url": "https://datenpflege-nord.de/",
+        "title": "Softwareentwicklung, Web & KI L\u00fcbeck | DatenpflegeNord",
+        "canonical": "https://datenpflege-nord.de/",
+        "description": "DatenpflegeNord entwickelt Software, Websites und KI-Automatisierungen f\u00fcr Unternehmen in L\u00fcbeck und Schleswig-Holstein. APIs, n8n, KI-Agenten und Integrationen.",
+        "h1": [
+          "Softwareentwicklung, Webentwicklung & KI-Automatisierung aus L\u00fcbeck."
+        ],
+        "schemaTypes": [
+          "Brand",
+          "ImageObject",
+          "Organization",
+          "Person",
+          "PostalAddress",
+          "WebSite"
+        ],
+        "links": [
+          "https://datenpflege-nord.de/#main",
+          "https://datenpflege-nord.de/",
+          "https://datenpflege-nord.de/#arbeit",
+          "https://datenpflege-nord.de/#profil",
+          "https://datenpflege-nord.de/#kontakt",
+          "https://datenpflege-nord.de/",
+          "https://datenpflege-nord.de/en/",
+          "https://datenpflege-nord.de/#arbeit",
+          "https://datenpflege-nord.de/#kontakt",
+          "https://datenpflege-nord.de/softwareentwicklung-luebeck/",
+          "https://datenpflege-nord.de/webentwicklung-luebeck/",
+          "https://datenpflege-nord.de/ki-automatisierung-luebeck/",
+          "https://datenpflege-nord.de/#kontakt",
+          "https://datenpflege-nord.de/#kontakt",
+          "https://datenpflege-nord.de/impressum/",
+          "https://datenpflege-nord.de/datenschutz/"
+        ],
+        "bodyVisible": true,
+        "loadedStyles": [
+          "https://datenpflege-nord.de/assets/home.css",
+          "https://datenpflege-nord.de/assets/profile-card.css"
+        ],
+        "resourceFailures": []
+      },
+      "checks": {
+        "canonical": true,
+        "title": true,
+        "description": true,
+        "h1": true,
+        "schema_types": true,
+        "body_visible": true,
+        "no_page_errors": true,
+        "no_failed_resources": true
+      },
+      "page_errors": "",
+      "console": "",
+      "result": "PASS"
+    },
+    {
+      "path": "/en/",
+      "observed": {
+        "url": "https://datenpflege-nord.de/en/",
+        "title": "Software Development, Web & AI L\u00fcbeck | DatenpflegeNord",
+        "canonical": "https://datenpflege-nord.de/en/",
+        "description": "DatenpflegeNord develops software, websites and AI automation for businesses in L\u00fcbeck and Schleswig-Holstein. APIs, n8n, AI agents and integrations.",
+        "h1": [
+          "Software development, web development & AI automation from L\u00fcbeck."
+        ],
+        "schemaTypes": [
+          "Brand",
+          "ImageObject",
+          "Organization",
+          "Person",
+          "PostalAddress",
+          "WebSite"
+        ],
+        "links": [
+          "https://datenpflege-nord.de/en/#main",
+          "https://datenpflege-nord.de/en/",
+          "https://datenpflege-nord.de/en/#arbeit",
+          "https://datenpflege-nord.de/en/#profil",
+          "https://datenpflege-nord.de/en/#kontakt",
+          "https://datenpflege-nord.de/",
+          "https://datenpflege-nord.de/en/",
+          "https://datenpflege-nord.de/en/#arbeit",
+          "https://datenpflege-nord.de/en/#kontakt",
+          "https://datenpflege-nord.de/en/#kontakt",
+          "https://datenpflege-nord.de/en/#kontakt",
+          "https://datenpflege-nord.de/impressum/",
+          "https://datenpflege-nord.de/datenschutz/"
+        ],
+        "bodyVisible": true,
+        "loadedStyles": [
+          "https://datenpflege-nord.de/assets/home.css",
+          "https://datenpflege-nord.de/assets/profile-card.css"
+        ],
+        "resourceFailures": []
+      },
+      "checks": {
+        "canonical": true,
+        "title": true,
+        "description": true,
+        "h1": true,
+        "schema_types": true,
+        "body_visible": true,
+        "no_page_errors": true,
+        "no_failed_resources": true
+      },
+      "page_errors": "",
+      "console": "",
+      "result": "PASS"
+    },
+    {
+      "path": "/softwareentwicklung-luebeck/",
+      "observed": {
+        "url": "https://datenpflege-nord.de/softwareentwicklung-luebeck/",
+        "title": "Softwareentwicklung L\u00fcbeck | Individuelle Software | DatenpflegeNord",
+        "canonical": "https://datenpflege-nord.de/softwareentwicklung-luebeck/",
+        "description": "Individuelle Softwareentwicklung in L\u00fcbeck: Webanwendungen, interne Tools, APIs, Integrationen und Automatisierung mit direktem Ansprechpartner.",
+        "h1": [
+          "Individuelle Softwareentwicklung in L\u00fcbeck."
+        ],
+        "schemaTypes": [
+          "BreadcrumbList",
+          "ListItem",
+          "Organization",
+          "Service",
+          "WebPage"
+        ],
+        "links": [
+          "https://datenpflege-nord.de/softwareentwicklung-luebeck/#main",
+          "https://datenpflege-nord.de/",
+          "https://datenpflege-nord.de/#arbeit",
+          "https://datenpflege-nord.de/#profil",
+          "https://datenpflege-nord.de/#kontakt",
+          "https://datenpflege-nord.de/",
+          "https://datenpflege-nord.de/",
+          "https://datenpflege-nord.de/#kontakt",
+          "https://datenpflege-nord.de/softwareentwicklung-luebeck/#leistungen",
+          "https://datenpflege-nord.de/webentwicklung-luebeck/",
+          "https://datenpflege-nord.de/ki-automatisierung-luebeck/",
+          "https://datenpflege-nord.de/#kontakt",
+          "https://datenpflege-nord.de/impressum/",
+          "https://datenpflege-nord.de/datenschutz/"
+        ],
+        "bodyVisible": true,
+        "loadedStyles": [
+          "https://datenpflege-nord.de/assets/service.css"
+        ],
+        "resourceFailures": []
+      },
+      "checks": {
+        "canonical": true,
+        "title": true,
+        "description": true,
+        "h1": true,
+        "schema_types": true,
+        "body_visible": true,
+        "no_page_errors": true,
+        "no_failed_resources": true
+      },
+      "page_errors": "",
+      "console": "",
+      "result": "PASS"
+    },
+    {
+      "path": "/webentwicklung-luebeck/",
+      "observed": {
+        "url": "https://datenpflege-nord.de/webentwicklung-luebeck/",
+        "title": "Webentwicklung L\u00fcbeck | Websites & Webl\u00f6sungen | DatenpflegeNord",
+        "canonical": "https://datenpflege-nord.de/webentwicklung-luebeck/",
+        "description": "Webentwicklung in L\u00fcbeck f\u00fcr Unternehmen: moderne Websites, Webl\u00f6sungen, Relaunches, technische Optimierung und Integrationen mit direktem Ansprechpartner.",
+        "h1": [
+          "Webentwicklung & Websites f\u00fcr Unternehmen in L\u00fcbeck."
+        ],
+        "schemaTypes": [
+          "BreadcrumbList",
+          "ListItem",
+          "Organization",
+          "Service",
+          "WebPage"
+        ],
+        "links": [
+          "https://datenpflege-nord.de/webentwicklung-luebeck/#main",
+          "https://datenpflege-nord.de/",
+          "https://datenpflege-nord.de/#arbeit",
+          "https://datenpflege-nord.de/#profil",
+          "https://datenpflege-nord.de/#kontakt",
+          "https://datenpflege-nord.de/",
+          "https://datenpflege-nord.de/",
+          "https://datenpflege-nord.de/#kontakt",
+          "https://datenpflege-nord.de/webentwicklung-luebeck/#leistungen",
+          "https://datenpflege-nord.de/softwareentwicklung-luebeck/",
+          "https://datenpflege-nord.de/ki-automatisierung-luebeck/",
+          "https://datenpflege-nord.de/#kontakt",
+          "https://datenpflege-nord.de/impressum/",
+          "https://datenpflege-nord.de/datenschutz/"
+        ],
+        "bodyVisible": true,
+        "loadedStyles": [
+          "https://datenpflege-nord.de/assets/service.css"
+        ],
+        "resourceFailures": []
+      },
+      "checks": {
+        "canonical": true,
+        "title": true,
+        "description": true,
+        "h1": true,
+        "schema_types": true,
+        "body_visible": true,
+        "no_page_errors": true,
+        "no_failed_resources": true
+      },
+      "page_errors": "",
+      "console": "",
+      "result": "PASS"
+    },
+    {
+      "path": "/ki-automatisierung-luebeck/",
+      "observed": {
+        "url": "https://datenpflege-nord.de/ki-automatisierung-luebeck/",
+        "title": "KI-Automatisierung L\u00fcbeck | KI-Agenten & Workflows | DatenpflegeNord",
+        "canonical": "https://datenpflege-nord.de/ki-automatisierung-luebeck/",
+        "description": "KI-Automatisierung in L\u00fcbeck: KI-Agenten, n8n-Workflows, API-Integrationen und LLM-gest\u00fctzte Prozesse f\u00fcr klar abgegrenzte Unternehmensaufgaben.",
+        "h1": [
+          "KI-Automatisierung f\u00fcr Unternehmen in L\u00fcbeck."
+        ],
+        "schemaTypes": [
+          "BreadcrumbList",
+          "ListItem",
+          "Organization",
+          "Service",
+          "WebPage"
+        ],
+        "links": [
+          "https://datenpflege-nord.de/ki-automatisierung-luebeck/#main",
+          "https://datenpflege-nord.de/",
+          "https://datenpflege-nord.de/#arbeit",
+          "https://datenpflege-nord.de/#profil",
+          "https://datenpflege-nord.de/#kontakt",
+          "https://datenpflege-nord.de/",
+          "https://datenpflege-nord.de/",
+          "https://datenpflege-nord.de/#kontakt",
+          "https://datenpflege-nord.de/ki-automatisierung-luebeck/#leistungen",
+          "https://datenpflege-nord.de/softwareentwicklung-luebeck/",
+          "https://datenpflege-nord.de/webentwicklung-luebeck/",
+          "https://datenpflege-nord.de/#kontakt",
+          "https://datenpflege-nord.de/impressum/",
+          "https://datenpflege-nord.de/datenschutz/"
+        ],
+        "bodyVisible": true,
+        "loadedStyles": [
+          "https://datenpflege-nord.de/assets/service.css"
+        ],
+        "resourceFailures": []
+      },
+      "checks": {
+        "canonical": true,
+        "title": true,
+        "description": true,
+        "h1": true,
+        "schema_types": true,
+        "body_visible": true,
+        "no_page_errors": true,
+        "no_failed_resources": true
+      },
+      "page_errors": "",
+      "console": "",
+      "result": "PASS"
+    },
+    {
+      "path": "/impressum/",
+      "observed": {
+        "url": "https://datenpflege-nord.de/impressum/",
+        "title": "Impressum | DatenpflegeNord",
+        "canonical": "https://datenpflege-nord.de/impressum/",
+        "description": "Impressum und Anbieterkennzeichnung von DatenpflegeNord.",
+        "h1": [
+          "Impressum."
+        ],
+        "schemaTypes": [],
+        "links": [
+          "https://datenpflege-nord.de/",
+          "https://datenpflege-nord.de/",
+          "https://datenpflege-nord.de/impressum/#anbieter",
+          "https://datenpflege-nord.de/impressum/#kontakt",
+          "https://datenpflege-nord.de/impressum/#register",
+          "https://datenpflege-nord.de/impressum/#umfirmierung",
+          "https://datenpflege-nord.de/",
+          "https://datenpflege-nord.de/impressum/",
+          "https://datenpflege-nord.de/datenschutz/"
+        ],
+        "bodyVisible": true,
+        "loadedStyles": [
+          "https://datenpflege-nord.de/assets/legal.css"
+        ],
+        "resourceFailures": []
+      },
+      "checks": {
+        "canonical": true,
+        "title": true,
+        "description": true,
+        "h1": true,
+        "schema_types": true,
+        "body_visible": true,
+        "no_page_errors": true,
+        "no_failed_resources": true
+      },
+      "page_errors": "",
+      "console": "",
+      "result": "PASS"
+    },
+    {
+      "path": "/datenschutz/",
+      "observed": {
+        "url": "https://datenpflege-nord.de/datenschutz/",
+        "title": "Datenschutz | DatenpflegeNord",
+        "canonical": "https://datenpflege-nord.de/datenschutz/",
+        "description": "Datenschutzhinweise f\u00fcr die Website von DatenpflegeNord.",
+        "h1": [
+          "Datenschutz."
+        ],
+        "schemaTypes": [],
+        "links": [
+          "https://datenpflege-nord.de/",
+          "https://datenpflege-nord.de/",
+          "https://datenpflege-nord.de/datenschutz/#verantwortlicher",
+          "https://datenpflege-nord.de/datenschutz/#website",
+          "https://datenpflege-nord.de/datenschutz/#cloudflare",
+          "https://datenpflege-nord.de/datenschutz/#github",
+          "https://datenpflege-nord.de/datenschutz/#kontakt",
+          "https://datenpflege-nord.de/datenschutz/#cookies",
+          "https://datenpflege-nord.de/datenschutz/#rechte",
+          "https://datenpflege-nord.de/datenschutz/#aufsicht",
+          "https://datenpflege-nord.de/impressum/",
+          "https://datenpflege-nord.de/datenschutz/"
+        ],
+        "bodyVisible": true,
+        "loadedStyles": [
+          "https://datenpflege-nord.de/assets/legal.css"
+        ],
+        "resourceFailures": []
+      },
+      "checks": {
+        "canonical": true,
+        "title": true,
+        "description": true,
+        "h1": true,
+        "schema_types": true,
+        "body_visible": true,
+        "no_page_errors": true,
+        "no_failed_resources": true
+      },
+      "page_errors": "",
+      "console": "",
+      "result": "PASS"
+    }
+  ],
+  "result": "PASS"
+}

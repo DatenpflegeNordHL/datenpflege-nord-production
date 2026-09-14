@@ -1,0 +1,1108 @@
+{
+  "at": "2026-09-14T09:39:51.190920+00:00",
+  "source_commit": "65468e875fa0f4318cc07d7e4cbe843cacb24569",
+  "semantics": [
+    {
+      "path": "/",
+      "expected": {
+        "canonical": "https://datenpflege-nord.de/",
+        "title": "Softwareentwicklung, Web & KI L\u00fcbeck | DatenpflegeNord",
+        "description": "DatenpflegeNord entwickelt Software, Websites und KI-Automatisierungen f\u00fcr Unternehmen in L\u00fcbeck und Schleswig-Holstein. APIs, n8n, KI-Agenten und Integrationen.",
+        "h1": [
+          "Softwareentwicklung, Webentwicklung & KI-Automatisierung aus L\u00fcbeck."
+        ],
+        "schema_types": [
+          "Brand",
+          "ImageObject",
+          "Organization",
+          "Person",
+          "PostalAddress",
+          "WebSite"
+        ],
+        "internal_links": [
+          "/",
+          "/#arbeit",
+          "/#kontakt",
+          "/#main",
+          "/#profil",
+          "/datenschutz/",
+          "/en/",
+          "/impressum/",
+          "/ki-automatisierung-luebeck/",
+          "/softwareentwicklung-luebeck/",
+          "/webentwicklung-luebeck/"
+        ]
+      },
+      "content_marker": "Live-Werte werden im Browser erg\u00e4nzt. Die GitHub",
+      "origin": {
+        "observed": {
+          "canonical": "https://datenpflege-nord.de/",
+          "title": "Softwareentwicklung, Web & KI L\u00fcbeck | DatenpflegeNord",
+          "description": "DatenpflegeNord entwickelt Software, Websites und KI-Automatisierungen f\u00fcr Unternehmen in L\u00fcbeck und Schleswig-Holstein. APIs, n8n, KI-Agenten und Integrationen.",
+          "h1": [
+            "Softwareentwicklung, Webentwicklung & KI-Automatisierung aus L\u00fcbeck."
+          ],
+          "schema_types": [
+            "Brand",
+            "ImageObject",
+            "Organization",
+            "Person",
+            "PostalAddress",
+            "WebSite"
+          ],
+          "internal_links": [
+            "/",
+            "/#arbeit",
+            "/#kontakt",
+            "/#main",
+            "/#profil",
+            "/datenschutz/",
+            "/en/",
+            "/impressum/",
+            "/ki-automatisierung-luebeck/",
+            "/softwareentwicklung-luebeck/",
+            "/webentwicklung-luebeck/"
+          ]
+        },
+        "checks": {
+          "canonical": true,
+          "title": true,
+          "description": true,
+          "h1": true,
+          "schema_types": true,
+          "important_internal_links": true,
+          "content_marker": true,
+          "status": true
+        },
+        "result": "PASS"
+      },
+      "public": {
+        "observed": {
+          "canonical": "https://datenpflege-nord.de/",
+          "title": "Softwareentwicklung, Web & KI L\u00fcbeck | DatenpflegeNord",
+          "description": "DatenpflegeNord entwickelt Software, Websites und KI-Automatisierungen f\u00fcr Unternehmen in L\u00fcbeck und Schleswig-Holstein. APIs, n8n, KI-Agenten und Integrationen.",
+          "h1": [
+            "Softwareentwicklung, Webentwicklung & KI-Automatisierung aus L\u00fcbeck."
+          ],
+          "schema_types": [
+            "Brand",
+            "ImageObject",
+            "Organization",
+            "Person",
+            "PostalAddress",
+            "WebSite"
+          ],
+          "internal_links": [
+            "/",
+            "/#arbeit",
+            "/#kontakt",
+            "/#main",
+            "/#profil",
+            "/cdn-cgi/l/email-protection#d9b2b6b7adb8b2ad99bdb8adbcb7a9bfb5bcbebcf4b7b6abbdf7bdbc",
+            "/datenschutz/",
+            "/en/",
+            "/impressum/",
+            "/ki-automatisierung-luebeck/",
+            "/softwareentwicklung-luebeck/",
+            "/webentwicklung-luebeck/"
+          ]
+        },
+        "checks": {
+          "canonical": true,
+          "title": true,
+          "description": true,
+          "h1": true,
+          "schema_types": true,
+          "important_internal_links": true,
+          "content_marker": true,
+          "status": true
+        },
+        "result": "PASS"
+      }
+    },
+    {
+      "path": "/en/",
+      "expected": {
+        "canonical": "https://datenpflege-nord.de/en/",
+        "title": "Software Development, Web & AI L\u00fcbeck | DatenpflegeNord",
+        "description": "DatenpflegeNord develops software, websites and AI automation for businesses in L\u00fcbeck and Schleswig-Holstein. APIs, n8n, AI agents and integrations.",
+        "h1": [
+          "Software development, web development & AI automation from L\u00fcbeck."
+        ],
+        "schema_types": [
+          "Brand",
+          "ImageObject",
+          "Organization",
+          "Person",
+          "PostalAddress",
+          "WebSite"
+        ],
+        "internal_links": [
+          "/",
+          "/#arbeit",
+          "/#kontakt",
+          "/#main",
+          "/#profil",
+          "/datenschutz/",
+          "/en/",
+          "/impressum/"
+        ]
+      },
+      "content_marker": "Live values are added in the browser. The GitHub",
+      "origin": {
+        "observed": {
+          "canonical": "https://datenpflege-nord.de/en/",
+          "title": "Software Development, Web & AI L\u00fcbeck | DatenpflegeNord",
+          "description": "DatenpflegeNord develops software, websites and AI automation for businesses in L\u00fcbeck and Schleswig-Holstein. APIs, n8n, AI agents and integrations.",
+          "h1": [
+            "Software development, web development & AI automation from L\u00fcbeck."
+          ],
+          "schema_types": [
+            "Brand",
+            "ImageObject",
+            "Organization",
+            "Person",
+            "PostalAddress",
+            "WebSite"
+          ],
+          "internal_links": [
+            "/",
+            "/#arbeit",
+            "/#kontakt",
+            "/#main",
+            "/#profil",
+            "/datenschutz/",
+            "/en/",
+            "/impressum/"
+          ]
+        },
+        "checks": {
+          "canonical": true,
+          "title": true,
+          "description": true,
+          "h1": true,
+          "schema_types": true,
+          "important_internal_links": true,
+          "content_marker": true,
+          "status": true
+        },
+        "result": "PASS"
+      },
+      "public": {
+        "observed": {
+          "canonical": "https://datenpflege-nord.de/en/",
+          "title": "Software Development, Web & AI L\u00fcbeck | DatenpflegeNord",
+          "description": "DatenpflegeNord develops software, websites and AI automation for businesses in L\u00fcbeck and Schleswig-Holstein. APIs, n8n, AI agents and integrations.",
+          "h1": [
+            "Software development, web development & AI automation from L\u00fcbeck."
+          ],
+          "schema_types": [
+            "Brand",
+            "ImageObject",
+            "Organization",
+            "Person",
+            "PostalAddress",
+            "WebSite"
+          ],
+          "internal_links": [
+            "/",
+            "/#arbeit",
+            "/#kontakt",
+            "/#main",
+            "/#profil",
+            "/cdn-cgi/l/email-protection#b1dadedfc5d0dac5f1d5d0c5d4dfc1d7ddd4d6d49cdfdec3d59fd5d4",
+            "/datenschutz/",
+            "/en/",
+            "/impressum/"
+          ]
+        },
+        "checks": {
+          "canonical": true,
+          "title": true,
+          "description": true,
+          "h1": true,
+          "schema_types": true,
+          "important_internal_links": true,
+          "content_marker": true,
+          "status": true
+        },
+        "result": "PASS"
+      }
+    },
+    {
+      "path": "/softwareentwicklung-luebeck/",
+      "expected": {
+        "canonical": "https://datenpflege-nord.de/softwareentwicklung-luebeck/",
+        "title": "Softwareentwicklung L\u00fcbeck | Individuelle Software | DatenpflegeNord",
+        "description": "Individuelle Softwareentwicklung in L\u00fcbeck: Webanwendungen, interne Tools, APIs, Integrationen und Automatisierung mit direktem Ansprechpartner.",
+        "h1": [
+          "Individuelle Softwareentwicklung in L\u00fcbeck."
+        ],
+        "schema_types": [
+          "BreadcrumbList",
+          "ListItem",
+          "Organization",
+          "Service",
+          "WebPage"
+        ],
+        "internal_links": [
+          "/",
+          "/#arbeit",
+          "/#kontakt",
+          "/#leistungen",
+          "/#main",
+          "/#profil",
+          "/datenschutz/",
+          "/impressum/",
+          "/ki-automatisierung-luebeck/",
+          "/webentwicklung-luebeck/"
+        ]
+      },
+      "content_marker": "Wir entwickeln individuelle Software f\u00fcr Abl\u00e4ufe",
+      "origin": {
+        "observed": {
+          "canonical": "https://datenpflege-nord.de/softwareentwicklung-luebeck/",
+          "title": "Softwareentwicklung L\u00fcbeck | Individuelle Software | DatenpflegeNord",
+          "description": "Individuelle Softwareentwicklung in L\u00fcbeck: Webanwendungen, interne Tools, APIs, Integrationen und Automatisierung mit direktem Ansprechpartner.",
+          "h1": [
+            "Individuelle Softwareentwicklung in L\u00fcbeck."
+          ],
+          "schema_types": [
+            "BreadcrumbList",
+            "ListItem",
+            "Organization",
+            "Service",
+            "WebPage"
+          ],
+          "internal_links": [
+            "/",
+            "/#arbeit",
+            "/#kontakt",
+            "/#leistungen",
+            "/#main",
+            "/#profil",
+            "/datenschutz/",
+            "/impressum/",
+            "/ki-automatisierung-luebeck/",
+            "/webentwicklung-luebeck/"
+          ]
+        },
+        "checks": {
+          "canonical": true,
+          "title": true,
+          "description": true,
+          "h1": true,
+          "schema_types": true,
+          "important_internal_links": true,
+          "content_marker": true,
+          "status": true
+        },
+        "result": "PASS"
+      },
+      "public": {
+        "observed": {
+          "canonical": "https://datenpflege-nord.de/softwareentwicklung-luebeck/",
+          "title": "Softwareentwicklung L\u00fcbeck | Individuelle Software | DatenpflegeNord",
+          "description": "Individuelle Softwareentwicklung in L\u00fcbeck: Webanwendungen, interne Tools, APIs, Integrationen und Automatisierung mit direktem Ansprechpartner.",
+          "h1": [
+            "Individuelle Softwareentwicklung in L\u00fcbeck."
+          ],
+          "schema_types": [
+            "BreadcrumbList",
+            "ListItem",
+            "Organization",
+            "Service",
+            "WebPage"
+          ],
+          "internal_links": [
+            "/",
+            "/#arbeit",
+            "/#kontakt",
+            "/#leistungen",
+            "/#main",
+            "/#profil",
+            "/datenschutz/",
+            "/impressum/",
+            "/ki-automatisierung-luebeck/",
+            "/webentwicklung-luebeck/"
+          ]
+        },
+        "checks": {
+          "canonical": true,
+          "title": true,
+          "description": true,
+          "h1": true,
+          "schema_types": true,
+          "important_internal_links": true,
+          "content_marker": true,
+          "status": true
+        },
+        "result": "PASS"
+      }
+    },
+    {
+      "path": "/webentwicklung-luebeck/",
+      "expected": {
+        "canonical": "https://datenpflege-nord.de/webentwicklung-luebeck/",
+        "title": "Webentwicklung L\u00fcbeck | Websites & Webl\u00f6sungen | DatenpflegeNord",
+        "description": "Webentwicklung in L\u00fcbeck f\u00fcr Unternehmen: moderne Websites, Webl\u00f6sungen, Relaunches, technische Optimierung und Integrationen mit direktem Ansprechpartner.",
+        "h1": [
+          "Webentwicklung & Websites f\u00fcr Unternehmen in L\u00fcbeck."
+        ],
+        "schema_types": [
+          "BreadcrumbList",
+          "ListItem",
+          "Organization",
+          "Service",
+          "WebPage"
+        ],
+        "internal_links": [
+          "/",
+          "/#arbeit",
+          "/#kontakt",
+          "/#leistungen",
+          "/#main",
+          "/#profil",
+          "/datenschutz/",
+          "/impressum/",
+          "/ki-automatisierung-luebeck/",
+          "/softwareentwicklung-luebeck/"
+        ]
+      },
+      "content_marker": "Wir entwickeln moderne Websites und Webl\u00f6sungen,",
+      "origin": {
+        "observed": {
+          "canonical": "https://datenpflege-nord.de/webentwicklung-luebeck/",
+          "title": "Webentwicklung L\u00fcbeck | Websites & Webl\u00f6sungen | DatenpflegeNord",
+          "description": "Webentwicklung in L\u00fcbeck f\u00fcr Unternehmen: moderne Websites, Webl\u00f6sungen, Relaunches, technische Optimierung und Integrationen mit direktem Ansprechpartner.",
+          "h1": [
+            "Webentwicklung & Websites f\u00fcr Unternehmen in L\u00fcbeck."
+          ],
+          "schema_types": [
+            "BreadcrumbList",
+            "ListItem",
+            "Organization",
+            "Service",
+            "WebPage"
+          ],
+          "internal_links": [
+            "/",
+            "/#arbeit",
+            "/#kontakt",
+            "/#leistungen",
+            "/#main",
+            "/#profil",
+            "/datenschutz/",
+            "/impressum/",
+            "/ki-automatisierung-luebeck/",
+            "/softwareentwicklung-luebeck/"
+          ]
+        },
+        "checks": {
+          "canonical": true,
+          "title": true,
+          "description": true,
+          "h1": true,
+          "schema_types": true,
+          "important_internal_links": true,
+          "content_marker": true,
+          "status": true
+        },
+        "result": "PASS"
+      },
+      "public": {
+        "observed": {
+          "canonical": "https://datenpflege-nord.de/webentwicklung-luebeck/",
+          "title": "Webentwicklung L\u00fcbeck | Websites & Webl\u00f6sungen | DatenpflegeNord",
+          "description": "Webentwicklung in L\u00fcbeck f\u00fcr Unternehmen: moderne Websites, Webl\u00f6sungen, Relaunches, technische Optimierung und Integrationen mit direktem Ansprechpartner.",
+          "h1": [
+            "Webentwicklung & Websites f\u00fcr Unternehmen in L\u00fcbeck."
+          ],
+          "schema_types": [
+            "BreadcrumbList",
+            "ListItem",
+            "Organization",
+            "Service",
+            "WebPage"
+          ],
+          "internal_links": [
+            "/",
+            "/#arbeit",
+            "/#kontakt",
+            "/#leistungen",
+            "/#main",
+            "/#profil",
+            "/datenschutz/",
+            "/impressum/",
+            "/ki-automatisierung-luebeck/",
+            "/softwareentwicklung-luebeck/"
+          ]
+        },
+        "checks": {
+          "canonical": true,
+          "title": true,
+          "description": true,
+          "h1": true,
+          "schema_types": true,
+          "important_internal_links": true,
+          "content_marker": true,
+          "status": true
+        },
+        "result": "PASS"
+      }
+    },
+    {
+      "path": "/ki-automatisierung-luebeck/",
+      "expected": {
+        "canonical": "https://datenpflege-nord.de/ki-automatisierung-luebeck/",
+        "title": "KI-Automatisierung L\u00fcbeck | KI-Agenten & Workflows | DatenpflegeNord",
+        "description": "KI-Automatisierung in L\u00fcbeck: KI-Agenten, n8n-Workflows, API-Integrationen und LLM-gest\u00fctzte Prozesse f\u00fcr klar abgegrenzte Unternehmensaufgaben.",
+        "h1": [
+          "KI-Automatisierung f\u00fcr Unternehmen in L\u00fcbeck."
+        ],
+        "schema_types": [
+          "BreadcrumbList",
+          "ListItem",
+          "Organization",
+          "Service",
+          "WebPage"
+        ],
+        "internal_links": [
+          "/",
+          "/#arbeit",
+          "/#kontakt",
+          "/#leistungen",
+          "/#main",
+          "/#profil",
+          "/datenschutz/",
+          "/impressum/",
+          "/softwareentwicklung-luebeck/",
+          "/webentwicklung-luebeck/"
+        ]
+      },
+      "content_marker": "Wir verbinden KI-Modelle, APIs und Automatisieru",
+      "origin": {
+        "observed": {
+          "canonical": "https://datenpflege-nord.de/ki-automatisierung-luebeck/",
+          "title": "KI-Automatisierung L\u00fcbeck | KI-Agenten & Workflows | DatenpflegeNord",
+          "description": "KI-Automatisierung in L\u00fcbeck: KI-Agenten, n8n-Workflows, API-Integrationen und LLM-gest\u00fctzte Prozesse f\u00fcr klar abgegrenzte Unternehmensaufgaben.",
+          "h1": [
+            "KI-Automatisierung f\u00fcr Unternehmen in L\u00fcbeck."
+          ],
+          "schema_types": [
+            "BreadcrumbList",
+            "ListItem",
+            "Organization",
+            "Service",
+            "WebPage"
+          ],
+          "internal_links": [
+            "/",
+            "/#arbeit",
+            "/#kontakt",
+            "/#leistungen",
+            "/#main",
+            "/#profil",
+            "/datenschutz/",
+            "/impressum/",
+            "/softwareentwicklung-luebeck/",
+            "/webentwicklung-luebeck/"
+          ]
+        },
+        "checks": {
+          "canonical": true,
+          "title": true,
+          "description": true,
+          "h1": true,
+          "schema_types": true,
+          "important_internal_links": true,
+          "content_marker": true,
+          "status": true
+        },
+        "result": "PASS"
+      },
+      "public": {
+        "observed": {
+          "canonical": "https://datenpflege-nord.de/ki-automatisierung-luebeck/",
+          "title": "KI-Automatisierung L\u00fcbeck | KI-Agenten & Workflows | DatenpflegeNord",
+          "description": "KI-Automatisierung in L\u00fcbeck: KI-Agenten, n8n-Workflows, API-Integrationen und LLM-gest\u00fctzte Prozesse f\u00fcr klar abgegrenzte Unternehmensaufgaben.",
+          "h1": [
+            "KI-Automatisierung f\u00fcr Unternehmen in L\u00fcbeck."
+          ],
+          "schema_types": [
+            "BreadcrumbList",
+            "ListItem",
+            "Organization",
+            "Service",
+            "WebPage"
+          ],
+          "internal_links": [
+            "/",
+            "/#arbeit",
+            "/#kontakt",
+            "/#leistungen",
+            "/#main",
+            "/#profil",
+            "/datenschutz/",
+            "/impressum/",
+            "/softwareentwicklung-luebeck/",
+            "/webentwicklung-luebeck/"
+          ]
+        },
+        "checks": {
+          "canonical": true,
+          "title": true,
+          "description": true,
+          "h1": true,
+          "schema_types": true,
+          "important_internal_links": true,
+          "content_marker": true,
+          "status": true
+        },
+        "result": "PASS"
+      }
+    },
+    {
+      "path": "/impressum/",
+      "expected": {
+        "canonical": "https://datenpflege-nord.de/impressum/",
+        "title": "Impressum | DatenpflegeNord",
+        "description": "Impressum und Anbieterkennzeichnung von DatenpflegeNord.",
+        "h1": [
+          "Impressum."
+        ],
+        "schema_types": [],
+        "internal_links": [
+          "/",
+          "/#anbieter",
+          "/#kontakt",
+          "/#register",
+          "/#umfirmierung",
+          "/datenschutz/",
+          "/impressum/"
+        ]
+      },
+      "content_marker": "Klare Angaben zur verantwortlichen Gesellschaft ",
+      "origin": {
+        "observed": {
+          "canonical": "https://datenpflege-nord.de/impressum/",
+          "title": "Impressum | DatenpflegeNord",
+          "description": "Impressum und Anbieterkennzeichnung von DatenpflegeNord.",
+          "h1": [
+            "Impressum."
+          ],
+          "schema_types": [],
+          "internal_links": [
+            "/",
+            "/#anbieter",
+            "/#kontakt",
+            "/#register",
+            "/#umfirmierung",
+            "/datenschutz/",
+            "/impressum/"
+          ]
+        },
+        "checks": {
+          "canonical": true,
+          "title": true,
+          "description": true,
+          "h1": true,
+          "schema_types": true,
+          "important_internal_links": true,
+          "content_marker": true,
+          "status": true
+        },
+        "result": "PASS"
+      },
+      "public": {
+        "observed": {
+          "canonical": "https://datenpflege-nord.de/impressum/",
+          "title": "Impressum | DatenpflegeNord",
+          "description": "Impressum und Anbieterkennzeichnung von DatenpflegeNord.",
+          "h1": [
+            "Impressum."
+          ],
+          "schema_types": [],
+          "internal_links": [
+            "/",
+            "/#anbieter",
+            "/#kontakt",
+            "/#register",
+            "/#umfirmierung",
+            "/cdn-cgi/l/email-protection#600b0f0e14010b1420040114050e10060c0507054d0e0f12044e0405",
+            "/cdn-cgi/l/email-protection#ec878382988d8798ac888d9889829c8a80898b89c182839e88c28889",
+            "/datenschutz/",
+            "/impressum/"
+          ]
+        },
+        "checks": {
+          "canonical": true,
+          "title": true,
+          "description": true,
+          "h1": true,
+          "schema_types": true,
+          "important_internal_links": true,
+          "content_marker": true,
+          "status": true
+        },
+        "result": "PASS"
+      }
+    },
+    {
+      "path": "/datenschutz/",
+      "expected": {
+        "canonical": "https://datenpflege-nord.de/datenschutz/",
+        "title": "Datenschutz | DatenpflegeNord",
+        "description": "Datenschutzhinweise f\u00fcr die Website von DatenpflegeNord.",
+        "h1": [
+          "Datenschutz."
+        ],
+        "schema_types": [],
+        "internal_links": [
+          "/",
+          "/#aufsicht",
+          "/#cloudflare",
+          "/#cookies",
+          "/#github",
+          "/#kontakt",
+          "/#rechte",
+          "/#verantwortlicher",
+          "/#website",
+          "/datenschutz/",
+          "/impressum/"
+        ]
+      },
+      "content_marker": "Was technisch verarbeitet wird, warum es passier",
+      "origin": {
+        "observed": {
+          "canonical": "https://datenpflege-nord.de/datenschutz/",
+          "title": "Datenschutz | DatenpflegeNord",
+          "description": "Datenschutzhinweise f\u00fcr die Website von DatenpflegeNord.",
+          "h1": [
+            "Datenschutz."
+          ],
+          "schema_types": [],
+          "internal_links": [
+            "/",
+            "/#aufsicht",
+            "/#cloudflare",
+            "/#cookies",
+            "/#github",
+            "/#kontakt",
+            "/#rechte",
+            "/#verantwortlicher",
+            "/#website",
+            "/datenschutz/",
+            "/impressum/"
+          ]
+        },
+        "checks": {
+          "canonical": true,
+          "title": true,
+          "description": true,
+          "h1": true,
+          "schema_types": true,
+          "important_internal_links": true,
+          "content_marker": true,
+          "status": true
+        },
+        "result": "PASS"
+      },
+      "public": {
+        "observed": {
+          "canonical": "https://datenpflege-nord.de/datenschutz/",
+          "title": "Datenschutz | DatenpflegeNord",
+          "description": "Datenschutzhinweise f\u00fcr die Website von DatenpflegeNord.",
+          "h1": [
+            "Datenschutz."
+          ],
+          "schema_types": [],
+          "internal_links": [
+            "/",
+            "/#aufsicht",
+            "/#cloudflare",
+            "/#cookies",
+            "/#github",
+            "/#kontakt",
+            "/#rechte",
+            "/#verantwortlicher",
+            "/#website",
+            "/cdn-cgi/l/email-protection#97fcf8f9e3f6fce3d7f3f6e3f2f9e7f1fbf2f0f2baf9f8e5f3b9f3f2",
+            "/cdn-cgi/l/email-protection#aec5c1c0dacfc5daeecacfdacbc0dec8c2cbc9cb83c0c1dcca80cacb",
+            "/cdn-cgi/l/email-protection#dbb6bab2b79bbfbaafbeb5a8b8b3aeafa1a1beb5afa9aeb6f5bfbe",
+            "/cdn-cgi/l/email-protection#dcb7b3b2a8bdb7a89cb8bda8b9b2acbab0b9bbb9f1b2b3aeb8f2b8b9",
+            "/datenschutz/",
+            "/impressum/"
+          ]
+        },
+        "checks": {
+          "canonical": true,
+          "title": true,
+          "description": true,
+          "h1": true,
+          "schema_types": true,
+          "important_internal_links": true,
+          "content_marker": true,
+          "status": true
+        },
+        "result": "PASS"
+      }
+    }
+  ],
+  "headers": [
+    {
+      "kind": "homepage",
+      "path": "/",
+      "layer": "origin",
+      "status": 200,
+      "headers": {
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-frame-options": "SAMEORIGIN",
+        "etag": "W/\"6a9fa562-5687\"",
+        "last-modified": "Tue, 08 Sep 2026 06:04:18 GMT",
+        "content-encoding": "gzip",
+        "content-type": "text/html; charset=utf-8",
+        "vary": "Accept-Encoding",
+        "server": "nginx"
+      }
+    },
+    {
+      "kind": "homepage",
+      "path": "/",
+      "layer": "public",
+      "status": 200,
+      "headers": {
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-frame-options": "SAMEORIGIN",
+        "content-security-policy": "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self' mailto:; script-src 'self'; script-src-attr 'none'; style-src 'self'; style-src-attr 'none'; img-src 'self' data:; media-src 'self'; font-src 'self'; connect-src 'self' https://api.github.com; manifest-src 'self'; upgrade-insecure-requests",
+        "strict-transport-security": "max-age=31536000",
+        "last-modified": "Tue, 08 Sep 2026 06:04:18 GMT",
+        "content-encoding": "gzip",
+        "content-type": "text/html; charset=utf-8",
+        "vary": "Accept-Encoding",
+        "server": "cloudflare",
+        "cf-cache-status": "DYNAMIC",
+        "cf-ray": "a3ae6d4daa63289c-WAW"
+      }
+    },
+    {
+      "kind": "service",
+      "path": "/softwareentwicklung-luebeck/",
+      "layer": "origin",
+      "status": 200,
+      "headers": {
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-frame-options": "SAMEORIGIN",
+        "etag": "W/\"6a9fa562-3be1\"",
+        "last-modified": "Tue, 08 Sep 2026 06:04:18 GMT",
+        "content-encoding": "gzip",
+        "content-type": "text/html; charset=utf-8",
+        "vary": "Accept-Encoding",
+        "server": "nginx"
+      }
+    },
+    {
+      "kind": "service",
+      "path": "/softwareentwicklung-luebeck/",
+      "layer": "public",
+      "status": 200,
+      "headers": {
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-frame-options": "SAMEORIGIN",
+        "content-security-policy": "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self' mailto:; script-src 'self'; script-src-attr 'none'; style-src 'self'; style-src-attr 'none'; img-src 'self' data:; media-src 'self'; font-src 'self'; connect-src 'self' https://api.github.com; manifest-src 'self'; upgrade-insecure-requests",
+        "strict-transport-security": "max-age=31536000",
+        "last-modified": "Tue, 08 Sep 2026 06:04:18 GMT",
+        "content-encoding": "gzip",
+        "content-type": "text/html; charset=utf-8",
+        "vary": "Accept-Encoding",
+        "server": "cloudflare",
+        "cf-cache-status": "DYNAMIC",
+        "cf-ray": "a3ae6d4e890c01fe-WAW"
+      }
+    },
+    {
+      "kind": "css",
+      "path": "/assets/home.css",
+      "layer": "origin",
+      "status": 200,
+      "headers": {
+        "cache-control": "public, max-age=604800",
+        "expires": "Mon, 21 Sep 2026 09:39:52 GMT",
+        "etag": "W/\"6a9fa562-6770\"",
+        "last-modified": "Tue, 08 Sep 2026 06:04:18 GMT",
+        "content-encoding": "gzip",
+        "content-type": "text/css",
+        "vary": "Accept-Encoding",
+        "server": "nginx"
+      }
+    },
+    {
+      "kind": "css",
+      "path": "/assets/home.css",
+      "layer": "public",
+      "status": 200,
+      "headers": {
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-frame-options": "SAMEORIGIN",
+        "content-security-policy": "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self' mailto:; script-src 'self'; script-src-attr 'none'; style-src 'self'; style-src-attr 'none'; img-src 'self' data:; media-src 'self'; font-src 'self'; connect-src 'self' https://api.github.com; manifest-src 'self'; upgrade-insecure-requests",
+        "strict-transport-security": "max-age=31536000",
+        "cache-control": "public, max-age=604800",
+        "expires": "Mon, 21 Sep 2026 09:39:52 GMT",
+        "etag": "W/\"6a9fa562-6770\"",
+        "last-modified": "Tue, 08 Sep 2026 06:04:18 GMT",
+        "content-encoding": "gzip",
+        "content-type": "text/css",
+        "vary": "Accept-Encoding",
+        "server": "cloudflare",
+        "cf-cache-status": "MISS",
+        "cf-ray": "a3ae6d4f78cc3bc0-WAW"
+      }
+    },
+    {
+      "kind": "js",
+      "path": "/assets/home-de.js",
+      "layer": "origin",
+      "status": 200,
+      "headers": {
+        "cache-control": "public, max-age=604800",
+        "expires": "Mon, 21 Sep 2026 09:39:52 GMT",
+        "etag": "W/\"6a9fa562-3af0\"",
+        "last-modified": "Tue, 08 Sep 2026 06:04:18 GMT",
+        "content-encoding": "gzip",
+        "content-type": "application/javascript; charset=utf-8",
+        "vary": "Accept-Encoding",
+        "server": "nginx"
+      }
+    },
+    {
+      "kind": "js",
+      "path": "/assets/home-de.js",
+      "layer": "public",
+      "status": 200,
+      "headers": {
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-frame-options": "SAMEORIGIN",
+        "content-security-policy": "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self' mailto:; script-src 'self'; script-src-attr 'none'; style-src 'self'; style-src-attr 'none'; img-src 'self' data:; media-src 'self'; font-src 'self'; connect-src 'self' https://api.github.com; manifest-src 'self'; upgrade-insecure-requests",
+        "strict-transport-security": "max-age=31536000",
+        "cache-control": "public, max-age=604800",
+        "expires": "Mon, 21 Sep 2026 09:39:53 GMT",
+        "etag": "W/\"6a9fa562-3af0\"",
+        "last-modified": "Tue, 08 Sep 2026 06:04:18 GMT",
+        "content-encoding": "gzip",
+        "content-type": "application/javascript; charset=utf-8",
+        "vary": "Accept-Encoding",
+        "server": "cloudflare",
+        "cf-cache-status": "MISS",
+        "cf-ray": "a3ae6d50ae8795aa-WAW"
+      }
+    },
+    {
+      "kind": "image",
+      "path": "/assets/profile/dustin-zander.webp",
+      "layer": "origin",
+      "status": 200,
+      "headers": {
+        "cache-control": "public, max-age=604800",
+        "expires": "Mon, 21 Sep 2026 09:39:53 GMT",
+        "etag": "\"6a9fa562-37e0\"",
+        "last-modified": "Tue, 08 Sep 2026 06:04:18 GMT",
+        "content-type": "image/webp",
+        "server": "nginx"
+      }
+    },
+    {
+      "kind": "image",
+      "path": "/assets/profile/dustin-zander.webp",
+      "layer": "public",
+      "status": 200,
+      "headers": {
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-frame-options": "SAMEORIGIN",
+        "content-security-policy": "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self' mailto:; script-src 'self'; script-src-attr 'none'; style-src 'self'; style-src-attr 'none'; img-src 'self' data:; media-src 'self'; font-src 'self'; connect-src 'self' https://api.github.com; manifest-src 'self'; upgrade-insecure-requests",
+        "strict-transport-security": "max-age=31536000",
+        "cache-control": "public, max-age=604800",
+        "expires": "Mon, 21 Sep 2026 09:39:53 GMT",
+        "etag": "\"6a9fa562-37e0\"",
+        "last-modified": "Tue, 08 Sep 2026 06:04:18 GMT",
+        "content-type": "image/webp",
+        "server": "cloudflare",
+        "cf-cache-status": "MISS",
+        "cf-ray": "a3ae6d51df29e507-TXL"
+      }
+    },
+    {
+      "kind": "og",
+      "path": "/og-datenpflege-nord.png",
+      "layer": "origin",
+      "status": 200,
+      "headers": {
+        "cache-control": "no-cache, no-store, must-revalidate",
+        "expires": "Mon, 14 Sep 2026 09:39:52 GMT",
+        "etag": "\"6a9fa562-b431\"",
+        "last-modified": "Tue, 08 Sep 2026 06:04:18 GMT",
+        "content-type": "image/png",
+        "server": "nginx"
+      }
+    },
+    {
+      "kind": "og",
+      "path": "/og-datenpflege-nord.png",
+      "layer": "public",
+      "status": 200,
+      "headers": {
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-frame-options": "SAMEORIGIN",
+        "content-security-policy": "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self' mailto:; script-src 'self'; script-src-attr 'none'; style-src 'self'; style-src-attr 'none'; img-src 'self' data:; media-src 'self'; font-src 'self'; connect-src 'self' https://api.github.com; manifest-src 'self'; upgrade-insecure-requests",
+        "strict-transport-security": "max-age=31536000",
+        "cache-control": "no-cache, no-store, must-revalidate",
+        "expires": "Mon, 14 Sep 2026 09:39:52 GMT",
+        "etag": "\"6a9fa562-b431\"",
+        "last-modified": "Tue, 08 Sep 2026 06:04:18 GMT",
+        "content-type": "image/png",
+        "server": "cloudflare",
+        "cf-cache-status": "BYPASS",
+        "cf-ray": "a3ae6d5329ffad22-WAW"
+      }
+    },
+    {
+      "kind": "robots",
+      "path": "/robots.txt",
+      "layer": "origin",
+      "status": 200,
+      "headers": {
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-frame-options": "SAMEORIGIN",
+        "etag": "\"6a9fa562-49\"",
+        "last-modified": "Tue, 08 Sep 2026 06:04:18 GMT",
+        "content-type": "text/plain; charset=utf-8",
+        "server": "nginx"
+      }
+    },
+    {
+      "kind": "robots",
+      "path": "/robots.txt",
+      "layer": "public",
+      "status": 200,
+      "headers": {
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-frame-options": "SAMEORIGIN",
+        "content-security-policy": "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self' mailto:; script-src 'self'; script-src-attr 'none'; style-src 'self'; style-src-attr 'none'; img-src 'self' data:; media-src 'self'; font-src 'self'; connect-src 'self' https://api.github.com; manifest-src 'self'; upgrade-insecure-requests",
+        "strict-transport-security": "max-age=31536000",
+        "cache-control": "max-age=14400",
+        "age": "900",
+        "content-encoding": "gzip",
+        "content-type": "text/plain; charset=utf-8",
+        "server": "cloudflare",
+        "cf-cache-status": "HIT",
+        "cf-ray": "a3ae6d5478b4eed1-WAW"
+      }
+    },
+    {
+      "kind": "sitemap",
+      "path": "/sitemap.xml",
+      "layer": "origin",
+      "status": 200,
+      "headers": {
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-frame-options": "SAMEORIGIN",
+        "etag": "\"6a9fa562-5ff\"",
+        "last-modified": "Tue, 08 Sep 2026 06:04:18 GMT",
+        "content-type": "text/xml; charset=utf-8",
+        "server": "nginx"
+      }
+    },
+    {
+      "kind": "sitemap",
+      "path": "/sitemap.xml",
+      "layer": "public",
+      "status": 200,
+      "headers": {
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-frame-options": "SAMEORIGIN",
+        "content-security-policy": "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self' mailto:; script-src 'self'; script-src-attr 'none'; style-src 'self'; style-src-attr 'none'; img-src 'self' data:; media-src 'self'; font-src 'self'; connect-src 'self' https://api.github.com; manifest-src 'self'; upgrade-insecure-requests",
+        "strict-transport-security": "max-age=31536000",
+        "etag": "W/\"6a9fa562-5ff\"",
+        "last-modified": "Tue, 08 Sep 2026 06:04:18 GMT",
+        "content-encoding": "gzip",
+        "content-type": "text/xml; charset=utf-8",
+        "server": "cloudflare",
+        "cf-cache-status": "DYNAMIC",
+        "cf-ray": "a3ae6d554ff9effb-WAW"
+      }
+    },
+    {
+      "kind": "404",
+      "path": "/issue15-read-only-nonexistent-20260914",
+      "layer": "origin",
+      "status": 404,
+      "headers": {
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-frame-options": "SAMEORIGIN",
+        "content-type": "text/html; charset=utf-8",
+        "server": "nginx"
+      }
+    },
+    {
+      "kind": "404",
+      "path": "/issue15-read-only-nonexistent-20260914",
+      "layer": "public",
+      "status": 404,
+      "headers": {
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-frame-options": "SAMEORIGIN",
+        "content-security-policy": "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self' mailto:; script-src 'self'; script-src-attr 'none'; style-src 'self'; style-src-attr 'none'; img-src 'self' data:; media-src 'self'; font-src 'self'; connect-src 'self' https://api.github.com; manifest-src 'self'; upgrade-insecure-requests",
+        "strict-transport-security": "max-age=31536000",
+        "content-encoding": "gzip",
+        "content-type": "text/html; charset=utf-8",
+        "server": "cloudflare",
+        "cf-cache-status": "DYNAMIC",
+        "cf-ray": "a3ae6d566f3f0287-WAW"
+      }
+    },
+    {
+      "kind": "health",
+      "path": "/healthz",
+      "layer": "origin",
+      "status": 200,
+      "headers": {
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-frame-options": "SAMEORIGIN",
+        "content-type": "text/plain; charset=utf-8",
+        "server": "nginx"
+      }
+    },
+    {
+      "kind": "health",
+      "path": "/healthz",
+      "layer": "public",
+      "status": 200,
+      "headers": {
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-frame-options": "SAMEORIGIN",
+        "content-security-policy": "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self' mailto:; script-src 'self'; script-src-attr 'none'; style-src 'self'; style-src-attr 'none'; img-src 'self' data:; media-src 'self'; font-src 'self'; connect-src 'self' https://api.github.com; manifest-src 'self'; upgrade-insecure-requests",
+        "strict-transport-security": "max-age=31536000",
+        "content-type": "text/plain; charset=utf-8",
+        "server": "cloudflare",
+        "cf-cache-status": "DYNAMIC",
+        "cf-ray": "a3ae6d575c2e52df-WAW"
+      }
+    }
+  ],
+  "result": "PASS"
+}

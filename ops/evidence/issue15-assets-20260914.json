@@ -1,0 +1,26 @@
+[
+  {
+    "path": "assets/home.css",
+    "public_sha256": "f4971f2cf3937a01edca19d4585131bfad01d728bdb93db3544fbba385c4d96d",
+    "server_sha256": "f4971f2cf3937a01edca19d4585131bfad01d728bdb93db3544fbba385c4d96d",
+    "result": "PASS"
+  },
+  {
+    "path": "assets/home-de.js",
+    "public_sha256": "a916794a0b063c9392870897df044557cb26d4851c81cc8af24dbb3bc17a4a43",
+    "server_sha256": "a916794a0b063c9392870897df044557cb26d4851c81cc8af24dbb3bc17a4a43",
+    "result": "PASS"
+  },
+  {
+    "path": "assets/profile/dustin-zander.webp",
+    "public_sha256": "764d9d7e23b447a567fd8e1717d01bce930c73c83c5ea0adc4068455215af099",
+    "server_sha256": "764d9d7e23b447a567fd8e1717d01bce930c73c83c5ea0adc4068455215af099",
+    "result": "PASS"
+  },
+  {
+    "path": "og-datenpflege-nord.png",
+    "public_sha256": "eb1b2f1f38fa3f59950fc9afd6aed6dbb8dc58d87d8c8dd28b6161d3cde93de5",
+    "server_sha256": "eb1b2f1f38fa3f59950fc9afd6aed6dbb8dc58d87d8c8dd28b6161d3cde93de5",
+    "result": "PASS"
+  }
+]

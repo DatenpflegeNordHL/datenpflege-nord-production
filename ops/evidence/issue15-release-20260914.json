@@ -1,0 +1,318 @@
+{
+  "at": "2026-09-14T09:39:08.229073+00:00",
+  "source_commit": "65468e875fa0f4318cc07d7e4cbe843cacb24569",
+  "source_commit_object_matches_server_cache": true,
+  "source_tree": "0524b0d82110ebfed8170d3b7df39808be9fcb74",
+  "symlink": "/srv/datenpflege-nord/current",
+  "raw_target": "/srv/datenpflege-nord/releases/20260908-080736-git-65468e875fa0.DM1912",
+  "resolved_release": "/srv/datenpflege-nord/releases/20260908-080736-git-65468e875fa0.DM1912",
+  "release_state_file": "/var/lib/dpn-deploy/releases/20260908-080736-git-65468e875fa0.DM1912.sha",
+  "recorded_sha": "65468e875fa0f4318cc07d7e4cbe843cacb24569",
+  "deployed_sha": "65468e875fa0f4318cc07d7e4cbe843cacb24569",
+  "allowlist_count": 28,
+  "selected_count": 28,
+  "missing_optional_allowlist_members": [],
+  "excluded_git_files": [
+    ".github/deploy-smoke-test.txt",
+    ".github/workflows/generate-social-preview.yml",
+    ".github/workflows/site-audit.yml",
+    ".gitignore",
+    "THIRD_PARTY_NOTICES.md",
+    "backend/README.md",
+    "backend/contact_api.py",
+    "backend/dpn-contact.service",
+    "docs/csp-rollout.md",
+    "scripts/README.md",
+    "scripts/generate_social_preview.py",
+    "scripts/site_audit.py",
+    "scripts/update_social_metadata.py",
+    "tests/test_site_audit.py"
+  ],
+  "manifest": [
+    {
+      "path": "apple-touch-icon.png",
+      "git_blob": "c05e55457aad7fd73c44b8187be1a5d669a78acf",
+      "sha256": "2fc105afd3410fa60ea6303b3f1bfe07845c1837c9103fc81dbe70ed3fcae4b0",
+      "bytes": 6015,
+      "uid": 0,
+      "gid": 0,
+      "mode": "0o664",
+      "result": "PASS"
+    },
+    {
+      "path": "assets/branding/datenpflegenord-logo.svg",
+      "git_blob": "4550700c770ab5e0f26cd9d518219df22356534c",
+      "sha256": "88b9beeee9d274dcd409a0619a7014ed645445b81d38e26d835290a779933344",
+      "bytes": 7326,
+      "uid": 0,
+      "gid": 0,
+      "mode": "0o664",
+      "result": "PASS"
+    },
+    {
+      "path": "assets/hero/mainframe-hero.mp4",
+      "git_blob": "df9a05f572d689dc64c1fb714f6e57888f1dd70e",
+      "sha256": "a8a035f82baaf5e07d90e451f8cee4416c68d03781dba6dc8143e4b41974c25b",
+      "bytes": 4588424,
+      "uid": 0,
+      "gid": 0,
+      "mode": "0o664",
+      "result": "PASS"
+    },
+    {
+      "path": "assets/hero/mainframe-poster.jpg",
+      "git_blob": "fabfb82b414d64d5b66bf608db377a06e2e76f45",
+      "sha256": "04340012fa774707ec8613967f11ecce5400e3adfb12ccc89cbd5df81e28454a",
+      "bytes": 57423,
+      "uid": 0,
+      "gid": 0,
+      "mode": "0o664",
+      "result": "PASS"
+    },
+    {
+      "path": "assets/home-de.js",
+      "git_blob": "c643a51541e25221862d84f4de01faf8bbed116e",
+      "sha256": "a916794a0b063c9392870897df044557cb26d4851c81cc8af24dbb3bc17a4a43",
+      "bytes": 15088,
+      "uid": 0,
+      "gid": 0,
+      "mode": "0o664",
+      "result": "PASS"
+    },
+    {
+      "path": "assets/home-en.js",
+      "git_blob": "7805e160f197dd14e31b5336863a057d5ba20ecf",
+      "sha256": "c2726cb66fd0ab841d46b5b996fabae7816906382f0f764538a26ed1ed8e5fb6",
+      "bytes": 15073,
+      "uid": 0,
+      "gid": 0,
+      "mode": "0o664",
+      "result": "PASS"
+    },
+    {
+      "path": "assets/home.css",
+      "git_blob": "ca1158d5cb1f9fe04422457998b98bf61ddc194b",
+      "sha256": "f4971f2cf3937a01edca19d4585131bfad01d728bdb93db3544fbba385c4d96d",
+      "bytes": 26480,
+      "uid": 0,
+      "gid": 0,
+      "mode": "0o664",
+      "result": "PASS"
+    },
+    {
+      "path": "assets/legal.css",
+      "git_blob": "e981d8f8390659371cc0ea2f2431f5d5e73032a7",
+      "sha256": "89985039696c3fae24cfa307df609454cee521aa13503399c9c3dfa129be45dd",
+      "bytes": 11933,
+      "uid": 0,
+      "gid": 0,
+      "mode": "0o664",
+      "result": "PASS"
+    },
+    {
+      "path": "assets/profile-card.css",
+      "git_blob": "865028cbef1db7809df360d1ca6db236dc4f5c68",
+      "sha256": "f7ff965005e5615754c7fa8a18dc5326467e526c5a11ff3ed6a3a6203b2e0692",
+      "bytes": 3062,
+      "uid": 0,
+      "gid": 0,
+      "mode": "0o664",
+      "result": "PASS"
+    },
+    {
+      "path": "assets/profile/dustin-zander.webp",
+      "git_blob": "da1f5cee64fe72c4385a0ef6ce623e75186e3a46",
+      "sha256": "764d9d7e23b447a567fd8e1717d01bce930c73c83c5ea0adc4068455215af099",
+      "bytes": 14304,
+      "uid": 0,
+      "gid": 0,
+      "mode": "0o664",
+      "result": "PASS"
+    },
+    {
+      "path": "assets/service.css",
+      "git_blob": "ad29f61d36852ceea6ad04ae61e617f043ac37f9",
+      "sha256": "3fea59306b55bc798c519a5b5dfbe93ad28d2b8a199e29c6ece09bd2fb8fb58b",
+      "bytes": 8593,
+      "uid": 0,
+      "gid": 0,
+      "mode": "0o664",
+      "result": "PASS"
+    },
+    {
+      "path": "assets/service.js",
+      "git_blob": "8db98df9248ce965e1dc1674a7a9ee8d7b223d49",
+      "sha256": "cc2e31b335454e812f8c8dbe6aecb0a93c8e5f1ce2d6cfec2f6e281a1026a5b6",
+      "bytes": 78,
+      "uid": 0,
+      "gid": 0,
+      "mode": "0o664",
+      "result": "PASS"
+    },
+    {
+      "path": "datenschutz/index.html",
+      "git_blob": "53b0ab52b9626aeb15f70974917867a2d817415f",
+      "sha256": "b44887fe889196a6421a61ce37cfab2e3188390bb0e62ec1e39ebd37f0e0387c",
+      "bytes": 13974,
+      "uid": 0,
+      "gid": 0,
+      "mode": "0o664",
+      "result": "PASS"
+    },
+    {
+      "path": "en/index.html",
+      "git_blob": "1bd26d998878fd7164588217b0bb319c5966876a",
+      "sha256": "32e3c902581df3feca82b87d7d18dc8a1600d38a5871a7fb745209540f7e15de",
+      "bytes": 19392,
+      "uid": 0,
+      "gid": 0,
+      "mode": "0o664",
+      "result": "PASS"
+    },
+    {
+      "path": "favicon.svg",
+      "git_blob": "b773abf555f57eed8235660904a94d311fec285d",
+      "sha256": "4dd2d3542be7938c73cade275b84ef035fdc9ac3a65b6f098a6a170ec434c524",
+      "bytes": 655,
+      "uid": 0,
+      "gid": 0,
+      "mode": "0o664",
+      "result": "PASS"
+    },
+    {
+      "path": "images/clients-logo/logo-1.svg",
+      "git_blob": "ac54acaecf24fc95ca535a514480056127498d83",
+      "sha256": "5f0e1b0b200c7574854cb3ee560d5f58c0818de1a4544896634b3ee8309f1276",
+      "bytes": 6482,
+      "uid": 0,
+      "gid": 0,
+      "mode": "0o664",
+      "result": "PASS"
+    },
+    {
+      "path": "images/clients-logo/logo-2.svg",
+      "git_blob": "b2cf08d2c3a6007faf0ed881a839a2492bb680d1",
+      "sha256": "8feffcefe275ecbb6b9f30451a6ea0f4c5f0a90d459cd876910cd6930f93ab7f",
+      "bytes": 3074,
+      "uid": 0,
+      "gid": 0,
+      "mode": "0o664",
+      "result": "PASS"
+    },
+    {
+      "path": "images/clients-logo/logo-3.svg",
+      "git_blob": "b3b5ee3d1ede4e59f3801153a8b26e422d317abb",
+      "sha256": "1a9966e8efaf0bcaec692c02dbdcf3ea6bd35520b319111f49a14ddf9dad7df6",
+      "bytes": 3996,
+      "uid": 0,
+      "gid": 0,
+      "mode": "0o664",
+      "result": "PASS"
+    },
+    {
+      "path": "images/clients-logo/logo-4.svg",
+      "git_blob": "768ac25b3787dd82494eeca9362c7890c862d53e",
+      "sha256": "99835c17a9c12725b84f2fa5a6ce0e2011f3ce803f5f95fbfeefc8b0cbc26506",
+      "bytes": 7915,
+      "uid": 0,
+      "gid": 0,
+      "mode": "0o664",
+      "result": "PASS"
+    },
+    {
+      "path": "images/clients-logo/logo-5.svg",
+      "git_blob": "715ced86b509bd8ef5e6a45fe23f5fbeef326dcd",
+      "sha256": "e9f25b7f3e8192b49c06b51344417ca3c512c28f10c97843e06e440fd8654fb8",
+      "bytes": 2578,
+      "uid": 0,
+      "gid": 0,
+      "mode": "0o664",
+      "result": "PASS"
+    },
+    {
+      "path": "impressum/index.html",
+      "git_blob": "408bf266d5506b060e938d55bf8b4c085c380d2c",
+      "sha256": "502ef8e5cb722d83da78d472385800ef0d31ab3781e43dbde0196e19d54ec12c",
+      "bytes": 5751,
+      "uid": 0,
+      "gid": 0,
+      "mode": "0o664",
+      "result": "PASS"
+    },
+    {
+      "path": "index.html",
+      "git_blob": "19cb1f38c9b6d6e45a11df0b3337a1b13d4a0793",
+      "sha256": "832809d298cf4b685e9ef50530b1b0fc3f36917a6a790761c4f3513cf6720700",
+      "bytes": 22151,
+      "uid": 0,
+      "gid": 0,
+      "mode": "0o664",
+      "result": "PASS"
+    },
+    {
+      "path": "ki-automatisierung-luebeck/index.html",
+      "git_blob": "3ca5516c73468bedc46de084e738041ddc8faa1e",
+      "sha256": "d5db41f5be2bbfd300773aa7745cb4d940e5e104aa27e06578a04919a7176181",
+      "bytes": 14027,
+      "uid": 0,
+      "gid": 0,
+      "mode": "0o664",
+      "result": "PASS"
+    },
+    {
+      "path": "og-datenpflege-nord.png",
+      "git_blob": "44ab9e49c6d85ce539b751fd9b041482957e40e1",
+      "sha256": "eb1b2f1f38fa3f59950fc9afd6aed6dbb8dc58d87d8c8dd28b6161d3cde93de5",
+      "bytes": 46129,
+      "uid": 0,
+      "gid": 0,
+      "mode": "0o664",
+      "result": "PASS"
+    },
+    {
+      "path": "robots.txt",
+      "git_blob": "a9f102cf9f63993ddd0d81bb7c0c2be439f5e5fe",
+      "sha256": "7e6fa4a07a1c0567f5d236c79e3206a5f1493a22f56807e091be62f7d2e006df",
+      "bytes": 73,
+      "uid": 0,
+      "gid": 0,
+      "mode": "0o664",
+      "result": "PASS"
+    },
+    {
+      "path": "sitemap.xml",
+      "git_blob": "c3c39c930151864e3c080c3592d2dbf4e9bfca60",
+      "sha256": "7140978b1e707fe9c48743a3b2c0782020273a980c1f1a962baa82c9011f814e",
+      "bytes": 1535,
+      "uid": 0,
+      "gid": 0,
+      "mode": "0o664",
+      "result": "PASS"
+    },
+    {
+      "path": "softwareentwicklung-luebeck/index.html",
+      "git_blob": "24e626dc72e8d0ad83430d479ea32d9485994c69",
+      "sha256": "cac63b231edfb62427a1cfdb7ac3948b9e8f48e614518aaabc372ac9dcb9178c",
+      "bytes": 15329,
+      "uid": 0,
+      "gid": 0,
+      "mode": "0o664",
+      "result": "PASS"
+    },
+    {
+      "path": "webentwicklung-luebeck/index.html",
+      "git_blob": "9a06117670e38e89489737e26e61d754c8c2f74f",
+      "sha256": "7ec83e402263f1a7e7697ceab2502945dabd6abde210609654327a57ad73e57f",
+      "bytes": 13979,
+      "uid": 0,
+      "gid": 0,
+      "mode": "0o664",
+      "result": "PASS"
+    }
+  ],
+  "manifest_result": "PASS",
+  "previous_release": "/srv/datenpflege-nord/releases/20260826-202520-git-49640ef4c36c.44cU28",
+  "previous_sha": "49640ef4c36cd4537228582905155d687381dde4",
+  "previous_manifest_verified": true,
+  "result": "PASS"
+}
