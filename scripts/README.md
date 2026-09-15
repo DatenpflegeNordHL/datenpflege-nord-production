@@ -29,7 +29,11 @@ It currently verifies:
 
 The corresponding GitHub Actions workflow:
 
-- runs for pull requests targeting `main`
+- runs for pull requests targeting `main` as the preventive CI check
+- also runs on pushes to `main` as a post-push backstop
+- can be started manually with `workflow_dispatch`
 - has read-only repository permissions
 - pins third-party GitHub Actions to full commit SHAs
 - does not persist checkout credentials after the repository has been fetched
+
+The push trigger is **not** a replacement for branch protection. Golden Build policy requires `main` to be protected by a branch rule/ruleset that requires the pull-request audit to pass before merge.
