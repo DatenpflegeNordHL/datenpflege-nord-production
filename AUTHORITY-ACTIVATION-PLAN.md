@@ -1,6 +1,23 @@
 # Authority activation plan
 
-2026-09-13. Planning only; **external activation HOLD on #13 and separate authorization**. No profiles, messages, reviews or submissions created. Baseline from 2026-09-10 provider data: DPN 0 referring domains vs EXORD 127, HANSOLU 374, ISEO 396, Netzhirsch 458. Estimates are dated and can miss links; no new backlink crawl claimed.
+Updated 2026-09-15. Planning only; no profiles, messages, reviews or submissions were created. Issue #13 still blocks legal-entity expansion, but it does not prevent factual brand and technical-authority work. Baseline from 2026-09-10 provider data: DPN 0 referring domains vs EXORD 127, HANSOLU 374, ISEO 396, Netzhirsch 458. Estimates are dated and can miss links; no new backlink crawl is claimed.
+
+## SAFE NOW
+
+- Align the public `DatenpflegeNordHL` GitHub organization/profile with the canonical hyphenated domain, Lübeck/Schleswig-Holstein and the three evidenced service families. Keep private production repositories private.
+- Maintain the visible Dustin Zander contact/profile and link only to public work whose authorship and status can be checked. Describe open-source activity as technical work, never as a customer reference.
+- Publish useful decision content within the three existing owners: software/API choices, website/relaunch scope and controlled workflow/AI choices.
+- Inventory real shipped projects, contributions and reusable technical material. Publish a project reference only when ownership, role and publication permission are documented.
+- Seek brand-only or project-based citations that identify DatenpflegeNord accurately and do not claim a completed legal rename or changed registered purpose.
+- Verify and correct an existing controlled profile before creating another one. In particular, do not create a second Google Business entity.
+
+## WAIT FOR REGISTER UPDATE
+
+- Replacing Green Vector Energo GmbH with NordWerk Digital GmbH in legal text, Organization schema or controlled citations.
+- Claiming that a digital/software corporate purpose is registered.
+- Broad sameAs expansion across company databases, directories or profiles where the current registered-purpose mismatch could create contradictory entity evidence.
+- Creating or renaming a Google Business entity around an unverified future legal name.
+- Coordinated legal-entity citation campaigns, memberships or press activity that depend on the register change being completed and independently verifiable.
 
 | Class | Priority / actual opportunity | Required evidence and action | Acceptance / state |
 |---|---|---|---|

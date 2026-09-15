@@ -81,6 +81,15 @@ class GoldenAuditTests(unittest.TestCase):
         parser.page.hrefs.append("/softwareentwicklung-luebeck/#entscheidung")
         self.assertEqual(audit.link_graph(pages)["https://datenpflege-nord.de/"], {self.page.canonical})
 
+    def test_homepage_proof_rejects_template_logos_and_static_totals(self):
+        source = '<section class="brand-belt"><img src="/images/clients-logo/logo.svg"></section>'
+        errors = audit.validate_homepage_proof(source)
+        self.assertTrue(any("template proof" in error for error in errors))
+        errors = audit.validate_homepage_proof('<strong data-stat="repos">17</strong>')
+        self.assertTrue(any("static GitHub total" in error for error in errors))
+        self.assertTrue(audit.validate_homepage_proof('<video src="/assets/hero/mainframe-hero.mp4">'))
+        self.assertEqual(audit.validate_homepage_proof('<strong data-stat="repos">—</strong>'), [])
+
 
 if __name__ == "__main__":
     unittest.main()

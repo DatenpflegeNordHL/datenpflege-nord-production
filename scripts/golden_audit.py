@@ -9,6 +9,7 @@ from __future__ import annotations
 import json
 from html.parser import HTMLParser
 from pathlib import Path
+import re
 import sys
 from urllib.parse import urlsplit
 
@@ -101,6 +102,17 @@ def validate_structure(page, source):
     return errors
 
 
+def validate_homepage_proof(source):
+    """Reject template proof and unlabelled static GitHub totals."""
+    errors = []
+    for marker in ('brand-belt', '/images/clients-logo/', 'mainframe-hero', 'mainframe-poster'):
+        if marker in source:
+            errors.append(f"Homepage contains unverified template proof: {marker}")
+    if re.search(r'<strong\s+data-stat="[^"]+">\s*\d+\s*</strong>', source):
+        errors.append("Homepage contains an unsupported static GitHub total")
+    return errors
+
+
 def validate_service_schema(page):
     errors, nodes = [], []
     for block in page.jsonld_blocks:
@@ -154,7 +166,10 @@ def main():
     errors = validate_canonical_scope(pages)
     errors.extend(f"Orphan canonical page: {url}" for url in sorted(orphan_pages(graph, site_audit.ORIGIN + "/")))
     for path, page in pages.items():
-        errors.extend(validate_structure(page, path.read_text(encoding="utf-8")))
+        source = path.read_text(encoding="utf-8")
+        errors.extend(validate_structure(page, source))
+        if page.canonical in {site_audit.ORIGIN + "/", site_audit.ORIGIN + "/en/"}:
+            errors.extend(validate_homepage_proof(source))
         if path.parent.name in {"softwareentwicklung-luebeck", "webentwicklung-luebeck", "ki-automatisierung-luebeck"}:
             errors.extend(validate_service_schema(page))
     if errors:

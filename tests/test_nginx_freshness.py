@@ -102,7 +102,7 @@ class NginxFreshnessTests(unittest.TestCase):
 
     def test_non_html_policies_and_contact_route_unchanged(self):
         for path in ['/assets/home.css','/assets/home-de.js','/favicon.svg',
-                     '/assets/profile/dustin-zander.webp','/assets/hero/mainframe-hero.mp4',
+                     '/assets/profile/dustin-zander.webp',
                      '/og-datenpflege-nord.png','/robots.txt','/sitemap.xml','/healthz','/api/contact']:
             with self.subTest(path=path):
                 before=self.c.get('baseline',path);after=self.c.get('candidate',path)

@@ -1,6 +1,6 @@
 # Internal link architecture
 
-2026-09-13. Seven canonical pages; no new commercial/content URLs approved.
+Updated 2026-09-15. Seven canonical pages; no new commercial/content URLs approved.
 All paths resolve under `https://datenpflege-nord.de/`.
 
 ```mermaid
@@ -23,7 +23,8 @@ graph TD
 
 | Source | Destination | Purpose / natural anchor |
 |---|---|---|
-| `/` | S, W, A | Existing service-detail links; one click from homepage |
+| `/` | S, W, A | Service-detail links; one click from homepage |
+| `/` | `/softwareentwicklung-luebeck/#schnittstellen` | Homepage systems/interfaces card assigns API and interface intent explicitly to S |
 | S | `#entscheidung`, `#schnittstellen`, `#projektstart` | Local decision navigation: Standard oder individuell; APIs und Schnittstellen; Projekt vorbereiten |
 | W | `#entscheidung`, `#projektstart` | Website-Entscheidung and project preparation |
 | A | `#entscheidung`, `#projektstart` | Workflow choice and process inputs |

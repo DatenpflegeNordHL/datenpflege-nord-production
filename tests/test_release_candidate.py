@@ -23,8 +23,10 @@ class ReleaseCandidateTests(unittest.TestCase):
     def commit(self):self.git('add','.');self.git('commit','-qm','fixture');return self.git('rev-parse','HEAD')
     def test_finalized_archive_manifest_and_no_mutation(self):
         result=verifier.verify(self.repo,self.commit())
-        self.assertEqual(result['result'],'PASS');self.assertEqual(result['reference_count'],79)
-        self.assertEqual(result['post_manifest_mutations'],0);self.assertEqual(len(result['manifest']),28)
+        self.assertEqual(result['result'],'PASS')
+        self.assertEqual(result['reference_count'],len(assets.inspect(self.repo)))
+        self.assertEqual(result['post_manifest_mutations'],0)
+        self.assertEqual(len(result['manifest']),len(assets.public_files(self.repo)))
         self.assertEqual(self.git('status','--porcelain'),'')
     def test_unfinalized_archive_is_not_packaged(self):
         (self.repo/'assets/home.css').write_text('body{color:purple}')

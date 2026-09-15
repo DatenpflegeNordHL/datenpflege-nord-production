@@ -1,6 +1,24 @@
 # Google Search Console validation plan
 
-2026-09-13. **P0 external measurement dependency.** Access has not been established in this task. “Not connected to SE Ranking” does not prove no GSC property exists. No property, DNS, token or account changes made.
+Updated 2026-09-15. **First-party measurement dependency.** Access has not been established in this task. “Not connected to SE Ranking” does not prove no GSC property exists. No property, DNS, token or account changes were made, and no verification token was added.
+
+## Ready-to-connect targets
+
+| Item | Prepared value |
+|---|---|
+| Property target | Domain property `datenpflege-nord.de` if already owned or eligible for DNS verification |
+| Preferred canonical domain | `https://datenpflege-nord.de/` (hyphenated, HTTPS) |
+| Wrong-domain exclusion | `datenpflegenord.de` is unrelated and must not be selected or consolidated |
+| Verification requirement | Owner checks existing properties first; otherwise complete Google's current DNS verification with an authorized DNS operator |
+| Sitemap submission | `https://datenpflege-nord.de/sitemap.xml` |
+| Baseline date | Capture on the actual connection date; planned release-preparation baseline is `2026-09-15`, not a fabricated data start |
+| Initial inspection list | `/`, `/softwareentwicklung-luebeck/`, `/webentwicklung-luebeck/`, `/ki-automatisierung-luebeck/`, `/en/`, `/impressum/`, `/datenschutz/` |
+
+## Query/page monitoring template
+
+| Period | Query | Cluster | Landing page | Country | Device | Impressions | Clicks | CTR | Position | Google canonical | Last crawl | Qualified lead evidence | Decision |
+|---|---|---|---|---|---|---:|---:|---:|---:|---|---|---|---|
+| YYYY-MM-DD–YYYY-MM-DD | exact exported query | Software / Web / Automation / Brand | canonical URL | DE | mobile/desktop | GSC value | GSC value | GSC value | GSC value | inspected value | inspected value | aggregate/no PII | retain, revise, investigate or HOLD |
 
 ## Connection and baseline
 
