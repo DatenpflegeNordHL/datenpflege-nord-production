@@ -12,7 +12,7 @@ Updated 2026-09-15. **First-party measurement dependency.** Access has not been 
 | Verification requirement | Owner checks existing properties first; otherwise complete Google's current DNS verification with an authorized DNS operator |
 | Sitemap submission | `https://datenpflege-nord.de/sitemap.xml` |
 | Baseline date | Capture on the actual connection date; planned release-preparation baseline is `2026-09-15`, not a fabricated data start |
-| Initial inspection list | `/`, `/softwareentwicklung-luebeck/`, `/wissen/individualsoftware-kosten/`, `/webentwicklung-luebeck/`, `/wissen/website-relaunch-checkliste/`, `/ki-automatisierung-luebeck/`, `/en/`, `/impressum/`, `/datenschutz/` |
+| Initial inspection list | `/`, `/softwareentwicklung-luebeck/`, `/webentwicklung-luebeck/`, `/ki-automatisierung-luebeck/`, `/wissen/individualsoftware-kosten/`, `/wissen/website-relaunch-checkliste/`, `/wissen/ki-prozessautomatisierung/` as the acquisition-owner set; legal/language canonicals remain part of sitemap/index coverage |
 
 ## Query/page monitoring template
 
@@ -28,7 +28,7 @@ Export the longest available baseline, then comparable complete 28-day windows w
 
 | Analysis | Required evidence | Action criterion |
 |---|---|---|
-| Submitted vs indexed | Nine canonical sitemap URLs, Page Indexing reasons, inspection per owner | Investigate exclusions individually; no blanket indexing requests |
+| Submitted vs indexed | Ten canonical sitemap URLs, Page Indexing reasons, inspection per owner | Investigate exclusions individually; no blanket indexing requests |
 | Canonicals / duplicates | User canonical vs Google canonical, crawl date, rendered HTML | Resolve genuine mismatch; do not split owners first |
 | Query and page impressions | Query→page table for S/W/A, country/device/time | Update ownership from observed data; multiple URLs may be legitimate for different tasks |
 | CTR and average position | Clicks/impressions/position by comparable cluster | Improve titles/snippets when relevance and impressions justify; avoid noisy tiny samples |
@@ -40,14 +40,15 @@ Export the longest available baseline, then comparable complete 28-day windows w
 | Schema / rich results | Supported enhancement reports and URL inspection | Validate syntax and factual parity; absent Service rich-result report is not necessarily an error |
 | Leads | Aggregate successful qualified inquiries per landing page where lawful measurement exists | No PII in logs/exports; no new analytics or invented conversions in this task |
 
-### Phase-5 authority monitoring
+### Authority monitoring
 
-After a later approved release, monitor the two new URLs independently. Baselines begin only when real GSC data exists.
+After a later approved release, monitor the three authority URLs independently. Baselines begin only when real GSC data exists.
 
 | URL | Intended query family | Watch for competing page | Measurements |
 |---|---|---|---|
 | `/wissen/individualsoftware-kosten/` | Individualsoftware Kosten, Kostentreiber, Standardsoftware oder Eigenentwicklung, Projektumfang | `/softwareentwicklung-luebeck/` | Impressions, clicks, CTR, average position, query cluster, Google canonical and index status |
 | `/wissen/website-relaunch-checkliste/` | Website Relaunch Checkliste, Redirect-Mapping, Relaunch Fehler vermeiden | `/webentwicklung-luebeck/` | Impressions, clicks, CTR, average position, query cluster, Google canonical and index status |
+| `/wissen/ki-prozessautomatisierung/` | KI-Prozessautomatisierung, deterministisch vs KI, Human-in-the-Loop, Fehler-/Freigabemodell | `/ki-automatisierung-luebeck/` | Impressions, clicks, CTR, average position, query cluster, Google canonical and index status |
 
 If the authority page and Money page appear for the same query, classify the query task before changing ownership. Commercial/local terms stay with the Money page; planning and checklist terms stay with the authority asset.
 
