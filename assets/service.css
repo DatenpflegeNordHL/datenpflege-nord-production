@@ -499,3 +499,9 @@
         gap: 10px;
       }
     }
+
+    @media (max-width: 420px) {
+      .nav > .pill {
+        display: none;
+      }
+    }
