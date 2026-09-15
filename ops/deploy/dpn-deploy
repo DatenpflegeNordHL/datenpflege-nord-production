@@ -13,17 +13,26 @@ RELEASES="/srv/datenpflege-nord/releases"
 CURRENT="/srv/datenpflege-nord/current"
 
 usage() {
-    echo "Verwendung: dpn-deploy {check|deploy} --target <40-stellige-git-sha>" >&2
+    echo "Verwendung: dpn-deploy check --target <sha> | {authorize|deploy} --target <sha> --release-tag <tag>" >&2
     exit 64
 }
 
-[ "$#" -eq 3 ] || usage
-MODE="$1"
-[ "$2" = "--target" ] || usage
-TARGET="$3"
-[[ "$MODE" = "check" || "$MODE" = "deploy" ]] || usage
+MODE="${1:-}"; RELEASE_TAG=""
+case "$MODE" in
+    check) [ "$#" -eq 3 ] && [ "$2" = --target ] || usage; TARGET="$3" ;;
+    authorize|deploy)
+        [ "$#" -eq 5 ] && [ "$2" = --target ] && [ "$4" = --release-tag ] || usage
+        TARGET="$3"; RELEASE_TAG="$5"
+        [[ "$RELEASE_TAG" =~ ^dpn-release-[0-9]{8}-[0-9]{6}Z$ ]] || usage
+        ;;
+    *) usage ;;
+esac
 [[ "$TARGET" =~ ^[0-9a-f]{40}$ ]] \
     || { echo "FEHLER: --target muss eine vollstaendige 40-stellige Git-SHA sein." >&2; exit 64; }
+RELEASE_GATE="/usr/local/lib/dpn-deploy/release_gate.py"
+ALLOWED_SIGNERS="/etc/dpn-deploy/release-signers.allowed"
+CI_TOKEN="/etc/dpn-deploy/github-ci-token"
+RELEASE_TAG_RECORDS="$STATE_DIR/release-tags"
 
 # Geschlossene Liste aller Dateien, die im oeffentlichen Webroot liegen duerfen.
 ALLOWED_PUBLIC_FILES=(
@@ -311,6 +320,28 @@ live_smoke_test() {
         | grep -q '"ok"[[:space:]]*:[[:space:]]*true' || return 1
 }
 
+fetch_and_verify_release_authorization() {
+    local REMOTE_REFS TAG_OBJECT PEELED
+    [ -x "$RELEASE_GATE" ] || fail "Installiertes Release Gate fehlt oder ist nicht ausfuehrbar."
+    REMOTE_REFS="$(git ls-remote --tags "$REPO" "refs/tags/$RELEASE_TAG" "refs/tags/$RELEASE_TAG^{}")" \
+        || fail "Release-Tag konnte nicht vom fest konfigurierten Origin gelesen werden."
+    TAG_OBJECT="$(printf '%s\n' "$REMOTE_REFS" | awk -v ref="refs/tags/$RELEASE_TAG" '$2==ref {print $1}')"
+    PEELED="$(printf '%s\n' "$REMOTE_REFS" | awk -v ref="refs/tags/$RELEASE_TAG^{}" '$2==ref {print $1}')"
+    [[ "$TAG_OBJECT" =~ ^[0-9a-f]{40}$ ]] && [ "$PEELED" = "$TARGET" ] \
+        || fail "Remote Release-Tag fehlt, ist nicht annotiert oder zeigt nicht auf TARGET."
+    git --git-dir="$CACHE" fetch --no-tags "$REPO" "refs/tags/$RELEASE_TAG:refs/tags/$RELEASE_TAG" \
+        || fail "Release-Tag fehlt oder wurde gegenueber dem lokalen Trust-Stand verschoben."
+    python3 "$RELEASE_GATE" --git-dir "$CACHE" --tag "$RELEASE_TAG" --target "$TARGET" \
+        --allowed-signers "$ALLOWED_SIGNERS" --records-dir "$RELEASE_TAG_RECORDS" --ci-token "$CI_TOKEN" \
+        || fail "Signatur-/CI-Autorisierung fehlgeschlagen."
+}
+
+record_release_authorization() {
+    python3 "$RELEASE_GATE" --git-dir "$CACHE" --tag "$RELEASE_TAG" --target "$TARGET" \
+        --allowed-signers "$ALLOWED_SIGNERS" --records-dir "$RELEASE_TAG_RECORDS" --ci-token "$CI_TOKEN" --record \
+        || fail "Release-Autorisierung konnte nicht unveraenderlich aufgezeichnet werden."
+}
+
 install -d -m 700 "$RELEASE_STATE_DIR"
 acquire_lock
 [ -r "$KEY" ] || fail "Deploy Key fehlt."
@@ -318,13 +349,21 @@ acquire_lock
 [ -d "$CACHE" ] || fail "Git-Cache fehlt."
 [ -L "$CURRENT" ] || fail "current ist kein Symlink."
 
-echo "DPN DEPLOY - MODE: $MODE - TARGET: $TARGET"
+echo "DPN DEPLOY - MODE: $MODE - TARGET: $TARGET${RELEASE_TAG:+ - RELEASE TAG: $RELEASE_TAG}"
 git --git-dir="$CACHE" fetch --force --depth=1 "$REPO" main:refs/remotes/origin/main
 ORIGIN_MAIN="$(git --git-dir="$CACHE" rev-parse refs/remotes/origin/main)"
 [ "$(git --git-dir="$CACHE" cat-file -t "$TARGET" 2>/dev/null || true)" = commit ] \
     || fail "TARGET existiert nicht als Commit im gefetchten Repository: $TARGET"
 [ "$TARGET" = "$ORIGIN_MAIN" ] \
     || fail "TARGET entspricht nicht origin/main ($ORIGIN_MAIN)."
+
+if [ "$MODE" != check ]; then
+    fetch_and_verify_release_authorization
+fi
+if [ "$MODE" = authorize ]; then
+    echo "OK: Signierter Release-Tag und Hosted CI autorisieren exakt TARGET; kein Deployment ausgefuehrt."
+    exit 0
+fi
 
 for FILE in "${ALLOWED_PUBLIC_FILES[@]}"; do
     if git --git-dir="$CACHE" cat-file -e "$TARGET:$FILE" 2>/dev/null; then SELECTED_PUBLIC_FILES+=("$FILE"); fi
@@ -359,6 +398,7 @@ if [ "$TARGET" = "$LIVE_SHA" ] && [ "$TARGET" = "$DEPLOYED_SHA" ] \
     && [ "$(release_commit "$LIVE_RELEASE" 2>/dev/null || true)" = "$TARGET" ] \
     && (validate_release "$LIVE_RELEASE") >/dev/null 2>&1
 then
+    record_release_authorization
     echo "OK: Kein neues Deployment notwendig; TARGET ist vollstaendig verifiziert live."
     exit 0
 fi
@@ -400,6 +440,7 @@ fi
 validate_release "$NEW"
 [ "$(release_commit "$NEW" 2>/dev/null || true)" = "$TARGET" ] \
     || fail "Release-Metadaten entsprechen nicht TARGET."
+record_release_authorization
 check_services
 
 ln -s "$NEW" "$CURRENT.new"

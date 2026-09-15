@@ -26,7 +26,7 @@ No repository OpenSpec or Beads state exists. This contract and the existing can
 | Implementation | Three existing Lübeck service owners, scoped CSS/sitemap changes, Golden audit tooling and planning documents are complete locally | Phase 1–3 only; no new indexable route |
 | Static CI | Baseline checks passed before edits; final-tree results belong in `GOLDEN-VALIDATION-REPORT.md` | Local validation only; hosted GitHub CI cannot be claimed before push |
 | Preview | Final local browser evidence belongs in `GOLDEN-VALIDATION-REPORT.md` | Local browser proof is distinct from production measurement |
-| Merge / approved package | #10 main protection and #15 activation contract unresolved | BLOCK |
+| Merge / approved package | #10 signed-release compensating control and #15 activation contract must be installed/accepted | BLOCK |
 | Production / live verification | Read-only baseline exists; broken slash redirect discovered | BLOCK release; baseline is not new-release proof |
 | Indexation / monitoring / iteration | GSC access not established, Bing status unverified | P0 external measurement dependency; future stages pending |
 

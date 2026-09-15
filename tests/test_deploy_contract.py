@@ -54,9 +54,9 @@ class DeployContractTests(unittest.TestCase):
         result = self.validate('check_release_manifest "$4"; check_local_references "$4"')
         self.assertEqual(result.returncode, 0, result.stderr)
 
-    def test_tampered_blob_rejected(self):
+    def test_valid_authorization_then_tampered_package_rejected(self):
         (self.release / 'app.js').write_text('tampered;\n')
-        result = self.validate('check_release_manifest "$4"')
+        result = self.validate('fetch_and_verify_release_authorization() { :; }; fetch_and_verify_release_authorization; check_release_manifest "$4"')
         self.assertNotEqual(result.returncode, 0)
         self.assertIn('entspricht nicht TARGET', result.stderr)
 

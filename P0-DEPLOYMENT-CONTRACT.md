@@ -211,3 +211,16 @@ No Cloudflare configuration changed
 No contact backend configuration changed
 
 No merge to main performed
+
+
+## 2026-09-15 compensating-control candidate
+
+GitHub-native branch protection is unavailable under the chosen private/free
+organization plan. It is not enabled and the repository must not be made public.
+The reviewed alternative is the cryptographically signed production-release
+boundary in `ops/deploy/P0-RELEASE-AUTHORIZATION.md`: exact main SHA, exact Hosted
+CI success, explicit human signed annotated tag, fixed server trust root,
+immutable tag identity, package/manifest validation, and explicit deployment.
+There is no deployment-on-push workflow. Issue #10 may be reclassified to
+**ACCEPTED RISK / COMPENSATED** only after Hosted CI and server installation/
+non-deploying acceptance complete; source-only implementation is insufficient.

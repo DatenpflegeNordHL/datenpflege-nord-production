@@ -42,6 +42,8 @@ jobs:
           bash -n ops/deploy/dpn-deploy
           bash -n ops/deploy/verify-dpn-deploy.sh
           bash -n ops/deploy/install-dpn-deploy.sh
+          bash -n ops/deploy/install-release-gate.sh
+          bash -n ops/deploy/verify-release-tag.sh
           test "$(git rev-parse HEAD)" = "${{ github.event.pull_request.head.sha || github.sha }}"
           PYTHONPYCACHEPREFIX="$RUNNER_TEMP/dpn-python-cache" python -m compileall -q ops/deploy scripts tests
           python ops/deploy/check_asset_versions.py --root . --generate
@@ -49,7 +51,7 @@ jobs:
           python ops/deploy/check_asset_versions.py --root .
           python ops/deploy/scan_secrets.py
           python -m unittest discover -s tests
-          sudo python3 -m unittest discover -s tests -p test_deploy_install.py
+          sudo python3 -m unittest discover -s tests -p 'test_*install.py'
           python scripts/site_audit.py
           python scripts/golden_audit.py
           node --check assets/home-de.js

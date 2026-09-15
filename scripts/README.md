@@ -45,4 +45,4 @@ The corresponding GitHub Actions workflow:
 - pins third-party GitHub Actions to full commit SHAs
 - does not persist checkout credentials after the repository has been fetched
 
-The push trigger is **not** a replacement for branch protection. Golden Build policy requires `main` to be protected by a branch rule/ruleset that requires the pull-request audit to pass before merge.
+The push trigger does not protect Git history. GitHub-native protection is unavailable for this private repository under the chosen plan. Production instead requires the separately installed signed-tag/CI/exact-SHA compensating gate in `ops/deploy/P0-RELEASE-AUTHORIZATION.md`; until server acceptance, Issue #10 remains OPEN P0.

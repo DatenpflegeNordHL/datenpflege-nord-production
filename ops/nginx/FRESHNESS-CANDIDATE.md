@@ -45,4 +45,4 @@ verify outgoing validators and 304 (or validated 200), change meaningful HTML
 and an asset in an approved release, navigate normally, inspect the new HTML
 and new hash URL/bytes, and confirm the unchanged asset URL. CDN/header overrides
 must not negate `no-cache`; an origin-only candidate cannot certify the edge.
-Do not release until Issue #10 main protection is actually enforced.
+Do not release until Issue #10 is either GitHub-enforced or the signed production-release compensating control is installed and accepted.

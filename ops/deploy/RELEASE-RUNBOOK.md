@@ -1,6 +1,6 @@
 # Golden deployment script and release runbook
 
-This runbook separates script installation, release validation and website activation. None authorizes another implicitly. Never edit `/usr/local/sbin/dpn-deploy` ad hoc. `ops/deploy/dpn-deploy` is the version-controlled source; the installed executable is its runtime copy. Current canonical/runtime SHA-256: `d853a8c32c0179b70705d7ea307a038d7f0bc0f23adc4c961f13c193880cec01`.
+This runbook separates script installation, release validation and website activation. None authorizes another implicitly. Never edit `/usr/local/sbin/dpn-deploy` ad hoc. `ops/deploy/dpn-deploy` is the version-controlled source; the installed executable is its runtime copy. Installed runtime baseline SHA-256 before the release-gate candidate: `d853a8c32c0179b70705d7ea307a038d7f0bc0f23adc4c961f13c193880cec01`; the candidate source differs and is not installed.
 
 ## Verify and update the script
 
@@ -114,3 +114,14 @@ OG: retain the intentional `no-cache, no-store, must-revalidate` policy and obse
 Runtime source identity, update tooling, actual entrypoint validation, script rollback proof, current release/manifest parity, secret/contact separation and sampled security/transformation handling are PASS. **Issue #15 remains OPEN only for live asset content-version migration and bounded HTML-freshness acceptance.** Current caches do not prove current content drift; they fail or leave open the required future-release freshness contract. A documentation/checker commit cannot substitute for deploying approved versioned references or approving the HTML policy.
 
 Issue #10 remains OPEN and unchanged; hosted tests are not private-main protection. No merge, website activation, Cloudflare or contact-backend change is authorized by this runbook.
+
+
+## Signed production authorization candidate (2026-09-15)
+
+The prior Issue #10 branch-protection requirement is superseded only if the
+compensating production control is installed and accepted. See
+`P0-RELEASE-AUTHORIZATION.md`. A production `deploy` now requires exact main SHA,
+approved signed annotated tag, exact-SHA/main Hosted CI and package/manifest
+validation. `check` and `authorize` never deploy. Until installation and server
+acceptance, Issue #10 remains OPEN P0; afterward classify it ACCEPTED RISK /
+COMPENSATED, never “branch protection enabled.”
