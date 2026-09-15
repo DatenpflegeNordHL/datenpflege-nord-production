@@ -11,9 +11,25 @@ EnvironmentFile=/etc/datenpflege-nord-contact.env
 ExecStart=/usr/bin/python3 /opt/dpn-contact/contact_api.py
 Restart=on-failure
 RestartSec=3
+UMask=0077
+
 NoNewPrivileges=true
 PrivateTmp=true
+PrivateDevices=true
 ProtectHome=true
+ProtectSystem=strict
+ProtectControlGroups=true
+ProtectKernelModules=true
+ProtectKernelTunables=true
+ProtectKernelLogs=true
+ProtectClock=true
+RestrictSUIDSGID=true
+LockPersonality=true
+MemoryDenyWriteExecute=true
+CapabilityBoundingSet=
+AmbientCapabilities=
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+SystemCallArchitectures=native
 
 [Install]
 WantedBy=multi-user.target
