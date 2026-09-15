@@ -24,6 +24,15 @@ ALLOWED_CANONICALS = {
     "https://datenpflege-nord.de/softwareentwicklung-luebeck/",
     "https://datenpflege-nord.de/webentwicklung-luebeck/",
     "https://datenpflege-nord.de/ki-automatisierung-luebeck/",
+    "https://datenpflege-nord.de/wissen/individualsoftware-kosten/",
+    "https://datenpflege-nord.de/wissen/website-relaunch-checkliste/",
+}
+
+AUTHORITY_OWNERS = {
+    "https://datenpflege-nord.de/wissen/individualsoftware-kosten/":
+        "https://datenpflege-nord.de/softwareentwicklung-luebeck/",
+    "https://datenpflege-nord.de/wissen/website-relaunch-checkliste/":
+        "https://datenpflege-nord.de/webentwicklung-luebeck/",
 }
 
 
@@ -68,7 +77,7 @@ def orphan_pages(graph, start):
 
 
 def validate_canonical_scope(pages):
-    """Freeze Phase 1–3 to the seven reviewed canonical routes."""
+    """Allow only the reviewed core, legal and Phase-5 authority routes."""
     discovered = {page.canonical for page in pages.values() if page.canonical}
     errors = []
     for url in sorted(discovered - ALLOWED_CANONICALS):
@@ -160,6 +169,83 @@ def validate_service_schema(page):
     return errors
 
 
+def validate_authority_schema(page):
+    errors, nodes = [], []
+    for block in page.jsonld_blocks:
+        try:
+            data = json.loads(block)
+        except json.JSONDecodeError:
+            return [f"{page.path}: invalid JSON-LD"]
+        if not isinstance(data, dict):
+            return [f"{page.path}: expected a schema object"]
+        nodes.extend(data.get("@graph", [data]))
+    for kind in ("Organization", "WebPage", "TechArticle", "BreadcrumbList"):
+        if sum(isinstance(n, dict) and n.get("@type") == kind for n in nodes) != 1:
+            errors.append(f"{page.path}: expected one {kind}")
+    if errors:
+        return errors
+    types = {n["@type"]: n for n in nodes if isinstance(n, dict) and isinstance(n.get("@type"), str)}
+    org, web, article, breadcrumb = (
+        types[t] for t in ("Organization", "WebPage", "TechArticle", "BreadcrumbList")
+    )
+    canonical = page.canonical
+    origin = site_audit.ORIGIN + "/"
+    article_id = canonical + "#article"
+    checks = {
+        "legal organization identity": org.get("name") == "Green Vector Energo GmbH" and org.get("alternateName") == "DatenpflegeNord" and org.get("@id") == origin + "#organization",
+        "WebPage metadata parity": web.get("name") == page.title and web.get("description") == page.description,
+        "WebPage identity": web.get("url") == canonical and web.get("@id") == canonical + "#webpage",
+        "article relationship": web.get("mainEntity") == {"@id": article_id},
+        "article identity": article.get("@id") == article_id and article.get("mainEntityOfPage") == {"@id": canonical + "#webpage"},
+        "article author": article.get("author") == {"@type": "Person", "name": "Dustin Zander", "url": origin + "#profil"},
+        "article publisher": article.get("publisher") == {"@id": origin + "#organization"},
+        "article language": article.get("inLanguage") == "de-DE",
+        "breadcrumb relationship": web.get("breadcrumb") == {"@id": canonical + "#breadcrumb"},
+        "breadcrumb identity": breadcrumb.get("@id") == canonical + "#breadcrumb",
+    }
+    items = breadcrumb.get("itemListElement", [])
+    checks["breadcrumb trail"] = (
+        isinstance(items, list)
+        and len(items) == 2
+        and [item.get("position") for item in items] == [1, 2]
+        and [item.get("item") for item in items] == [origin, canonical]
+    )
+    for label, passed in checks.items():
+        if not passed:
+            errors.append(f"{page.path}: {label} mismatch")
+    for node in nodes:
+        if isinstance(node, dict) and (
+            node.get("@type") in ("FAQPage", "LocalBusiness", "Review", "AggregateRating")
+            or "aggregateRating" in node
+            or "review" in node
+        ):
+            errors.append(f"{page.path}: gated schema expansion")
+    return errors
+
+
+def validate_authority_content(page, source):
+    errors = []
+    canonical = page.canonical or ""
+    owner = AUTHORITY_OWNERS.get(canonical)
+    if owner and owner.removeprefix(site_audit.ORIGIN) not in page.hrefs:
+        errors.append(f"{page.path}: authority page does not link to its commercial owner")
+    forbidden = ("NordWerk Digital GmbH", "FAQPage", "AggregateRating")
+    for marker in forbidden:
+        if marker in source:
+            errors.append(f"{page.path}: gated authority claim/schema: {marker}")
+    if canonical.endswith("/individualsoftware-kosten/"):
+        if re.search(r"\b\d{2,}(?:[.,]\d+)?\s*(?:€|Euro)\b", source, re.I):
+            errors.append(f"{page.path}: unsupported numeric price claim")
+        for required in ("data-scope-check", "Make-or-Buy", "Keine Preisautomatik"):
+            if required not in source:
+                errors.append(f"{page.path}: missing decision feature: {required}")
+    if canonical.endswith("/website-relaunch-checkliste/"):
+        for required in ("data-relaunch-checklist", "KEEP", "REDIRECT", "Fortschritt nur lokal gespeichert"):
+            if required not in source:
+                errors.append(f"{page.path}: missing relaunch feature: {required}")
+    return errors
+
+
 def main():
     pages = site_audit.parse_pages()
     graph = link_graph(pages)
@@ -172,10 +258,13 @@ def main():
             errors.extend(validate_homepage_proof(source))
         if path.parent.name in {"softwareentwicklung-luebeck", "webentwicklung-luebeck", "ki-automatisierung-luebeck"}:
             errors.extend(validate_service_schema(page))
+        if page.canonical in AUTHORITY_OWNERS:
+            errors.extend(validate_authority_schema(page))
+            errors.extend(validate_authority_content(page, source))
     if errors:
         print("\n".join(errors), file=sys.stderr)
         return 1
-    print(f"Golden audit passed: {len(pages)} reachable canonical pages; structure/indexability and three service graphs checked.")
+    print(f"Golden audit passed: {len(pages)} reachable canonical pages; structure/indexability, three service graphs and two authority graphs checked.")
     return 0
 
 

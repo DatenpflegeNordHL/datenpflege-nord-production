@@ -1,0 +1,228 @@
+.article-hero {
+  min-height: 560px;
+}
+
+.article-hero .lead {
+  max-width: 760px;
+}
+
+.article-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin-top: 24px;
+  color: var(--muted);
+  font: 600 .72rem/1.5 var(--mono);
+}
+
+.answer-box,
+.tool-panel {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #fff;
+  padding: clamp(22px, 4vw, 40px);
+}
+
+.answer-box > :first-child,
+.tool-panel > :first-child {
+  margin-top: 0;
+}
+
+.answer-box > :last-child,
+.tool-panel > :last-child {
+  margin-bottom: 0;
+}
+
+.article-copy {
+  max-width: 780px;
+}
+
+.article-copy p,
+.article-copy li {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.article-copy a,
+.answer-box a,
+.tool-panel a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.matrix th:first-child {
+  width: 22%;
+}
+
+.scope-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.scope-field {
+  display: grid;
+  gap: 7px;
+}
+
+.scope-field label {
+  font-weight: 700;
+}
+
+.scope-field small {
+  color: var(--muted);
+}
+
+.scope-field select {
+  width: 100%;
+  min-height: 46px;
+  padding: 9px 38px 9px 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+}
+
+.tool-result {
+  margin-top: 24px;
+  padding: 20px;
+  border-left: 5px solid var(--blue);
+  background: #f3f3ef;
+}
+
+.tool-result h3 {
+  margin: 0 0 8px;
+  font-family: var(--display);
+  font-size: clamp(1.55rem, 3vw, 2.15rem);
+  line-height: 1;
+}
+
+.tool-result p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.scope-questions {
+  margin: 18px 0 0;
+  padding-left: 22px;
+}
+
+.scope-questions li + li {
+  margin-top: 8px;
+}
+
+.tool-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.tool-button {
+  min-height: 42px;
+  padding: 0 16px;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  background: var(--ink);
+  color: #fff;
+  font: 700 .78rem/1 var(--body);
+  cursor: pointer;
+}
+
+.tool-button-secondary {
+  background: transparent;
+  color: var(--ink);
+}
+
+.privacy-note {
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: .82rem;
+}
+
+.checklist-progress {
+  display: grid;
+  gap: 8px;
+  margin: 24px 0;
+}
+
+.checklist-progress label {
+  font-weight: 700;
+}
+
+.checklist-progress progress {
+  width: 100%;
+  height: 14px;
+  accent-color: var(--blue);
+}
+
+.checklist-group {
+  margin: 28px 0 0;
+  padding: 0;
+  border: 0;
+}
+
+.checklist-group legend {
+  width: 100%;
+  margin-bottom: 10px;
+  font-family: var(--display);
+  font-size: clamp(1.65rem, 3vw, 2.35rem);
+  line-height: 1;
+  letter-spacing: -.035em;
+}
+
+.check-item {
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  gap: 11px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--line);
+  cursor: pointer;
+}
+
+.check-item input {
+  width: 18px;
+  height: 18px;
+  margin: 3px 0 0;
+  accent-color: var(--blue);
+}
+
+.check-item span {
+  line-height: 1.55;
+}
+
+.check-item input:checked + span {
+  color: var(--muted);
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+}
+
+.phase-note {
+  margin: 12px 0 0 33px;
+  color: var(--muted);
+  font-size: .84rem;
+}
+
+@media (max-width: 720px) {
+  .scope-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .matrix th:first-child {
+    width: auto;
+  }
+}
+
+@media (max-width: 360px) {
+  .nav > .pill {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .checklist-progress progress {
+    scroll-behavior: auto;
+  }
+}

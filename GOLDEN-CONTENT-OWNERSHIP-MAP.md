@@ -1,6 +1,6 @@
 # Golden content ownership map
 
-Decision date: 2026-09-13, initially recorded before HTML edits and reconciled with the final local Phase 1–3 implementation. Canonical origin: `https://datenpflege-nord.de/`.
+Decision date: 2026-09-13, updated 2026-09-15 for the two approved Phase-5 authority assets. Canonical origin: `https://datenpflege-nord.de/`.
 Scope is intent ownership, not a promise to rank nationally or to serve unverified regions.
 
 Evidence keys: **BT** = MASTER-SITE-EVIDENCE §§2–3 plus current homepage/service copy; **P0** = KEYWORD-P0-VALIDATION-2026-09-13; **V** = KEYWORD-VALIDATION-EVIDENCE-2026-09-13; **R** = REGIONAL-SERP-GATES; **K** = KEYWORD-INTENT-MAP. All are local documents in this branch. Raw CSV/cluster/queue labels are hypotheses overridden by these later validations and this scoped decision. GSC has not validated actual ranking-URL overlap.
@@ -48,3 +48,18 @@ For every family: `_COMMERCIAL` terms support the existing family owner without 
 ## Unique value and cannibalization acceptance for this expansion
 
 Software adds a standard/extension/custom decision table, project input checklist and integration failure questions. Web adds build/modernize/landingpage choices and customer preparation. AI adds deterministic vs LLM vs approval boundaries. They solve different buyer decisions and cross-link instead of duplicating API tutorials on all pages. No keywords are quotas; broad head terms do not become page titles solely for volume. Future split decisions must update this map and GSC ownership evidence first.
+
+## Phase-5 intent ownership
+
+| Query cluster | Primary owner URL | Supporting section | Competing URL | Decision |
+|---|---|---|---|---|
+| Individualsoftware entwickeln lassen | `/softwareentwicklung-luebeck/` | Commercial service, delivery and project-start sections | `/wissen/individualsoftware-kosten/` | Money page remains owner; guide links back and does not solicit the head term as its primary title. |
+| Softwareentwicklung Lübeck | `/softwareentwicklung-luebeck/` | Entire local commercial owner | None | OWN unchanged. |
+| Individualsoftware Kosten | `/wissen/individualsoftware-kosten/` | Cost drivers, scope check, Make-or-Buy and post-go-live costs | `/softwareentwicklung-luebeck/#projektstart` | Authority guide owns informational-commercial decision intent; owner retains only a concise bridge. |
+| Standardsoftware oder Eigenentwicklung | `/wissen/individualsoftware-kosten/` | Four-option Make-or-Buy matrix | `/softwareentwicklung-luebeck/#entscheidung` | Guide owns detailed comparison; Money page keeps a short qualification table. |
+| Webdesign Lübeck | `/webentwicklung-luebeck/` | Commercial web owner | None | OWN unchanged. |
+| Website Relaunch, commercial/local | `/webentwicklung-luebeck/` | Relaunch service and project preparation | `/wissen/website-relaunch-checkliste/` | Money page remains owner for commissioning. |
+| Website Relaunch Checkliste | `/wissen/website-relaunch-checkliste/` | URL matrix, staging, go-live and post-launch checklist | `/webentwicklung-luebeck/#entscheidung` | Authority guide owns planning/error-prevention intent. |
+| KI Automatisierung Lübeck | `/ki-automatisierung-luebeck/` | Existing commercial owner | None | Frozen in Phase 5 pending first-party GSC evidence. |
+
+Each cluster has one primary owner. No API, system-integration, n8n-city, Kiel or Hamburg URL was promoted.

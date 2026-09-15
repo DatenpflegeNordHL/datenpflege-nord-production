@@ -90,6 +90,41 @@ class GoldenAuditTests(unittest.TestCase):
         self.assertTrue(audit.validate_homepage_proof('<video src="/assets/hero/mainframe-hero.mp4">'))
         self.assertEqual(audit.validate_homepage_proof('<strong data-stat="repos">—</strong>'), [])
 
+    def test_authority_pages_have_valid_schema_and_owner_links(self):
+        for route in (
+            "wissen/individualsoftware-kosten/index.html",
+            "wissen/website-relaunch-checkliste/index.html",
+        ):
+            path = self.root / route
+            parser = SiteHTMLParser(path)
+            source = path.read_text()
+            parser.feed(source)
+            self.assertEqual([], audit.validate_authority_schema(parser.page))
+            self.assertEqual([], audit.validate_authority_content(parser.page, source))
+
+    def test_authority_schema_rejects_wrong_entity_and_author(self):
+        path = self.root / "wissen/individualsoftware-kosten/index.html"
+        parser = SiteHTMLParser(path)
+        parser.feed(path.read_text())
+        page = parser.page
+        graph = json.loads(page.jsonld_blocks[0])
+        next(node for node in graph["@graph"] if node["@type"] == "Organization")["name"] = "NordWerk Digital GmbH"
+        next(node for node in graph["@graph"] if node["@type"] == "TechArticle")["author"]["name"] = "Certified Expert"
+        page.jsonld_blocks = [json.dumps(graph)]
+        errors = "\n".join(audit.validate_authority_schema(page))
+        self.assertIn("legal organization identity", errors)
+        self.assertIn("article author", errors)
+
+    def test_authority_content_rejects_numeric_price_and_missing_owner(self):
+        path = self.root / "wissen/individualsoftware-kosten/index.html"
+        parser = SiteHTMLParser(path)
+        source = '<div data-scope-check>Make-or-Buy Keine Preisautomatik 50.000 Euro</div>'
+        parser.feed(source)
+        parser.page.canonical = "https://datenpflege-nord.de/wissen/individualsoftware-kosten/"
+        errors = "\n".join(audit.validate_authority_content(parser.page, source))
+        self.assertIn("does not link", errors)
+        self.assertIn("numeric price", errors)
+
 
 if __name__ == "__main__":
     unittest.main()

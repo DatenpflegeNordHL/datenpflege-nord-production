@@ -1,6 +1,6 @@
 # Internal link architecture
 
-Updated 2026-09-15. Seven canonical pages; no new commercial/content URLs approved.
+Updated 2026-09-15. Nine canonical pages: seven existing pages plus two approved Phase-5 authority assets.
 All paths resolve under `https://datenpflege-nord.de/`.
 
 ```mermaid
@@ -15,6 +15,8 @@ graph TD
   S --> C[Homepage contact]
   W --> C
   A --> C
+  S <--> IS[Individualsoftware costs guide]
+  W <--> RC[Website relaunch checklist]
   H --> I[Impressum]
   H --> D[Datenschutz]
 ```
@@ -34,15 +36,19 @@ graph TD
 | S | `/ki-automatisierung-luebeck/#entscheidung` | Multistep workflow/approval choice beyond the interface |
 | Each core owner | Other two core owners | Existing related-service cards |
 | Each core owner | `/#kontakt` | Existing next-action CTA; linked input checklist improves inquiry context |
+| S | `/wissen/individualsoftware-kosten/` | Natural bridge for cost factors, scope and Make-or-Buy questions |
+| `/wissen/individualsoftware-kosten/` | S | Commercial implementation owner after decision support |
+| W | `/wissen/website-relaunch-checkliste/` | Planning bridge for URL inventory, staging, launch and verification |
+| `/wissen/website-relaunch-checkliste/` | W | Commercial relaunch owner after checklist work |
 | `/en/` | `/` | The English overview links back to the German homepage; it does **not** directly link to S, W or A. Service discovery from `/en/` is therefore `/en/` → `/` → S/W/A. |
 | All pages | Legal pages / home | Provider identity, privacy and return path |
 
-Fragments are not sitemap URLs or new canonical owners. Links must be present in initial HTML, readable without JavaScript and resolve to unique IDs. No links to HOLD candidates, no repeated exact-keyword anchor blocks or city lists.
+Fragments are not sitemap URLs or new canonical owners. Authority links are present in initial HTML, readable without JavaScript and resolve to unique routes. The two authority assets do not cross-link because their buyer tasks are independent. No footer link farm, links to HOLD candidates, repeated exact-keyword anchor blocks or city lists were added.
 
 ## Supporting and regional architecture after future gates
 
-Each new decision asset must receive a contextual link from its commercial owner and link back with a task-specific anchor. A future API owner requires a deliberate update to S/W/A and this graph. A passing Kiel page would link to W where the broader service explanation helps and have its own truthful conversion reason; a redirecting city funnel or duplicated service page is unacceptable. Hamburg remains HOLD on area truth.
+The two approved decision assets receive a contextual link from their commercial owner and link back with a task-specific anchor. A future API owner requires a deliberate update to S/W/A and this graph. A passing Kiel page would link to W where the broader service explanation helps and have its own truthful conversion reason; a redirecting city funnel or duplicated service page is unacceptable. Hamburg remains HOLD on area truth.
 
 ## Validation
 
-`python3 scripts/site_audit.py` checks internal targets/fragments. `python3 scripts/golden_audit.py` traverses HTML links from home and fails on orphan canonical pages; mere sitemap membership does not count as reachability. Record actual final graph findings in GOLDEN-VALIDATION-REPORT. No Phase-4 standalone content exists to orphan in this scope.
+`python3 scripts/site_audit.py` checks internal targets/fragments. `python3 scripts/golden_audit.py` traverses HTML links from home and fails on orphan canonical pages; mere sitemap membership does not count as reachability. It also verifies the two authority schema graphs and commercial-owner links.
