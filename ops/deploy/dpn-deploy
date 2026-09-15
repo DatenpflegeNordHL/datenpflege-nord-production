@@ -1,0 +1,471 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+REPO="git@github.com:DatenpflegeNordHL/datenpflege-nord-production.git"
+KEY="/etc/dpn-deploy/id_ed25519"
+KNOWN="/etc/dpn-deploy/known_hosts"
+STATE_DIR="/var/lib/dpn-deploy"
+CACHE="$STATE_DIR/repo.git"
+DEPLOYED_FILE="$STATE_DIR/deployed_sha"
+RELEASE_STATE_DIR="$STATE_DIR/releases"
+LOCK_FILE="$STATE_DIR/deploy.lock"
+RELEASES="/srv/datenpflege-nord/releases"
+CURRENT="/srv/datenpflege-nord/current"
+
+usage() {
+    echo "Verwendung: dpn-deploy check --target <sha> | {authorize|deploy} --target <sha> --release-tag <tag>" >&2
+    exit 64
+}
+
+MODE="${1:-}"; RELEASE_TAG=""
+case "$MODE" in
+    check) [ "$#" -eq 3 ] && [ "$2" = --target ] || usage; TARGET="$3" ;;
+    authorize|deploy)
+        [ "$#" -eq 5 ] && [ "$2" = --target ] && [ "$4" = --release-tag ] || usage
+        TARGET="$3"; RELEASE_TAG="$5"
+        [[ "$RELEASE_TAG" =~ ^dpn-release-[0-9]{8}-[0-9]{6}Z$ ]] || usage
+        ;;
+    *) usage ;;
+esac
+[[ "$TARGET" =~ ^[0-9a-f]{40}$ ]] \
+    || { echo "FEHLER: --target muss eine vollstaendige 40-stellige Git-SHA sein." >&2; exit 64; }
+RELEASE_GATE="/usr/local/lib/dpn-deploy/release_gate.py"
+ALLOWED_SIGNERS="/etc/dpn-deploy/release-signers.allowed"
+CI_TOKEN="/etc/dpn-deploy/github-ci-token"
+RELEASE_TAG_RECORDS="$STATE_DIR/release-tags"
+
+# Geschlossene Liste aller Dateien, die im oeffentlichen Webroot liegen duerfen.
+ALLOWED_PUBLIC_FILES=(
+    "index.html"
+    "en/index.html"
+    "softwareentwicklung-luebeck/index.html"
+    "webentwicklung-luebeck/index.html"
+    "ki-automatisierung-luebeck/index.html"
+    "wissen/ki-prozessautomatisierung/index.html"
+    "wissen/individualsoftware-kosten/index.html"
+    "wissen/website-relaunch-checkliste/index.html"
+    "impressum/index.html"
+    "datenschutz/index.html"
+    "robots.txt"
+    "sitemap.xml"
+    "favicon.svg"
+    "apple-touch-icon.png"
+    "og-datenpflege-nord.png"
+    "assets/home.css"
+    "assets/home-de.js"
+    "assets/home-en.js"
+    "assets/legal.css"
+    "assets/service.css"
+    "assets/service.js"
+    "assets/authority.css"
+    "assets/authority.js"
+    "assets/profile-card.css"
+    "assets/profile/dustin-zander.webp"
+    "assets/branding/datenpflegenord-logo.svg"
+    "assets/hero/mainframe-hero.mp4"
+    "assets/hero/mainframe-poster.jpg"
+    "images/clients-logo/logo-1.svg"
+    "images/clients-logo/logo-2.svg"
+    "images/clients-logo/logo-3.svg"
+    "images/clients-logo/logo-4.svg"
+    "images/clients-logo/logo-5.svg"
+)
+SELECTED_PUBLIC_FILES=()
+
+export GIT_SSH_COMMAND="ssh -i $KEY -o IdentitiesOnly=yes -o UserKnownHostsFile=$KNOWN -o StrictHostKeyChecking=yes -o BatchMode=yes"
+
+fail() {
+    echo "FEHLER: $*" >&2
+    exit 1
+}
+
+process_start_ticks() {
+    local PID="$1" STAT REST
+    [ -r "/proc/$PID/stat" ] || return 1
+    IFS= read -r STAT < "/proc/$PID/stat" || return 1
+    # comm darf Leerzeichen und schliessende Klammern enthalten; ## entfernt
+    # deshalb bis zur letzten Trennsequenz ") ".
+    REST="${STAT##*) }"
+    set -- $REST
+    [ "$#" -ge 20 ] || return 1
+    printf '%s\n' "${20}"
+}
+
+acquire_lock() {
+    local OWNER_PID="" OWNER_TICKS="" LIVE_TICKS="" LINE
+
+    exec 9<>"$LOCK_FILE"
+    if ! flock -n 9; then
+        while IFS='=' read -r LINE VALUE; do
+            case "$LINE" in
+                pid) OWNER_PID="$VALUE" ;;
+                proc_start_ticks) OWNER_TICKS="$VALUE" ;;
+            esac
+        done < "$LOCK_FILE"
+
+        if [[ "$OWNER_PID" =~ ^[0-9]+$ ]] && [[ "$OWNER_TICKS" =~ ^[0-9]+$ ]]; then
+            LIVE_TICKS="$(process_start_ticks "$OWNER_PID" 2>/dev/null || true)"
+        fi
+        if [ -n "$LIVE_TICKS" ] && [ "$LIVE_TICKS" = "$OWNER_TICKS" ]; then
+            echo "STOP: Deployment laeuft bereits (PID $OWNER_PID, Prozessstart $OWNER_TICKS)." >&2
+        else
+            echo "STOP: Deployment-Lock ist aktiv; Besitzer-Metadaten sind ungueltig oder veraltet." >&2
+        fi
+        exit 75
+    fi
+
+    # Ein alter Dateiinhalt ohne Kernel-Lock ist stale und wird sicher ersetzt.
+    : > "$LOCK_FILE"
+    printf 'pid=%s\nproc_start_ticks=%s\nstarted_at=%s\n' \
+        "$$" "$(process_start_ticks "$$")" "$(date --iso-8601=seconds)" >&9
+}
+
+release_state_file() {
+    local RELEASE_PATH="$1" RELEASE_NAME
+    case "$RELEASE_PATH" in "$RELEASES"/*) ;; *) return 1 ;; esac
+    RELEASE_NAME="${RELEASE_PATH##*/}"
+    [ -n "$RELEASE_NAME" ] || return 1
+    printf '%s/%s.sha\n' "$RELEASE_STATE_DIR" "$RELEASE_NAME"
+}
+
+release_commit() {
+    local STATE_FILE COMMIT_SHA
+    STATE_FILE="$(release_state_file "$1")" || return 1
+    [ -f "$STATE_FILE" ] || return 1
+    IFS= read -r COMMIT_SHA < "$STATE_FILE" || return 1
+    [[ "$COMMIT_SHA" =~ ^[0-9a-f]{40}$ ]] || return 1
+    [ "$(wc -l < "$STATE_FILE")" -eq 1 ] || return 1
+    printf '%s\n' "$COMMIT_SHA"
+}
+
+write_state_file_atomically() {
+    local DESTINATION="$1" VALUE="$2" TEMP
+    TEMP="$(mktemp "${DESTINATION}.tmp.XXXXXX")"
+    printf '%s\n' "$VALUE" > "$TEMP"
+    chmod 600 "$TEMP"
+    mv -fT "$TEMP" "$DESTINATION"
+}
+
+check_required_files() {
+    local ROOT="$1" FILE
+    local -a REQUIRED=(
+        "index.html" "en/index.html"
+        "softwareentwicklung-luebeck/index.html"
+        "webentwicklung-luebeck/index.html"
+        "ki-automatisierung-luebeck/index.html"
+        "impressum/index.html" "datenschutz/index.html"
+        "robots.txt" "sitemap.xml"
+    )
+    for FILE in "${REQUIRED[@]}"; do
+        [ -s "$ROOT/$FILE" ] || fail "Pflichtdatei fehlt oder ist leer: $FILE"
+    done
+}
+
+check_release_manifest() {
+    local ROOT="$1" EXPECTED ACTUAL FILE EXPECTED_BLOB ACTUAL_BLOB
+    [ -d "$ROOT" ] && [ ! -L "$ROOT" ] || fail "Release-Verzeichnis ist ungueltig: $ROOT"
+    EXPECTED="$(printf '%s\n' "${SELECTED_PUBLIC_FILES[@]}" | LC_ALL=C sort)"
+    ACTUAL="$(find "$ROOT" -type f -printf '%P\n' | LC_ALL=C sort)"
+    [ "$ACTUAL" = "$EXPECTED" ] || fail "Release weicht von der oeffentlichen Allowlist ab: $ROOT"
+
+    for FILE in "${SELECTED_PUBLIC_FILES[@]}"; do
+        [ -s "$ROOT/$FILE" ] || fail "Allowlist-Datei fehlt oder ist leer: $FILE"
+        EXPECTED_BLOB="$(git --git-dir="$CACHE" rev-parse "$TARGET:$FILE")" \
+            || fail "Manifest-Datei fehlt im Target: $FILE"
+        ACTUAL_BLOB="$(git --git-dir="$CACHE" hash-object "$ROOT/$FILE")"
+        [ "$ACTUAL_BLOB" = "$EXPECTED_BLOB" ] \
+            || fail "Release-Datei entspricht nicht TARGET: $FILE"
+    done
+}
+
+check_local_references() {
+    local ROOT="$1" FILE MATCH URL CANDIDATE REL ENTRY
+    local -A MANIFEST=()
+    for ENTRY in "${SELECTED_PUBLIC_FILES[@]}"; do MANIFEST["$ENTRY"]=1; done
+
+    check_reference() {
+        local SOURCE="$1" REFERENCE="$2" BASE
+        REFERENCE="$(printf '%s' "$REFERENCE" | sed -E 's/^[[:space:]]+//; s/[[:space:]]+$//')"
+        [ -n "$REFERENCE" ] || return 0
+        case "$REFERENCE" in \#*|//*) return 0 ;; esac
+        [[ "$REFERENCE" =~ ^[[:alpha:]][[:alnum:]+.-]*: ]] && return 0
+        REFERENCE="${REFERENCE%%#*}"; REFERENCE="${REFERENCE%%\?*}"
+        [ -n "$REFERENCE" ] || return 0
+        if [[ "$REFERENCE" == /* ]]; then CANDIDATE="$ROOT/${REFERENCE#/}"
+        else BASE="$(dirname "$SOURCE")"; CANDIDATE="$ROOT/$BASE/$REFERENCE"; fi
+        REL="$(realpath -m --relative-to="$ROOT" "$CANDIDATE")"
+        case "$REL" in ..|../*) fail "Lokale Referenz verlaesst Webroot: $SOURCE -> $REFERENCE" ;; esac
+        if [[ "$REFERENCE" == */ ]] || [ -d "$ROOT/$REL" ]; then REL="${REL%/}/index.html"; fi
+        REL="${REL#./}"
+        [ "${MANIFEST[$REL]+gesetzt}" = gesetzt ] \
+            || fail "Lokale Referenz fehlt im Manifest: $SOURCE -> $REFERENCE ($REL)"
+        [ -s "$ROOT/$REL" ] || fail "Lokale Referenz fehlt im Release: $SOURCE -> $REFERENCE ($REL)"
+    }
+
+    for FILE in "${SELECTED_PUBLIC_FILES[@]}"; do
+        case "$FILE" in
+            *.html)
+                while IFS= read -r MATCH; do
+                    URL="$(printf '%s\n' "$MATCH" | sed -E "s/^[^=]+=[[:space:]]*[\"']([^\"']*)[\"']$/\\1/")"
+                    check_reference "$FILE" "$URL"
+                done < <(tr '\n' ' ' < "$ROOT/$FILE" | grep -Eio "(src|href|data-src)[[:space:]]*=[[:space:]]*(\"[^\"]*\"|'[^']*')" || true)
+                while IFS= read -r MATCH; do
+                    URL="$(printf '%s\n' "$MATCH" | sed -E "s/^[^=]+=[[:space:]]*[\"']([^\"']*)[\"']$/\\1/")"
+                    while IFS= read -r CANDIDATE; do read -r URL _ <<< "$CANDIDATE"; check_reference "$FILE" "$URL"; done < <(printf '%s\n' "$URL" | tr ',' '\n')
+                done < <(tr '\n' ' ' < "$ROOT/$FILE" | grep -Eio "srcset[[:space:]]*=[[:space:]]*(\"[^\"]*\"|'[^']*')" || true)
+                ;;
+            *.css)
+                while IFS= read -r MATCH; do
+                    case "$MATCH" in *[Dd][Aa][Tt][Aa]:*) continue ;; esac
+                    URL="$(printf '%s\n' "$MATCH" | sed -E "s/^url[[:space:]]*\\([[:space:]]*[\"']?([^\"')[:space:]]*)[\"']?[[:space:]]*\\)$/\\1/I")"
+                    check_reference "$FILE" "$URL"
+                done < <(grep -Eio 'url[[:space:]]*\([^)]*\)' "$ROOT/$FILE" || true)
+                ;;
+        esac
+    done
+}
+
+check_forbidden_files() {
+    local ROOT="$1" SUSPECT LINKS
+    SUSPECT="$(find "$ROOT" -type f \( -iname '.env' -o -iname '.env.*' -o -iname '*.pem' -o -iname '*.key' -o -iname '*.p12' -o -iname '*.pfx' -o -iname '*secret*' -o -iname '*credential*' -o -iname '*password*' \) -printf '%P\n')"
+    [ -z "$SUSPECT" ] || fail "Verdaechtige Dateien im Release: $SUSPECT"
+    LINKS="$(find "$ROOT" -type l -print)"
+    [ -z "$LINKS" ] || fail "Symlinks im GitHub-Release gefunden."
+}
+
+check_html_basics() {
+    local ROOT="$1" FILE
+    local -a HTML_FILES=("index.html" "en/index.html" "softwareentwicklung-luebeck/index.html" "webentwicklung-luebeck/index.html" "ki-automatisierung-luebeck/index.html" "impressum/index.html" "datenschutz/index.html")
+    for FILE in "${HTML_FILES[@]}"; do
+        grep -qi '<html' "$ROOT/$FILE" || fail "$FILE enthaelt kein HTML-Element."
+        grep -qi '<title>' "$ROOT/$FILE" || fail "$FILE enthaelt keinen Title."
+        grep -qi '<h1' "$ROOT/$FILE" || fail "$FILE enthaelt keine H1."
+    done
+    for FILE in softwareentwicklung-luebeck webentwicklung-luebeck ki-automatisierung-luebeck; do
+        grep -q "$FILE/" "$ROOT/sitemap.xml" || fail "$FILE fehlt in sitemap.xml."
+    done
+}
+
+check_asset_versions() {
+    local ROOT="$1" HELPER REPORT RESULT=0
+    HELPER="$(mktemp)" || fail "Asset checker staging failed."
+    if ! git --git-dir="$CACHE" show "$TARGET:ops/deploy/check_asset_versions.py" > "$HELPER"; then
+        rm -f "$HELPER"
+        fail "Pinned asset checker missing from TARGET."
+    fi
+    REPORT="$(python3 "$HELPER" --root "$ROOT")" || RESULT=$?
+    rm -f "$HELPER"
+    if [ "$RESULT" -ne 0 ]; then
+        printf '%s\n' "$REPORT" >&2
+        fail "Final-byte asset version gate failed: $ROOT"
+    fi
+}
+
+validate_release() {
+    check_required_files "$1"
+    check_asset_versions "$1"
+    check_release_manifest "$1"
+    check_local_references "$1"
+    check_forbidden_files "$1"
+    check_html_basics "$1"
+}
+
+create_release() {
+    local STAMP SHORT_SHA
+    STAMP="$(date +%Y%m%d-%H%M%S)"; SHORT_SHA="${TARGET:0:12}"
+    NEW="$(mktemp -d "$RELEASES/${STAMP}-git-${SHORT_SHA}.XXXXXX")"
+    chmod 755 "$NEW"
+    NEW_CREATED=1
+    git --git-dir="$CACHE" archive "$TARGET" -- "${SELECTED_PUBLIC_FILES[@]}" | tar -x -C "$NEW"
+    validate_release "$NEW"
+    NEW_STATE_FILE="$(release_state_file "$NEW")" || fail "Release-Metadatenpfad ungueltig: $NEW"
+    write_state_file_atomically "$NEW_STATE_FILE" "$TARGET"
+    [ "$(release_commit "$NEW")" = "$TARGET" ] || fail "Release-Metadaten konnten nicht verifiziert werden."
+}
+
+find_reusable_release() {
+    local STATE_FILE SHA CANDIDATE
+    [ -d "$RELEASE_STATE_DIR" ] || return 1
+    while IFS= read -r STATE_FILE; do
+        [ -n "$STATE_FILE" ] || continue
+        SHA="$(cat "$STATE_FILE" 2>/dev/null || true)"
+        [ "$SHA" = "$TARGET" ] || continue
+        CANDIDATE="$RELEASES/$(basename "${STATE_FILE%.sha}")"
+        if [ "$(release_commit "$CANDIDATE" 2>/dev/null || true)" = "$TARGET" ] \
+            && (validate_release "$CANDIDATE") >/dev/null 2>&1
+        then
+            printf '%s\n' "$CANDIDATE"
+            return 0
+        fi
+        echo "WARNUNG: Bestehendes TARGET-Release ist nicht vollstaendig verifizierbar; es wird nicht wiederverwendet: $CANDIDATE" >&2
+    done < <(find "$RELEASE_STATE_DIR" -maxdepth 1 -type f -name '*.sha' -print | LC_ALL=C sort -r)
+    return 1
+}
+
+check_services() {
+    systemctl is-active --quiet nginx || fail "nginx ist nicht aktiv."
+    systemctl is-active --quiet dpn-contact || fail "dpn-contact ist nicht aktiv."
+    systemctl is-active --quiet cloudflared || fail "cloudflared ist nicht aktiv."
+    curl -fsS --max-time 5 http://127.0.0.1:8091/health \
+        | grep -q '"ok"[[:space:]]*:[[:space:]]*true' || fail "Kontakt-Healthcheck fehlgeschlagen."
+}
+
+live_smoke_test() {
+    local FILE PATHNAME URL
+    curl -fsS --max-time 10 -H 'Host: datenpflege-nord.de' http://127.0.0.1:8080/ \
+        | grep -qi '<html' || return 1
+    for FILE in "${SELECTED_PUBLIC_FILES[@]}"; do
+        case "$FILE" in index.html) PATHNAME="/" ;; */index.html) PATHNAME="/${FILE%index.html}" ;; *) PATHNAME="/$FILE" ;; esac
+        curl -fsS --max-time 10 -H 'Host: datenpflege-nord.de' "http://127.0.0.1:8080${PATHNAME}" >/dev/null || return 1
+    done
+    for URL in https://datenpflege-nord.de/ https://datenpflege-nord.de/softwareentwicklung-luebeck/ https://datenpflege-nord.de/webentwicklung-luebeck/ https://datenpflege-nord.de/ki-automatisierung-luebeck/; do
+        curl -fsS --max-time 15 "$URL" >/dev/null || return 1
+    done
+    curl -fsS --max-time 5 http://127.0.0.1:8091/health \
+        | grep -q '"ok"[[:space:]]*:[[:space:]]*true' || return 1
+}
+
+fetch_and_verify_release_authorization() {
+    local REMOTE_REFS TAG_OBJECT PEELED
+    [ -x "$RELEASE_GATE" ] || fail "Installiertes Release Gate fehlt oder ist nicht ausfuehrbar."
+    REMOTE_REFS="$(git ls-remote --tags "$REPO" "refs/tags/$RELEASE_TAG" "refs/tags/$RELEASE_TAG^{}")" \
+        || fail "Release-Tag konnte nicht vom fest konfigurierten Origin gelesen werden."
+    TAG_OBJECT="$(printf '%s\n' "$REMOTE_REFS" | awk -v ref="refs/tags/$RELEASE_TAG" '$2==ref {print $1}')"
+    PEELED="$(printf '%s\n' "$REMOTE_REFS" | awk -v ref="refs/tags/$RELEASE_TAG^{}" '$2==ref {print $1}')"
+    [[ "$TAG_OBJECT" =~ ^[0-9a-f]{40}$ ]] && [ "$PEELED" = "$TARGET" ] \
+        || fail "Remote Release-Tag fehlt, ist nicht annotiert oder zeigt nicht auf TARGET."
+    git --git-dir="$CACHE" fetch --no-tags "$REPO" "refs/tags/$RELEASE_TAG:refs/tags/$RELEASE_TAG" \
+        || fail "Release-Tag fehlt oder wurde gegenueber dem lokalen Trust-Stand verschoben."
+    python3 "$RELEASE_GATE" --git-dir "$CACHE" --tag "$RELEASE_TAG" --target "$TARGET" \
+        --allowed-signers "$ALLOWED_SIGNERS" --records-dir "$RELEASE_TAG_RECORDS" --ci-token "$CI_TOKEN" \
+        || fail "Signatur-/CI-Autorisierung fehlgeschlagen."
+}
+
+record_release_authorization() {
+    python3 "$RELEASE_GATE" --git-dir "$CACHE" --tag "$RELEASE_TAG" --target "$TARGET" \
+        --allowed-signers "$ALLOWED_SIGNERS" --records-dir "$RELEASE_TAG_RECORDS" --ci-token "$CI_TOKEN" --record \
+        || fail "Release-Autorisierung konnte nicht unveraenderlich aufgezeichnet werden."
+}
+
+install -d -m 700 "$RELEASE_STATE_DIR"
+acquire_lock
+[ -r "$KEY" ] || fail "Deploy Key fehlt."
+[ -r "$KNOWN" ] || fail "known_hosts fehlt."
+[ -d "$CACHE" ] || fail "Git-Cache fehlt."
+[ -L "$CURRENT" ] || fail "current ist kein Symlink."
+
+echo "DPN DEPLOY - MODE: $MODE - TARGET: $TARGET${RELEASE_TAG:+ - RELEASE TAG: $RELEASE_TAG}"
+git --git-dir="$CACHE" fetch --force --depth=1 "$REPO" main:refs/remotes/origin/main
+ORIGIN_MAIN="$(git --git-dir="$CACHE" rev-parse refs/remotes/origin/main)"
+[ "$(git --git-dir="$CACHE" cat-file -t "$TARGET" 2>/dev/null || true)" = commit ] \
+    || fail "TARGET existiert nicht als Commit im gefetchten Repository: $TARGET"
+[ "$TARGET" = "$ORIGIN_MAIN" ] \
+    || fail "TARGET entspricht nicht origin/main ($ORIGIN_MAIN)."
+
+if [ "$MODE" != check ]; then
+    fetch_and_verify_release_authorization
+fi
+if [ "$MODE" = authorize ]; then
+    echo "OK: Signierter Release-Tag und Hosted CI autorisieren exakt TARGET; kein Deployment ausgefuehrt."
+    exit 0
+fi
+
+for FILE in "${ALLOWED_PUBLIC_FILES[@]}"; do
+    if git --git-dir="$CACHE" cat-file -e "$TARGET:$FILE" 2>/dev/null; then SELECTED_PUBLIC_FILES+=("$FILE"); fi
+done
+
+DEPLOYED_SHA="$(cat "$DEPLOYED_FILE" 2>/dev/null || true)"
+LIVE_RELEASE="$(readlink -f "$CURRENT")"
+LIVE_SHA="$(release_commit "$LIVE_RELEASE" 2>/dev/null || true)"
+echo "origin/main: $ORIGIN_MAIN"
+echo "TARGET     : $TARGET"
+echo "deployed   : ${DEPLOYED_SHA:-UNBEKANNT}"
+echo "live       : ${LIVE_SHA:-UNBEKANNT} ($LIVE_RELEASE)"
+
+if [ "$MODE" = check ]; then
+    CHECK_ROOT="$(mktemp -d)"
+    trap 'rm -rf "$CHECK_ROOT"' EXIT
+    git --git-dir="$CACHE" archive "$TARGET" -- "${SELECTED_PUBLIC_FILES[@]}" | tar -x -C "$CHECK_ROOT"
+    validate_release "$CHECK_ROOT"
+    echo "OK: TARGET-Inhalt, Manifest, Runtime-Ressourcen und Ausschluss privater Dateien."
+    if [ "$TARGET" = "$LIVE_SHA" ] && [ "$TARGET" = "$DEPLOYED_SHA" ] \
+        && [ "$(release_commit "$LIVE_RELEASE" 2>/dev/null || true)" = "$TARGET" ] \
+        && (validate_release "$LIVE_RELEASE") >/dev/null 2>&1
+    then
+        echo "OK: TARGET ist vollstaendig verifiziert live."
+        exit 0
+    fi
+    echo "DEPLOYMENT ERFORDERLICH: $TARGET"
+    exit 10
+fi
+
+if [ "$TARGET" = "$LIVE_SHA" ] && [ "$TARGET" = "$DEPLOYED_SHA" ] \
+    && [ "$(release_commit "$LIVE_RELEASE" 2>/dev/null || true)" = "$TARGET" ] \
+    && (validate_release "$LIVE_RELEASE") >/dev/null 2>&1
+then
+    record_release_authorization
+    echo "OK: Kein neues Deployment notwendig; TARGET ist vollstaendig verifiziert live."
+    exit 0
+fi
+
+PREVIOUS="$LIVE_RELEASE"; PREVIOUS_SHA="$LIVE_SHA"
+NEW=""; NEW_CREATED=0; NEW_STATE_FILE=""; LIVE_SWITCHED=0
+
+cleanup() {
+    local STATUS=$?
+    if [ "$STATUS" -ne 0 ]; then
+        set +e
+        if [ "$LIVE_SWITCHED" -eq 1 ]; then
+            rm -f "$CURRENT.new"
+            ln -s "$PREVIOUS" "$CURRENT.new" && mv -Tf "$CURRENT.new" "$CURRENT"
+            if [ "$(readlink -f "$CURRENT" 2>/dev/null)" = "$PREVIOUS" ] \
+                && [[ "$PREVIOUS_SHA" =~ ^[0-9a-f]{40}$ ]]
+            then
+                write_state_file_atomically "$DEPLOYED_FILE" "$PREVIOUS_SHA"
+            fi
+        fi
+        if [ "$NEW_CREATED" -eq 1 ] && [ "$(readlink -f "$CURRENT" 2>/dev/null)" != "$NEW" ]; then
+            [ -z "$NEW_STATE_FILE" ] || rm -f "$NEW_STATE_FILE"
+            rm -rf "$NEW"
+        fi
+    fi
+    exit "$STATUS"
+}
+trap cleanup EXIT
+
+NEW="$(find_reusable_release || true)"
+if [ -n "$NEW" ]; then
+    echo "Verifiziertes Release wird wiederverwendet: $NEW"
+else
+    create_release
+    echo "Neues Release erstellt und verifiziert: $NEW"
+fi
+
+# Unmittelbar vor dem Wechsel nochmals alles pruefen, inklusive voller Metadaten.
+validate_release "$NEW"
+[ "$(release_commit "$NEW" 2>/dev/null || true)" = "$TARGET" ] \
+    || fail "Release-Metadaten entsprechen nicht TARGET."
+record_release_authorization
+check_services
+
+ln -s "$NEW" "$CURRENT.new"
+mv -Tf "$CURRENT.new" "$CURRENT"
+LIVE_SWITCHED=1
+
+[ "$(readlink -f "$CURRENT")" = "$NEW" ] || fail "current zeigt nicht auf das TARGET-Release."
+[ "$(release_commit "$(readlink -f "$CURRENT")" 2>/dev/null || true)" = "$TARGET" ] \
+    || fail "Live-Release-Metadaten entsprechen nicht TARGET."
+if ! live_smoke_test; then fail "Live-Smoke-Test fehlgeschlagen; automatischer Rollback wird ausgefuehrt."; fi
+
+# deployed_sha ist der letzte Commit-Punkt der Transaktion.
+write_state_file_atomically "$DEPLOYED_FILE" "$TARGET"
+[ "$(cat "$DEPLOYED_FILE")" = "$TARGET" ] || fail "deployed_sha Gegenpruefung fehlgeschlagen."
+[ "$(readlink -f "$CURRENT")" = "$NEW" ] || fail "current Gegenpruefung fehlgeschlagen."
+[ "$(release_commit "$NEW")" = "$TARGET" ] || fail "Release-Metadaten Gegenpruefung fehlgeschlagen."
+LIVE_SWITCHED=0
+trap - EXIT
+
+echo "DEPLOYMENT ERFOLGREICH"
+echo "TARGET : $TARGET"
+echo "Release: $NEW"
+echo "Live   : $(readlink -f "$CURRENT")"

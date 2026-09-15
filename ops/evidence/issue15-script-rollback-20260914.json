@@ -1,0 +1,52 @@
+{
+  "at": "2026-09-14T09:52:15.816293+00:00",
+  "backup_command": "sudo -n bash /home/adminzander/projekte/dpn-golden-phase-1-3/ops/deploy/install-dpn-deploy.sh backup --expected-current-sha d853a8c32c0179b70705d7ea307a038d7f0bc0f23adc4c961f13c193880cec01",
+  "production_backup": {
+    "backup": "/var/backups/dpn-deploy/dpn-deploy.20260914T095215.730995Z.backup",
+    "installation_performed": false,
+    "installed_sha256": "d853a8c32c0179b70705d7ea307a038d7f0bc0f23adc4c961f13c193880cec01",
+    "mode": "750",
+    "owner": "root:root",
+    "previous_sha256": "d853a8c32c0179b70705d7ea307a038d7f0bc0f23adc4c961f13c193880cec01",
+    "result": "BACKUP_CREATED",
+    "runtime_changed": false
+  },
+  "rollback_proof": {
+    "fixture_command": "sudo -n bash /home/adminzander/projekte/dpn-golden-phase-1-3/ops/deploy/install-dpn-deploy.sh rollback --fixture-root /tmp/dpn-install-test-vvb__y0p --backup /tmp/dpn-install-test-vvb__y0p/backups/dpn-deploy.20260914T095215.730995Z.backup --expected-sha d853a8c32c0179b70705d7ea307a038d7f0bc0f23adc4c961f13c193880cec01 --expected-current-sha d9fe46bd3d68ec7b35fbeb77d0459dab11607b17321a8a228abe15bda5cb2ec1",
+    "fixture_restoration": {
+      "backup": "/tmp/dpn-install-test-vvb__y0p/backups/dpn-deploy.20260914T095215.791144Z.backup",
+      "installation_performed": true,
+      "installed_sha256": "d853a8c32c0179b70705d7ea307a038d7f0bc0f23adc4c961f13c193880cec01",
+      "mode": "750",
+      "owner": "root:root",
+      "previous_sha256": "d9fe46bd3d68ec7b35fbeb77d0459dab11607b17321a8a228abe15bda5cb2ec1",
+      "result": "ROLLBACK_VERIFIED",
+      "runtime_changed": true
+    },
+    "restored_sha256": "d853a8c32c0179b70705d7ea307a038d7f0bc0f23adc4c961f13c193880cec01",
+    "restored_owner": "root:root",
+    "restored_mode": "750",
+    "restored_shell_syntax": "PASS"
+  },
+  "before": {
+    "sha256": "d853a8c32c0179b70705d7ea307a038d7f0bc0f23adc4c961f13c193880cec01",
+    "inode": 30298581,
+    "mtime_ns": 1787766236669844501,
+    "uid": 0,
+    "gid": 0,
+    "mode": "0o750",
+    "current": "/srv/datenpflege-nord/releases/20260908-080736-git-65468e875fa0.DM1912"
+  },
+  "after": {
+    "sha256": "d853a8c32c0179b70705d7ea307a038d7f0bc0f23adc4c961f13c193880cec01",
+    "inode": 30298581,
+    "mtime_ns": 1787766236669844501,
+    "uid": 0,
+    "gid": 0,
+    "mode": "0o750",
+    "current": "/srv/datenpflege-nord/releases/20260908-080736-git-65468e875fa0.DM1912"
+  },
+  "runtime_and_release_unchanged": true,
+  "fixture_cleaned": true,
+  "result": "PASS"
+}

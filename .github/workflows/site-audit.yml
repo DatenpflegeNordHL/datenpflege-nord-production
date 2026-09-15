@@ -4,6 +4,10 @@ on:
   pull_request:
     branches:
       - main
+  push:
+    branches:
+      - main
+      - golden-p0-freshness
   workflow_dispatch:
 
 permissions:
@@ -12,22 +16,46 @@ permissions:
 jobs:
   site-audit:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 15
     steps:
       - name: Check out repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
 
       - name: Set up Python
         uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: '3.13'
 
+      - name: Install isolated acceptance tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y nginx
+          npm install --prefix "$RUNNER_TEMP/dpn-browser" --no-save agent-browser@0.27.0
+          "$RUNNER_TEMP/dpn-browser/node_modules/.bin/agent-browser" install --with-deps
+          echo "DPN_AGENT_BROWSER=$RUNNER_TEMP/dpn-browser/node_modules/.bin/agent-browser" >> "$GITHUB_ENV"
+
       - name: Run deterministic site checks
         run: |
+          bash -n ops/deploy/dpn-deploy
+          bash -n ops/deploy/verify-dpn-deploy.sh
+          bash -n ops/deploy/install-dpn-deploy.sh
+          bash -n ops/deploy/install-release-gate.sh
+          bash -n ops/deploy/verify-release-tag.sh
+          test "$(git rev-parse HEAD)" = "${{ github.event.pull_request.head.sha || github.sha }}"
+          PYTHONPYCACHEPREFIX="$RUNNER_TEMP/dpn-python-cache" python -m compileall -q ops/deploy scripts tests
+          python ops/deploy/check_asset_versions.py --root . --generate
+          git diff --exit-code
+          python ops/deploy/check_asset_versions.py --root .
+          python ops/deploy/scan_secrets.py
           python -m unittest discover -s tests
+          sudo python3 -m unittest discover -s tests -p 'test_*install.py'
           python scripts/site_audit.py
+          python scripts/golden_audit.py
           node --check assets/home-de.js
           node --check assets/home-en.js
           node --check assets/service.js
+          python ops/deploy/verify_release_candidate.py --repo . --commit "$(git rev-parse HEAD)"
+          git diff --check

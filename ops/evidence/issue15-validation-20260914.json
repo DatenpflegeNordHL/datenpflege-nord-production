@@ -1,0 +1,25 @@
+{
+  "at": "2026-09-14T09:45:14.169628+00:00",
+  "secret_scan": "PASS: literal private-key / known token prefixes / long secret assignment screening of all changed text, plus complete manual runtime review; not a claim of exhaustive automated secret detection",
+  "scanned_files": [
+    "P0-DEPLOYMENT-CONTRACT.md",
+    "P0-REDIRECT-EVIDENCE.md",
+    "ops/deploy/dpn-deploy",
+    "ops/deploy/verify-dpn-deploy.sh",
+    "ops/evidence/issue15-assets-20260914.json",
+    "ops/evidence/issue15-browser-20260914.json",
+    "ops/evidence/issue15-controls-20260914.json",
+    "ops/evidence/issue15-http-20260914.json",
+    "ops/evidence/issue15-release-20260914.json",
+    "tests/test_deploy_contract.py",
+    "tests/test_deploy_identity.py"
+  ],
+  "unit_tests": "PASS: 25, including 6 identity and 5 canonical-validator tests",
+  "shell_syntax": "PASS: bash -n run separately for canonical and verifier",
+  "site_audit": "PASS: 7 HTML pages",
+  "golden_audit": "PASS: 7 reachable canonical pages",
+  "documentation_structure_and_json": "PASS",
+  "file_scope": "PASS: evidence/docs/ops tooling/tests only; no production-facing file changed",
+  "git_diff_check": "PASS",
+  "source_sha256": "d853a8c32c0179b70705d7ea307a038d7f0bc0f23adc4c961f13c193880cec01"
+}

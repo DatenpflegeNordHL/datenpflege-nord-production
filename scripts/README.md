@@ -4,9 +4,18 @@ Run the deterministic repository checks locally with:
 
 ```bash
 python scripts/site_audit.py
+python scripts/golden_audit.py
 ```
 
 The audit intentionally checks only facts that can be verified from the repository. It does not assign SEO scores or guess at search-engine rankings.
+
+The supplementary Golden audit traverses HTML links from home to detect orphan
+canonical pages, checks indexability directives, heading order and image dimensions,
+and verifies metadata/provider/area/breadcrumb relationships on the three service
+owners. Legal and service-area restrictions encode the current reviewed evidence;
+future expansions require an explicit evidence and test update. Run all unit tests
+with `python -m unittest discover -s tests` (use `python3` if `python` is unavailable).
+These are static checks, not hosted-CI, browser, rich-result or production proof.
 
 It currently verifies:
 
@@ -29,7 +38,11 @@ It currently verifies:
 
 The corresponding GitHub Actions workflow:
 
-- runs for pull requests targeting `main`
+- runs for pull requests targeting `main` as the preventive CI check
+- also runs on pushes to `main` as a post-push backstop
+- can be started manually with `workflow_dispatch`
 - has read-only repository permissions
 - pins third-party GitHub Actions to full commit SHAs
 - does not persist checkout credentials after the repository has been fetched
+
+The push trigger does not protect Git history. GitHub-native protection is unavailable for this private repository under the chosen plan. Production instead requires the separately installed signed-tag/CI/exact-SHA compensating gate in `ops/deploy/P0-RELEASE-AUTHORIZATION.md`; until server acceptance, Issue #10 remains OPEN P0.

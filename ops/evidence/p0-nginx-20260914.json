@@ -1,0 +1,619 @@
+{
+  "started": "2026-09-14T09:24:45.657071+00:00",
+  "origin": [
+    {
+      "path": "softwareentwicklung-luebeck",
+      "slash": false,
+      "status": 301,
+      "location": "/softwareentwicklung-luebeck/"
+    },
+    {
+      "path": "softwareentwicklung-luebeck",
+      "slash": true,
+      "status": 200,
+      "location": ""
+    },
+    {
+      "path": "webentwicklung-luebeck",
+      "slash": false,
+      "status": 301,
+      "location": "/webentwicklung-luebeck/"
+    },
+    {
+      "path": "webentwicklung-luebeck",
+      "slash": true,
+      "status": 200,
+      "location": ""
+    },
+    {
+      "path": "ki-automatisierung-luebeck",
+      "slash": false,
+      "status": 301,
+      "location": "/ki-automatisierung-luebeck/"
+    },
+    {
+      "path": "ki-automatisierung-luebeck",
+      "slash": true,
+      "status": 200,
+      "location": ""
+    },
+    {
+      "path": "en",
+      "slash": false,
+      "status": 301,
+      "location": "/en/"
+    },
+    {
+      "path": "en",
+      "slash": true,
+      "status": 200,
+      "location": ""
+    },
+    {
+      "path": "impressum",
+      "slash": false,
+      "status": 301,
+      "location": "/impressum/"
+    },
+    {
+      "path": "impressum",
+      "slash": true,
+      "status": 200,
+      "location": ""
+    },
+    {
+      "path": "datenschutz",
+      "slash": false,
+      "status": 301,
+      "location": "/datenschutz/"
+    },
+    {
+      "path": "datenschutz",
+      "slash": true,
+      "status": 200,
+      "location": ""
+    }
+  ],
+  "public": [
+    {
+      "start_url": "https://datenpflege-nord.de/softwareentwicklung-luebeck/",
+      "status": 200,
+      "location": "",
+      "redirects": 0,
+      "final_url": "https://datenpflege-nord.de/softwareentwicklung-luebeck/",
+      "final_status": 200,
+      "chain": [
+        {
+          "url": "https://datenpflege-nord.de/softwareentwicklung-luebeck/",
+          "status": 200,
+          "location": ""
+        }
+      ]
+    },
+    {
+      "start_url": "https://datenpflege-nord.de/softwareentwicklung-luebeck",
+      "status": 301,
+      "location": "/softwareentwicklung-luebeck/",
+      "redirects": 1,
+      "final_url": "https://datenpflege-nord.de/softwareentwicklung-luebeck/",
+      "final_status": 200,
+      "chain": [
+        {
+          "url": "https://datenpflege-nord.de/softwareentwicklung-luebeck",
+          "status": 301,
+          "location": "/softwareentwicklung-luebeck/"
+        },
+        {
+          "url": "https://datenpflege-nord.de/softwareentwicklung-luebeck/",
+          "status": 200,
+          "location": ""
+        }
+      ]
+    },
+    {
+      "start_url": "http://datenpflege-nord.de/softwareentwicklung-luebeck/",
+      "status": 301,
+      "location": "https://datenpflege-nord.de/softwareentwicklung-luebeck/",
+      "redirects": 1,
+      "final_url": "https://datenpflege-nord.de/softwareentwicklung-luebeck/",
+      "final_status": 200,
+      "chain": [
+        {
+          "url": "http://datenpflege-nord.de/softwareentwicklung-luebeck/",
+          "status": 301,
+          "location": "https://datenpflege-nord.de/softwareentwicklung-luebeck/"
+        },
+        {
+          "url": "https://datenpflege-nord.de/softwareentwicklung-luebeck/",
+          "status": 200,
+          "location": ""
+        }
+      ]
+    },
+    {
+      "start_url": "http://datenpflege-nord.de/softwareentwicklung-luebeck",
+      "status": 301,
+      "location": "https://datenpflege-nord.de/softwareentwicklung-luebeck",
+      "redirects": 2,
+      "final_url": "https://datenpflege-nord.de/softwareentwicklung-luebeck/",
+      "final_status": 200,
+      "chain": [
+        {
+          "url": "http://datenpflege-nord.de/softwareentwicklung-luebeck",
+          "status": 301,
+          "location": "https://datenpflege-nord.de/softwareentwicklung-luebeck"
+        },
+        {
+          "url": "https://datenpflege-nord.de/softwareentwicklung-luebeck",
+          "status": 301,
+          "location": "/softwareentwicklung-luebeck/"
+        },
+        {
+          "url": "https://datenpflege-nord.de/softwareentwicklung-luebeck/",
+          "status": 200,
+          "location": ""
+        }
+      ]
+    },
+    {
+      "start_url": "https://datenpflege-nord.de/webentwicklung-luebeck/",
+      "status": 200,
+      "location": "",
+      "redirects": 0,
+      "final_url": "https://datenpflege-nord.de/webentwicklung-luebeck/",
+      "final_status": 200,
+      "chain": [
+        {
+          "url": "https://datenpflege-nord.de/webentwicklung-luebeck/",
+          "status": 200,
+          "location": ""
+        }
+      ]
+    },
+    {
+      "start_url": "https://datenpflege-nord.de/webentwicklung-luebeck",
+      "status": 301,
+      "location": "/webentwicklung-luebeck/",
+      "redirects": 1,
+      "final_url": "https://datenpflege-nord.de/webentwicklung-luebeck/",
+      "final_status": 200,
+      "chain": [
+        {
+          "url": "https://datenpflege-nord.de/webentwicklung-luebeck",
+          "status": 301,
+          "location": "/webentwicklung-luebeck/"
+        },
+        {
+          "url": "https://datenpflege-nord.de/webentwicklung-luebeck/",
+          "status": 200,
+          "location": ""
+        }
+      ]
+    },
+    {
+      "start_url": "http://datenpflege-nord.de/webentwicklung-luebeck/",
+      "status": 301,
+      "location": "https://datenpflege-nord.de/webentwicklung-luebeck/",
+      "redirects": 1,
+      "final_url": "https://datenpflege-nord.de/webentwicklung-luebeck/",
+      "final_status": 200,
+      "chain": [
+        {
+          "url": "http://datenpflege-nord.de/webentwicklung-luebeck/",
+          "status": 301,
+          "location": "https://datenpflege-nord.de/webentwicklung-luebeck/"
+        },
+        {
+          "url": "https://datenpflege-nord.de/webentwicklung-luebeck/",
+          "status": 200,
+          "location": ""
+        }
+      ]
+    },
+    {
+      "start_url": "http://datenpflege-nord.de/webentwicklung-luebeck",
+      "status": 301,
+      "location": "https://datenpflege-nord.de/webentwicklung-luebeck",
+      "redirects": 2,
+      "final_url": "https://datenpflege-nord.de/webentwicklung-luebeck/",
+      "final_status": 200,
+      "chain": [
+        {
+          "url": "http://datenpflege-nord.de/webentwicklung-luebeck",
+          "status": 301,
+          "location": "https://datenpflege-nord.de/webentwicklung-luebeck"
+        },
+        {
+          "url": "https://datenpflege-nord.de/webentwicklung-luebeck",
+          "status": 301,
+          "location": "/webentwicklung-luebeck/"
+        },
+        {
+          "url": "https://datenpflege-nord.de/webentwicklung-luebeck/",
+          "status": 200,
+          "location": ""
+        }
+      ]
+    },
+    {
+      "start_url": "https://datenpflege-nord.de/ki-automatisierung-luebeck/",
+      "status": 200,
+      "location": "",
+      "redirects": 0,
+      "final_url": "https://datenpflege-nord.de/ki-automatisierung-luebeck/",
+      "final_status": 200,
+      "chain": [
+        {
+          "url": "https://datenpflege-nord.de/ki-automatisierung-luebeck/",
+          "status": 200,
+          "location": ""
+        }
+      ]
+    },
+    {
+      "start_url": "https://datenpflege-nord.de/ki-automatisierung-luebeck",
+      "status": 301,
+      "location": "/ki-automatisierung-luebeck/",
+      "redirects": 1,
+      "final_url": "https://datenpflege-nord.de/ki-automatisierung-luebeck/",
+      "final_status": 200,
+      "chain": [
+        {
+          "url": "https://datenpflege-nord.de/ki-automatisierung-luebeck",
+          "status": 301,
+          "location": "/ki-automatisierung-luebeck/"
+        },
+        {
+          "url": "https://datenpflege-nord.de/ki-automatisierung-luebeck/",
+          "status": 200,
+          "location": ""
+        }
+      ]
+    },
+    {
+      "start_url": "http://datenpflege-nord.de/ki-automatisierung-luebeck/",
+      "status": 301,
+      "location": "https://datenpflege-nord.de/ki-automatisierung-luebeck/",
+      "redirects": 1,
+      "final_url": "https://datenpflege-nord.de/ki-automatisierung-luebeck/",
+      "final_status": 200,
+      "chain": [
+        {
+          "url": "http://datenpflege-nord.de/ki-automatisierung-luebeck/",
+          "status": 301,
+          "location": "https://datenpflege-nord.de/ki-automatisierung-luebeck/"
+        },
+        {
+          "url": "https://datenpflege-nord.de/ki-automatisierung-luebeck/",
+          "status": 200,
+          "location": ""
+        }
+      ]
+    },
+    {
+      "start_url": "http://datenpflege-nord.de/ki-automatisierung-luebeck",
+      "status": 301,
+      "location": "https://datenpflege-nord.de/ki-automatisierung-luebeck",
+      "redirects": 2,
+      "final_url": "https://datenpflege-nord.de/ki-automatisierung-luebeck/",
+      "final_status": 200,
+      "chain": [
+        {
+          "url": "http://datenpflege-nord.de/ki-automatisierung-luebeck",
+          "status": 301,
+          "location": "https://datenpflege-nord.de/ki-automatisierung-luebeck"
+        },
+        {
+          "url": "https://datenpflege-nord.de/ki-automatisierung-luebeck",
+          "status": 301,
+          "location": "/ki-automatisierung-luebeck/"
+        },
+        {
+          "url": "https://datenpflege-nord.de/ki-automatisierung-luebeck/",
+          "status": 200,
+          "location": ""
+        }
+      ]
+    },
+    {
+      "start_url": "https://datenpflege-nord.de/en/",
+      "status": 200,
+      "location": "",
+      "redirects": 0,
+      "final_url": "https://datenpflege-nord.de/en/",
+      "final_status": 200,
+      "chain": [
+        {
+          "url": "https://datenpflege-nord.de/en/",
+          "status": 200,
+          "location": ""
+        }
+      ]
+    },
+    {
+      "start_url": "https://datenpflege-nord.de/en",
+      "status": 301,
+      "location": "/en/",
+      "redirects": 1,
+      "final_url": "https://datenpflege-nord.de/en/",
+      "final_status": 200,
+      "chain": [
+        {
+          "url": "https://datenpflege-nord.de/en",
+          "status": 301,
+          "location": "/en/"
+        },
+        {
+          "url": "https://datenpflege-nord.de/en/",
+          "status": 200,
+          "location": ""
+        }
+      ]
+    },
+    {
+      "start_url": "http://datenpflege-nord.de/en/",
+      "status": 301,
+      "location": "https://datenpflege-nord.de/en/",
+      "redirects": 1,
+      "final_url": "https://datenpflege-nord.de/en/",
+      "final_status": 200,
+      "chain": [
+        {
+          "url": "http://datenpflege-nord.de/en/",
+          "status": 301,
+          "location": "https://datenpflege-nord.de/en/"
+        },
+        {
+          "url": "https://datenpflege-nord.de/en/",
+          "status": 200,
+          "location": ""
+        }
+      ]
+    },
+    {
+      "start_url": "http://datenpflege-nord.de/en",
+      "status": 301,
+      "location": "https://datenpflege-nord.de/en",
+      "redirects": 2,
+      "final_url": "https://datenpflege-nord.de/en/",
+      "final_status": 200,
+      "chain": [
+        {
+          "url": "http://datenpflege-nord.de/en",
+          "status": 301,
+          "location": "https://datenpflege-nord.de/en"
+        },
+        {
+          "url": "https://datenpflege-nord.de/en",
+          "status": 301,
+          "location": "/en/"
+        },
+        {
+          "url": "https://datenpflege-nord.de/en/",
+          "status": 200,
+          "location": ""
+        }
+      ]
+    },
+    {
+      "start_url": "https://datenpflege-nord.de/impressum/",
+      "status": 200,
+      "location": "",
+      "redirects": 0,
+      "final_url": "https://datenpflege-nord.de/impressum/",
+      "final_status": 200,
+      "chain": [
+        {
+          "url": "https://datenpflege-nord.de/impressum/",
+          "status": 200,
+          "location": ""
+        }
+      ]
+    },
+    {
+      "start_url": "https://datenpflege-nord.de/impressum",
+      "status": 301,
+      "location": "/impressum/",
+      "redirects": 1,
+      "final_url": "https://datenpflege-nord.de/impressum/",
+      "final_status": 200,
+      "chain": [
+        {
+          "url": "https://datenpflege-nord.de/impressum",
+          "status": 301,
+          "location": "/impressum/"
+        },
+        {
+          "url": "https://datenpflege-nord.de/impressum/",
+          "status": 200,
+          "location": ""
+        }
+      ]
+    },
+    {
+      "start_url": "http://datenpflege-nord.de/impressum/",
+      "status": 301,
+      "location": "https://datenpflege-nord.de/impressum/",
+      "redirects": 1,
+      "final_url": "https://datenpflege-nord.de/impressum/",
+      "final_status": 200,
+      "chain": [
+        {
+          "url": "http://datenpflege-nord.de/impressum/",
+          "status": 301,
+          "location": "https://datenpflege-nord.de/impressum/"
+        },
+        {
+          "url": "https://datenpflege-nord.de/impressum/",
+          "status": 200,
+          "location": ""
+        }
+      ]
+    },
+    {
+      "start_url": "http://datenpflege-nord.de/impressum",
+      "status": 301,
+      "location": "https://datenpflege-nord.de/impressum",
+      "redirects": 2,
+      "final_url": "https://datenpflege-nord.de/impressum/",
+      "final_status": 200,
+      "chain": [
+        {
+          "url": "http://datenpflege-nord.de/impressum",
+          "status": 301,
+          "location": "https://datenpflege-nord.de/impressum"
+        },
+        {
+          "url": "https://datenpflege-nord.de/impressum",
+          "status": 301,
+          "location": "/impressum/"
+        },
+        {
+          "url": "https://datenpflege-nord.de/impressum/",
+          "status": 200,
+          "location": ""
+        }
+      ]
+    },
+    {
+      "start_url": "https://datenpflege-nord.de/datenschutz/",
+      "status": 200,
+      "location": "",
+      "redirects": 0,
+      "final_url": "https://datenpflege-nord.de/datenschutz/",
+      "final_status": 200,
+      "chain": [
+        {
+          "url": "https://datenpflege-nord.de/datenschutz/",
+          "status": 200,
+          "location": ""
+        }
+      ]
+    },
+    {
+      "start_url": "https://datenpflege-nord.de/datenschutz",
+      "status": 301,
+      "location": "/datenschutz/",
+      "redirects": 1,
+      "final_url": "https://datenpflege-nord.de/datenschutz/",
+      "final_status": 200,
+      "chain": [
+        {
+          "url": "https://datenpflege-nord.de/datenschutz",
+          "status": 301,
+          "location": "/datenschutz/"
+        },
+        {
+          "url": "https://datenpflege-nord.de/datenschutz/",
+          "status": 200,
+          "location": ""
+        }
+      ]
+    },
+    {
+      "start_url": "http://datenpflege-nord.de/datenschutz/",
+      "status": 301,
+      "location": "https://datenpflege-nord.de/datenschutz/",
+      "redirects": 1,
+      "final_url": "https://datenpflege-nord.de/datenschutz/",
+      "final_status": 200,
+      "chain": [
+        {
+          "url": "http://datenpflege-nord.de/datenschutz/",
+          "status": 301,
+          "location": "https://datenpflege-nord.de/datenschutz/"
+        },
+        {
+          "url": "https://datenpflege-nord.de/datenschutz/",
+          "status": 200,
+          "location": ""
+        }
+      ]
+    },
+    {
+      "start_url": "http://datenpflege-nord.de/datenschutz",
+      "status": 301,
+      "location": "https://datenpflege-nord.de/datenschutz",
+      "redirects": 2,
+      "final_url": "https://datenpflege-nord.de/datenschutz/",
+      "final_status": 200,
+      "chain": [
+        {
+          "url": "http://datenpflege-nord.de/datenschutz",
+          "status": 301,
+          "location": "https://datenpflege-nord.de/datenschutz"
+        },
+        {
+          "url": "https://datenpflege-nord.de/datenschutz",
+          "status": 301,
+          "location": "/datenschutz/"
+        },
+        {
+          "url": "https://datenpflege-nord.de/datenschutz/",
+          "status": 200,
+          "location": ""
+        }
+      ]
+    }
+  ],
+  "regression": [
+    {
+      "url": "https://datenpflege-nord.de/",
+      "status": 200,
+      "location": ""
+    },
+    {
+      "url": "https://datenpflege-nord.de/softwareentwicklung-luebeck/",
+      "status": 200,
+      "location": ""
+    },
+    {
+      "url": "https://datenpflege-nord.de/webentwicklung-luebeck/",
+      "status": 200,
+      "location": ""
+    },
+    {
+      "url": "https://datenpflege-nord.de/ki-automatisierung-luebeck/",
+      "status": 200,
+      "location": ""
+    },
+    {
+      "url": "https://datenpflege-nord.de/en/",
+      "status": 200,
+      "location": ""
+    },
+    {
+      "url": "https://datenpflege-nord.de/impressum/",
+      "status": 200,
+      "location": ""
+    },
+    {
+      "url": "https://datenpflege-nord.de/datenschutz/",
+      "status": 200,
+      "location": ""
+    },
+    {
+      "url": "https://datenpflege-nord.de/robots.txt",
+      "status": 200,
+      "location": ""
+    },
+    {
+      "url": "https://datenpflege-nord.de/sitemap.xml",
+      "status": 200,
+      "location": ""
+    },
+    {
+      "url": "https://datenpflege-nord.de/healthz",
+      "status": 200,
+      "location": ""
+    }
+  ],
+  "contact": {
+    "status": 200,
+    "body": {
+      "ok": true
+    }
+  },
+  "finished": "2026-09-14T09:24:53.764275+00:00",
+  "result": "PASS"
+}

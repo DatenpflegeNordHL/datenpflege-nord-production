@@ -36,6 +36,9 @@ EXPECTED_SCRIPTS = {
     Path("webentwicklung-luebeck/index.html"): "/assets/service.js",
     Path("softwareentwicklung-luebeck/index.html"): "/assets/service.js",
     Path("ki-automatisierung-luebeck/index.html"): "/assets/service.js",
+    Path("wissen/individualsoftware-kosten/index.html"): "/assets/authority.js",
+    Path("wissen/website-relaunch-checkliste/index.html"): "/assets/authority.js",
+    Path("wissen/ki-prozessautomatisierung/index.html"): "/assets/authority.js",
 }
 
 
@@ -529,7 +532,7 @@ def validate_expected_scripts(pages: dict[Path, Page]) -> list[str]:
         page = pages.get((ROOT / relative_path).resolve())
         if page is None:
             continue
-        scripts = {resource for kind, resource in page.resources if kind == "script"}
+        scripts = {urlparse(resource).path for kind, resource in page.resources if kind == "script"}
         if expected_script not in scripts:
             errors.append(
                 f"{relative_path}: missing expected script {expected_script!r}"
