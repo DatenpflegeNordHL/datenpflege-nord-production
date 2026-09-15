@@ -26,6 +26,7 @@ ALLOWED_CANONICALS = {
     "https://datenpflege-nord.de/ki-automatisierung-luebeck/",
     "https://datenpflege-nord.de/wissen/individualsoftware-kosten/",
     "https://datenpflege-nord.de/wissen/website-relaunch-checkliste/",
+    "https://datenpflege-nord.de/wissen/ki-prozessautomatisierung/",
 }
 
 AUTHORITY_OWNERS = {
@@ -33,6 +34,8 @@ AUTHORITY_OWNERS = {
         "https://datenpflege-nord.de/softwareentwicklung-luebeck/",
     "https://datenpflege-nord.de/wissen/website-relaunch-checkliste/":
         "https://datenpflege-nord.de/webentwicklung-luebeck/",
+    "https://datenpflege-nord.de/wissen/ki-prozessautomatisierung/":
+        "https://datenpflege-nord.de/ki-automatisierung-luebeck/",
 }
 
 
@@ -240,9 +243,23 @@ def validate_authority_content(page, source):
             if required not in source:
                 errors.append(f"{page.path}: missing decision feature: {required}")
     if canonical.endswith("/website-relaunch-checkliste/"):
-        for required in ("data-relaunch-checklist", "KEEP", "REDIRECT", "Fortschritt nur lokal gespeichert"):
+        for required in (
+            "data-relaunch-checklist",
+            "KEEP",
+            "REDIRECT",
+            "Fortschritt nur lokal gespeichert",
+            'id="kosten"',
+            'id="projektplan"',
+            'id="seo-migration"',
+            "Keine Preisautomatik",
+            "8. Post-Launch-Verifikation",
+        ):
             if required not in source:
                 errors.append(f"{page.path}: missing relaunch feature: {required}")
+    if canonical.endswith("/ki-prozessautomatisierung/"):
+        for required in ("data-automation-decision-matrix", "Deterministische Automatisierung", "Human-in-the-Loop", "Fallback"):
+            if required not in source:
+                errors.append(f"{page.path}: missing automation decision feature: {required}")
     return errors
 
 
@@ -264,7 +281,7 @@ def main():
     if errors:
         print("\n".join(errors), file=sys.stderr)
         return 1
-    print(f"Golden audit passed: {len(pages)} reachable canonical pages; structure/indexability, three service graphs and two authority graphs checked.")
+    print(f"Golden audit passed: {len(pages)} reachable canonical pages; structure/indexability, three service graphs and {len(AUTHORITY_OWNERS)} authority graphs checked.")
     return 0
 
 

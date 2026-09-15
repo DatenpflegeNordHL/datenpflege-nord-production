@@ -94,6 +94,7 @@ class GoldenAuditTests(unittest.TestCase):
         for route in (
             "wissen/individualsoftware-kosten/index.html",
             "wissen/website-relaunch-checkliste/index.html",
+            "wissen/ki-prozessautomatisierung/index.html",
         ):
             path = self.root / route
             parser = SiteHTMLParser(path)

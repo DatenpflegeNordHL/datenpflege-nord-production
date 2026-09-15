@@ -38,6 +38,7 @@ EXPECTED_SCRIPTS = {
     Path("ki-automatisierung-luebeck/index.html"): "/assets/service.js",
     Path("wissen/individualsoftware-kosten/index.html"): "/assets/authority.js",
     Path("wissen/website-relaunch-checkliste/index.html"): "/assets/authority.js",
+    Path("wissen/ki-prozessautomatisierung/index.html"): "/assets/authority.js",
 }
 
 

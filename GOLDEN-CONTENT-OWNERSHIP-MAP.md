@@ -1,6 +1,6 @@
 # Golden content ownership map
 
-Decision date: 2026-09-13, updated 2026-09-15 for the two approved Phase-5 authority assets. Canonical origin: `https://datenpflege-nord.de/`.
+Decision date: 2026-09-13, updated 2026-09-15 for Phase 7 ownership. Canonical origin: `https://datenpflege-nord.de/`.
 Scope is intent ownership, not a promise to rank nationally or to serve unverified regions.
 
 Evidence keys: **BT** = MASTER-SITE-EVIDENCE §§2–3 plus current homepage/service copy; **P0** = KEYWORD-P0-VALIDATION-2026-09-13; **V** = KEYWORD-VALIDATION-EVIDENCE-2026-09-13; **R** = REGIONAL-SERP-GATES; **K** = KEYWORD-INTENT-MAP. All are local documents in this branch. Raw CSV/cluster/queue labels are hypotheses overridden by these later validations and this scoped decision. GSC has not validated actual ranking-URL overlap.
@@ -18,7 +18,7 @@ Owner abbreviations: **S** `/softwareentwicklung-luebeck/`; **W** `/webentwicklu
 | Web lexical siblings | Website erstellen lassen Lübeck | Webdesigner, Internetagentur | beauftragen | costs, process | Lübeck | W | `/website-erstellen-lassen-luebeck/` | Same purchase journey | R/K 10 estimate; overlap | High | No independent value established | BT Web only, no marketing agency offer | HOLD |
 | Landingpage / company website | Landingpage erstellen lassen | Unternehmenswebsite erstellen lassen | erstellen lassen | relaunch, forms, maintenance | Lübeck/SH | W | `/landingpage-erstellen-lassen/` HOLD | Procurement | P0 landingpage 260/KD29 providers; company-site 90 exact SERP pending | High | Explain single-purpose vs multiple service navigation | BT Web deliverables | EXPAND |
 | AI implementation | KI Automatisierung | KI Integration, KI Agenten, KI für Unternehmen | umsetzen, integrieren | controlled automation, inputs, approval | Lübeck/SH | A | None | Mixed, local service owner | P0 broad 920 informational; KI Integration 140 exact SERP pending; R local no reliable row | High | Rule vs model choice, permissions and failure paths | BT AI/n8n/LLM workflows | EXPAND |
-| Process / workflow | Prozessautomatisierung | Workflow Automatisierung | für Unternehmen, automatisieren lassen | process mapping, exceptions, human-in-the-loop | Generic support within existing service area | A | Future guide only | Informational/decision | P0 process 540 authority-heavy; workflow 320 SERP pending | Medium against A | Useful process qualification, no industrial/control-engineering positioning | BT business workflow automation | SUPPORTING_CONTENT |
+| KI process / workflow decision | KI Prozessautomatisierung | KI Prozessautomatisierung für Unternehmen, Prozessautomatisierung KI | Umsetzung erst nach Qualifikation | deterministic vs AI, exceptions, human-in-the-loop, auditability, fallbacks | National informational/decision content; commercial delivery remains current service area | `/wissen/ki-prozessautomatisierung/`; A for local implementation and n8n | None | Informational / commercial-decision | Phase 6: distinct authority/decision SERP from local KI service intent | Low/medium with explicit owner boundary | Automation Decision Matrix, failure/approval architecture, logging and operations | BT business workflow automation, APIs, n8n/LLM workflows | BUILD authority — implemented Phase 7 |
 | n8n implementation | n8n Automatisierung | n8n Workflows, n8n Integration | Agentur, Dienstleister | API, webhook, human approval | Existing service area | A | `/n8n-automatisierung/` HOLD | Mixed tool/service | K: 110/KD16, providers and vendor content | High | Named standalone offering and original workflow proof before split | BT n8n within automation, not independent offer approval | EXPAND |
 | City n8n | n8n + city | n8n Agentur Lübeck/Kiel/Hamburg | local provider | workflows | All city variants | A for Lübeck support only | City n8n clones | Unproven local distinction | R: no reliable exact local demand | Very high | No unique city purpose | BT only real existing scope | BLOCK |
 | Interfaces implementation | Schnittstellenentwicklung | Schnittstellenprogrammierung, API Entwicklung, API Programmierung | entwickeln lassen, Dienstleister | databases, webhooks, integrations | Lübeck/SH; no new national claim | S | `/api-schnittstellenentwicklung/` HOLD | Procurement niche | P0/V: 110/KD6, 70/KD6, 110/KD16, 140/KD30; Schnittstellen provider-heavy; adjacent exact overlap pending | Medium/high against S | API-specific failure matrix, testable example and independent commercial brief | BT APIs/databases/webhooks/systems | EXPAND |
@@ -49,7 +49,7 @@ For every family: `_COMMERCIAL` terms support the existing family owner without 
 
 Software adds a standard/extension/custom decision table, project input checklist and integration failure questions. Web adds build/modernize/landingpage choices and customer preparation. AI adds deterministic vs LLM vs approval boundaries. They solve different buyer decisions and cross-link instead of duplicating API tutorials on all pages. No keywords are quotas; broad head terms do not become page titles solely for volume. Future split decisions must update this map and GSC ownership evidence first.
 
-## Phase-5 intent ownership
+## Phase-5/7 intent ownership
 
 | Query cluster | Primary owner URL | Supporting section | Competing URL | Decision |
 |---|---|---|---|---|
@@ -59,7 +59,9 @@ Software adds a standard/extension/custom decision table, project input checklis
 | Standardsoftware oder Eigenentwicklung | `/wissen/individualsoftware-kosten/` | Four-option Make-or-Buy matrix | `/softwareentwicklung-luebeck/#entscheidung` | Guide owns detailed comparison; Money page keeps a short qualification table. |
 | Webdesign Lübeck | `/webentwicklung-luebeck/` | Commercial web owner | None | OWN unchanged. |
 | Website Relaunch, commercial/local | `/webentwicklung-luebeck/` | Relaunch service and project preparation | `/wissen/website-relaunch-checkliste/` | Money page remains owner for commissioning. |
-| Website Relaunch Checkliste | `/wissen/website-relaunch-checkliste/` | URL matrix, staging, go-live and post-launch checklist | `/webentwicklung-luebeck/#entscheidung` | Authority guide owns planning/error-prevention intent. |
+| Website Relaunch Checkliste / SEO / Projektplan / Kosteninformation | `/wissen/website-relaunch-checkliste/` | Cost drivers without invented prices, eight-phase project plan, SEO/technical migration, URL matrix, staging, go-live and post-launch checklist | `/webentwicklung-luebeck/#entscheidung` | One authority URL owns the overlapping planning/error-prevention intents; no separate cost or project-plan article. |
 | KI Automatisierung Lübeck | `/ki-automatisierung-luebeck/` | Existing commercial owner | None | Frozen in Phase 5 pending first-party GSC evidence. |
+| KI Prozessautomatisierung | `/wissen/ki-prozessautomatisierung/` | Deterministic-vs-AI decision, Human-in-the-Loop, failure paths, auditability and operating model | `/ki-automatisierung-luebeck/#entscheidung` | National decision/knowledge owner; local commercial service and n8n implementation stay on A. |
+| n8n Automatisierung | `/ki-automatisierung-luebeck/` | Workflow implementation within existing local commercial owner | `/wissen/ki-prozessautomatisierung/` only as architecture support | No standalone n8n authority page without future GSC/SERP separation. |
 
-Each cluster has one primary owner. No API, system-integration, n8n-city, Kiel or Hamburg URL was promoted.
+Each cluster has one primary owner. No standalone API, system-integration, n8n-city, Kiel or Hamburg URL was promoted.

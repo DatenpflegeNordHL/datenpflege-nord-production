@@ -109,3 +109,101 @@ if (checklist) {
   });
   updateChecklist();
 }
+
+const automationMatrix = document.querySelector("[data-automation-decision-matrix]");
+if (automationMatrix) {
+  const storageKey = "dpn-automation-decision-matrix-v1";
+  const fields = [...automationMatrix.querySelectorAll("select[data-auto-field]")];
+  const result = automationMatrix.querySelector("[data-auto-result]");
+  const explanation = automationMatrix.querySelector("[data-auto-explanation]");
+  const questions = automationMatrix.querySelector("[data-auto-questions]");
+  const evaluate = automationMatrix.querySelector("[data-auto-evaluate]");
+  const saved = safeRead(storageKey);
+
+  if (saved && typeof saved === "object") {
+    fields.forEach((field) => {
+      if (Object.hasOwn(saved, field.id)) field.value = saved[field.id];
+    });
+  }
+
+  const value = (id) => automationMatrix.querySelector(`#${id}`)?.value || "";
+  const updateAutomationMatrix = () => {
+    const state = Object.fromEntries(fields.map((field) => [field.id, field.value]));
+    safeWrite(storageKey, state);
+
+    const repeatability = value("auto-repeatability");
+    const rules = value("auto-rules");
+    const data = value("auto-data");
+    const exceptions = value("auto-exceptions");
+    const approval = value("auto-approval");
+    const consequence = value("auto-consequence");
+    const api = value("auto-api");
+    const reversibility = value("auto-reversibility");
+
+    let heading = "Deterministische Automatisierung prüfen";
+    let detail = "Bei klaren Regeln und strukturierten Daten sollte zuerst ein fester Workflow geprüft werden. KI erhöht hier nicht automatisch die Qualität.";
+    let prompts = [
+      "Welche Bedingungen können als feste Regeln getestet werden?",
+      "Welche API-Aktion muss idempotent oder gegen Duplikate geschützt sein?",
+      "Welche Fehler sollen stoppen, wiederholen oder an einen Menschen übergeben werden?",
+    ];
+
+    const notReady = repeatability === "low" || (api === "none" && reversibility === "hard");
+    const highRisk = consequence === "high" || approval === "required" || reversibility === "hard";
+    const aiUseful = data === "unstructured" || (data === "mixed" && rules !== "clear") || rules === "partial";
+    const deterministicFit = rules === "clear" && data === "structured" && exceptions === "low";
+
+    if (notReady) {
+      heading = "Prozess noch nicht automatisierungsreif";
+      detail = "Zuerst sollten Prozessgrenzen, Verantwortlichkeiten oder ein sicherer Systemzugang geklärt werden. Ein Modell löst diese Grundlage nicht.";
+      prompts = [
+        "Welcher wiederkehrende Kern lässt sich überhaupt stabil beschreiben?",
+        "Wer entscheidet fachlich, ob ein Ergebnis korrekt ist?",
+        "Wie kann eine Systemaktion sicher getestet oder rückgängig gemacht werden?",
+      ];
+    } else if (highRisk) {
+      heading = "Human-in-the-Loop als Ausgangspunkt";
+      detail = "Die Folgen eines Fehlers oder der Freigabebedarf sprechen dafür, automatische Verarbeitung und produktive Aktion klar zu trennen. Kritische Schritte bleiben prüfbar und freigabepflichtig.";
+      prompts = [
+        "Welche konkrete Aktion braucht vor Ausführung eine Freigabe?",
+        "Welche Informationen muss der prüfende Mensch für die Entscheidung sehen?",
+        "Was passiert bei Ablehnung, Timeout oder widersprüchlichem Ergebnis?",
+      ];
+    } else if (deterministicFit && !aiUseful) {
+      heading = "Deterministische Automatisierung bevorzugen";
+      detail = "Die Eingaben und Regeln wirken ausreichend strukturiert für einen festen Workflow. Das vereinfacht Tests, Fehlersuche und Betrieb.";
+    } else if (aiUseful) {
+      heading = "KI-gestützte Automatisierung prüfen";
+      detail = "Variable oder unstrukturierte Informationen können einen begrenzten KI-Schritt rechtfertigen. Das Modell sollte eine eng definierte Aufgabe übernehmen und seine Ausgabe vor jeder Folgeaktion validiert werden.";
+      prompts = [
+        "Welche variable Information kann nicht zuverlässig mit festen Regeln verarbeitet werden?",
+        "Welches Ausgabeformat lässt sich deterministisch validieren?",
+        "Ab wann wird ein unsicherer Fall an einen Menschen übergeben?",
+      ];
+    }
+
+    result.textContent = heading;
+    explanation.textContent = detail;
+    questions.replaceChildren();
+    prompts.forEach((prompt) => {
+      const item = document.createElement("li");
+      item.textContent = prompt;
+      questions.append(item);
+    });
+  };
+
+  fields.forEach((field) => field.addEventListener("change", updateAutomationMatrix));
+  evaluate.addEventListener("click", updateAutomationMatrix);
+  automationMatrix.addEventListener("reset", () => {
+    try {
+      localStorage.removeItem(storageKey);
+    } catch {
+      // The visible reset remains effective.
+    }
+    requestAnimationFrame(() => {
+      updateAutomationMatrix();
+      fields[0]?.focus();
+    });
+  });
+  updateAutomationMatrix();
+}
