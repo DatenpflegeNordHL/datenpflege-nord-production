@@ -50,7 +50,8 @@ Issue #13 remains OPEN. The current legal organization remains `Green Vector Ene
 | OMR Reviews Business Services | C. PARTNER / PROFILE | Active DACH IT/KI/web service discovery surface | Agency/service profile, CTA, verified reviews and possible editorial | High company-identity and service-category exposure | Medium/high | High topical/commercial | High if category fit is accepted | WAIT FOR ENTITY | After #13, confirm exact service-profile conditions/costs; use only genuine reviews and accurate categories | P1 after gate |
 | onlinestreet.de business profile | F. DIRECTORY / CITATION | Previously observed across several competitor referring-domain sets; local discovery value | Local business citation with canonical website | High while entity/address tuple is unresolved | Low | Low/medium | Low | WAIT FOR ENTITY | Revalidate current free/basic terms and duplicate state at activation time | P3 after gate |
 | Stadtbranchenbuch / Opendi | F. DIRECTORY / CITATION | Recurring local citation pattern in competitor profiles | Local directory listing and website link | High while entity/address tuple is unresolved | Low | Low/medium | Low | WAIT FOR ENTITY | Search duplicates and current edit/free-entry terms first; one accurate entry only | P3 after gate |
-| Sortlist | C. PARTNER / PROFILE | Relevant software/web/AI marketplace but maintenance/lead economics matter more than backlink | Provider profile and lead marketplace | High company identity; commercial platform | Medium/high | Medium | Medium/high if leads qualify | WAIT FOR ENTITY | After #13, compare current profile cost/lead model; reject if economics or scope do not fit | P3 after gate |
+
+The two tables above are the prioritized **top 20**. Reserve outside the top 20: Sortlist can be reassessed after Issue #13 only if its then-current provider economics and service scope justify the maintenance effort; it is not a backlink priority.
 
 ## Public GitHub audit conclusions
 

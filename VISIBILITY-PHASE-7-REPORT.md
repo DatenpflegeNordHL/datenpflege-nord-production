@@ -10,8 +10,10 @@ Status date: 2026-09-15
 - Phase-7 base SHA: `57a45f91af6e8e02d361d704813a62b7013f3560`
 - Phase-7 implementation commit: `6c3a21398a1cfc223beed8049494a34491141417`
 - Phase-7 implementation remote SHA: `6c3a21398a1cfc223beed8049494a34491141417`
+- Phase-7 release-gate follow-up / validated source SHA: `abf013131551e82738762b36ec47efb0b82a5f99`
+- Phase-7 validated remote SHA: `abf013131551e82738762b36ec47efb0b82a5f99`
 
-This report is a later evidence-only commit. The implementation SHA above is the exact source state used for the hosted validation run and is intentionally recorded rather than attempting to embed the hash of the commit that contains this report.
+This report is a later evidence-only commit. The validated source SHA above contains the implementation, release-allowlist correction and final responsive authority styling used for the successful hosted validation run. The report commit itself is documentation-only, so its own hash is intentionally not embedded recursively.
 
 ## Indexable URL changes
 
@@ -125,7 +127,16 @@ Hosted GitHub Actions run `34963094835` remains historical evidence for implemen
 - That earlier hosted CI conclusion was **FAILURE**, isolated to the now-corrected release-candidate allowlist mismatch.
 - The hosted log independently reports `BROWSER_FRESHNESS_PASS`: normal HTML navigation reached 304; changed HTML/leaf/CSS URLs were fetched; unchanged URL was retained; no cache clearing was used.
 - Hosted asset-version and secret-scan output completed successfully before the unit-suite failure.
-- A fresh hosted run is required against the final follow-up commit to supersede this historical result.
+
+Hosted GitHub Actions run `34999400378` supersedes that result for validated source SHA `abf013131551e82738762b36ec47efb0b82a5f99`:
+
+- Hosted CI conclusion: **SUCCESS**.
+- Main suite: 78 tests, browser fixture active, 15 expected skips, PASS.
+- Privileged install suite: 15 tests under `sudo`, PASS.
+- `BROWSER_FRESHNESS_PASS` confirmed normal-navigation freshness without cache clearing.
+- Static Site Audit: 10 HTML pages, PASS.
+- Golden Audit: 10 reachable canonicals, 3 service graphs, 3 authority graphs, PASS.
+- Exact release-candidate verification completed with `result: PASS`.
 
 No production deployment was attempted or required to resolve this source-level gate.
 
