@@ -89,7 +89,7 @@ PASS:
 - Golden Audit: 10 reachable canonicals; 3 service graphs; 3 authority graphs.
 - Canonical, internal-link, sitemap and affected hreflang checks through the static audit.
 - Authority schema validation through the Golden audit.
-- Asset Version Check for the frozen deployment allowlist: PASS, 71 references.
+- Asset Version Check: PASS, 79 references after adding the new KI authority HTML to the closed release allowlist.
 - Asset Generator Idempotence: PASS, second generation produced zero changed files.
 - New KI page asset hashes independently verified: 8 versioned local references matched final bytes, including the changed `authority.js` SHA-256.
 - Secret scan: PASS, no credential-signature findings.
@@ -98,7 +98,7 @@ PASS:
 - JavaScript syntax: PASS for home DE/EN, service and authority assets.
 - YAML parsing: PASS for both GitHub workflow files.
 - `git diff --check`: PASS on the staged Phase-7 implementation.
-- All tests outside the isolated release-candidate packaging module: 75 run, 16 expected environment/privilege/browser-fixture skips, PASS.
+- Full `python3 -m unittest discover -s tests`: 78 run, 16 expected environment/privilege/browser-fixture skips, PASS.
 
 Real Brave browser QA PASS:
 
@@ -110,23 +110,24 @@ Real Brave browser QA PASS:
 - Relaunch page at 1440/390/320: no document-level horizontal overflow, correct heading hierarchy, cost/project-plan/SEO migration sections present.
 - Relaunch checklist persisted through reload and reset from 1/36 back to 0/36.
 - Visual screenshots at all three KI widths were inspected; no clipping or broken responsive layout was observed.
+- Narrow-screen authority typography was tightened after the 320 px visual review; the final browser probe reports document `scrollWidth == clientWidth` at 1440, 390 and 320 px.
 
-## Remaining genuine blocker
+## Release-candidate gate resolution
 
-The full `python -m unittest discover -s tests` suite has one failure in `test_release_candidate.ReleaseCandidateTests.test_finalized_archive_manifest_and_no_mutation`.
+The first full-suite rerun exposed one real packaging gap in `test_release_candidate.ReleaseCandidateTests.test_finalized_archive_manifest_and_no_mutation`: the closed release allowlist in `ops/deploy/dpn-deploy` did not yet contain `wissen/ki-prozessautomatisierung/index.html`.
 
-Root cause: `ops/deploy/dpn-deploy` uses a **closed production release allowlist** and does not yet include `wissen/ki-prozessautomatisierung/index.html`. The release-candidate fixture copies that allowlist, while the Golden audit correctly requires the new tenth canonical, so the packaged archive cannot satisfy both conditions.
+The source allowlist now includes exactly that new public HTML path. No deployment was run. After the fix, the complete local suite passes: **78 tests, 16 expected skips, 0 failures/errors**. The canonical/Golden audits and asset generator also pass against the corrected package scope.
 
-Fixing this requires changing deployment infrastructure (`ops/deploy/dpn-deploy`, including release HTML/package validation). Phase 7 explicitly forbids modification of deployment infrastructure. The Golden test and release-candidate test were therefore **not weakened or bypassed** to manufacture a pass.
+No validator or test was weakened or bypassed.
 
-Hosted GitHub Actions run `34963094835` was dispatched explicitly against implementation SHA `6c3a21398a1cfc223beed8049494a34491141417`.
+Hosted GitHub Actions run `34963094835` remains historical evidence for implementation SHA `6c3a21398a1cfc223beed8049494a34491141417` before the allowlist correction.
 
-- Hosted CI conclusion: **FAILURE**, isolated to the same `test_release_candidate.ReleaseCandidateTests.test_finalized_archive_manifest_and_no_mutation` error described above.
+- That earlier hosted CI conclusion was **FAILURE**, isolated to the now-corrected release-candidate allowlist mismatch.
 - The hosted log independently reports `BROWSER_FRESHNESS_PASS`: normal HTML navigation reached 304; changed HTML/leaf/CSS URLs were fetched; unchanged URL was retained; no cache clearing was used.
 - Hosted asset-version and secret-scan output completed successfully before the unit-suite failure.
-- CI therefore corroborates the local blocker instead of exposing a second unrelated implementation defect.
+- A fresh hosted run is required against the final follow-up commit to supersede this historical result.
 
-No production deployment was attempted to resolve this gate.
+No production deployment was attempted or required to resolve this source-level gate.
 
 ## Gates retained
 

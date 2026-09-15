@@ -2,6 +2,14 @@
   min-height: 560px;
 }
 
+.article-hero h1,
+.answer-box h2,
+.answer-box h3 {
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: auto;
+}
+
 .article-hero .lead {
   max-width: 760px;
 }
@@ -215,9 +223,21 @@
   }
 }
 
+@media (max-width: 420px) {
+  .article-hero h1 {
+    font-size: clamp(1.6rem, 8vw, 2rem);
+    letter-spacing: -.05em;
+  }
+}
+
 @media (max-width: 360px) {
   .nav > .pill {
     display: none;
+  }
+
+  .answer-box h2 {
+    font-size: 1.25rem;
+    line-height: 1.2;
   }
 }
 

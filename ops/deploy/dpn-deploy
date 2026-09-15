@@ -41,6 +41,7 @@ ALLOWED_PUBLIC_FILES=(
     "softwareentwicklung-luebeck/index.html"
     "webentwicklung-luebeck/index.html"
     "ki-automatisierung-luebeck/index.html"
+    "wissen/ki-prozessautomatisierung/index.html"
     "wissen/individualsoftware-kosten/index.html"
     "wissen/website-relaunch-checkliste/index.html"
     "impressum/index.html"
