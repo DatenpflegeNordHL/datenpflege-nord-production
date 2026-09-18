@@ -64,7 +64,8 @@ class HeroBrowserTests(unittest.TestCase):
             entity:document.querySelector(".hero-entity").textContent.trim(),
             ctas:document.querySelectorAll(".hero-pills a").length,
             typeText:document.querySelector("#typeText").textContent.trim(),
-            reduce:matchMedia("(prefers-reduced-motion: reduce)").matches
+            reduce:matchMedia("(prefers-reduced-motion: reduce)").matches,
+            finePointer:matchMedia("(pointer:fine)").matches
           };
         })()'''
         return json.loads(self.browser(session, "eval", script))
@@ -94,8 +95,11 @@ class HeroBrowserTests(unittest.TestCase):
                 if width == 1440:
                     desktop = state
         self.assertIsNotNone(desktop)
-        self.assertTrue(desktop["sourceAttr"].startswith("/assets/hero/mainframe-hero.mp4?v="))
-        print("HERO_BROWSER_QA_PASS: 1440/390/320 layout, overlay and desktop lazy video source verified")
+        if desktop["finePointer"]:
+            self.assertTrue(desktop["sourceAttr"].startswith("/assets/hero/mainframe-hero.mp4?v="))
+        else:
+            self.assertIsNone(desktop["sourceAttr"])
+        print("HERO_BROWSER_QA_PASS: 1440/390/320 layout and overlay verified; video load follows pointer:fine gate")
 
     def test_reduced_motion_keeps_static_poster(self):
         session = "dpn-hero-reduced"
