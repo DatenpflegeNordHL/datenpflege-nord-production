@@ -4,11 +4,12 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+from datetime import datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 UPSTREAM_REPO = "pulkitxm/claude-directory"
-UPSTREAM_COMMIT = "9b5ad43b1450fe6b28a42a9cb8115498d5c56e2a"
+UPSTREAM_SNAPSHOT_COMMIT = "9b5ad43b1450fe6b28a42a9cb8115498d5c56e2a"
 PUBLIC_MEDIA_BASE = "https://media.datenpflege-nord.de/gallery-media"
 OWNED_DEMOS = {
     "nordic-editorial": ("dpn-editorial-nordic-editorial", "nordic-hero.svg", "/website-showcase/demo/nordic-editorial/"),
@@ -40,6 +41,16 @@ def sha256(path: Path) -> str:
             h.update(block)
     return h.hexdigest()
 
+def public_sort_key(project: dict):
+    if project.get("sourceOrder") is not None:
+        return (0, int(project["sourceOrder"]), 0, project["source"]["path"])
+    if project.get("sourceLastUpdated"):
+        timestamp = datetime.fromisoformat(project["sourceLastUpdated"]).timestamp()
+        return (1, 0, -timestamp, project["source"]["path"])
+    if project["source"]["repository"] == UPSTREAM_REPO:
+        return (1, 1, 0, project["source"]["path"])
+    return (2, 0, 0, project["source"]["path"])
+
 def main() -> int:
     p = argparse.ArgumentParser()
     p.add_argument("--media-root", type=Path, default=Path("/srv/nordwerk-gallery/media"))
@@ -50,6 +61,9 @@ def main() -> int:
     legacy = load(ROOT / "docs/design-gallery/legacy-showcase-projects.json")
     curation = load(ROOT / "docs/design-gallery/legacy-curation.json")
     baseline = load(ROOT / "docs/design-gallery/showcase-editorial-baseline.json")
+    source_order = load(ROOT / "docs/design-gallery/claude-directory-current-order.json")
+    current_commit = source_order["source"]["currentCommit"]
+    source_metadata = {x["sourcePath"]: x for x in source_order["projects"]}
     by_editorial_id = {x["id"]: x for x in baseline.get("curatedLegacyDirections", [])}
     by_owned_slug = {x["slug"]: x for x in baseline.get("projects", [])}
     approved_refs = {x["legacyReference"]["sourcePath"]: x for x in curation["directions"]}
@@ -60,6 +74,7 @@ def main() -> int:
 
     for entry in legacy["entries"]:
         source_path = entry["sourcePath"]
+        source_meta = source_metadata[source_path]
         curated = approved_refs.get(source_path)
         if curated:
             rights = "approved"
@@ -81,7 +96,11 @@ def main() -> int:
         record = {
             "projectId": entry["id"],
             "slug": entry["sourcePath"].replace("/", "--"),
-            "source": {"repository": UPSTREAM_REPO, "commit": UPSTREAM_COMMIT, "path": source_path, "license": "MIT"},
+            "source": {"repository": UPSTREAM_REPO, "commit": UPSTREAM_SNAPSHOT_COMMIT, "path": source_path, "license": "MIT"},
+            "sourceCommit": current_commit,
+            "sourceOrder": source_meta["sourceOrder"],
+            "sourceLastUpdated": source_meta["sourceLastUpdated"],
+            "sourceListedCurrent": source_meta["sourceListedCurrent"],
             "poster": {"path": entry["poster"]["sourcePath"], "bytes": entry["poster"]["bytes"], "gitBlobSha": entry["poster"]["gitBlobSha"], "sha256": poster_sha},
             "video": {"path": entry["demo"]["sourcePath"], "bytes": entry["demo"]["bytes"], "gitBlobSha": entry["demo"]["gitBlobSha"], "sha256": video_sha},
             "templatePath": source_path if source_path.startswith("templates/") else None,
@@ -98,7 +117,11 @@ def main() -> int:
                 "id": entry["id"],
                 "slug": record["slug"],
                 "name": editorial["name"],
-                "source": {"repository": UPSTREAM_REPO, "commit": UPSTREAM_COMMIT, "path": source_path},
+                "source": {"repository": UPSTREAM_REPO, "commit": UPSTREAM_SNAPSHOT_COMMIT, "path": source_path},
+                "sourceCommit": current_commit,
+                "sourceOrder": source_meta["sourceOrder"],
+                "sourceLastUpdated": source_meta["sourceLastUpdated"],
+                "sourceListedCurrent": source_meta["sourceListedCurrent"],
                 "licenseStatus": "MIT-reviewed",
                 "status": "approved",
                 "category": editorial["category"],
@@ -129,6 +152,10 @@ def main() -> int:
                 "path": demo.lstrip("/"),
                 "license": "owned",
             },
+            "sourceCommit": "self",
+            "sourceOrder": None,
+            "sourceLastUpdated": None,
+            "sourceListedCurrent": False,
             "poster": {"path": f"assets/showcase-demos/{poster_name}", "bytes": poster_path.stat().st_size, "sha256": poster_hash},
             "video": None,
             "templatePath": demo,
@@ -144,13 +171,17 @@ def main() -> int:
             "slug": slug,
             "name": source["name"],
             "source": {"repository": "DatenpflegeNordHL/datenpflege-nord-production", "path": demo.lstrip("/")},
+            "sourceCommit": "self",
+            "sourceOrder": None,
+            "sourceLastUpdated": None,
+            "sourceListedCurrent": False,
             "licenseStatus": "owned",
             "status": "approved",
             "category": source["category"],
             "style": source.get("style", []),
             "industries": source.get("industries", []),
             "description": source["description"],
-            "poster": {"type": "image", "src": f"/assets/showcase-demos/{poster_name}", "alt": f"Website-Vorschau: {source['name']}", "width": 1600, "height": 1000, "sha256": poster_hash},
+            "poster": {"type": "image", "src": f"/assets/showcase-demos/{poster_name}?v={poster_hash}", "alt": f"Website-Vorschau: {source['name']}", "width": 1600, "height": 1000, "sha256": poster_hash},
             "video": None,
             "demo": demo,
             "templateAvailable": True,
@@ -159,22 +190,40 @@ def main() -> int:
         })
         sha_lines.extend([f"{poster_hash}  assets/showcase-demos/{poster_name}", f"{demo_hash}  {demo.lstrip('/')}index.html"])
 
+    public_projects.sort(key=public_sort_key)
+    for display_order, project in enumerate(public_projects, 1):
+        project["displayOrder"] = display_order
+
     counts = {key: sum(1 for x in manifest_projects if x["rightsStatus"] == key) for key in ("approved", "review", "rejected", "unknown")}
     manifest = {
-        "schemaVersion": 2,
+        "schemaVersion": 3,
         "generatedAt": "2026-09-18",
         "sourceArchive": {
             "gitMirror": "/srv/nordwerk-gallery/archive/claude-directory.git",
             "gitBundle": "/srv/nordwerk-gallery/archive/claude-directory.bundle",
-            "pinnedCommit": UPSTREAM_COMMIT,
+            "pinnedCommit": UPSTREAM_SNAPSHOT_COMMIT,
+            "currentCommit": current_commit,
+            "publicDirectoryUrl": source_order["source"]["publicDirectoryUrl"],
         },
         "media": {"privateRoot": "/srv/nordwerk-gallery/media", "publicBase": PUBLIC_MEDIA_BASE, "nginxLoopback": "127.0.0.1:8090"},
         "rightsPolicy": {"approvedPublic": True, "reviewPublic": False, "rejectedPublic": False, "unknownPublic": False},
-        "summary": {"legacyFound": len(legacy["entries"]), "ownedProjects": len(OWNED_DEMOS), "totalProjects": len(manifest_projects), **counts, "publicProjects": sum(1 for x in manifest_projects if x["public"]), "realVideos": sum(1 for x in public_projects if x.get("video")), "templateDemos": sum(1 for x in public_projects if x.get("demo"))},
+        "summary": {
+            "legacyFound": len(legacy["entries"]),
+            "currentUpstreamProjects": source_order["summary"]["currentInventoryProjects"],
+            "currentDirectoryProjects": source_order["summary"]["currentPublicDirectoryProjects"],
+            "addedSinceSnapshot": source_order["summary"]["addedSinceSnapshot"],
+            "removedSinceSnapshot": source_order["summary"]["removedSinceSnapshot"],
+            "ownedProjects": len(OWNED_DEMOS),
+            "totalProjects": len(manifest_projects),
+            **counts,
+            "publicProjects": sum(1 for x in manifest_projects if x["public"]),
+            "realVideos": sum(1 for x in public_projects if x.get("video")),
+            "templateDemos": sum(1 for x in public_projects if x.get("demo")),
+        },
         "projects": manifest_projects,
     }
     catalogue = {
-        "schemaVersion": 2,
+        "schemaVersion": 3,
         "updatedAt": "2026-09-18",
         "publicationPolicy": {"onlyApprovedProjectsArePublic": True, "templateDemosAreNoindex": True, "mediaOrigin": PUBLIC_MEDIA_BASE},
         "summary": manifest["summary"],

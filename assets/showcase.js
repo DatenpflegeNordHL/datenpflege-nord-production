@@ -1,7 +1,7 @@
 (() => {
   "use strict";
 
-  const projectsUrl = "/website-showcase/showcase-projects.json?v=aef78d1385c449ee9f12dac9ddddf1dd1d38665985301f57c0fcc4dde0a5c971";
+  const projectsUrl = "/website-showcase/showcase-projects.json?v=deebd00621411720501462fcacf9165585a8a910350d5ea14ae17e1a532b0939";
   const INITIAL_COUNT = 12;
   const BATCH_COUNT = 12;
   const grid = document.querySelector("#showcase-grid");
@@ -16,17 +16,22 @@
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   const hoverCapable = window.matchMedia("(hover: hover) and (pointer: fine)");
   const saveData = Boolean(navigator.connection && navigator.connection.saveData);
+  const MOBILE_PREVIEW_RATIO = 0.55;
   let projects = [];
   let filtered = [];
   let visibleCount = INITIAL_COUNT;
   let activeCardVideo = null;
+  let mobileObserver = null;
+  let mobilePreviewFrame = 0;
+  const mobileCandidates = new Map();
   let lastFocused = null;
 
   const normalize = (value) => String(value || "").normalize("NFKD").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase("de");
   const projectHaystack = (project) => normalize([project.name, project.category, project.description, ...(project.style || []), ...(project.industries || [])].join(" "));
 
-  const stopCardVideo = () => {
+  const stopCardVideo = (onlyVideo = null) => {
     if (!activeCardVideo) return;
+    if (onlyVideo && activeCardVideo.video !== onlyVideo) return;
     const { video, article } = activeCardVideo;
     video.pause();
     video.removeAttribute("src");
@@ -43,7 +48,50 @@
     video.load();
     activeCardVideo = { video, article };
     article.classList.add("is-playing");
-    video.play().catch(stopCardVideo);
+    video.play().catch(() => stopCardVideo(video));
+  };
+
+  const mobilePreviewAllowed = () => !hoverCapable.matches && !reduceMotion.matches && !saveData && "IntersectionObserver" in window;
+
+  const selectMobilePreview = () => {
+    mobilePreviewFrame = 0;
+    if (!mobilePreviewAllowed() || dialog.open) {
+      if (!hoverCapable.matches) stopCardVideo();
+      return;
+    }
+    const viewportCenter = window.innerHeight / 2;
+    let selected = null;
+    for (const candidate of mobileCandidates.values()) {
+      if (!candidate.visible) continue;
+      const rect = candidate.article.getBoundingClientRect();
+      const distance = Math.abs((rect.top + rect.bottom) / 2 - viewportCenter);
+      if (!selected || distance < selected.distance) selected = { ...candidate, distance };
+    }
+    if (selected) startCardVideo(selected.project, selected.article, selected.video);
+    else stopCardVideo();
+  };
+
+  const scheduleMobilePreview = () => {
+    if (mobilePreviewFrame) return;
+    mobilePreviewFrame = window.requestAnimationFrame(selectMobilePreview);
+  };
+
+  const resetMobileObserver = () => {
+    if (mobileObserver) mobileObserver.disconnect();
+    mobileObserver = null;
+    mobileCandidates.clear();
+    if (mobilePreviewFrame) window.cancelAnimationFrame(mobilePreviewFrame);
+    mobilePreviewFrame = 0;
+    if (!mobilePreviewAllowed()) return;
+    mobileObserver = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        const candidate = mobileCandidates.get(entry.target);
+        if (!candidate) continue;
+        candidate.visible = entry.isIntersecting && entry.intersectionRatio >= MOBILE_PREVIEW_RATIO;
+        if (!candidate.visible) stopCardVideo(candidate.video);
+      }
+      scheduleMobilePreview();
+    }, { threshold: [0, MOBILE_PREVIEW_RATIO, 0.7, 0.85, 1] });
   };
 
   const closeDialogMedia = () => {
@@ -82,7 +130,7 @@
     else demo.removeAttribute("href");
     const contact = dialog.querySelector("[data-dialog-contact]");
     contact.href = "/#kontakt";
-    if (project.video?.src) {
+    if (project.video?.src && !reduceMotion.matches && !saveData) {
       dialogVideo.poster = project.poster.src;
       dialogVideo.src = project.video.src;
       dialogVideo.hidden = false;
@@ -92,7 +140,7 @@
       dialogVideo.removeAttribute("poster");
     }
     dialog.showModal();
-    if (project.video?.src && !reduceMotion.matches) dialogVideo.play().catch(() => {});
+    if (project.video?.src && !reduceMotion.matches && !saveData) dialogVideo.play().catch(() => {});
     if (updateAddress) updateUrl(project);
   };
 
@@ -101,6 +149,7 @@
     if (dialog.open) dialog.close();
     if (updateAddress) updateUrl();
     if (lastFocused instanceof HTMLElement) lastFocused.focus();
+    scheduleMobilePreview();
   };
 
   const cardFor = (project) => {
@@ -131,15 +180,23 @@
       video.playsInline = true;
       video.setAttribute("aria-hidden", "true");
       media.append(video);
-      const play = document.createElement("span");
-      play.className = "showcase-card__play";
-      play.setAttribute("aria-hidden", "true");
-      play.textContent = "▶";
-      media.append(play);
+      if (!reduceMotion.matches && !saveData) {
+        const play = document.createElement("span");
+        play.className = "showcase-card__play";
+        play.setAttribute("aria-hidden", "true");
+        play.textContent = "▶";
+        media.append(play);
+      }
       article.addEventListener("pointerenter", () => { if (hoverCapable.matches) startCardVideo(project, article, video); });
-      article.addEventListener("pointerleave", stopCardVideo);
-      button.addEventListener("focus", () => startCardVideo(project, article, video));
-      button.addEventListener("blur", stopCardVideo);
+      article.addEventListener("pointerleave", () => { if (hoverCapable.matches) stopCardVideo(video); });
+      button.addEventListener("focus", () => {
+        if (hoverCapable.matches || button.matches(":focus-visible")) startCardVideo(project, article, video);
+      });
+      button.addEventListener("blur", () => { if (hoverCapable.matches) stopCardVideo(video); });
+      if (mobileObserver) {
+        mobileCandidates.set(article, { project, article, video, visible: false });
+        mobileObserver.observe(article);
+      }
     }
     const body = document.createElement("span");
     body.className = "showcase-card__body";
@@ -158,11 +215,13 @@
 
   const render = () => {
     stopCardVideo();
+    resetMobileObserver();
     const shown = filtered.slice(0, visibleCount);
     grid.replaceChildren(...shown.map(cardFor));
     more.hidden = shown.length >= filtered.length;
     status.textContent = `${filtered.length} ${filtered.length === 1 ? "Website-Beispiel" : "Website-Beispiele"}`;
     progress.textContent = filtered.length ? `${shown.length} von ${filtered.length} angezeigt` : "Keine passende Vorschau gefunden.";
+    scheduleMobilePreview();
   };
 
   const applyFilters = () => {
@@ -174,7 +233,9 @@
   };
 
   const setup = (data) => {
-    projects = (data.projects || []).filter((project) => project.approved === true && project.status === "approved" && project.poster?.type === "image" && project.poster?.src);
+    projects = (data.projects || [])
+      .filter((project) => project.approved === true && project.status === "approved" && project.poster?.type === "image" && project.poster?.src)
+      .sort((a, b) => (a.displayOrder ?? Number.MAX_SAFE_INTEGER) - (b.displayOrder ?? Number.MAX_SAFE_INTEGER) || String(a.id).localeCompare(String(b.id), "de"));
     filtered = projects.slice();
     const categories = [...new Set(projects.map((project) => project.category))].sort((a, b) => a.localeCompare(b, "de"));
     filter.append(...categories.map((value) => {
@@ -197,8 +258,12 @@
   dialog.querySelector(".showcase-dialog__close").addEventListener("click", () => closeDialog());
   dialog.addEventListener("click", (event) => { if (event.target === dialog) closeDialog(); });
   dialog.addEventListener("cancel", (event) => { event.preventDefault(); closeDialog(); });
-  dialog.addEventListener("close", () => { closeDialogMedia(); });
-  window.addEventListener("pagehide", stopCardVideo);
+  dialog.addEventListener("close", () => { closeDialogMedia(); scheduleMobilePreview(); });
+  window.addEventListener("pagehide", () => stopCardVideo());
+  window.addEventListener("scroll", scheduleMobilePreview, { passive: true });
+  window.addEventListener("resize", scheduleMobilePreview, { passive: true });
+  reduceMotion.addEventListener("change", render);
+  hoverCapable.addEventListener("change", render);
 
   fetch(projectsUrl, { credentials: "same-origin" })
     .then((response) => response.ok ? response.json() : Promise.reject(new Error("Katalog nicht verfügbar")))
