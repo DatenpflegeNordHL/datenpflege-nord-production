@@ -23,6 +23,7 @@ ALLOWED_CANONICALS = {
     "https://datenpflege-nord.de/datenschutz/",
     "https://datenpflege-nord.de/softwareentwicklung-luebeck/",
     "https://datenpflege-nord.de/webentwicklung-luebeck/",
+    "https://datenpflege-nord.de/website-showcase/",
     "https://datenpflege-nord.de/ki-automatisierung-luebeck/",
     "https://datenpflege-nord.de/wissen/individualsoftware-kosten/",
     "https://datenpflege-nord.de/wissen/website-relaunch-checkliste/",
