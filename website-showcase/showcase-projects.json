@@ -29,7 +29,7 @@
         "type": "css",
         "variant": "editorial"
       },
-      "demo": null,
+      "demo": "/website-showcase/demos/nordic-editorial/",
       "technologies": [
         "Semantisches HTML",
         "Responsive CSS",
@@ -103,7 +103,7 @@
         "type": "css",
         "variant": "human"
       },
-      "demo": null,
+      "demo": "/website-showcase/demos/human-service/",
       "technologies": [
         "Responsive CSS",
         "Performante Medienstrategie",
@@ -140,7 +140,7 @@
         "type": "css",
         "variant": "story"
       },
-      "demo": null,
+      "demo": "/website-showcase/demos/growth-story/",
       "technologies": [
         "Responsive CSS",
         "Reduzierte Bewegung",
@@ -177,7 +177,7 @@
         "type": "css",
         "variant": "trust"
       },
-      "demo": null,
+      "demo": "/website-showcase/demos/regional-trust/",
       "technologies": [
         "Semantisches HTML",
         "Lokale Metadaten",
@@ -214,7 +214,7 @@
         "type": "css",
         "variant": "product"
       },
-      "demo": null,
+      "demo": "/website-showcase/demos/product-led/",
       "technologies": [
         "Komponentenbasiertes CSS",
         "Progressive Enhancement",
@@ -288,7 +288,7 @@
         "type": "css",
         "variant": "luxury"
       },
-      "demo": null,
+      "demo": "/website-showcase/demos/quiet-luxury/",
       "technologies": [
         "Lokale Assets",
         "Responsive CSS",

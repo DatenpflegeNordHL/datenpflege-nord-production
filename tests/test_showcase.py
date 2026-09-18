@@ -12,6 +12,14 @@ LEGACY_INVENTORY = ROOT / "docs" / "design-gallery" / "legacy-showcase-projects.
 class ShowcaseCatalogueTests(unittest.TestCase):
     def test_public_catalogue_is_explicitly_rights_gated(self):
         data = json.loads(CATALOGUE.read_text(encoding="utf-8"))
+        allowed_demos = {
+            "nordic-editorial": "/website-showcase/demos/nordic-editorial/",
+            "human-service": "/website-showcase/demos/human-service/",
+            "growth-story": "/website-showcase/demos/growth-story/",
+            "local-trust": "/website-showcase/demos/regional-trust/",
+            "product-led": "/website-showcase/demos/product-led/",
+            "quiet-luxury": "/website-showcase/demos/quiet-luxury/",
+        }
         required = {
             "id", "slug", "name", "source", "licenseStatus", "status", "category",
             "style", "industries", "description", "poster", "demo", "technologies",
@@ -24,8 +32,15 @@ class ShowcaseCatalogueTests(unittest.TestCase):
             self.assertTrue(project["approved"])
             self.assertEqual(project["status"], "approved")
             self.assertEqual(project["licenseStatus"], "owned")
-            self.assertIsNone(project["demo"])
+            self.assertEqual(project["demo"], allowed_demos.get(project["slug"]))
             self.assertFalse(project["indexable"])
+
+        for slug, demo in allowed_demos.items():
+            self.assertTrue((ROOT / demo.lstrip("/") / "index.html").is_file(), slug)
+            source = (ROOT / demo.lstrip("/") / "index.html").read_text(encoding="utf-8")
+            self.assertIn('content="noindex,nofollow,noarchive"', source)
+            self.assertNotIn("http://", source)
+            self.assertNotIn("https://", source)
 
         directions = data["curatedLegacyDirections"]
         self.assertEqual(len(directions), 24)
