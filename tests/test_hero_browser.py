@@ -58,7 +58,8 @@ class HeroBrowserTests(unittest.TestCase):
             poster:video.getAttribute("poster"),
             sourceAttr:source.getAttribute("src"),
             dataSrc:source.getAttribute("data-src"),
-            videoZ:getComputedStyle(video).zIndex,\n            videoDisplay:getComputedStyle(video).display,
+            videoZ:getComputedStyle(video).zIndex,
+            videoDisplay:getComputedStyle(video).display,
             overlay:getComputedStyle(document.querySelector(".hero"),"::before").backgroundImage,
             summary:document.querySelector(".hero-summary").textContent.trim(),
             entity:document.querySelector(".hero-entity").textContent.trim(),
@@ -87,7 +88,8 @@ class HeroBrowserTests(unittest.TestCase):
                 self.assertEqual(state["ariaHidden"], "true")
                 self.assertTrue(state["poster"].startswith("/assets/hero/mainframe-poster.jpg?v="))
                 self.assertTrue(state["dataSrc"].startswith("/assets/hero/mainframe-hero.mp4?v="))
-                self.assertEqual(state["videoZ"], "-4")\n                self.assertEqual(state["videoDisplay"], "none")
+                self.assertEqual(state["videoZ"], "-4")
+                self.assertEqual(state["videoDisplay"], "none")
                 self.assertNotEqual(state["overlay"], "none")
                 self.assertTrue(state["summary"])
                 self.assertTrue(state["entity"])
