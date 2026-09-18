@@ -1,0 +1,1220 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-09-18",
+  "publicationPolicy": {
+    "onlyApprovedProjectsArePublic": true,
+    "templateDemosAreNoindex": true
+  },
+  "projects": [
+    {
+      "id": "dpn-editorial-nordic-editorial",
+      "slug": "nordic-editorial",
+      "name": "Nordisch & editorial",
+      "source": "DatenpflegeNord editorial design direction",
+      "licenseStatus": "owned",
+      "status": "approved",
+      "category": "Unternehmenswebsite",
+      "style": [
+        "editorial",
+        "ruhig",
+        "typografisch"
+      ],
+      "industries": [
+        "Beratung",
+        "Dienstleistung",
+        "B2B"
+      ],
+      "description": "Viel Weißraum, klare Hierarchie und zurückhaltende Akzente für Inhalte, die Orientierung schaffen sollen.",
+      "poster": {
+        "type": "css",
+        "variant": "editorial"
+      },
+      "demo": "/website-showcase/demos/nordic-editorial/",
+      "technologies": [
+        "Semantisches HTML",
+        "Responsive CSS",
+        "Progressive Enhancement"
+      ],
+      "features": [
+        "Leistungsübersicht",
+        "Vertrauenssignale",
+        "Kontaktweg"
+      ],
+      "indexable": false,
+      "approved": true
+    },
+    {
+      "id": "dpn-editorial-technical-grid",
+      "slug": "technical-grid",
+      "name": "Technisch & präzise",
+      "source": "DatenpflegeNord editorial design direction",
+      "licenseStatus": "owned",
+      "status": "approved",
+      "category": "Digitale Produkte",
+      "style": [
+        "technisch",
+        "strukturiert",
+        "kontraststark"
+      ],
+      "industries": [
+        "Software",
+        "Industrie",
+        "IT-Dienstleistung"
+      ],
+      "description": "Ein gerasterter Aufbau für komplexe Leistungen, Schnittstellen und technische Entscheidungswege.",
+      "poster": {
+        "type": "css",
+        "variant": "grid"
+      },
+      "demo": null,
+      "technologies": [
+        "Semantisches HTML",
+        "CSS Grid",
+        "Barrierearme Interaktion"
+      ],
+      "features": [
+        "Modulare Inhalte",
+        "Leistungslogik",
+        "klare CTAs"
+      ],
+      "indexable": false,
+      "approved": true
+    },
+    {
+      "id": "dpn-editorial-human-service",
+      "slug": "human-service",
+      "name": "Persönlich & klar",
+      "source": "DatenpflegeNord editorial design direction",
+      "licenseStatus": "owned",
+      "status": "approved",
+      "category": "Dienstleistungswebsite",
+      "style": [
+        "nahbar",
+        "warm",
+        "klar"
+      ],
+      "industries": [
+        "Handwerk",
+        "Gesundheit",
+        "lokale Dienstleistung"
+      ],
+      "description": "Eine ruhige Richtung, die Ansprechpartner, Ablauf und den nächsten Schritt ohne visuelle Überladung erklärt.",
+      "poster": {
+        "type": "css",
+        "variant": "human"
+      },
+      "demo": "/website-showcase/demos/human-service/",
+      "technologies": [
+        "Responsive CSS",
+        "Performante Medienstrategie",
+        "Formular-Fallback"
+      ],
+      "features": [
+        "Ansprechpartner",
+        "Ablauf",
+        "Kontakt"
+      ],
+      "indexable": false,
+      "approved": true
+    },
+    {
+      "id": "dpn-editorial-growth-story",
+      "slug": "growth-story",
+      "name": "Story & Wirkung",
+      "source": "DatenpflegeNord editorial design direction",
+      "licenseStatus": "owned",
+      "status": "approved",
+      "category": "Markenwebsite",
+      "style": [
+        "mutig",
+        "erzählerisch",
+        "visuell"
+      ],
+      "industries": [
+        "Kreativwirtschaft",
+        "Bildung",
+        "SaaS"
+      ],
+      "description": "Eine sequenzielle Dramaturgie für Angebote, die erklärungsbedürftig sind und eine erkennbare Haltung zeigen dürfen.",
+      "poster": {
+        "type": "css",
+        "variant": "story"
+      },
+      "demo": "/website-showcase/demos/growth-story/",
+      "technologies": [
+        "Responsive CSS",
+        "Reduzierte Bewegung",
+        "Optimierte Bilder"
+      ],
+      "features": [
+        "Markenstory",
+        "Inhaltsführung",
+        "Conversion-Pfade"
+      ],
+      "indexable": false,
+      "approved": true
+    },
+    {
+      "id": "dpn-editorial-local-trust",
+      "slug": "local-trust",
+      "name": "Regional & vertrauensvoll",
+      "source": "DatenpflegeNord editorial design direction",
+      "licenseStatus": "owned",
+      "status": "approved",
+      "category": "Lokale Präsenz",
+      "style": [
+        "vertrauensvoll",
+        "informativ",
+        "zugänglich"
+      ],
+      "industries": [
+        "Praxis",
+        "Immobilien",
+        "Fachbetrieb"
+      ],
+      "description": "Für regionale Angebote mit nachvollziehbarer Leistung, echter Erreichbarkeit und einer übersichtlichen Informationsarchitektur.",
+      "poster": {
+        "type": "css",
+        "variant": "trust"
+      },
+      "demo": "/website-showcase/demos/regional-trust/",
+      "technologies": [
+        "Semantisches HTML",
+        "Lokale Metadaten",
+        "Schnelle Ladezeiten"
+      ],
+      "features": [
+        "Leistungsgebiet",
+        "Erreichbarkeit",
+        "Orientierung"
+      ],
+      "indexable": false,
+      "approved": true
+    },
+    {
+      "id": "dpn-editorial-product-led",
+      "slug": "product-led",
+      "name": "Produkt im Fokus",
+      "source": "DatenpflegeNord editorial design direction",
+      "licenseStatus": "owned",
+      "status": "approved",
+      "category": "Produktseite",
+      "style": [
+        "fokussiert",
+        "modular",
+        "prägnant"
+      ],
+      "industries": [
+        "SaaS",
+        "E-Commerce",
+        "digitale Services"
+      ],
+      "description": "Ein fokussierter Aufbau, der Nutzen, Funktionsweise und den passenden Einstieg ohne Ablenkung verbindet.",
+      "poster": {
+        "type": "css",
+        "variant": "product"
+      },
+      "demo": "/website-showcase/demos/product-led/",
+      "technologies": [
+        "Komponentenbasiertes CSS",
+        "Progressive Enhancement",
+        "Core Web Vitals"
+      ],
+      "features": [
+        "Nutzenargumentation",
+        "Funktionsblöcke",
+        "Conversion"
+      ],
+      "indexable": false,
+      "approved": true
+    },
+    {
+      "id": "dpn-editorial-knowledge-hub",
+      "slug": "knowledge-hub",
+      "name": "Wissen & Orientierung",
+      "source": "DatenpflegeNord editorial design direction",
+      "licenseStatus": "owned",
+      "status": "approved",
+      "category": "Wissensbereich",
+      "style": [
+        "redaktionell",
+        "lesbar",
+        "systematisch"
+      ],
+      "industries": [
+        "B2B",
+        "Bildung",
+        "Organisationen"
+      ],
+      "description": "Eine lesefreundliche Struktur für Fachinhalte, Entscheidungsgrundlagen und dauerhaft hilfreiche Ressourcen.",
+      "poster": {
+        "type": "css",
+        "variant": "knowledge"
+      },
+      "demo": null,
+      "technologies": [
+        "Semantisches HTML",
+        "Interne Verlinkung",
+        "Strukturierte Daten"
+      ],
+      "features": [
+        "Themencluster",
+        "Leseführung",
+        "Weiterführende Links"
+      ],
+      "indexable": false,
+      "approved": true
+    },
+    {
+      "id": "dpn-editorial-quiet-luxury",
+      "slug": "quiet-luxury",
+      "name": "Hochwertig & zurückhaltend",
+      "source": "DatenpflegeNord editorial design direction",
+      "licenseStatus": "owned",
+      "status": "approved",
+      "category": "Markenwebsite",
+      "style": [
+        "hochwertig",
+        "minimal",
+        "material"
+      ],
+      "industries": [
+        "Architektur",
+        "Kanzlei",
+        "Beratung"
+      ],
+      "description": "Eine zurückgenommene Richtung für Angebote, bei denen Details, Sorgfalt und ein ruhiger Gesamtauftritt entscheidend sind.",
+      "poster": {
+        "type": "css",
+        "variant": "luxury"
+      },
+      "demo": "/website-showcase/demos/quiet-luxury/",
+      "technologies": [
+        "Lokale Assets",
+        "Responsive CSS",
+        "Reduzierte Bewegung"
+      ],
+      "features": [
+        "Typografische Hierarchie",
+        "Materialität",
+        "dezente CTAs"
+      ],
+      "indexable": false,
+      "approved": true
+    }
+  ],
+  "curatedLegacyDirections": [
+    {
+      "id": "editorial-animations-loaders-bloom-nested-squares",
+      "slug": "bloom-nested-squares",
+      "name": "Geschichtete Flächen",
+      "source": "DatenpflegeNord editorial design direction",
+      "licenseStatus": "owned-editorial-direction",
+      "status": "approved",
+      "approvalScope": "editorial-inspiration-only",
+      "category": "Bewegung & Detail",
+      "style": [
+        "geometrisch",
+        "ruhig",
+        "editorial"
+      ],
+      "industries": [
+        "Beratung",
+        "Kultur",
+        "B2B"
+      ],
+      "description": "Versetzte Flächen als ruhiger Einstieg für Inhalte mit klarer Reihenfolge.",
+      "poster": {
+        "type": "css",
+        "variant": "editorial"
+      },
+      "demo": null,
+      "technologies": [
+        "Semantisches HTML",
+        "Responsive CSS",
+        "Progressive Enhancement"
+      ],
+      "features": [
+        "Eigene Inhalte",
+        "Lokale Assets",
+        "Keine fremde Live-Demo"
+      ],
+      "indexable": false,
+      "approved": true
+    },
+    {
+      "id": "editorial-components-ui-animated-dots-rain",
+      "slug": "animated-dots-rain",
+      "name": "Punktfeld & Tiefe",
+      "source": "DatenpflegeNord editorial design direction",
+      "licenseStatus": "owned-editorial-direction",
+      "status": "approved",
+      "approvalScope": "editorial-inspiration-only",
+      "category": "Bewegung & Detail",
+      "style": [
+        "atmosphärisch",
+        "reduziert",
+        "digital"
+      ],
+      "industries": [
+        "Software",
+        "Bildung",
+        "Kreativwirtschaft"
+      ],
+      "description": "Ein zurückhaltendes Punktfeld für digitale Themen, bei denen Tiefe ohne Ablenkung gefragt ist.",
+      "poster": {
+        "type": "css",
+        "variant": "trust"
+      },
+      "demo": null,
+      "technologies": [
+        "Semantisches HTML",
+        "Responsive CSS",
+        "Progressive Enhancement"
+      ],
+      "features": [
+        "Eigene Inhalte",
+        "Lokale Assets",
+        "Keine fremde Live-Demo"
+      ],
+      "indexable": false,
+      "approved": true
+    },
+    {
+      "id": "editorial-components-ui-background-paths-hero",
+      "slug": "background-paths-hero",
+      "name": "Linien als Orientierung",
+      "source": "DatenpflegeNord editorial design direction",
+      "licenseStatus": "owned-editorial-direction",
+      "status": "approved",
+      "approvalScope": "editorial-inspiration-only",
+      "category": "Bewegung & Detail",
+      "style": [
+        "strukturiert",
+        "technisch",
+        "klar"
+      ],
+      "industries": [
+        "Software",
+        "Industrie",
+        "B2B"
+      ],
+      "description": "Verbindende Linien übersetzen komplexe Zusammenhänge in eine verständliche visuelle Ordnung.",
+      "poster": {
+        "type": "css",
+        "variant": "grid"
+      },
+      "demo": null,
+      "technologies": [
+        "Semantisches HTML",
+        "Responsive CSS",
+        "Progressive Enhancement"
+      ],
+      "features": [
+        "Eigene Inhalte",
+        "Lokale Assets",
+        "Keine fremde Live-Demo"
+      ],
+      "indexable": false,
+      "approved": true
+    },
+    {
+      "id": "editorial-components-ui-gradient-dots-background",
+      "slug": "gradient-dots-background",
+      "name": "Farbige Körnung",
+      "source": "DatenpflegeNord editorial design direction",
+      "licenseStatus": "owned-editorial-direction",
+      "status": "approved",
+      "approvalScope": "editorial-inspiration-only",
+      "category": "Bewegung & Detail",
+      "style": [
+        "texturiert",
+        "freundlich",
+        "modern"
+      ],
+      "industries": [
+        "Bildung",
+        "SaaS",
+        "Dienstleistung"
+      ],
+      "description": "Feine Farbflächen geben einer sachlichen Seite Wärme, ohne die Inhalte zu überzeichnen.",
+      "poster": {
+        "type": "css",
+        "variant": "knowledge"
+      },
+      "demo": null,
+      "technologies": [
+        "Semantisches HTML",
+        "Responsive CSS",
+        "Progressive Enhancement"
+      ],
+      "features": [
+        "Eigene Inhalte",
+        "Lokale Assets",
+        "Keine fremde Live-Demo"
+      ],
+      "indexable": false,
+      "approved": true
+    },
+    {
+      "id": "editorial-components-ui-terminal-cli-control-deck",
+      "slug": "terminal-cli-control-deck",
+      "name": "Technische Klarheit",
+      "source": "DatenpflegeNord editorial design direction",
+      "licenseStatus": "owned-editorial-direction",
+      "status": "approved",
+      "approvalScope": "editorial-inspiration-only",
+      "category": "Digitale Produkte",
+      "style": [
+        "präzise",
+        "technisch",
+        "kontraststark"
+      ],
+      "industries": [
+        "IT-Dienstleistung",
+        "Software",
+        "Industrie"
+      ],
+      "description": "Eine klare, technisch geprägte Sprache für Tools, Plattformen und Systemangebote.",
+      "poster": {
+        "type": "css",
+        "variant": "grid"
+      },
+      "demo": null,
+      "technologies": [
+        "Semantisches HTML",
+        "Responsive CSS",
+        "Progressive Enhancement"
+      ],
+      "features": [
+        "Eigene Inhalte",
+        "Lokale Assets",
+        "Keine fremde Live-Demo"
+      ],
+      "indexable": false,
+      "approved": true
+    },
+    {
+      "id": "editorial-shaders-abstract-glassy-shader",
+      "slug": "abstract-glassy-shader",
+      "name": "Gläserne Fläche",
+      "source": "DatenpflegeNord editorial design direction",
+      "licenseStatus": "owned-editorial-direction",
+      "status": "approved",
+      "approvalScope": "editorial-inspiration-only",
+      "category": "Bewegung & Detail",
+      "style": [
+        "transparent",
+        "leicht",
+        "digital"
+      ],
+      "industries": [
+        "SaaS",
+        "Kreativwirtschaft",
+        "Produktteams"
+      ],
+      "description": "Transparenz und weiche Ebenen als Akzent – sparsam eingesetzt und immer ohne schwere Live-Effekte.",
+      "poster": {
+        "type": "css",
+        "variant": "product"
+      },
+      "demo": null,
+      "technologies": [
+        "Semantisches HTML",
+        "Responsive CSS",
+        "Progressive Enhancement"
+      ],
+      "features": [
+        "Eigene Inhalte",
+        "Lokale Assets",
+        "Keine fremde Live-Demo"
+      ],
+      "indexable": false,
+      "approved": true
+    },
+    {
+      "id": "editorial-shaders-aurora-borealis-shader",
+      "slug": "aurora-borealis-shader",
+      "name": "Leuchtende Tiefe",
+      "source": "DatenpflegeNord editorial design direction",
+      "licenseStatus": "owned-editorial-direction",
+      "status": "approved",
+      "approvalScope": "editorial-inspiration-only",
+      "category": "Bewegung & Detail",
+      "style": [
+        "leuchtend",
+        "atmosphärisch",
+        "mutig"
+      ],
+      "industries": [
+        "Kreativwirtschaft",
+        "Bildung",
+        "SaaS"
+      ],
+      "description": "Eine farbige Tiefenwirkung für Marken mit einer stärkeren, aber weiterhin kontrollierten visuellen Haltung.",
+      "poster": {
+        "type": "css",
+        "variant": "story"
+      },
+      "demo": null,
+      "technologies": [
+        "Semantisches HTML",
+        "Responsive CSS",
+        "Progressive Enhancement"
+      ],
+      "features": [
+        "Eigene Inhalte",
+        "Lokale Assets",
+        "Keine fremde Live-Demo"
+      ],
+      "indexable": false,
+      "approved": true
+    },
+    {
+      "id": "editorial-shaders-blue-meshy-shader-lab",
+      "slug": "blue-meshy-shader-lab",
+      "name": "Netzstruktur",
+      "source": "DatenpflegeNord editorial design direction",
+      "licenseStatus": "owned-editorial-direction",
+      "status": "approved",
+      "approvalScope": "editorial-inspiration-only",
+      "category": "Digitale Produkte",
+      "style": [
+        "vernetzt",
+        "technisch",
+        "dynamisch"
+      ],
+      "industries": [
+        "Software",
+        "Daten",
+        "B2B"
+      ],
+      "description": "Eine Netzmetapher für Schnittstellen, Systeme und Produkte mit vielen verbundenen Teilen.",
+      "poster": {
+        "type": "css",
+        "variant": "grid"
+      },
+      "demo": null,
+      "technologies": [
+        "Semantisches HTML",
+        "Responsive CSS",
+        "Progressive Enhancement"
+      ],
+      "features": [
+        "Eigene Inhalte",
+        "Lokale Assets",
+        "Keine fremde Live-Demo"
+      ],
+      "indexable": false,
+      "approved": true
+    },
+    {
+      "id": "editorial-shaders-flowing-waves-shader",
+      "slug": "flowing-waves-shader",
+      "name": "Fließende Bewegung",
+      "source": "DatenpflegeNord editorial design direction",
+      "licenseStatus": "owned-editorial-direction",
+      "status": "approved",
+      "approvalScope": "editorial-inspiration-only",
+      "category": "Bewegung & Detail",
+      "style": [
+        "weich",
+        "organisch",
+        "ruhig"
+      ],
+      "industries": [
+        "Gesundheit",
+        "Beratung",
+        "Dienstleistung"
+      ],
+      "description": "Organische Bewegung als sanfter Akzent für erklärende oder menschlich geprägte Angebote.",
+      "poster": {
+        "type": "css",
+        "variant": "human"
+      },
+      "demo": null,
+      "technologies": [
+        "Semantisches HTML",
+        "Responsive CSS",
+        "Progressive Enhancement"
+      ],
+      "features": [
+        "Eigene Inhalte",
+        "Lokale Assets",
+        "Keine fremde Live-Demo"
+      ],
+      "indexable": false,
+      "approved": true
+    },
+    {
+      "id": "editorial-shaders-grain-gradient-corners-lab",
+      "slug": "grain-gradient-corners-lab",
+      "name": "Analoge Körnung",
+      "source": "DatenpflegeNord editorial design direction",
+      "licenseStatus": "owned-editorial-direction",
+      "status": "approved",
+      "approvalScope": "editorial-inspiration-only",
+      "category": "Markenwebsite",
+      "style": [
+        "material",
+        "editorial",
+        "hochwertig"
+      ],
+      "industries": [
+        "Architektur",
+        "Beratung",
+        "Kultur"
+      ],
+      "description": "Körnung und Verlauf geben einer hochwertigen Redaktionstypografie eine spürbare Materialität.",
+      "poster": {
+        "type": "css",
+        "variant": "luxury"
+      },
+      "demo": null,
+      "technologies": [
+        "Semantisches HTML",
+        "Responsive CSS",
+        "Progressive Enhancement"
+      ],
+      "features": [
+        "Eigene Inhalte",
+        "Lokale Assets",
+        "Keine fremde Live-Demo"
+      ],
+      "indexable": false,
+      "approved": true
+    },
+    {
+      "id": "editorial-shaders-mesh-gradient-shader-hero",
+      "slug": "mesh-gradient-shader-hero",
+      "name": "Weiche Farbräume",
+      "source": "DatenpflegeNord editorial design direction",
+      "licenseStatus": "owned-editorial-direction",
+      "status": "approved",
+      "approvalScope": "editorial-inspiration-only",
+      "category": "Markenwebsite",
+      "style": [
+        "farbig",
+        "weich",
+        "modern"
+      ],
+      "industries": [
+        "SaaS",
+        "Bildung",
+        "Kreativwirtschaft"
+      ],
+      "description": "Farbige Räume schaffen einen klaren Markenakzent, ohne von Information und Kontaktweg abzulenken.",
+      "poster": {
+        "type": "css",
+        "variant": "product"
+      },
+      "demo": null,
+      "technologies": [
+        "Semantisches HTML",
+        "Responsive CSS",
+        "Progressive Enhancement"
+      ],
+      "features": [
+        "Eigene Inhalte",
+        "Lokale Assets",
+        "Keine fremde Live-Demo"
+      ],
+      "indexable": false,
+      "approved": true
+    },
+    {
+      "id": "editorial-shaders-morphing-light-shader",
+      "slug": "morphing-light-shader",
+      "name": "Wandelndes Licht",
+      "source": "DatenpflegeNord editorial design direction",
+      "licenseStatus": "owned-editorial-direction",
+      "status": "approved",
+      "approvalScope": "editorial-inspiration-only",
+      "category": "Bewegung & Detail",
+      "style": [
+        "lebendig",
+        "hell",
+        "minimal"
+      ],
+      "industries": [
+        "Kultur",
+        "Bildung",
+        "Innovation"
+      ],
+      "description": "Ein heller, zurückhaltender Verlauf für Seiten, die Fortschritt und Veränderung sichtbar machen möchten.",
+      "poster": {
+        "type": "css",
+        "variant": "story"
+      },
+      "demo": null,
+      "technologies": [
+        "Semantisches HTML",
+        "Responsive CSS",
+        "Progressive Enhancement"
+      ],
+      "features": [
+        "Eigene Inhalte",
+        "Lokale Assets",
+        "Keine fremde Live-Demo"
+      ],
+      "indexable": false,
+      "approved": true
+    },
+    {
+      "id": "editorial-shaders-radial-aperture-shader",
+      "slug": "radial-aperture-shader",
+      "name": "Radialer Fokus",
+      "source": "DatenpflegeNord editorial design direction",
+      "licenseStatus": "owned-editorial-direction",
+      "status": "approved",
+      "approvalScope": "editorial-inspiration-only",
+      "category": "Landingpage",
+      "style": [
+        "fokussiert",
+        "direkt",
+        "grafisch"
+      ],
+      "industries": [
+        "Angebote",
+        "Recruiting",
+        "Veranstaltung"
+      ],
+      "description": "Ein konzentrierter Mittelpunkt stärkt eine einzelne Botschaft und einen klaren nächsten Schritt.",
+      "poster": {
+        "type": "css",
+        "variant": "campaign"
+      },
+      "demo": null,
+      "technologies": [
+        "Semantisches HTML",
+        "Responsive CSS",
+        "Progressive Enhancement"
+      ],
+      "features": [
+        "Eigene Inhalte",
+        "Lokale Assets",
+        "Keine fremde Live-Demo"
+      ],
+      "indexable": false,
+      "approved": true
+    },
+    {
+      "id": "editorial-ui-design-aperture-minimalist-dark",
+      "slug": "aperture-minimalist-dark",
+      "name": "Dunkle Präzision",
+      "source": "DatenpflegeNord editorial design direction",
+      "licenseStatus": "owned-editorial-direction",
+      "status": "approved",
+      "approvalScope": "editorial-inspiration-only",
+      "category": "Digitale Produkte",
+      "style": [
+        "dunkel",
+        "minimal",
+        "präzise"
+      ],
+      "industries": [
+        "Software",
+        "Architektur",
+        "Beratung"
+      ],
+      "description": "Eine reduzierte dunkle Richtung für Inhalte, bei denen Details und Kontrast die Orientierung tragen.",
+      "poster": {
+        "type": "css",
+        "variant": "luxury"
+      },
+      "demo": null,
+      "technologies": [
+        "Semantisches HTML",
+        "Responsive CSS",
+        "Progressive Enhancement"
+      ],
+      "features": [
+        "Eigene Inhalte",
+        "Lokale Assets",
+        "Keine fremde Live-Demo"
+      ],
+      "indexable": false,
+      "approved": true
+    },
+    {
+      "id": "editorial-ui-design-bauhaus-form-follows-function",
+      "slug": "bauhaus-form-follows-function",
+      "name": "Geometrische Ordnung",
+      "source": "DatenpflegeNord editorial design direction",
+      "licenseStatus": "owned-editorial-direction",
+      "status": "approved",
+      "approvalScope": "editorial-inspiration-only",
+      "category": "Markenwebsite",
+      "style": [
+        "geometrisch",
+        "klar",
+        "mutig"
+      ],
+      "industries": [
+        "Architektur",
+        "Bildung",
+        "Kultur"
+      ],
+      "description": "Form, Raster und Farbe machen die Informationsarchitektur sichtbar und nachvollziehbar.",
+      "poster": {
+        "type": "css",
+        "variant": "editorial"
+      },
+      "demo": null,
+      "technologies": [
+        "Semantisches HTML",
+        "Responsive CSS",
+        "Progressive Enhancement"
+      ],
+      "features": [
+        "Eigene Inhalte",
+        "Lokale Assets",
+        "Keine fremde Live-Demo"
+      ],
+      "indexable": false,
+      "approved": true
+    },
+    {
+      "id": "editorial-ui-design-bold-typography-design-system",
+      "slug": "bold-typography-design-system",
+      "name": "Typografie als Bühne",
+      "source": "DatenpflegeNord editorial design direction",
+      "licenseStatus": "owned-editorial-direction",
+      "status": "approved",
+      "approvalScope": "editorial-inspiration-only",
+      "category": "Markenwebsite",
+      "style": [
+        "typografisch",
+        "direkt",
+        "selbstbewusst"
+      ],
+      "industries": [
+        "Beratung",
+        "Kreativwirtschaft",
+        "B2B"
+      ],
+      "description": "Große Typografie führt durch eine klare Botschaft – mit genug Raum für Substanz und Kontext.",
+      "poster": {
+        "type": "css",
+        "variant": "story"
+      },
+      "demo": null,
+      "technologies": [
+        "Semantisches HTML",
+        "Responsive CSS",
+        "Progressive Enhancement"
+      ],
+      "features": [
+        "Eigene Inhalte",
+        "Lokale Assets",
+        "Keine fremde Live-Demo"
+      ],
+      "indexable": false,
+      "approved": true
+    },
+    {
+      "id": "editorial-ui-design-botanical-organic-serif",
+      "slug": "botanical-organic-serif",
+      "name": "Organische Ruhe",
+      "source": "DatenpflegeNord editorial design direction",
+      "licenseStatus": "owned-editorial-direction",
+      "status": "approved",
+      "approvalScope": "editorial-inspiration-only",
+      "category": "Dienstleistungswebsite",
+      "style": [
+        "organisch",
+        "ruhig",
+        "serif"
+      ],
+      "industries": [
+        "Gesundheit",
+        "Wellbeing",
+        "Beratung"
+      ],
+      "description": "Ruhige Serifentypografie und natürliche Flächen für vertrauensvolle, persönliche Angebote.",
+      "poster": {
+        "type": "css",
+        "variant": "human"
+      },
+      "demo": null,
+      "technologies": [
+        "Semantisches HTML",
+        "Responsive CSS",
+        "Progressive Enhancement"
+      ],
+      "features": [
+        "Eigene Inhalte",
+        "Lokale Assets",
+        "Keine fremde Live-Demo"
+      ],
+      "indexable": false,
+      "approved": true
+    },
+    {
+      "id": "editorial-ui-design-corporate-trust-design-system",
+      "slug": "corporate-trust-design-system",
+      "name": "Klarer Vertrauensaufbau",
+      "source": "DatenpflegeNord editorial design direction",
+      "licenseStatus": "owned-editorial-direction",
+      "status": "approved",
+      "approvalScope": "editorial-inspiration-only",
+      "category": "Unternehmenswebsite",
+      "style": [
+        "vertrauensvoll",
+        "informativ",
+        "zugänglich"
+      ],
+      "industries": [
+        "B2B",
+        "Fachbetrieb",
+        "Dienstleistung"
+      ],
+      "description": "Eine sachliche Richtung, die Leistung, Ansprechpartner und Erreichbarkeit nachvollziehbar zusammenführt.",
+      "poster": {
+        "type": "css",
+        "variant": "trust"
+      },
+      "demo": null,
+      "technologies": [
+        "Semantisches HTML",
+        "Responsive CSS",
+        "Progressive Enhancement"
+      ],
+      "features": [
+        "Eigene Inhalte",
+        "Lokale Assets",
+        "Keine fremde Live-Demo"
+      ],
+      "indexable": false,
+      "approved": true
+    },
+    {
+      "id": "editorial-ui-design-handcraft-paper-ui",
+      "slug": "handcraft-paper-ui",
+      "name": "Haptische Redaktion",
+      "source": "DatenpflegeNord editorial design direction",
+      "licenseStatus": "owned-editorial-direction",
+      "status": "approved",
+      "approvalScope": "editorial-inspiration-only",
+      "category": "Markenwebsite",
+      "style": [
+        "editorial",
+        "material",
+        "nahbar"
+      ],
+      "industries": [
+        "Handwerk",
+        "Kultur",
+        "Bildung"
+      ],
+      "description": "Eine redaktionelle Textur für Angebote mit handwerklichem Charakter und viel erklärendem Inhalt.",
+      "poster": {
+        "type": "css",
+        "variant": "knowledge"
+      },
+      "demo": null,
+      "technologies": [
+        "Semantisches HTML",
+        "Responsive CSS",
+        "Progressive Enhancement"
+      ],
+      "features": [
+        "Eigene Inhalte",
+        "Lokale Assets",
+        "Keine fremde Live-Demo"
+      ],
+      "indexable": false,
+      "approved": true
+    },
+    {
+      "id": "editorial-ui-design-industrial-skeuomorphism",
+      "slug": "industrial-skeuomorphism",
+      "name": "Industrielle Struktur",
+      "source": "DatenpflegeNord editorial design direction",
+      "licenseStatus": "owned-editorial-direction",
+      "status": "approved",
+      "approvalScope": "editorial-inspiration-only",
+      "category": "Digitale Produkte",
+      "style": [
+        "industriell",
+        "robust",
+        "strukturiert"
+      ],
+      "industries": [
+        "Industrie",
+        "Logistik",
+        "Software"
+      ],
+      "description": "Robuste Flächen und klare Module für Produkte oder Leistungen mit technischem Schwerpunkt.",
+      "poster": {
+        "type": "css",
+        "variant": "grid"
+      },
+      "demo": null,
+      "technologies": [
+        "Semantisches HTML",
+        "Responsive CSS",
+        "Progressive Enhancement"
+      ],
+      "features": [
+        "Eigene Inhalte",
+        "Lokale Assets",
+        "Keine fremde Live-Demo"
+      ],
+      "indexable": false,
+      "approved": true
+    },
+    {
+      "id": "editorial-ui-design-luxury-editorial-design-system",
+      "slug": "luxury-editorial-design-system",
+      "name": "Hochwertige Redaktion",
+      "source": "DatenpflegeNord editorial design direction",
+      "licenseStatus": "owned-editorial-direction",
+      "status": "approved",
+      "approvalScope": "editorial-inspiration-only",
+      "category": "Markenwebsite",
+      "style": [
+        "hochwertig",
+        "editorial",
+        "zurückhaltend"
+      ],
+      "industries": [
+        "Architektur",
+        "Kanzlei",
+        "Beratung"
+      ],
+      "description": "Großzügige Typografie und kontrollierte Details für einen ruhigen, hochwertigen Auftritt.",
+      "poster": {
+        "type": "css",
+        "variant": "luxury"
+      },
+      "demo": null,
+      "technologies": [
+        "Semantisches HTML",
+        "Responsive CSS",
+        "Progressive Enhancement"
+      ],
+      "features": [
+        "Eigene Inhalte",
+        "Lokale Assets",
+        "Keine fremde Live-Demo"
+      ],
+      "indexable": false,
+      "approved": true
+    },
+    {
+      "id": "editorial-ui-design-serif-editorial-design-system",
+      "slug": "serif-editorial-design-system",
+      "name": "Serif & Story",
+      "source": "DatenpflegeNord editorial design direction",
+      "licenseStatus": "owned-editorial-direction",
+      "status": "approved",
+      "approvalScope": "editorial-inspiration-only",
+      "category": "Wissensbereich",
+      "style": [
+        "serif",
+        "lesbar",
+        "redaktionell"
+      ],
+      "industries": [
+        "B2B",
+        "Bildung",
+        "Organisationen"
+      ],
+      "description": "Leseführung und typografische Hierarchie für Fachinhalte, Entscheidungen und längere Texte.",
+      "poster": {
+        "type": "css",
+        "variant": "knowledge"
+      },
+      "demo": null,
+      "technologies": [
+        "Semantisches HTML",
+        "Responsive CSS",
+        "Progressive Enhancement"
+      ],
+      "features": [
+        "Eigene Inhalte",
+        "Lokale Assets",
+        "Keine fremde Live-Demo"
+      ],
+      "indexable": false,
+      "approved": true
+    },
+    {
+      "id": "editorial-ui-design-swiss-design-system",
+      "slug": "swiss-design-system",
+      "name": "Schweizer Raster",
+      "source": "DatenpflegeNord editorial design direction",
+      "licenseStatus": "owned-editorial-direction",
+      "status": "approved",
+      "approvalScope": "editorial-inspiration-only",
+      "category": "Unternehmenswebsite",
+      "style": [
+        "rasterbasiert",
+        "präzise",
+        "klar"
+      ],
+      "industries": [
+        "B2B",
+        "Software",
+        "Beratung"
+      ],
+      "description": "Ein strenges, flexibles Raster bringt komplexe Inhalte ohne visuelle Reibung in eine klare Ordnung.",
+      "poster": {
+        "type": "css",
+        "variant": "editorial"
+      },
+      "demo": null,
+      "technologies": [
+        "Semantisches HTML",
+        "Responsive CSS",
+        "Progressive Enhancement"
+      ],
+      "features": [
+        "Eigene Inhalte",
+        "Lokale Assets",
+        "Keine fremde Live-Demo"
+      ],
+      "indexable": false,
+      "approved": true
+    },
+    {
+      "id": "editorial-ui-design-verdant-organic-design-system",
+      "slug": "verdant-organic-design-system",
+      "name": "Natürliche Struktur",
+      "source": "DatenpflegeNord editorial design direction",
+      "licenseStatus": "owned-editorial-direction",
+      "status": "approved",
+      "approvalScope": "editorial-inspiration-only",
+      "category": "Dienstleistungswebsite",
+      "style": [
+        "natürlich",
+        "freundlich",
+        "übersichtlich"
+      ],
+      "industries": [
+        "Gesundheit",
+        "Handwerk",
+        "lokale Dienstleistung"
+      ],
+      "description": "Natürliche Akzente verbinden einen freundlichen Auftritt mit einer gut zugänglichen Informationsstruktur.",
+      "poster": {
+        "type": "css",
+        "variant": "trust"
+      },
+      "demo": null,
+      "technologies": [
+        "Semantisches HTML",
+        "Responsive CSS",
+        "Progressive Enhancement"
+      ],
+      "features": [
+        "Eigene Inhalte",
+        "Lokale Assets",
+        "Keine fremde Live-Demo"
+      ],
+      "indexable": false,
+      "approved": true
+    }
+  ]
+}

@@ -814,5 +814,7 @@
         }
       }
     }
-  ]
+  ],
+  "supersededBy": "docs/design-gallery/showcase-source-manifest.json",
+  "note": "Historischer Curation-Report; aktueller Rechte-, Medien- und Public-Status steht ausschließlich im showcase-source-manifest.json."
 }

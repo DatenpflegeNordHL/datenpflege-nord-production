@@ -1,85 +1,81 @@
 import json
 import unittest
 from pathlib import Path
-
+from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 CATALOGUE = ROOT / "website-showcase" / "showcase-projects.json"
+MANIFEST = ROOT / "docs" / "design-gallery" / "showcase-source-manifest.json"
+CHECKSUMS = ROOT / "docs" / "design-gallery" / "showcase-public-media.sha256"
 PAGE = ROOT / "website-showcase" / "index.html"
-LEGACY_INVENTORY = ROOT / "docs" / "design-gallery" / "legacy-showcase-projects.json"
 
 
 class ShowcaseCatalogueTests(unittest.TestCase):
-    def test_public_catalogue_is_explicitly_rights_gated(self):
+    def test_public_catalogue_contains_only_approved_projects(self):
         data = json.loads(CATALOGUE.read_text(encoding="utf-8"))
-        allowed_demos = {
-            "nordic-editorial": "/website-showcase/demos/nordic-editorial/",
-            "human-service": "/website-showcase/demos/human-service/",
-            "growth-story": "/website-showcase/demos/growth-story/",
-            "local-trust": "/website-showcase/demos/regional-trust/",
-            "product-led": "/website-showcase/demos/product-led/",
-            "quiet-luxury": "/website-showcase/demos/quiet-luxury/",
-        }
-        required = {
-            "id", "slug", "name", "source", "licenseStatus", "status", "category",
-            "style", "industries", "description", "poster", "demo", "technologies",
-            "features", "indexable", "approved",
-        }
         self.assertTrue(data["publicationPolicy"]["onlyApprovedProjectsArePublic"])
-        self.assertGreater(len(data["projects"]), 0)
+        self.assertEqual(data["summary"]["publicProjects"], 30)
+        self.assertEqual(data["summary"]["realVideos"], 24)
+        self.assertEqual(data["summary"]["templateDemos"], 6)
+        self.assertEqual(len(data["projects"]), 30)
         for project in data["projects"]:
-            self.assertTrue(required <= set(project))
             self.assertTrue(project["approved"])
             self.assertEqual(project["status"], "approved")
-            self.assertEqual(project["licenseStatus"], "owned")
-            self.assertEqual(project["demo"], allowed_demos.get(project["slug"]))
+            self.assertEqual(project["poster"]["type"], "image")
+            self.assertTrue(project["poster"]["src"])
             self.assertFalse(project["indexable"])
+            if project["video"]:
+                self.assertEqual(urlparse(project["video"]["src"]).hostname, "media.datenpflege-nord.de")
+                self.assertEqual(project["licenseStatus"], "MIT-reviewed")
+            else:
+                self.assertEqual(project["licenseStatus"], "owned")
+                self.assertTrue(project["demo"].startswith("/website-showcase/demo/"))
 
-        for slug, demo in allowed_demos.items():
-            self.assertTrue((ROOT / demo.lstrip("/") / "index.html").is_file(), slug)
-            source = (ROOT / demo.lstrip("/") / "index.html").read_text(encoding="utf-8")
-            self.assertIn('content="noindex,nofollow,noarchive"', source)
+    def test_private_manifest_is_the_release_gate(self):
+        data = json.loads(MANIFEST.read_text(encoding="utf-8"))
+        self.assertEqual(data["summary"]["legacyFound"], 546)
+        self.assertEqual(data["summary"]["totalProjects"], 552)
+        self.assertEqual(data["summary"]["approved"], 30)
+        self.assertEqual(data["summary"]["review"], 199)
+        self.assertEqual(data["summary"]["unknown"], 323)
+        self.assertEqual(data["summary"]["rejected"], 0)
+        self.assertEqual(sum(p["public"] for p in data["projects"]), 30)
+        for project in data["projects"]:
+            self.assertEqual(project["public"], project["rightsStatus"] == "approved")
+            if project["public"] and project["video"]:
+                self.assertEqual(len(project["poster"]["sha256"]), 64)
+                self.assertEqual(len(project["video"]["sha256"]), 64)
+                self.assertEqual(project["source"]["license"], "MIT")
+            if project["rightsStatus"] != "approved":
+                self.assertIsNone(project["poster"]["sha256"])
+                self.assertIsNone(project["video"]["sha256"])
+
+    def test_public_media_checksum_set_is_complete(self):
+        lines = [line for line in CHECKSUMS.read_text(encoding="utf-8").splitlines() if line.strip()]
+        self.assertEqual(len(lines), 60)
+
+    def test_template_demos_are_noindex_follow_and_outside_sitemap(self):
+        sitemap = (ROOT / "sitemap.xml").read_text(encoding="utf-8")
+        data = json.loads(CATALOGUE.read_text(encoding="utf-8"))
+        demos = [project["demo"] for project in data["projects"] if project["demo"]]
+        self.assertEqual(len(demos), 6)
+        for route in demos:
+            page = ROOT / route.lstrip("/") / "index.html"
+            self.assertTrue(page.is_file(), route)
+            source = page.read_text(encoding="utf-8")
+            self.assertIn('content="noindex,follow,noarchive"', source)
+            self.assertNotIn(route, sitemap)
             self.assertNotIn("http://", source)
             self.assertNotIn("https://", source)
 
-        directions = data["curatedLegacyDirections"]
-        self.assertEqual(len(directions), 24)
-        for direction in directions:
-            self.assertTrue(required <= set(direction))
-            self.assertTrue(direction["approved"])
-            self.assertEqual(direction["status"], "approved")
-            self.assertEqual(direction["approvalScope"], "editorial-inspiration-only")
-            self.assertEqual(direction["licenseStatus"], "owned-editorial-direction")
-            self.assertEqual(direction["poster"]["type"], "css")
-            self.assertIsNone(direction["demo"])
-            self.assertFalse(direction["indexable"])
-
-    def test_showcase_never_references_legacy_media_origin(self):
-        public_source = "\n".join(
-            path.read_text(encoding="utf-8")
-            for path in (PAGE, ROOT / "assets" / "showcase.css", ROOT / "assets" / "showcase.js", CATALOGUE)
-        )
-        self.assertNotIn("media.datenpflege-nord.de", public_source)
-        self.assertNotIn("pending_sync", public_source)
-        self.assertNotIn("<video", public_source)
-
-    def test_legacy_inventory_is_complete_but_not_publishable(self):
-        inventory = json.loads(LEGACY_INVENTORY.read_text(encoding="utf-8"))
-        self.assertEqual(inventory["releaseGate"]["unknown"], 546)
-        self.assertEqual(len(inventory["entries"]), 546)
-        self.assertTrue(all(entry["status"] == "unknown" for entry in inventory["entries"]))
-        self.assertTrue(all(not entry["publiclyUsable"] for entry in inventory["entries"]))
-        self.assertEqual(sum(entry["sourceEvidence"].get("promptPresent", False) for entry in inventory["entries"]), 541)
-
-    def test_curation_evidence_keeps_original_media_and_legacy_records_private(self):
-        report = json.loads((ROOT / "docs" / "design-gallery" / "legacy-curation.json").read_text(encoding="utf-8"))
-        self.assertEqual(report["selection"]["count"], 24)
-        for direction in report["directions"]:
-            reference = direction["legacyReference"]
-            self.assertEqual(reference["legacyStatus"], "unknown")
-            self.assertFalse(reference["screening"]["originalMediaPublished"])
-            self.assertEqual(reference["legacyMedia"]["poster"]["status"], "not_used_pending_sync")
-            self.assertEqual(reference["legacyMedia"]["video"]["status"], "not_used_pending_sync")
+    def test_video_lifecycle_is_interaction_only_and_single_active(self):
+        source = (ROOT / "assets" / "showcase.js").read_text(encoding="utf-8")
+        page = PAGE.read_text(encoding="utf-8")
+        self.assertIn('video.preload = "none"', source)
+        self.assertIn("let activeCardVideo = null", source)
+        self.assertIn("video.src = project.video.src", source)
+        self.assertIn('preload="none"', page)
+        self.assertNotIn("autoplay", page)
 
 
 if __name__ == "__main__":

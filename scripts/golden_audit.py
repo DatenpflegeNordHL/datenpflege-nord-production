@@ -105,7 +105,7 @@ def validate_structure(page, source):
             value = image.get(dimension, "") or ""
             if not value.isdigit() or int(value) <= 0:
                 errors.append(f"{page.path}: missing positive image {dimension}: {image.get('src')}")
-    demo_root = (site_audit.ROOT / "website-showcase" / "demos").resolve()
+    demo_root = (site_audit.ROOT / "website-showcase" / "demo").resolve()
     is_showcase_demo = page.path.resolve().is_relative_to(demo_root)
     if is_showcase_demo:
         robots = page.metadata.get("robots", "").lower().replace(",", " ").split()
