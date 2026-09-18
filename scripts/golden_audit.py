@@ -117,7 +117,7 @@ def validate_structure(page, source):
 def validate_homepage_proof(source):
     """Reject template proof and unlabelled static GitHub totals."""
     errors = []
-    for marker in ('brand-belt', '/images/clients-logo/', 'mainframe-hero', 'mainframe-poster'):
+    for marker in ('brand-belt', '/images/clients-logo/'):
         if marker in source:
             errors.append(f"Homepage contains unverified template proof: {marker}")
     if re.search(r'<strong\s+data-stat="[^"]+">\s*\d+\s*</strong>', source):

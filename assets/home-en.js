@@ -41,6 +41,8 @@ window.DPN = {
 
 (() => {
       const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const video = document.getElementById("heroVideo");
+      const source = video?.querySelector("source[data-src]");
       const typeText = document.getElementById("typeText");
       const typeCursor = document.getElementById("typeCursor");
       let typeTimer = null;
@@ -61,6 +63,37 @@ window.DPN = {
         typeTimer = setTimeout(step, delay);
       };
       typewrite(typeText?.textContent.trim() || "", 260);
+
+      const allowVideo = Boolean(video && source && !reduceMotion && matchMedia("(pointer:fine)").matches);
+      if (allowVideo) {
+        source.src = source.dataset.src;
+        video.load();
+
+        let prevX = null;
+        let targetTime = 0;
+        let seeking = false;
+        const seek = () => {
+          if (!video.duration || seeking) return;
+          seeking = true;
+          video.currentTime = Math.max(0, Math.min(video.duration, targetTime));
+        };
+        video.addEventListener("loadedmetadata", () => {
+          targetTime = Math.min(video.duration * .35, video.duration);
+          video.currentTime = targetTime;
+        }, { once:true });
+        video.addEventListener("seeked", () => {
+          seeking = false;
+          if (Math.abs(video.currentTime - targetTime) > .025) seek();
+        });
+        addEventListener("mousemove", event => {
+          if (!video.duration) return;
+          if (prevX === null) { prevX = event.clientX; return; }
+          const delta = event.clientX - prevX;
+          prevX = event.clientX;
+          targetTime = Math.max(0, Math.min(video.duration, targetTime + (delta / innerWidth) * .68 * video.duration));
+          seek();
+        }, { passive:true });
+      }
 
       const elements = [...document.querySelectorAll(".reveal")];
       if (!reduceMotion && innerWidth > 620 && "IntersectionObserver" in window) {

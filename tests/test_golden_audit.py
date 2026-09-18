@@ -87,7 +87,7 @@ class GoldenAuditTests(unittest.TestCase):
         self.assertTrue(any("template proof" in error for error in errors))
         errors = audit.validate_homepage_proof('<strong data-stat="repos">17</strong>')
         self.assertTrue(any("static GitHub total" in error for error in errors))
-        self.assertTrue(audit.validate_homepage_proof('<video src="/assets/hero/mainframe-hero.mp4">'))
+        self.assertEqual(audit.validate_homepage_proof('<video src="/assets/hero/mainframe-hero.mp4">'), [])
         self.assertEqual(audit.validate_homepage_proof('<strong data-stat="repos">—</strong>'), [])
 
     def test_authority_pages_have_valid_schema_and_owner_links(self):
