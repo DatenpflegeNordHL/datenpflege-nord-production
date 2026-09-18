@@ -89,7 +89,7 @@ class HeroBrowserTests(unittest.TestCase):
                 self.assertTrue(state["poster"].startswith("/assets/hero/mainframe-poster.jpg?v="))
                 self.assertTrue(state["dataSrc"].startswith("/assets/hero/mainframe-hero.mp4?v="))
                 self.assertEqual(state["videoZ"], "-4")
-                self.assertEqual(state["videoDisplay"], "none")
+                self.assertEqual(state["videoDisplay"], "block")
                 self.assertNotEqual(state["overlay"], "none")
                 self.assertTrue(state["summary"])
                 self.assertTrue(state["entity"])
@@ -101,7 +101,7 @@ class HeroBrowserTests(unittest.TestCase):
             self.assertTrue(desktop["sourceAttr"].startswith("/assets/hero/mainframe-hero.mp4?v="))
         else:
             self.assertIsNone(desktop["sourceAttr"])
-        print("HERO_BROWSER_QA_PASS: 1440/390/320 layout and overlay verified; video load follows pointer:fine gate")
+        print("HERO_BROWSER_QA_PASS: 1440/390/320 layout, legacy-copy veil and video visibility verified; video load follows pointer:fine gate")
 
     def test_reduced_motion_keeps_static_poster(self):
         session = "dpn-hero-reduced"
