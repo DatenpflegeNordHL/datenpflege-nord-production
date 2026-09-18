@@ -6,6 +6,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 CATALOGUE = ROOT / "website-showcase" / "showcase-projects.json"
 PAGE = ROOT / "website-showcase" / "index.html"
+LEGACY_INVENTORY = ROOT / "docs" / "design-gallery" / "legacy-showcase-projects.json"
 
 
 class ShowcaseCatalogueTests(unittest.TestCase):
@@ -34,6 +35,13 @@ class ShowcaseCatalogueTests(unittest.TestCase):
         self.assertNotIn("media.datenpflege-nord.de", public_source)
         self.assertNotIn("pulkitxm", public_source)
         self.assertNotIn("<video", public_source)
+
+    def test_legacy_inventory_is_complete_but_not_publishable(self):
+        inventory = json.loads(LEGACY_INVENTORY.read_text(encoding="utf-8"))
+        self.assertEqual(inventory["releaseGate"]["unknown"], 546)
+        self.assertEqual(len(inventory["entries"]), 546)
+        self.assertTrue(all(entry["status"] == "unknown" for entry in inventory["entries"]))
+        self.assertTrue(all(not entry["publiclyUsable"] for entry in inventory["entries"]))
 
 
 if __name__ == "__main__":
