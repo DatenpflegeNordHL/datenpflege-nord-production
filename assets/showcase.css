@@ -94,6 +94,7 @@ body.showcase-page{margin:0;color:var(--si);background:var(--sp);font:16px/1.5 v
 .showcase-dialog__content{padding:44px 36px}
 .showcase-dialog h2{font-size:clamp(2.3rem,4vw,4rem)}
 .showcase-dialog__content>p:not(.showcase-eyebrow){color:var(--sm)}
+.showcase-dialog__note{margin:18px 0 0;padding:10px 12px;border-left:2px solid var(--sa);background:#f0eee7;font-size:.82rem;line-height:1.5}
 .showcase-dialog h3{margin:22px 0 6px;font-size:.72rem;font-family:var(--sn);text-transform:uppercase;letter-spacing:.08em}
 .showcase-dialog ul{display:flex;flex-wrap:wrap;gap:6px;margin:0;padding:0;list-style:none}
 .showcase-dialog li{padding:5px 8px;border:1px solid var(--sl);border-radius:999px;font-size:.72rem}

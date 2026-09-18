@@ -41,6 +41,9 @@ def record(entry: dict) -> dict:
         "status": "unknown",
         "approved": False,
         "publiclyUsable": False,
+        # Retain the immutable prompt identity as audit evidence. It does not
+        # change the release gate and is kept only in documentation.
+        "sourceEvidence": entry.get("sourceEvidence", {}),
         "note": "Nicht veröffentlichen: Rechte-, Marken-, Asset- und Medienprüfung fehlen.",
     }
 
