@@ -25,6 +25,7 @@
   let activeCardVideo = null;
   let mobileObserver = null;
   let mobilePreviewFrame = 0;
+  let mobilePreviewEngaged = false;
   const mobileCandidates = new Map();
   let lastFocused = null;
 
@@ -57,7 +58,7 @@
 
   const selectMobilePreview = () => {
     mobilePreviewFrame = 0;
-    if (!mobilePreviewAllowed() || dialog.open) {
+    if (!mobilePreviewAllowed() || !mobilePreviewEngaged || dialog.open) {
       if (!hoverCapable.matches) stopCardVideo();
       return;
     }
@@ -76,6 +77,12 @@
   const scheduleMobilePreview = () => {
     if (mobilePreviewFrame) return;
     mobilePreviewFrame = window.requestAnimationFrame(selectMobilePreview);
+  };
+
+  const engageMobilePreview = () => {
+    if (mobilePreviewEngaged || !mobilePreviewAllowed()) return;
+    mobilePreviewEngaged = true;
+    scheduleMobilePreview();
   };
 
   const resetMobileObserver = () => {
@@ -154,7 +161,7 @@
     scheduleMobilePreview();
   };
 
-  const cardFor = (project) => {
+  const cardFor = (project, index) => {
     const article = document.createElement("article");
     article.className = "showcase-card";
     article.dataset.projectId = project.id;
@@ -162,7 +169,6 @@
     button.className = "showcase-card__button";
     button.type = "button";
     button.setAttribute("aria-haspopup", "dialog");
-    button.setAttribute("aria-label", `${project.name}: Vorschau und Details öffnen`);
     const media = document.createElement("span");
     media.className = "showcase-card__media";
     const image = document.createElement("img");
@@ -170,7 +176,8 @@
     image.alt = project.poster.alt || `Website-Vorschau: ${project.name}`;
     image.width = project.poster.width || 960;
     image.height = project.poster.height || 600;
-    image.loading = "lazy";
+    image.loading = index === 0 ? "eager" : "lazy";
+    if (index === 0) image.fetchPriority = "high";
     image.decoding = "async";
     media.append(image);
     let video = null;
@@ -219,7 +226,7 @@
     stopCardVideo();
     resetMobileObserver();
     const shown = filtered.slice(0, visibleCount);
-    grid.replaceChildren(...shown.map(cardFor));
+    grid.replaceChildren(...shown.map((project, index) => cardFor(project, index)));
     more.hidden = shown.length >= filtered.length;
     status.textContent = `${filtered.length} ${filtered.length === 1 ? "Website-Beispiel" : "Website-Beispiele"}`;
     progress.textContent = filtered.length ? `${shown.length} von ${filtered.length} angezeigt` : "Keine passende Vorschau gefunden.";
@@ -287,6 +294,9 @@
   dialog.addEventListener("close", () => { closeDialogMedia(); scheduleMobilePreview(); });
   window.addEventListener("pagehide", () => stopCardVideo());
   window.addEventListener("scroll", scheduleMobilePreview, { passive: true });
+  window.addEventListener("touchstart", engageMobilePreview, { passive: true, once: true });
+  window.addEventListener("pointerdown", engageMobilePreview, { passive: true, once: true });
+  window.addEventListener("wheel", engageMobilePreview, { passive: true, once: true });
   window.addEventListener("resize", scheduleMobilePreview, { passive: true });
   reduceMotion.addEventListener("change", render);
   hoverCapable.addEventListener("change", render);

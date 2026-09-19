@@ -92,12 +92,13 @@ def update_static_initial_cards(page: Path, projects: list[dict]) -> None:
     if INITIAL_STATIC_START not in source or INITIAL_STATIC_END not in source:
         raise RuntimeError("showcase initial-card markers are missing")
     cards = []
-    for project in projects[:INITIAL_STATIC_COUNT]:
+    for index, project in enumerate(projects[:INITIAL_STATIC_COUNT]):
         poster = project["poster"]
+        loading = 'loading="eager" fetchpriority="high"' if index == 0 else 'loading="lazy"'
         cards.append(
             '<article class="showcase-card" data-project-id="{id}">'
             '<span class="showcase-card__media">'
-            '<img src="{src}" alt="{alt}" width="{width}" height="{height}" loading="lazy" decoding="async">'
+            '<img src="{src}" alt="{alt}" width="{width}" height="{height}" {loading} decoding="async">'
             '</span>'
             '<span class="showcase-card__body">'
             '<span class="showcase-card__category">{label} · {category}</span>'
@@ -109,6 +110,7 @@ def update_static_initial_cards(page: Path, projects: list[dict]) -> None:
                 alt=html.escape(str(poster.get("alt") or f'Website-Vorschau: {project["name"]}'), quote=True),
                 width=int(poster.get("width") or 960),
                 height=int(poster.get("height") or 600),
+                loading=loading,
                 label=html.escape(str(project["publicLabel"])),
                 category=html.escape(str(project["category"])),
                 name=html.escape(str(project["name"])),
