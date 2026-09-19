@@ -12,31 +12,45 @@ PAGE = ROOT / "website-showcase" / "index.html"
 
 
 class ShowcaseCatalogueTests(unittest.TestCase):
-    def test_public_catalogue_contains_only_approved_projects(self):
+    def test_public_catalogue_contains_exact_current_directory_plus_owned_demos(self):
         data = json.loads(CATALOGUE.read_text(encoding="utf-8"))
-        self.assertTrue(data["publicationPolicy"]["onlyApprovedProjectsArePublic"])
-        self.assertEqual(data["summary"]["publicProjects"], 30)
-        self.assertEqual(data["summary"]["realVideos"], 24)
+        self.assertTrue(data["publicationPolicy"]["currentUpstreamDirectoryIsLegacyGate"])
+        self.assertTrue(data["publicationPolicy"]["rightsMetadataIsInformational"])
+        self.assertEqual(data["publicationPolicy"]["mediaOrigin"], "https://dpnzander.tail99cc3d.ts.net/gallery-media")
+        self.assertEqual(data["summary"]["publicProjects"], 377)
+        self.assertEqual(data["summary"]["publicLegacyProjects"], 371)
+        self.assertEqual(data["summary"]["publicShowcaseEntries"], 377)
+        self.assertEqual(data["summary"]["realVideos"], 371)
         self.assertEqual(data["summary"]["templateDemos"], 6)
-        self.assertEqual(len(data["projects"]), 30)
+        self.assertEqual(len(data["projects"]), 377)
+        legacy = [project for project in data["projects"] if project["sourceType"] == "legacy"]
+        owned = [project for project in data["projects"] if project["sourceType"] == "owned"]
+        self.assertEqual(len(legacy), 371)
+        self.assertEqual(len(owned), 6)
         for project in data["projects"]:
-            self.assertTrue(project["approved"])
-            self.assertEqual(project["status"], "approved")
+            self.assertTrue(project["active"])
+            self.assertEqual(project["publicationStatus"], "active")
             self.assertEqual(project["poster"]["type"], "image")
             self.assertTrue(project["poster"]["src"])
             self.assertFalse(project["indexable"])
             if project["video"]:
-                self.assertEqual(urlparse(project["video"]["src"]).hostname, "media.datenpflege-nord.de")
-                self.assertEqual(project["licenseStatus"], "MIT-reviewed")
+                self.assertTrue(project["video"]["src"].startswith("https://dpnzander.tail99cc3d.ts.net/gallery-media/"))
+                self.assertEqual(urlparse(project["video"]["src"]).hostname, "dpnzander.tail99cc3d.ts.net")
+                self.assertEqual(project["sourceType"], "legacy")
+                self.assertEqual(project["publicLabel"], "Video-Preview")
+                self.assertIn("rightsStatus", project)
+                self.assertIn("riskFlags", project)
             else:
                 self.assertEqual(project["licenseStatus"], "owned")
+                self.assertEqual(project["sourceType"], "owned")
+                self.assertEqual(project["publicLabel"], "DatenpflegeNord Demo")
                 self.assertTrue(project["demo"].startswith("/website-showcase/demo/"))
 
     def test_public_catalogue_uses_explicit_current_source_order(self):
         data = json.loads(CATALOGUE.read_text(encoding="utf-8"))
         source = json.loads(SOURCE_ORDER.read_text(encoding="utf-8"))
         projects = data["projects"]
-        self.assertEqual([p["displayOrder"] for p in projects], list(range(1, 31)))
+        self.assertEqual([p["displayOrder"] for p in projects], list(range(1, 378)))
         self.assertEqual(data["summary"]["currentUpstreamProjects"], 546)
         self.assertEqual(data["summary"]["currentDirectoryProjects"], 371)
         self.assertEqual(data["summary"]["addedSinceSnapshot"], 0)
@@ -44,24 +58,31 @@ class ShowcaseCatalogueTests(unittest.TestCase):
         self.assertEqual(source["source"]["currentCommit"], "f3d7e12f34bf7d90130dce3ec3b26cf69c29794e")
         self.assertEqual(source["summary"]["currentPublicDirectoryProjects"], 371)
         expected = [
-            "shaders/radial-aperture-shader",
-            "shaders/abstract-glassy-shader",
-            "shaders/aurora-borealis-shader",
-            "shaders/blue-meshy-shader-lab",
-            "shaders/flowing-waves-shader",
-            "shaders/grain-gradient-corners-lab",
-            "shaders/mesh-gradient-shader-hero",
-            "shaders/morphing-light-shader",
-            "components-ui/animated-dots-rain",
-            "components-ui/background-paths-hero",
-            "components-ui/gradient-dots-background",
-            "components-ui/terminal-cli-control-deck",
+            "hero-sections/fearless-vision-hero",
+            "hero-sections/equilibrium-liquid-glass-hero",
+            "hero-sections/designpro-video-hero",
+            "hero-sections/datacore-video-hero",
+            "hero-sections/cinematic-stream-hero",
+            "hero-sections/aethera-cinematic-hero",
+            "templates/premium/lexingtonthemes/carrington",
+            "landing-pages/mentality-landing",
+            "landing-pages/forma-video-landing",
+            "templates/premium/lexingtonthemes/carriera",
+            "landing-pages/dot-daily-calm-landing",
+            "templates/premium/lexingtonthemes/carbon",
+            "components-ui/aurora-sign-up",
+            "animations-loaders/microvisuals-boomerang-hero",
+            "templates/premium/lexingtonthemes/buio",
+            "animations-loaders/mainframe-scrub-hero",
+            "animations-loaders/dot-nokia-typing-hero",
+            "templates/premium/lexingtonthemes/westend",
+            "templates/premium/lexingtonthemes/brightlight",
+            "landing-pages/pelmatech-health-companion",
         ]
-        self.assertEqual([p["source"]["path"] for p in projects[:12]], expected)
-        self.assertEqual([p["sourceOrder"] for p in projects[:12]], [42, 180, 185, 186, 207, 211, 224, 226, 359, 360, 364, 369])
-        self.assertTrue(all(p["sourceListedCurrent"] for p in projects[:13]))
-        self.assertFalse(projects[13]["sourceListedCurrent"])
-        self.assertEqual(projects[13]["source"]["path"], "ui-design/industrial-skeuomorphism")
+        legacy = [project for project in projects if project["sourceType"] == "legacy"]
+        self.assertEqual([p["source"]["path"] for p in legacy[:20]], expected)
+        self.assertEqual([p["sourceOrder"] for p in legacy], list(range(1, 372)))
+        self.assertTrue(all(p["sourceListedCurrent"] for p in legacy))
 
     def test_private_manifest_is_the_release_gate(self):
         data = json.loads(MANIFEST.read_text(encoding="utf-8"))
@@ -73,33 +94,37 @@ class ShowcaseCatalogueTests(unittest.TestCase):
         self.assertEqual(data["summary"]["rejected"], 0)
         self.assertEqual(data["sourceArchive"]["pinnedCommit"], "9b5ad43b1450fe6b28a42a9cb8115498d5c56e2a")
         self.assertEqual(data["sourceArchive"]["currentCommit"], "f3d7e12f34bf7d90130dce3ec3b26cf69c29794e")
-        self.assertEqual(sum(p["public"] for p in data["projects"]), 30)
+        self.assertEqual(data["media"]["publicRoot"], "/srv/nordwerk-gallery/media")
+        self.assertEqual(data["media"]["privateRoot"], "/srv/nordwerk-gallery/media-private-20260918")
+        self.assertEqual(sum(p["public"] for p in data["projects"]), 377)
         for project in data["projects"]:
-            self.assertEqual(project["public"], project["rightsStatus"] == "approved")
+            if project["sourceType"] == "legacy":
+                self.assertEqual(project["public"], project["sourceListedCurrent"])
+            else:
+                self.assertTrue(project["public"])
             if project["public"] and project["video"]:
                 self.assertEqual(len(project["poster"]["sha256"]), 64)
                 self.assertEqual(len(project["video"]["sha256"]), 64)
                 self.assertEqual(project["source"]["license"], "MIT")
-            if project["rightsStatus"] != "approved":
-                self.assertIsNone(project["poster"]["sha256"])
-                self.assertIsNone(project["video"]["sha256"])
 
-    def test_current_upstream_top_projects_remain_private_until_approved(self):
+    def test_current_upstream_top_projects_are_public_without_erasing_rights_metadata(self):
         data = json.loads(MANIFEST.read_text(encoding="utf-8"))
         catalogue = json.loads(CATALOGUE.read_text(encoding="utf-8"))
         order = json.loads(SOURCE_ORDER.read_text(encoding="utf-8"))
         by_path = {p["source"]["path"]: p for p in data["projects"] if p["source"]["repository"] == "pulkitxm/claude-directory"}
         public_paths = {p["source"]["path"] for p in catalogue["projects"] if p["source"]["repository"] == "pulkitxm/claude-directory"}
-        top_paths = [p["sourcePath"] for p in sorted((p for p in order["projects"] if p["sourceOrder"] is not None), key=lambda p: p["sourceOrder"])[:12]]
+        top_paths = [p["sourcePath"] for p in sorted((p for p in order["projects"] if p["sourceListedCurrent"]), key=lambda p: p["sourceOrder"])[:12]]
         self.assertEqual(
             [by_path[path]["rightsStatus"] for path in top_paths],
             ["unknown", "unknown", "unknown", "unknown", "unknown", "unknown", "review", "unknown", "unknown", "review", "unknown", "review"],
         )
-        self.assertTrue(public_paths.isdisjoint(top_paths))
+        self.assertTrue(set(top_paths).issubset(public_paths))
 
     def test_public_media_checksum_set_is_complete(self):
         lines = [line for line in CHECKSUMS.read_text(encoding="utf-8").splitlines() if line.strip()]
-        self.assertEqual(len(lines), 60)
+        self.assertEqual(len(lines), 754)
+        legacy_media = [line for line in lines if "/srv/nordwerk-gallery/media/" in line]
+        self.assertEqual(len(legacy_media), 742)
 
     def test_template_demos_are_noindex_follow_and_outside_sitemap(self):
         sitemap = (ROOT / "sitemap.xml").read_text(encoding="utf-8")
@@ -119,6 +144,8 @@ class ShowcaseCatalogueTests(unittest.TestCase):
         source = (ROOT / "assets" / "showcase.js").read_text(encoding="utf-8")
         page = PAGE.read_text(encoding="utf-8")
         self.assertIn('video.preload = "none"', source)
+        self.assertIn("const LOAD_STEPS = [12, 24, 48]", source)
+        self.assertIn("const LATE_BATCH_COUNT = 48", source)
         self.assertIn("let activeCardVideo = null", source)
         self.assertIn("new IntersectionObserver", source)
         self.assertIn("MOBILE_PREVIEW_RATIO = 0.55", source)
@@ -130,6 +157,7 @@ class ShowcaseCatalogueTests(unittest.TestCase):
         self.assertIn('video.removeAttribute("src")', source)
         self.assertIn('preload="none"', page)
         self.assertNotIn("autoplay", page)
+        self.assertIn("Claude Directory / Fable 5", page)
 
 
 if __name__ == "__main__":

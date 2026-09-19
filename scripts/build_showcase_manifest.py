@@ -4,13 +4,13 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
-from datetime import datetime
+import subprocess
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 UPSTREAM_REPO = "pulkitxm/claude-directory"
 UPSTREAM_SNAPSHOT_COMMIT = "9b5ad43b1450fe6b28a42a9cb8115498d5c56e2a"
-PUBLIC_MEDIA_BASE = "https://media.datenpflege-nord.de/gallery-media"
+PUBLIC_MEDIA_BASE = "https://dpnzander.tail99cc3d.ts.net/gallery-media"
 OWNED_DEMOS = {
     "nordic-editorial": ("dpn-editorial-nordic-editorial", "nordic-hero.svg", "/website-showcase/demo/nordic-editorial/"),
     "human-service": ("dpn-editorial-human-service", "service-hero.svg", "/website-showcase/demo/human-service/"),
@@ -41,19 +41,51 @@ def sha256(path: Path) -> str:
             h.update(block)
     return h.hexdigest()
 
+
+def git_tree_metadata(mirror: Path, commit: str, paths: list[str]) -> dict[str, dict]:
+    result = subprocess.run(
+        ["git", f"--git-dir={mirror}", "ls-tree", "-rl", "--full-tree", commit, "--", *paths],
+        check=True,
+        text=True,
+        capture_output=True,
+    )
+    metadata = {}
+    for line in result.stdout.splitlines():
+        left, path = line.split("\t", 1)
+        _mode, _kind, blob_sha, size = left.split()
+        metadata[path] = {"gitBlobSha": blob_sha, "bytes": int(size)}
+    return metadata
+
 def public_sort_key(project: dict):
-    if project.get("sourceOrder") is not None:
-        return (0, int(project["sourceOrder"]), 0, project["source"]["path"])
-    if project.get("sourceLastUpdated"):
-        timestamp = datetime.fromisoformat(project["sourceLastUpdated"]).timestamp()
-        return (1, 0, -timestamp, project["source"]["path"])
-    if project["source"]["repository"] == UPSTREAM_REPO:
-        return (1, 1, 0, project["source"]["path"])
-    return (2, 0, 0, project["source"]["path"])
+    if project.get("sourceType") == "legacy":
+        return (int(project["sourceOrder"]), 0, project["source"]["path"])
+    owned_slot = project.get("ownedSlot", 371)
+    return (owned_slot, 1, project["source"]["path"])
+
+
+def legacy_name(source_path: str) -> str:
+    words = source_path.rsplit("/", 1)[-1].replace("-", " ").split()
+    acronyms = {
+        "ai": "AI", "api": "API", "cli": "CLI", "cms": "CMS", "crm": "CRM",
+        "glsl": "GLSL", "hls": "HLS", "nft": "NFT", "saas": "SaaS", "ui": "UI",
+        "ux": "UX", "webgl": "WebGL", "3d": "3D",
+    }
+    return " ".join(acronyms.get(word.lower(), word.capitalize()) for word in words)
+
+
+def valid_media(path: Path, kind: str, expected_bytes: int) -> bool:
+    if not path.is_file() or path.stat().st_size <= 0:
+        return False
+    if expected_bytes and path.stat().st_size != expected_bytes:
+        return False
+    with path.open("rb") as stream:
+        head = stream.read(64)
+    return head.startswith(b"\xff\xd8\xff") if kind == "poster" else b"ftyp" in head
 
 def main() -> int:
     p = argparse.ArgumentParser()
     p.add_argument("--media-root", type=Path, default=Path("/srv/nordwerk-gallery/media"))
+    p.add_argument("--mirror", type=Path, default=Path("/srv/nordwerk-gallery/archive/claude-directory.git"))
     p.add_argument("--manifest", type=Path, default=ROOT / "docs/design-gallery/showcase-source-manifest.json")
     p.add_argument("--catalogue", type=Path, default=ROOT / "website-showcase/showcase-projects.json")
     args = p.parse_args()
@@ -64,6 +96,12 @@ def main() -> int:
     source_order = load(ROOT / "docs/design-gallery/claude-directory-current-order.json")
     current_commit = source_order["source"]["currentCommit"]
     source_metadata = {x["sourcePath"]: x for x in source_order["projects"]}
+    requested_media_paths = [
+        rel
+        for entry in legacy["entries"]
+        for rel in (entry["poster"]["sourcePath"], entry["demo"]["sourcePath"])
+    ]
+    current_media_metadata = git_tree_metadata(args.mirror, current_commit, requested_media_paths)
     by_editorial_id = {x["id"]: x for x in baseline.get("curatedLegacyDirections", [])}
     by_owned_slug = {x["slug"]: x for x in baseline.get("projects", [])}
     approved_refs = {x["legacyReference"]["sourcePath"]: x for x in curation["directions"]}
@@ -72,6 +110,8 @@ def main() -> int:
     public_projects = []
     sha_lines = []
 
+    listed_paths = {path for path, meta in source_metadata.items() if meta["sourceListedCurrent"]}
+    legacy_public_count = 0
     for entry in legacy["entries"]:
         source_path = entry["sourcePath"]
         source_meta = source_metadata[source_path]
@@ -85,9 +125,16 @@ def main() -> int:
 
         poster_file = args.media_root / entry["poster"]["sourcePath"]
         video_file = args.media_root / entry["demo"]["sourcePath"]
-        poster_sha = sha256(poster_file) if rights == "approved" else None
-        video_sha = sha256(video_file) if rights == "approved" else None
-        if rights == "approved":
+        poster_tree = current_media_metadata.get(entry["poster"]["sourcePath"], entry["poster"])
+        video_tree = current_media_metadata.get(entry["demo"]["sourcePath"], entry["demo"])
+        media_ok = (
+            source_path in listed_paths
+            and valid_media(poster_file, "poster", poster_tree["bytes"])
+            and valid_media(video_file, "video", video_tree["bytes"])
+        )
+        poster_sha = sha256(poster_file) if media_ok else None
+        video_sha = sha256(video_file) if media_ok else None
+        if media_ok:
             sha_lines.extend([
                 f"{poster_sha}  /srv/nordwerk-gallery/media/{entry['poster']['sourcePath']}",
                 f"{video_sha}  /srv/nordwerk-gallery/media/{entry['demo']['sourcePath']}",
@@ -96,47 +143,58 @@ def main() -> int:
         record = {
             "projectId": entry["id"],
             "slug": entry["sourcePath"].replace("/", "--"),
-            "source": {"repository": UPSTREAM_REPO, "commit": UPSTREAM_SNAPSHOT_COMMIT, "path": source_path, "license": "MIT"},
+            "sourceType": "legacy",
+            "source": {"repository": UPSTREAM_REPO, "commit": current_commit, "path": source_path, "license": "MIT"},
             "sourceCommit": current_commit,
             "sourceOrder": source_meta["sourceOrder"],
             "sourceLastUpdated": source_meta["sourceLastUpdated"],
             "sourceListedCurrent": source_meta["sourceListedCurrent"],
-            "poster": {"path": entry["poster"]["sourcePath"], "bytes": entry["poster"]["bytes"], "gitBlobSha": entry["poster"]["gitBlobSha"], "sha256": poster_sha},
-            "video": {"path": entry["demo"]["sourcePath"], "bytes": entry["demo"]["bytes"], "gitBlobSha": entry["demo"]["gitBlobSha"], "sha256": video_sha},
+            "poster": {"path": entry["poster"]["sourcePath"], "bytes": poster_tree["bytes"], "gitBlobSha": poster_tree["gitBlobSha"], "sha256": poster_sha},
+            "video": {"path": entry["demo"]["sourcePath"], "bytes": video_tree["bytes"], "gitBlobSha": video_tree["gitBlobSha"], "sha256": video_sha},
             "templatePath": source_path if source_path.startswith("templates/") else None,
             "rightsStatus": rights,
-            "public": rights == "approved",
+            "licenseStatus": "MIT-source; media-rights-not-asserted",
+            "public": media_ok,
             "riskFlags": entry.get("riskFlags", []),
             "promptPresent": bool(entry.get("sourceEvidence", {}).get("promptPresent")),
         }
         manifest_projects.append(record)
 
-        if rights == "approved":
-            editorial = by_editorial_id[curated["id"]]
+        if media_ok:
+            legacy_public_count += 1
+            editorial = by_editorial_id.get(curated["id"]) if curated else None
+            category = editorial["category"] if editorial else CATEGORY_LABELS.get(source_path.split("/", 1)[0], "Website-Inspiration")
+            name = editorial["name"] if editorial else legacy_name(source_path)
+            description = editorial["description"] if editorial else f"Video-Preview aus dem öffentlichen Claude Directory im Bereich {category}."
             public_projects.append({
                 "id": entry["id"],
                 "slug": record["slug"],
-                "name": editorial["name"],
-                "source": {"repository": UPSTREAM_REPO, "commit": UPSTREAM_SNAPSHOT_COMMIT, "path": source_path},
+                "name": name,
+                "sourceType": "legacy",
+                "publicLabel": "Video-Preview",
+                "source": {"repository": UPSTREAM_REPO, "commit": current_commit, "path": source_path},
                 "sourceCommit": current_commit,
                 "sourceOrder": source_meta["sourceOrder"],
                 "sourceLastUpdated": source_meta["sourceLastUpdated"],
                 "sourceListedCurrent": source_meta["sourceListedCurrent"],
-                "licenseStatus": "MIT-reviewed",
-                "status": "approved",
-                "category": editorial["category"],
-                "style": editorial.get("style", []),
-                "industries": editorial.get("industries", []),
-                "description": editorial["description"],
-                "poster": {"type": "image", "src": f"{PUBLIC_MEDIA_BASE}/{entry['poster']['sourcePath']}", "alt": f"Website-Vorschau: {editorial['name']}", "width": 960, "height": 600, "sha256": poster_sha},
+                "rightsStatus": rights,
+                "licenseStatus": "MIT-source; media-rights-not-asserted",
+                "riskFlags": entry.get("riskFlags", []),
+                "publicationStatus": "active",
+                "active": True,
+                "category": category,
+                "style": editorial.get("style", []) if editorial else [],
+                "industries": editorial.get("industries", []) if editorial else [],
+                "description": description,
+                "poster": {"type": "image", "src": f"{PUBLIC_MEDIA_BASE}/{entry['poster']['sourcePath']}", "alt": f"Website-Vorschau: {name}", "width": 960, "height": 600, "sha256": poster_sha},
                 "video": {"src": f"{PUBLIC_MEDIA_BASE}/{entry['demo']['sourcePath']}", "type": "video/mp4", "sha256": video_sha},
                 "demo": None,
                 "templateAvailable": False,
                 "indexable": False,
-                "approved": True,
             })
 
-    for slug, (project_id, poster_name, demo) in OWNED_DEMOS.items():
+    owned_slots = [60, 120, 180, 240, 300, 360]
+    for owned_index, (slug, (project_id, poster_name, demo)) in enumerate(OWNED_DEMOS.items()):
         source = by_owned_slug[slug]
         poster_path = ROOT / "assets/showcase-demos" / poster_name
         demo_file = ROOT / demo.lstrip("/") / "index.html"
@@ -145,6 +203,7 @@ def main() -> int:
         record = {
             "projectId": project_id,
             "slug": slug,
+            "sourceType": "owned",
             "source": {
                 "repository": "DatenpflegeNordHL/datenpflege-nord-production",
                 "commit": "self",
@@ -161,6 +220,7 @@ def main() -> int:
             "templatePath": demo,
             "templateSha256": demo_hash,
             "rightsStatus": "approved",
+            "licenseStatus": "owned",
             "public": True,
             "riskFlags": [],
             "promptPresent": False,
@@ -170,13 +230,19 @@ def main() -> int:
             "id": project_id,
             "slug": slug,
             "name": source["name"],
+            "sourceType": "owned",
+            "publicLabel": "DatenpflegeNord Demo",
+            "ownedSlot": owned_slots[owned_index],
             "source": {"repository": "DatenpflegeNordHL/datenpflege-nord-production", "path": demo.lstrip("/")},
             "sourceCommit": "self",
             "sourceOrder": None,
             "sourceLastUpdated": None,
             "sourceListedCurrent": False,
             "licenseStatus": "owned",
-            "status": "approved",
+            "rightsStatus": "approved",
+            "riskFlags": [],
+            "publicationStatus": "active",
+            "active": True,
             "category": source["category"],
             "style": source.get("style", []),
             "industries": source.get("industries", []),
@@ -186,7 +252,6 @@ def main() -> int:
             "demo": demo,
             "templateAvailable": True,
             "indexable": False,
-            "approved": True,
         })
         sha_lines.extend([f"{poster_hash}  assets/showcase-demos/{poster_name}", f"{demo_hash}  {demo.lstrip('/')}index.html"])
 
@@ -197,7 +262,7 @@ def main() -> int:
     counts = {key: sum(1 for x in manifest_projects if x["rightsStatus"] == key) for key in ("approved", "review", "rejected", "unknown")}
     manifest = {
         "schemaVersion": 3,
-        "generatedAt": "2026-09-18",
+        "generatedAt": "2026-09-19",
         "sourceArchive": {
             "gitMirror": "/srv/nordwerk-gallery/archive/claude-directory.git",
             "gitBundle": "/srv/nordwerk-gallery/archive/claude-directory.bundle",
@@ -205,8 +270,13 @@ def main() -> int:
             "currentCommit": current_commit,
             "publicDirectoryUrl": source_order["source"]["publicDirectoryUrl"],
         },
-        "media": {"privateRoot": "/srv/nordwerk-gallery/media", "publicBase": PUBLIC_MEDIA_BASE, "nginxLoopback": "127.0.0.1:8090"},
-        "rightsPolicy": {"approvedPublic": True, "reviewPublic": False, "rejectedPublic": False, "unknownPublic": False},
+        "media": {
+            "publicRoot": "/srv/nordwerk-gallery/media",
+            "publicBase": PUBLIC_MEDIA_BASE,
+            "privateRoot": "/srv/nordwerk-gallery/media-private-20260918",
+            "nginxLoopback": "127.0.0.1:8090",
+        },
+        "rightsPolicy": {"metadataRetained": True, "rightsMetadataBlocksCurrentDirectorySync": False, "noPublicRightsAssurance": True},
         "summary": {
             "legacyFound": len(legacy["entries"]),
             "currentUpstreamProjects": source_order["summary"]["currentInventoryProjects"],
@@ -217,6 +287,8 @@ def main() -> int:
             "totalProjects": len(manifest_projects),
             **counts,
             "publicProjects": sum(1 for x in manifest_projects if x["public"]),
+            "publicLegacyProjects": legacy_public_count,
+            "publicShowcaseEntries": len(public_projects),
             "realVideos": sum(1 for x in public_projects if x.get("video")),
             "templateDemos": sum(1 for x in public_projects if x.get("demo")),
         },
@@ -224,8 +296,8 @@ def main() -> int:
     }
     catalogue = {
         "schemaVersion": 3,
-        "updatedAt": "2026-09-18",
-        "publicationPolicy": {"onlyApprovedProjectsArePublic": True, "templateDemosAreNoindex": True, "mediaOrigin": PUBLIC_MEDIA_BASE},
+        "updatedAt": "2026-09-19",
+        "publicationPolicy": {"currentUpstreamDirectoryIsLegacyGate": True, "rightsMetadataIsInformational": True, "templateDemosAreNoindex": True, "mediaOrigin": PUBLIC_MEDIA_BASE},
         "summary": manifest["summary"],
         "projects": public_projects,
     }

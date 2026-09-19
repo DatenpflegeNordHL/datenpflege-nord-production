@@ -1,9 +1,10 @@
 (() => {
   "use strict";
 
-  const projectsUrl = "/website-showcase/showcase-projects.json?v=deebd00621411720501462fcacf9165585a8a910350d5ea14ae17e1a532b0939";
+  const projectsUrl = "/website-showcase/showcase-projects.json?v=08e77c47a8bd37cb2b049f1203cb228d7f659ea3a8a7281cd52c9919b86cd462";
   const INITIAL_COUNT = 12;
-  const BATCH_COUNT = 12;
+  const LOAD_STEPS = [12, 24, 48];
+  const LATE_BATCH_COUNT = 48;
   const grid = document.querySelector("#showcase-grid");
   const filter = document.querySelector("#showcase-filter");
   const search = document.querySelector("#showcase-search");
@@ -20,6 +21,7 @@
   let projects = [];
   let filtered = [];
   let visibleCount = INITIAL_COUNT;
+  let loadStage = 0;
   let activeCardVideo = null;
   let mobileObserver = null;
   let mobilePreviewFrame = 0;
@@ -27,7 +29,7 @@
   let lastFocused = null;
 
   const normalize = (value) => String(value || "").normalize("NFKD").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase("de");
-  const projectHaystack = (project) => normalize([project.name, project.category, project.description, ...(project.style || []), ...(project.industries || [])].join(" "));
+  const projectHaystack = (project) => normalize([project.name, project.category, project.publicLabel, project.source?.path, project.description, ...(project.style || []), ...(project.industries || [])].join(" "));
 
   const stopCardVideo = (onlyVideo = null) => {
     if (!activeCardVideo) return;
@@ -112,7 +114,7 @@
   const openDialog = (project, { updateAddress = true } = {}) => {
     stopCardVideo();
     lastFocused = document.activeElement;
-    dialog.querySelector("[data-dialog-category]").textContent = project.category;
+    dialog.querySelector("[data-dialog-category]").textContent = `${project.publicLabel} · ${project.category}`;
     dialog.querySelector("[data-dialog-title]").textContent = project.name;
     dialog.querySelector("[data-dialog-description]").textContent = project.description;
     const tags = [...(project.style || []), ...(project.industries || [])].slice(0, 6);
@@ -202,7 +204,7 @@
     body.className = "showcase-card__body";
     const category = document.createElement("span");
     category.className = "showcase-card__category";
-    category.textContent = project.category;
+    category.textContent = `${project.publicLabel} · ${project.category}`;
     const title = document.createElement("span");
     title.className = "showcase-card__title";
     title.textContent = project.name;
@@ -226,27 +228,51 @@
 
   const applyFilters = () => {
     visibleCount = INITIAL_COUNT;
+    loadStage = 0;
     const query = normalize(search.value.trim());
-    const category = filter.value;
-    filtered = projects.filter((project) => (category === "all" || project.category === category) && (!query || query.split(/\s+/).every((term) => projectHaystack(project).includes(term))));
+    const selectedFilter = filter.value;
+    filtered = projects.filter((project) => {
+      const sourceMatch = selectedFilter === "all"
+        || (selectedFilter === "source:legacy" && project.sourceType === "legacy")
+        || (selectedFilter === "source:owned" && project.sourceType === "owned")
+        || (selectedFilter.startsWith("category:") && project.category === selectedFilter.slice(9));
+      return sourceMatch && (!query || query.split(/\s+/).every((term) => projectHaystack(project).includes(term)));
+    });
     render();
   };
 
   const setup = (data) => {
     projects = (data.projects || [])
-      .filter((project) => project.approved === true && project.status === "approved" && project.poster?.type === "image" && project.poster?.src)
+      .filter((project) => project.active === true && project.publicationStatus === "active" && project.poster?.type === "image" && project.poster?.src)
       .sort((a, b) => (a.displayOrder ?? Number.MAX_SAFE_INTEGER) - (b.displayOrder ?? Number.MAX_SAFE_INTEGER) || String(a.id).localeCompare(String(b.id), "de"));
     filtered = projects.slice();
     const categories = [...new Set(projects.map((project) => project.category))].sort((a, b) => a.localeCompare(b, "de"));
-    filter.append(...categories.map((value) => {
+    const sourceOptions = [
+      ["source:legacy", "Video-Previews"],
+      ["source:owned", "DatenpflegeNord Demos"],
+    ].map(([value, label]) => {
       const option = document.createElement("option");
       option.value = value;
-      option.textContent = value;
+      option.textContent = label;
+      return option;
+    });
+    filter.append(...sourceOptions, ...categories.map((value) => {
+      const option = document.createElement("option");
+      option.value = `category:${value}`;
+      option.textContent = `Kategorie: ${value}`;
       return option;
     }));
     search.addEventListener("input", applyFilters);
     filter.addEventListener("change", applyFilters);
-    more.addEventListener("click", () => { visibleCount += BATCH_COUNT; render(); });
+    more.addEventListener("click", () => {
+      if (loadStage < LOAD_STEPS.length - 1) {
+        loadStage += 1;
+        visibleCount = LOAD_STEPS[loadStage];
+      } else {
+        visibleCount += LATE_BATCH_COUNT;
+      }
+      render();
+    });
     render();
     const requested = new URLSearchParams(window.location.search).get("design");
     if (requested) {
