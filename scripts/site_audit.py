@@ -327,20 +327,27 @@ def validate_pages(pages: dict[Path, Page]) -> list[str]:
                 f"{', '.join(page.event_handlers)}"
             )
 
+        robots_tokens = {
+            token.strip().lower()
+            for token in page.metadata.get("robots", "").split(",")
+            if token.strip()
+        }
+        is_noindex = "noindex" in robots_tokens
+
         missing_social = sorted(
             key for key in SOCIAL_META_REQUIRED if not page.metadata.get(key, "").strip()
         )
-        if missing_social:
+        if missing_social and not is_noindex:
             errors.append(f"{prefix}: missing social metadata: {', '.join(missing_social)}")
 
-        if page.canonical_count != 1:
+        if page.canonical_count != 1 and not is_noindex:
             errors.append(
                 f"{prefix}: expected exactly one canonical link, "
                 f"found {page.canonical_count}"
             )
-        elif not page.canonical:
+        elif page.canonical_count == 1 and not page.canonical:
             errors.append(f"{prefix}: canonical link is empty")
-        else:
+        elif page.canonical:
             parsed = urlparse(page.canonical)
             if f"{parsed.scheme}://{parsed.netloc}" != ORIGIN:
                 errors.append(f"{prefix}: canonical is not on {ORIGIN}: {page.canonical}")

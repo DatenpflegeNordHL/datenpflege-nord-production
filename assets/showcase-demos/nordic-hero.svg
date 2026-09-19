@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" role="img" aria-labelledby="t d">
+  <title id="t">Nordisches Haus an der Küste</title><desc id="d">Eigenständig erstellte illustrative Platzhaltergrafik für die Nordic-Editorial-Demo.</desc>
+  <defs><linearGradient id="sky" x2="0" y2="1"><stop stop-color="#dbe7e7"/><stop offset="1" stop-color="#f3efe6"/></linearGradient><linearGradient id="sea" x2="1"><stop stop-color="#7e9c9e"/><stop offset="1" stop-color="#b5c9c5"/></linearGradient></defs>
+  <rect width="1600" height="1200" fill="url(#sky)"/><circle cx="1215" cy="220" r="118" fill="#f8f3df" opacity=".9"/><path d="M0 720C280 660 550 710 820 680s520-52 780 8v512H0z" fill="url(#sea)"/><path d="M0 820c230-35 410-10 640 42s480 20 960-54v392H0z" fill="#d9d5c6"/>
+  <g transform="translate(260 420)"><path d="M0 250 330 45l470 130v360H0z" fill="#eeeae0"/><path d="m330 45 470 130-35 45-435-112z" fill="#3e4545"/><rect x="90" y="285" width="245" height="250" fill="#b7c8c4"/><rect x="390" y="235" width="320" height="300" fill="#cad5d0"/><path d="M395 240h18v295h-18zm110 0h18v295h-18zm110 0h18v295h-18z" fill="#45504f" opacity=".5"/><rect x="0" y="535" width="800" height="24" fill="#c0b8a6"/></g>
+  <g fill="#62776e"><path d="M1110 730c48-132 108-180 158-226-18 105-10 182 36 258z"/><path d="M1240 765c55-105 132-145 215-180-50 78-72 145-62 240z" opacity=".8"/></g><path d="M0 970c360-80 780-70 1600 12" fill="none" stroke="#fff" stroke-width="12" opacity=".48"/>
+</svg>

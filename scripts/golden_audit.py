@@ -23,6 +23,7 @@ ALLOWED_CANONICALS = {
     "https://datenpflege-nord.de/datenschutz/",
     "https://datenpflege-nord.de/softwareentwicklung-luebeck/",
     "https://datenpflege-nord.de/webentwicklung-luebeck/",
+    "https://datenpflege-nord.de/website-showcase/",
     "https://datenpflege-nord.de/ki-automatisierung-luebeck/",
     "https://datenpflege-nord.de/wissen/individualsoftware-kosten/",
     "https://datenpflege-nord.de/wissen/website-relaunch-checkliste/",
@@ -104,6 +105,13 @@ def validate_structure(page, source):
             value = image.get(dimension, "") or ""
             if not value.isdigit() or int(value) <= 0:
                 errors.append(f"{page.path}: missing positive image {dimension}: {image.get('src')}")
+    demo_root = (site_audit.ROOT / "website-showcase" / "demo").resolve()
+    is_showcase_demo = page.path.resolve().is_relative_to(demo_root)
+    if is_showcase_demo:
+        robots = page.metadata.get("robots", "").lower().replace(",", " ").split()
+        if "noindex" not in robots:
+            errors.append(f"{page.path}: showcase demo must remain noindex")
+        return errors
     for name in ("robots", "googlebot", "bingbot"):
         directives = page.metadata.get(name, "").lower().replace(",", " ").split()
         if {"noindex", "none"} & set(directives):

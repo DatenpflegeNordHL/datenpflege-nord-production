@@ -1,0 +1,3848 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-09-18",
+  "source": {
+    "repository": "pulkitxm/claude-directory",
+    "snapshotCommit": "9b5ad43b1450fe6b28a42a9cb8115498d5c56e2a",
+    "currentBranch": "main",
+    "currentCommit": "f3d7e12f34bf7d90130dce3ec3b26cf69c29794e",
+    "publicDirectoryUrl": "https://www.pulkit.page/claude-directory"
+  },
+  "summary": {
+    "snapshotInventoryProjects": 546,
+    "currentInventoryProjects": 546,
+    "currentPublicDirectoryProjects": 371,
+    "projectDatesRecords": 348,
+    "addedSinceSnapshot": 0,
+    "removedSinceSnapshot": 0
+  },
+  "ordering": {
+    "primary": "current public directory order captured from the hydrated public page",
+    "fallback": "sourceLastUpdated descending, then sourcePath, for source projects absent from the current public directory",
+    "projectDatesRole": "freshness metadata and fallback only; current project-dates refresh timestamps do not reproduce the public default order"
+  },
+  "projects": [
+    {
+      "sourcePath": "3d-games/lovable-webgl-hero",
+      "slug": "lovable-webgl-hero",
+      "sourceOrder": 85,
+      "sourceLastUpdated": "2026-07-16T15:53:38+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "3d-games/sidi-bou-said-3d-walk",
+      "slug": "sidi-bou-said-3d-walk",
+      "sourceOrder": 87,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "animations-loaders/apex-scroll-hero",
+      "slug": "apex-scroll-hero",
+      "sourceOrder": 89,
+      "sourceLastUpdated": "2026-07-16T12:23:33+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "animations-loaders/bags-editorial-collage",
+      "slug": "bags-editorial-collage",
+      "sourceOrder": 86,
+      "sourceLastUpdated": "2026-07-16T15:36:03+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "animations-loaders/bloom-nested-squares",
+      "slug": "bloom-nested-squares",
+      "sourceOrder": 370,
+      "sourceLastUpdated": "2026-07-03T00:21:42+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "animations-loaders/container-scroll-animation",
+      "slug": "container-scroll-animation",
+      "sourceOrder": 371,
+      "sourceLastUpdated": "2026-07-03T00:21:42+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "animations-loaders/dot-nokia-typing-hero",
+      "slug": "dot-nokia-typing-hero",
+      "sourceOrder": 17,
+      "sourceLastUpdated": "2026-07-21T20:15:20+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "animations-loaders/linkflow-boomerang-hero",
+      "slug": "linkflow-boomerang-hero",
+      "sourceOrder": 60,
+      "sourceLastUpdated": "2026-07-21T20:18:48+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "animations-loaders/mainframe-scrub-hero",
+      "slug": "mainframe-scrub-hero",
+      "sourceOrder": 16,
+      "sourceLastUpdated": "2026-07-17T00:35:22+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "animations-loaders/microvisuals-boomerang-hero",
+      "slug": "microvisuals-boomerang-hero",
+      "sourceOrder": 14,
+      "sourceLastUpdated": "2026-07-17T00:42:38+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "animations-loaders/moneta-key-preloader",
+      "slug": "moneta-key-preloader",
+      "sourceOrder": 78,
+      "sourceLastUpdated": "2026-07-16T18:40:12+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "animations-loaders/pallet-ross-landing",
+      "slug": "pallet-ross-landing",
+      "sourceOrder": 75,
+      "sourceLastUpdated": "2026-07-16T19:00:06+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "animations-loaders/qclay-hexagon-loader",
+      "slug": "qclay-hexagon-loader",
+      "sourceOrder": 84,
+      "sourceLastUpdated": "2026-07-16T16:42:58+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "animations-loaders/scroll-expansion-hero",
+      "slug": "scroll-expansion-hero",
+      "sourceOrder": 49,
+      "sourceLastUpdated": "2026-07-16T21:45:37+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "components-ui/animated-dots-rain",
+      "slug": "animated-dots-rain",
+      "sourceOrder": 359,
+      "sourceLastUpdated": "2026-07-18T12:55:12+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "components-ui/animated-hud-targeting-ui",
+      "slug": "animated-hud-targeting-ui",
+      "sourceOrder": 34,
+      "sourceLastUpdated": "2026-07-16T23:08:13+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "components-ui/aurora-sign-up",
+      "slug": "aurora-sign-up",
+      "sourceOrder": 13,
+      "sourceLastUpdated": "2026-07-17T00:52:29+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "components-ui/background-paths-hero",
+      "slug": "background-paths-hero",
+      "sourceOrder": 360,
+      "sourceLastUpdated": "2026-07-03T00:21:46+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "components-ui/core-features-gradient-cards",
+      "slug": "core-features-gradient-cards",
+      "sourceOrder": 361,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "components-ui/crimson-mill-supply-card-h61",
+      "slug": "crimson-mill-supply-card-h61",
+      "sourceOrder": 362,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "components-ui/gradient-bars-background",
+      "slug": "gradient-bars-background",
+      "sourceOrder": 363,
+      "sourceLastUpdated": "2026-07-18T12:58:37+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "components-ui/gradient-dots-background",
+      "slug": "gradient-dots-background",
+      "sourceOrder": 364,
+      "sourceLastUpdated": "2026-07-18T13:00:28+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "components-ui/interactive-3d-spline-scene",
+      "slug": "interactive-3d-spline-scene",
+      "sourceOrder": 365,
+      "sourceLastUpdated": "2026-07-22T10:53:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "components-ui/lumen-aurora-vcard-h62",
+      "slug": "lumen-aurora-vcard-h62",
+      "sourceOrder": 366,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "components-ui/nexto-404-hero",
+      "slug": "nexto-404-hero",
+      "sourceOrder": 367,
+      "sourceLastUpdated": "2026-07-18T13:37:05+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "components-ui/scanner-card-stream",
+      "slug": "scanner-card-stream",
+      "sourceOrder": 72,
+      "sourceLastUpdated": "2026-07-16T19:18:25+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "components-ui/sixsense-reference-finder",
+      "slug": "sixsense-reference-finder",
+      "sourceOrder": 368,
+      "sourceLastUpdated": "2026-07-03T00:21:46+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "components-ui/spatial-product-showcase",
+      "slug": "spatial-product-showcase",
+      "sourceOrder": 31,
+      "sourceLastUpdated": "2026-07-16T23:18:20+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "components-ui/terminal-cli-control-deck",
+      "slug": "terminal-cli-control-deck",
+      "sourceOrder": 369,
+      "sourceLastUpdated": "2026-07-22T09:07:46+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "hero-sections/aethera-cinematic-hero",
+      "slug": "aethera-cinematic-hero",
+      "sourceOrder": 6,
+      "sourceLastUpdated": "2026-07-21T19:55:35+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "hero-sections/ai-builder-dark-hero",
+      "slug": "ai-builder-dark-hero",
+      "sourceOrder": 333,
+      "sourceLastUpdated": "2026-07-18T13:39:46+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "hero-sections/altitude-index-h38",
+      "slug": "altitude-index-h38",
+      "sourceOrder": 334,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "hero-sections/animated-text-rotate-hero",
+      "slug": "animated-text-rotate-hero",
+      "sourceOrder": 335,
+      "sourceLastUpdated": "2026-07-22T14:25:52+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "hero-sections/bloom-liquid-glass-hero",
+      "slug": "bloom-liquid-glass-hero",
+      "sourceOrder": 45,
+      "sourceLastUpdated": "2026-07-16T22:14:31+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "hero-sections/cinematic-stream-hero",
+      "slug": "cinematic-stream-hero",
+      "sourceOrder": 5,
+      "sourceLastUpdated": "2026-07-21T21:46:47+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "hero-sections/codenest-hero",
+      "slug": "codenest-hero",
+      "sourceOrder": 336,
+      "sourceLastUpdated": "2026-07-03T00:21:50+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "hero-sections/convix-pr-agency-hero",
+      "slug": "convix-pr-agency-hero",
+      "sourceOrder": 28,
+      "sourceLastUpdated": "2026-07-16T23:24:22+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "hero-sections/datacore-video-hero",
+      "slug": "datacore-video-hero",
+      "sourceOrder": 4,
+      "sourceLastUpdated": "2026-07-21T19:59:07+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "hero-sections/designpro-video-hero",
+      "slug": "designpro-video-hero",
+      "sourceOrder": 3,
+      "sourceLastUpdated": "2026-07-17T01:29:48+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "hero-sections/digital-epoch-hero",
+      "slug": "digital-epoch-hero",
+      "sourceOrder": 74,
+      "sourceLastUpdated": "2026-07-16T19:07:32+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "hero-sections/equilibrium-liquid-glass-hero",
+      "slug": "equilibrium-liquid-glass-hero",
+      "sourceOrder": 2,
+      "sourceLastUpdated": "2026-07-17T01:42:34+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "hero-sections/fearless-vision-hero",
+      "slug": "fearless-vision-hero",
+      "sourceOrder": 1,
+      "sourceLastUpdated": "2026-07-17T09:45:19+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "hero-sections/helix-vault-h55",
+      "slug": "helix-vault-h55",
+      "sourceOrder": 337,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "hero-sections/ironclad-password-hero",
+      "slug": "ironclad-password-hero",
+      "sourceOrder": 63,
+      "sourceLastUpdated": "2026-07-16T20:10:53+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "hero-sections/kubric-hero-landing",
+      "slug": "kubric-hero-landing",
+      "sourceOrder": 338,
+      "sourceLastUpdated": "2026-07-21T18:12:32+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "hero-sections/mainframe-hero-landing",
+      "slug": "mainframe-hero-landing",
+      "sourceOrder": 23,
+      "sourceLastUpdated": "2026-07-16T23:52:01+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "hero-sections/monocrit-studio-h27",
+      "slug": "monocrit-studio-h27",
+      "sourceOrder": 339,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "hero-sections/nexora-automation-hero",
+      "slug": "nexora-automation-hero",
+      "sourceOrder": 340,
+      "sourceLastUpdated": "2026-07-18T13:06:19+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "hero-sections/noctis-cinematic-hero",
+      "slug": "noctis-cinematic-hero",
+      "sourceOrder": 341,
+      "sourceLastUpdated": "2026-07-21T21:21:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "hero-sections/particle-hero",
+      "slug": "particle-hero",
+      "sourceOrder": 342,
+      "sourceLastUpdated": "2026-07-21T19:06:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "hero-sections/power-ai-hero",
+      "slug": "power-ai-hero",
+      "sourceOrder": 343,
+      "sourceLastUpdated": "2026-07-18T13:10:20+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "hero-sections/prisma-noir-h52",
+      "slug": "prisma-noir-h52",
+      "sourceOrder": 344,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "hero-sections/rivr-defi-hero",
+      "slug": "rivr-defi-hero",
+      "sourceOrder": 345,
+      "sourceLastUpdated": "2026-07-18T13:13:26+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "hero-sections/securify-data-hero",
+      "slug": "securify-data-hero",
+      "sourceOrder": 346,
+      "sourceLastUpdated": "2026-07-18T13:16:09+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "hero-sections/sentinel-ai-hero",
+      "slug": "sentinel-ai-hero",
+      "sourceOrder": 347,
+      "sourceLastUpdated": "2026-07-21T18:27:46+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "hero-sections/shape-landing-hero",
+      "slug": "shape-landing-hero",
+      "sourceOrder": 348,
+      "sourceLastUpdated": "2026-07-03T00:21:50+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "hero-sections/skyelite-jet-hero",
+      "slug": "skyelite-jet-hero",
+      "sourceOrder": 349,
+      "sourceLastUpdated": "2026-07-18T13:18:55+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "hero-sections/smart-prosthetics-hero",
+      "slug": "smart-prosthetics-hero",
+      "sourceOrder": 350,
+      "sourceLastUpdated": "2026-07-18T13:22:45+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "hero-sections/stellar-ai-landing-hero",
+      "slug": "stellar-ai-landing-hero",
+      "sourceOrder": 351,
+      "sourceLastUpdated": "2026-07-18T13:26:20+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "hero-sections/synex-wealth-hero",
+      "slug": "synex-wealth-hero",
+      "sourceOrder": 71,
+      "sourceLastUpdated": "2026-07-16T19:26:54+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "hero-sections/taskly-liquid-glass-hero",
+      "slug": "taskly-liquid-glass-hero",
+      "sourceOrder": 352,
+      "sourceLastUpdated": "2026-07-03T00:21:50+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "hero-sections/toonhub-figurine-carousel",
+      "slug": "toonhub-figurine-carousel",
+      "sourceOrder": 66,
+      "sourceLastUpdated": "2026-07-16T19:58:50+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "hero-sections/transform-data-hero",
+      "slug": "transform-data-hero",
+      "sourceOrder": 353,
+      "sourceLastUpdated": "2026-07-18T13:28:40+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "hero-sections/vanguard-hero-landing",
+      "slug": "vanguard-hero-landing",
+      "sourceOrder": 59,
+      "sourceLastUpdated": "2026-07-16T20:33:17+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "hero-sections/vaultshield-hero",
+      "slug": "vaultshield-hero",
+      "sourceOrder": 62,
+      "sourceLastUpdated": "2026-07-16T20:14:03+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "hero-sections/velorah-hero-landing",
+      "slug": "velorah-hero-landing",
+      "sourceOrder": 354,
+      "sourceLastUpdated": "2026-07-18T13:31:25+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "hero-sections/verdant-advisory-h10",
+      "slug": "verdant-advisory-h10",
+      "sourceOrder": 355,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "hero-sections/wanderful-cinematic-hero",
+      "slug": "wanderful-cinematic-hero",
+      "sourceOrder": 356,
+      "sourceLastUpdated": "2026-07-18T13:33:47+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "hero-sections/woven-light-hero",
+      "slug": "woven-light-hero",
+      "sourceOrder": 357,
+      "sourceLastUpdated": "2026-07-03T00:21:50+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "hero-sections/xero-encryption-hero",
+      "slug": "xero-encryption-hero",
+      "sourceOrder": 358,
+      "sourceLastUpdated": "2026-07-03T00:21:50+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/aegis-console-h39",
+      "slug": "aegis-console-h39",
+      "sourceOrder": 48,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/almond-hours-h65",
+      "slug": "almond-hours-h65",
+      "sourceOrder": 46,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/amber-foundry-h9",
+      "slug": "amber-foundry-h9",
+      "sourceOrder": 44,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/amberhaus-pet-atelier-h31",
+      "slug": "amberhaus-pet-atelier-h31",
+      "sourceOrder": 43,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/archway-summit-h21",
+      "slug": "archway-summit-h21",
+      "sourceOrder": 41,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/asme-hero-landing",
+      "slug": "asme-hero-landing",
+      "sourceOrder": 40,
+      "sourceLastUpdated": "2026-07-16T22:43:58+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/asme-liquid-glass-landing",
+      "slug": "asme-liquid-glass-landing",
+      "sourceOrder": 70,
+      "sourceLastUpdated": "2026-07-21T21:26:47+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/astral-veil-h6",
+      "slug": "astral-veil-h6",
+      "sourceOrder": 38,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/atelier-noir-h7",
+      "slug": "atelier-noir-h7",
+      "sourceOrder": 36,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/atelier-press-h51",
+      "slug": "atelier-press-h51",
+      "sourceOrder": 35,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/aura-email-landing",
+      "slug": "aura-email-landing",
+      "sourceOrder": 32,
+      "sourceLastUpdated": "2026-07-16T23:17:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/auric-clinic-glow-h37",
+      "slug": "auric-clinic-glow-h37",
+      "sourceOrder": 29,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/auroracast-hls-landing",
+      "slug": "auroracast-hls-landing",
+      "sourceOrder": 27,
+      "sourceLastUpdated": "2026-07-16T23:36:31+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/axion-studio-landing",
+      "slug": "axion-studio-landing",
+      "sourceOrder": 58,
+      "sourceLastUpdated": "2026-07-16T20:44:14+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/axis-quotient-h30",
+      "slug": "axis-quotient-h30",
+      "sourceOrder": 24,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/azimuth-realty-engine-h36",
+      "slug": "azimuth-realty-engine-h36",
+      "sourceOrder": 267,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/carbon-bloom-h95",
+      "slug": "carbon-bloom-h95",
+      "sourceOrder": 268,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/cartwright-relocation-h47",
+      "slug": "cartwright-relocation-h47",
+      "sourceOrder": 269,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/cerulean-precision-collective-h67",
+      "slug": "cerulean-precision-collective-h67",
+      "sourceOrder": 270,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/citron-atlas-h79",
+      "slug": "citron-atlas-h79",
+      "sourceOrder": 271,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/claywell-solene-h5",
+      "slug": "claywell-solene-h5",
+      "sourceOrder": 272,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/cobalt-repairworks-h78",
+      "slug": "cobalt-repairworks-h78",
+      "sourceOrder": 273,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/concrete-bazaar-h87",
+      "slug": "concrete-bazaar-h87",
+      "sourceOrder": 274,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/crimson-cut-studio-h72",
+      "slug": "crimson-cut-studio-h72",
+      "sourceOrder": 275,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/design-rocket-email",
+      "slug": "design-rocket-email",
+      "sourceOrder": 53,
+      "sourceLastUpdated": "2026-07-21T21:32:56+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/dhara-heritage-edit-h88",
+      "slug": "dhara-heritage-edit-h88",
+      "sourceOrder": 276,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/dot-daily-calm-landing",
+      "slug": "dot-daily-calm-landing",
+      "sourceOrder": 11,
+      "sourceLastUpdated": "2026-07-17T00:58:34+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/ember-quietude-h26",
+      "slug": "ember-quietude-h26",
+      "sourceOrder": 277,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/evergreen-ledger-h94",
+      "slug": "evergreen-ledger-h94",
+      "sourceOrder": 278,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/fernhollow-pet-wellness-h68",
+      "slug": "fernhollow-pet-wellness-h68",
+      "sourceOrder": 25,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/forma-video-landing",
+      "slug": "forma-video-landing",
+      "sourceOrder": 9,
+      "sourceLastUpdated": "2026-07-21T21:43:44+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/freightleaf-clean-haul-h80",
+      "slug": "freightleaf-clean-haul-h80",
+      "sourceOrder": 279,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/graft-modular-h93",
+      "slug": "graft-modular-h93",
+      "sourceOrder": 280,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/gridframe-precision-h74",
+      "slug": "gridframe-precision-h74",
+      "sourceOrder": 281,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/gridwright-h48",
+      "slug": "gridwright-h48",
+      "sourceOrder": 282,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/groundai-landing",
+      "slug": "groundai-landing",
+      "sourceOrder": 80,
+      "sourceLastUpdated": "2026-07-16T17:15:25+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/grove-kitchen-fresh-h70",
+      "slug": "grove-kitchen-fresh-h70",
+      "sourceOrder": 283,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/halcyon-mesh-h56",
+      "slug": "halcyon-mesh-h56",
+      "sourceOrder": 284,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/harbour-hearth-h64",
+      "slug": "harbour-hearth-h64",
+      "sourceOrder": 285,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/hearthwell-homeware-h71",
+      "slug": "hearthwell-homeware-h71",
+      "sourceOrder": 286,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/helix-strata-h76",
+      "slug": "helix-strata-h76",
+      "sourceOrder": 287,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/ink-vermilion-personal-brand-h23",
+      "slug": "ink-vermilion-personal-brand-h23",
+      "sourceOrder": 288,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/kairos-academy-h0",
+      "slug": "kairos-academy-h0",
+      "sourceOrder": 289,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/lantern-broth-midnight-ramen-h8",
+      "slug": "lantern-broth-midnight-ramen-h8",
+      "sourceOrder": 290,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/lantern-loft-tutoring-h1",
+      "slug": "lantern-loft-tutoring-h1",
+      "sourceOrder": 291,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/lumen-grove-h63",
+      "slug": "lumen-grove-h63",
+      "sourceOrder": 22,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/lumen-launch-h44",
+      "slug": "lumen-launch-h44",
+      "sourceOrder": 292,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/lumen-vector-h92",
+      "slug": "lumen-vector-h92",
+      "sourceOrder": 293,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/lumina-maternite-h2",
+      "slug": "lumina-maternite-h2",
+      "sourceOrder": 294,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/mentality-landing",
+      "slug": "mentality-landing",
+      "sourceOrder": 8,
+      "sourceLastUpdated": "2026-07-17T01:15:14+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/meridian-grid-systems-h81",
+      "slug": "meridian-grid-systems-h81",
+      "sourceOrder": 295,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/meridian-precision-clinic-h35",
+      "slug": "meridian-precision-clinic-h35",
+      "sourceOrder": 296,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/mindloop-mono-landing",
+      "slug": "mindloop-mono-landing",
+      "sourceOrder": 51,
+      "sourceLastUpdated": "2026-07-21T21:37:04+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/monolith-grid-atelier-h59",
+      "slug": "monolith-grid-atelier-h59",
+      "sourceOrder": 297,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/neuralyn-dark-landing",
+      "slug": "neuralyn-dark-landing",
+      "sourceOrder": 39,
+      "sourceLastUpdated": "2026-07-16T22:48:35+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/nhm-paleontology-landing",
+      "slug": "nhm-paleontology-landing",
+      "sourceOrder": 81,
+      "sourceLastUpdated": "2026-07-16T16:56:56+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/noctis-aurum-h69",
+      "slug": "noctis-aurum-h69",
+      "sourceOrder": 298,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/obsidian-lacquer-h57",
+      "slug": "obsidian-lacquer-h57",
+      "sourceOrder": 299,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/obsidian-meridian-h85",
+      "slug": "obsidian-meridian-h85",
+      "sourceOrder": 300,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/ochre-stone-studio-h11",
+      "slug": "ochre-stone-studio-h11",
+      "sourceOrder": 301,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/orbis-nft-landing",
+      "slug": "orbis-nft-landing",
+      "sourceOrder": 73,
+      "sourceLastUpdated": "2026-07-21T21:40:20+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/orbital-frequency-summit-h22",
+      "slug": "orbital-frequency-summit-h22",
+      "sourceOrder": 302,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/paper-circuit-agentic-saas-h16",
+      "slug": "paper-circuit-agentic-saas-h16",
+      "sourceOrder": 303,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/pelmatech-health-companion",
+      "slug": "pelmatech-health-companion",
+      "sourceOrder": 20,
+      "sourceLastUpdated": "2026-07-17T00:19:18+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/prisma-landing",
+      "slug": "prisma-landing",
+      "sourceOrder": 68,
+      "sourceLastUpdated": "2026-07-16T19:53:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/riso-rebel-fest-h20",
+      "slug": "riso-rebel-fest-h20",
+      "sourceOrder": 304,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/saaj-heritage-bazaar-h90",
+      "slug": "saaj-heritage-bazaar-h90",
+      "sourceOrder": 305,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/sencha-atelier-h12",
+      "slug": "sencha-atelier-h12",
+      "sourceOrder": 306,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/sentinel-meridian-h77",
+      "slug": "sentinel-meridian-h77",
+      "sourceOrder": 307,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/slate-stone-architectural-h73",
+      "slug": "slate-stone-architectural-h73",
+      "sourceOrder": 308,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/slow-roast-atelier-h84",
+      "slug": "slow-roast-atelier-h84",
+      "sourceOrder": 309,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/snip-and-snout-grooming-h18",
+      "slug": "snip-and-snout-grooming-h18",
+      "sourceOrder": 310,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/solace-wellness-grid-h13",
+      "slug": "solace-wellness-grid-h13",
+      "sourceOrder": 311,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/space-voyage-landing",
+      "slug": "space-voyage-landing",
+      "sourceOrder": 312,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/spectral-orbit-novascale-h17",
+      "slug": "spectral-orbit-novascale-h17",
+      "sourceOrder": 313,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/synergeus-landing",
+      "slug": "synergeus-landing",
+      "sourceOrder": 76,
+      "sourceLastUpdated": "2026-07-16T18:51:37+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/terra-craft-editorial-h58",
+      "slug": "terra-craft-editorial-h58",
+      "sourceOrder": 314,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/terra-siena-atelier-h14",
+      "slug": "terra-siena-atelier-h14",
+      "sourceOrder": 315,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/tide-table-h82",
+      "slug": "tide-table-h82",
+      "sourceOrder": 316,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/usd-halo-landing",
+      "slug": "usd-halo-landing",
+      "sourceOrder": 65,
+      "sourceLastUpdated": "2026-07-16T20:01:33+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/valmax-photography-landing",
+      "slug": "valmax-photography-landing",
+      "sourceOrder": 47,
+      "sourceLastUpdated": "2026-07-16T22:04:57+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/vantix-precision-medicine-h34",
+      "slug": "vantix-precision-medicine-h34",
+      "sourceOrder": 317,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/vellum-apothecary-archive-h32",
+      "slug": "vellum-apothecary-archive-h32",
+      "sourceOrder": 318,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/vellum-atelier-h33",
+      "slug": "vellum-atelier-h33",
+      "sourceOrder": 319,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/velvet-vellum-agency-h4",
+      "slug": "velvet-vellum-agency-h4",
+      "sourceOrder": 320,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/verdant-atelier-h40",
+      "slug": "verdant-atelier-h40",
+      "sourceOrder": 321,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/verdant-pledge-bento-h49",
+      "slug": "verdant-pledge-bento-h49",
+      "sourceOrder": 322,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/verdant-salon-h91",
+      "slug": "verdant-salon-h91",
+      "sourceOrder": 323,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/verdant-spine-clinic-h66",
+      "slug": "verdant-spine-clinic-h66",
+      "sourceOrder": 324,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/verdigris-trail-h50",
+      "slug": "verdigris-trail-h50",
+      "sourceOrder": 325,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/vermillion-cram-h3",
+      "slug": "vermillion-cram-h3",
+      "sourceOrder": 326,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/vermillion-table-h83",
+      "slug": "vermillion-table-h83",
+      "sourceOrder": 327,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/viktor-oddy-landing",
+      "slug": "viktor-oddy-landing",
+      "sourceOrder": 83,
+      "sourceLastUpdated": "2026-07-16T16:44:44+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/voltaic-grid-advisory-h75",
+      "slug": "voltaic-grid-advisory-h75",
+      "sourceOrder": 328,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/voltframe-dev-h29",
+      "slug": "voltframe-dev-h29",
+      "sourceOrder": 329,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/voltic-showroom-h89",
+      "slug": "voltic-showroom-h89",
+      "sourceOrder": 330,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/voltline-automation-h60",
+      "slug": "voltline-automation-h60",
+      "sourceOrder": 331,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "landing-pages/wayfare-expedition-journal-h86",
+      "slug": "wayfare-expedition-journal-h86",
+      "sourceOrder": 332,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "portfolios/circuit-ledger-h15",
+      "slug": "circuit-ledger-h15",
+      "sourceOrder": 255,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "portfolios/cobalt-bento-folio-h43",
+      "slug": "cobalt-bento-folio-h43",
+      "sourceOrder": 256,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "portfolios/crimson-press-kit-h25",
+      "slug": "crimson-press-kit-h25",
+      "sourceOrder": 67,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "portfolios/electric-volt-folio-h45",
+      "slug": "electric-volt-folio-h45",
+      "sourceOrder": 257,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "portfolios/inkpress-atelier-h46",
+      "slug": "inkpress-atelier-h46",
+      "sourceOrder": 258,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "portfolios/jack-3d-portfolio",
+      "slug": "jack-3d-portfolio",
+      "sourceOrder": 79,
+      "sourceLastUpdated": "2026-07-16T17:25:06+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "portfolios/lumen-folio-h19",
+      "slug": "lumen-folio-h19",
+      "sourceOrder": 259,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "portfolios/meridian-drafthouse-h54",
+      "slug": "meridian-drafthouse-h54",
+      "sourceOrder": 260,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "portfolios/michael-smith-portfolio",
+      "slug": "michael-smith-portfolio",
+      "sourceOrder": 261,
+      "sourceLastUpdated": "2026-07-03T00:21:57+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "portfolios/monogram-terminal-h42",
+      "slug": "monogram-terminal-h42",
+      "sourceOrder": 262,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "portfolios/nocturne-bento-h28",
+      "slug": "nocturne-bento-h28",
+      "sourceOrder": 263,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "portfolios/solstice-craft-studio-h41",
+      "slug": "solstice-craft-studio-h41",
+      "sourceOrder": 264,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "portfolios/voltline-resume-h53",
+      "slug": "voltline-resume-h53",
+      "sourceOrder": 265,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "portfolios/voltmark-engineer-terminal-h24",
+      "slug": "voltmark-engineer-terminal-h24",
+      "sourceOrder": 266,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/abstract-glassy-shader",
+      "slug": "abstract-glassy-shader",
+      "sourceOrder": 180,
+      "sourceLastUpdated": "2026-07-03T00:22:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/aether-flow-shader",
+      "slug": "aether-flow-shader",
+      "sourceOrder": 181,
+      "sourceLastUpdated": "2026-07-03T00:22:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/ai-input-wave-hero",
+      "slug": "ai-input-wave-hero",
+      "sourceOrder": 57,
+      "sourceLastUpdated": "2026-07-16T20:49:27+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/animated-shader-background",
+      "slug": "animated-shader-background",
+      "sourceOrder": 64,
+      "sourceLastUpdated": "2026-07-16T20:08:44+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/animated-shader-hero",
+      "slug": "animated-shader-hero",
+      "sourceOrder": 55,
+      "sourceLastUpdated": "2026-07-16T20:59:28+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/anomalous-matter-hero",
+      "slug": "anomalous-matter-hero",
+      "sourceOrder": 182,
+      "sourceLastUpdated": "2026-07-03T00:22:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/atc-tunnel-shader",
+      "slug": "atc-tunnel-shader",
+      "sourceOrder": 183,
+      "sourceLastUpdated": "2026-07-03T00:22:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/aura-core-shader",
+      "slug": "aura-core-shader",
+      "sourceOrder": 184,
+      "sourceLastUpdated": "2026-07-03T00:22:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/aurora-borealis-shader",
+      "slug": "aurora-borealis-shader",
+      "sourceOrder": 185,
+      "sourceLastUpdated": "2026-07-03T00:22:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/blue-meshy-shader-lab",
+      "slug": "blue-meshy-shader-lab",
+      "sourceOrder": 186,
+      "sourceLastUpdated": "2026-07-22T00:01:09+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/blueprint-ascii-grid-shader",
+      "slug": "blueprint-ascii-grid-shader",
+      "sourceOrder": 187,
+      "sourceLastUpdated": "2026-07-21T18:53:46+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/cathedral-raymarch-shader",
+      "slug": "cathedral-raymarch-shader",
+      "sourceOrder": 188,
+      "sourceLastUpdated": "2026-07-03T00:22:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/celestial-bloom-shader",
+      "slug": "celestial-bloom-shader",
+      "sourceOrder": 189,
+      "sourceLastUpdated": "2026-07-03T00:22:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/celestial-ink-shader",
+      "slug": "celestial-ink-shader",
+      "sourceOrder": 190,
+      "sourceLastUpdated": "2026-07-03T00:22:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/celestial-matrix-shader",
+      "slug": "celestial-matrix-shader",
+      "sourceOrder": 191,
+      "sourceLastUpdated": "2026-07-03T00:22:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/celestial-matrix-terminal",
+      "slug": "celestial-matrix-terminal",
+      "sourceOrder": 192,
+      "sourceLastUpdated": "2026-07-03T00:22:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/celestial-sphere-shader",
+      "slug": "celestial-sphere-shader",
+      "sourceOrder": 193,
+      "sourceLastUpdated": "2026-07-03T00:22:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/cosmic-plasma-web",
+      "slug": "cosmic-plasma-web",
+      "sourceOrder": 194,
+      "sourceLastUpdated": "2026-07-03T00:22:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/crystal-voronoi-shader",
+      "slug": "crystal-voronoi-shader",
+      "sourceOrder": 195,
+      "sourceLastUpdated": "2026-07-03T00:22:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/crystalline-cube-shader",
+      "slug": "crystalline-cube-shader",
+      "sourceOrder": 196,
+      "sourceLastUpdated": "2026-07-03T00:22:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/cybernetic-grid-shader",
+      "slug": "cybernetic-grid-shader",
+      "sourceOrder": 197,
+      "sourceLastUpdated": "2026-07-03T00:22:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/digital-glitch-shader",
+      "slug": "digital-glitch-shader",
+      "sourceOrder": 198,
+      "sourceLastUpdated": "2026-07-03T00:22:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/digital-petals-shader",
+      "slug": "digital-petals-shader",
+      "sourceOrder": 199,
+      "sourceLastUpdated": "2026-07-03T00:22:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/dithering-shader-lab",
+      "slug": "dithering-shader-lab",
+      "sourceOrder": 200,
+      "sourceLastUpdated": "2026-07-03T00:22:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/dithering-sphere-shader",
+      "slug": "dithering-sphere-shader",
+      "sourceOrder": 201,
+      "sourceLastUpdated": "2026-07-21T18:53:45+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/dithering-swirl-shader",
+      "slug": "dithering-swirl-shader",
+      "sourceOrder": 202,
+      "sourceLastUpdated": "2026-07-03T00:22:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/dotted-surface-waves",
+      "slug": "dotted-surface-waves",
+      "sourceOrder": 203,
+      "sourceLastUpdated": "2026-07-03T00:22:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/dynamic-waveform-shader",
+      "slug": "dynamic-waveform-shader",
+      "sourceOrder": 204,
+      "sourceLastUpdated": "2026-07-03T00:22:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/electric-waves-shader",
+      "slug": "electric-waves-shader",
+      "sourceOrder": 205,
+      "sourceLastUpdated": "2026-07-03T00:22:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/endless-pursuit-shader-hero",
+      "slug": "endless-pursuit-shader-hero",
+      "sourceOrder": 206,
+      "sourceLastUpdated": "2026-07-03T00:22:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/exoplanet-survey-shader",
+      "slug": "exoplanet-survey-shader",
+      "sourceOrder": 90,
+      "sourceLastUpdated": "2026-07-16T12:23:33+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/flowing-waves-shader",
+      "slug": "flowing-waves-shader",
+      "sourceOrder": 207,
+      "sourceLastUpdated": "2026-07-03T00:22:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/fluid-swirl-shader",
+      "slug": "fluid-swirl-shader",
+      "sourceOrder": 208,
+      "sourceLastUpdated": "2026-07-03T00:22:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/galactic-spiral-shader",
+      "slug": "galactic-spiral-shader",
+      "sourceOrder": 209,
+      "sourceLastUpdated": "2026-07-03T00:22:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/gaming-vibe-shader",
+      "slug": "gaming-vibe-shader",
+      "sourceOrder": 210,
+      "sourceLastUpdated": "2026-07-03T00:22:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/generative-mountain-scene",
+      "slug": "generative-mountain-scene",
+      "sourceOrder": 52,
+      "sourceLastUpdated": "2026-07-16T21:19:10+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/glsl-hills-shader",
+      "slug": "glsl-hills-shader",
+      "sourceOrder": 61,
+      "sourceLastUpdated": "2026-07-16T20:22:01+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/grain-gradient-corners-lab",
+      "slug": "grain-gradient-corners-lab",
+      "sourceOrder": 211,
+      "sourceLastUpdated": "2026-07-03T00:22:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/grainy-gradient-ripple-card",
+      "slug": "grainy-gradient-ripple-card",
+      "sourceOrder": 212,
+      "sourceLastUpdated": "2026-07-03T00:22:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/hero-button-expandable",
+      "slug": "hero-button-expandable",
+      "sourceOrder": 213,
+      "sourceLastUpdated": "2026-07-03T00:22:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/hero-dithering-card",
+      "slug": "hero-dithering-card",
+      "sourceOrder": 214,
+      "sourceLastUpdated": "2026-07-21T18:55:28+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/hero-futuristic-webgpu",
+      "slug": "hero-futuristic-webgpu",
+      "sourceOrder": 215,
+      "sourceLastUpdated": "2026-07-03T00:22:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/hex-shield-shader",
+      "slug": "hex-shield-shader",
+      "sourceOrder": 216,
+      "sourceLastUpdated": "2026-07-21T19:06:04+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/hive-noise-shader",
+      "slug": "hive-noise-shader",
+      "sourceOrder": 217,
+      "sourceLastUpdated": "2026-07-03T00:22:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/horizon-strata-shader",
+      "slug": "horizon-strata-shader",
+      "sourceOrder": 218,
+      "sourceLastUpdated": "2026-07-03T00:22:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/interactive-flux-shader",
+      "slug": "interactive-flux-shader",
+      "sourceOrder": 219,
+      "sourceLastUpdated": "2026-07-03T00:22:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/launch-shader",
+      "slug": "launch-shader",
+      "sourceOrder": 220,
+      "sourceLastUpdated": "2026-07-03T00:22:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/liquid-crystal-shader",
+      "slug": "liquid-crystal-shader",
+      "sourceOrder": 221,
+      "sourceLastUpdated": "2026-07-03T00:22:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/liquid-metal-foundry",
+      "slug": "liquid-metal-foundry",
+      "sourceOrder": 222,
+      "sourceLastUpdated": "2026-07-03T00:22:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/living-nebula-shader",
+      "slug": "living-nebula-shader",
+      "sourceOrder": 223,
+      "sourceLastUpdated": "2026-07-03T00:22:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/mesh-gradient-shader-hero",
+      "slug": "mesh-gradient-shader-hero",
+      "sourceOrder": 224,
+      "sourceLastUpdated": "2026-07-03T00:22:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/molten-core-shader",
+      "slug": "molten-core-shader",
+      "sourceOrder": 225,
+      "sourceLastUpdated": "2026-07-03T00:22:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/morphing-light-shader",
+      "slug": "morphing-light-shader",
+      "sourceOrder": 226,
+      "sourceLastUpdated": "2026-07-03T00:22:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/moving-circles-shader",
+      "slug": "moving-circles-shader",
+      "sourceOrder": 227,
+      "sourceLastUpdated": "2026-07-03T00:22:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/novatrix-gradient-mesh",
+      "slug": "novatrix-gradient-mesh",
+      "sourceOrder": 228,
+      "sourceLastUpdated": "2026-07-03T00:22:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/old-television-shader",
+      "slug": "old-television-shader",
+      "sourceOrder": 229,
+      "sourceLastUpdated": "2026-07-03T00:22:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/paper-shader-resume-hero",
+      "slug": "paper-shader-resume-hero",
+      "sourceOrder": 230,
+      "sourceLastUpdated": "2026-07-21T19:06:03+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/paper-shaders-control-deck",
+      "slug": "paper-shaders-control-deck",
+      "sourceOrder": 231,
+      "sourceLastUpdated": "2026-07-22T13:20:42+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/paper-shaders-hero-lab",
+      "slug": "paper-shaders-hero-lab",
+      "sourceOrder": 232,
+      "sourceLastUpdated": "2026-07-22T12:51:43+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/phosphor-30-shader-hero",
+      "slug": "phosphor-30-shader-hero",
+      "sourceOrder": 233,
+      "sourceLastUpdated": "2026-07-03T00:22:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/radial-aperture-shader",
+      "slug": "radial-aperture-shader",
+      "sourceOrder": 42,
+      "sourceLastUpdated": "2026-07-16T22:30:04+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/radial-shader",
+      "slug": "radial-shader",
+      "sourceOrder": 234,
+      "sourceLastUpdated": "2026-07-21T19:23:38+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/realistic-fog-background",
+      "slug": "realistic-fog-background",
+      "sourceOrder": 235,
+      "sourceLastUpdated": "2026-07-03T00:22:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/sdf-dreamscape-shader",
+      "slug": "sdf-dreamscape-shader",
+      "sourceOrder": 236,
+      "sourceLastUpdated": "2026-07-03T00:22:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/shader-animation-integration",
+      "slug": "shader-animation-integration",
+      "sourceOrder": 237,
+      "sourceLastUpdated": "2026-07-21T19:28:31+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/shader-flow-field-rings",
+      "slug": "shader-flow-field-rings",
+      "sourceOrder": 56,
+      "sourceLastUpdated": "2026-07-16T20:57:30+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/shader-lines-showcase",
+      "slug": "shader-lines-showcase",
+      "sourceOrder": 238,
+      "sourceLastUpdated": "2026-07-18T13:43:39+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/shader-plasma-grid-background",
+      "slug": "shader-plasma-grid-background",
+      "sourceOrder": 239,
+      "sourceLastUpdated": "2026-07-21T19:31:56+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/shader-spectral-clock",
+      "slug": "shader-spectral-clock",
+      "sourceOrder": 240,
+      "sourceLastUpdated": "2026-07-03T00:22:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/sickui-waitlist-mesh-shader",
+      "slug": "sickui-waitlist-mesh-shader",
+      "sourceOrder": 241,
+      "sourceLastUpdated": "2026-07-03T00:22:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/simplex-dithering-shader",
+      "slug": "simplex-dithering-shader",
+      "sourceOrder": 242,
+      "sourceLastUpdated": "2026-07-03T00:22:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/spooky-smoke-shader",
+      "slug": "spooky-smoke-shader",
+      "sourceOrder": 243,
+      "sourceLastUpdated": "2026-07-03T00:22:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/starship-shader",
+      "slug": "starship-shader",
+      "sourceOrder": 244,
+      "sourceLastUpdated": "2026-07-21T19:35:59+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/thermal-shader-imaging",
+      "slug": "thermal-shader-imaging",
+      "sourceOrder": 245,
+      "sourceLastUpdated": "2026-07-21T19:39:33+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/vhs-noise-distortion-hero",
+      "slug": "vhs-noise-distortion-hero",
+      "sourceOrder": 246,
+      "sourceLastUpdated": "2026-07-03T00:22:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/vitruvian-ascii-shader",
+      "slug": "vitruvian-ascii-shader",
+      "sourceOrder": 247,
+      "sourceLastUpdated": "2026-07-03T00:22:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/volumetric-beams-shader",
+      "slug": "volumetric-beams-shader",
+      "sourceOrder": 248,
+      "sourceLastUpdated": "2026-07-03T00:22:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/warp-checks-background-lab",
+      "slug": "warp-checks-background-lab",
+      "sourceOrder": 249,
+      "sourceLastUpdated": "2026-07-21T19:43:31+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/warp-dithering-shader",
+      "slug": "warp-dithering-shader",
+      "sourceOrder": 250,
+      "sourceLastUpdated": "2026-07-21T19:46:31+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/warp-drive-shader-bridge",
+      "slug": "warp-drive-shader-bridge",
+      "sourceOrder": 54,
+      "sourceLastUpdated": "2026-07-16T21:10:23+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/warp-shader-hero",
+      "slug": "warp-shader-hero",
+      "sourceOrder": 251,
+      "sourceLastUpdated": "2026-07-03T00:22:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/waves-shader-oscilloscope",
+      "slug": "waves-shader-oscilloscope",
+      "sourceOrder": 252,
+      "sourceLastUpdated": "2026-07-03T00:22:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/webgl-flowing-gradient-shader",
+      "slug": "webgl-flowing-gradient-shader",
+      "sourceOrder": 253,
+      "sourceLastUpdated": "2026-07-03T00:22:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "shaders/webgl-rgb-shift-shader-hero",
+      "slug": "webgl-rgb-shift-shader-hero",
+      "sourceOrder": 254,
+      "sourceLastUpdated": "2026-07-03T00:22:00+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/atelier-archive-quiet-luxury",
+      "slug": "atelier-archive-quiet-luxury",
+      "sourceOrder": 161,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/aurum-neural-ai-landing",
+      "slug": "aurum-neural-ai-landing",
+      "sourceOrder": 162,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/browser-core-devtools-template",
+      "slug": "browser-core-devtools-template",
+      "sourceOrder": 163,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/clinical-luxury-conversion",
+      "slug": "clinical-luxury-conversion",
+      "sourceOrder": 164,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/cyber-serif-template",
+      "slug": "cyber-serif-template",
+      "sourceOrder": 165,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/disruptor-brutalist-template",
+      "slug": "disruptor-brutalist-template",
+      "sourceOrder": 166,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/editorial-naturalism-design-system",
+      "slug": "editorial-naturalism-design-system",
+      "sourceOrder": 167,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/emerald-glass-system",
+      "slug": "emerald-glass-system",
+      "sourceOrder": 168,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/enterprise-admin-saas-landing",
+      "slug": "enterprise-admin-saas-landing",
+      "sourceOrder": 169,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/flux-editorial-saas-landing",
+      "slug": "flux-editorial-saas-landing",
+      "sourceOrder": 170,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/forest-sage-organic-store",
+      "slug": "forest-sage-organic-store",
+      "sourceOrder": 171,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/gen-z-neobrutalist-landing",
+      "slug": "gen-z-neobrutalist-landing",
+      "sourceOrder": 172,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/heavyweight-brutalist-store",
+      "slug": "heavyweight-brutalist-store",
+      "sourceOrder": 37,
+      "sourceLastUpdated": "2026-07-16T22:59:31+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/kinetic-orange-brutalist-agency",
+      "slug": "kinetic-orange-brutalist-agency",
+      "sourceOrder": 173,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/lumina-neobrutalist-saas-landing",
+      "slug": "lumina-neobrutalist-saas-landing",
+      "sourceOrder": 174,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/lumina-portfolio-template",
+      "slug": "lumina-portfolio-template",
+      "sourceOrder": 175,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/midnight-editorial-template",
+      "slug": "midnight-editorial-template",
+      "sourceOrder": 176,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/neon-velocity-style-guide",
+      "slug": "neon-velocity-style-guide",
+      "sourceOrder": 177,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/obsidian-elite-template",
+      "slug": "obsidian-elite-template",
+      "sourceOrder": 178,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/organic-intelligence-wave",
+      "slug": "organic-intelligence-wave",
+      "sourceOrder": 179,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/aceternity/agenforce-marketing-template",
+      "slug": "agenforce-marketing-template",
+      "sourceOrder": 159,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/aceternity/agenlabs-agency-template",
+      "slug": "agenlabs-agency-template",
+      "sourceOrder": 156,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/aceternity/ai-saas-template",
+      "slug": "ai-saas-template",
+      "sourceOrder": 152,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/aceternity/cryptgen-marketing-aceternity",
+      "slug": "cryptgen-marketing-aceternity",
+      "sourceOrder": 151,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/aceternity/devpro-portfolio-template",
+      "slug": "devpro-portfolio-template",
+      "sourceOrder": 145,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/aceternity/foxtrot-marketing-template",
+      "slug": "foxtrot-marketing-template",
+      "sourceOrder": 143,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/aceternity/minimal-portfolio-template",
+      "slug": "minimal-portfolio-template",
+      "sourceOrder": 140,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/aceternity/minimalist-portfolio-template",
+      "slug": "minimalist-portfolio-template",
+      "sourceOrder": 135,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/aceternity/nodus-agent-template",
+      "slug": "nodus-agent-template",
+      "sourceOrder": 133,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/aceternity/playful-marketing-aceternity",
+      "slug": "playful-marketing-aceternity",
+      "sourceOrder": 129,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/aceternity/proactiv-marketing-template",
+      "slug": "proactiv-marketing-template",
+      "sourceOrder": 127,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/aceternity/productized-agency-template",
+      "slug": "productized-agency-template",
+      "sourceOrder": 123,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/aceternity/schedule-marketing-template",
+      "slug": "schedule-marketing-template",
+      "sourceOrder": 120,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/aceternity/sidefolio-portfolio-template",
+      "slug": "sidefolio-portfolio-template",
+      "sourceOrder": 118,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/aceternity/simplistic-saas-template",
+      "slug": "simplistic-saas-template",
+      "sourceOrder": 116,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/aceternity/startup-landing-page-template",
+      "slug": "startup-landing-page-template",
+      "sourceOrder": 113,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/cruip/appy",
+      "slug": "appy",
+      "sourceOrder": 160,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/cruip/community",
+      "slug": "community",
+      "sourceOrder": 158,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/cruip/creative",
+      "slug": "creative",
+      "sourceOrder": 157,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/cruip/cube",
+      "slug": "cube",
+      "sourceOrder": 155,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/cruip/devfolio",
+      "slug": "devfolio",
+      "sourceOrder": 154,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/cruip/devspace",
+      "slug": "devspace",
+      "sourceOrder": 153,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/cruip/docs",
+      "slug": "docs",
+      "sourceOrder": 150,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/cruip/fintech",
+      "slug": "fintech",
+      "sourceOrder": 148,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/cruip/gray",
+      "slug": "gray",
+      "sourceOrder": 146,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/cruip/jobboard",
+      "slug": "jobboard",
+      "sourceOrder": 144,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/cruip/mosaic",
+      "slug": "mosaic",
+      "sourceOrder": 142,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/cruip/neon",
+      "slug": "neon",
+      "sourceOrder": 141,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/cruip/open-pro",
+      "slug": "open-pro",
+      "sourceOrder": 139,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/cruip/podcast",
+      "slug": "podcast",
+      "sourceOrder": 138,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/cruip/quoty",
+      "slug": "quoty",
+      "sourceOrder": 137,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/cruip/shadcnblocks-admin",
+      "slug": "shadcnblocks-admin",
+      "sourceOrder": 134,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/cruip/simple",
+      "slug": "simple",
+      "sourceOrder": 131,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/cruip/stellar",
+      "slug": "stellar",
+      "sourceOrder": 128,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/cruip/talent",
+      "slug": "talent",
+      "sourceOrder": 126,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/cruip/tidy",
+      "slug": "tidy",
+      "sourceOrder": 121,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/cruip/waitlist",
+      "slug": "waitlist",
+      "sourceOrder": 119,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/lexingtonthemes/aelen",
+      "slug": "aelen",
+      "sourceOrder": 33,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/lexingtonthemes/alfred",
+      "slug": "alfred",
+      "sourceOrder": 30,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/lexingtonthemes/astromaxsp",
+      "slug": "astromaxsp",
+      "sourceOrder": 26,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/lexingtonthemes/aubergine",
+      "slug": "aubergine",
+      "sourceOrder": 149,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/lexingtonthemes/author",
+      "slug": "author",
+      "sourceOrder": 147,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/lexingtonthemes/bastion",
+      "slug": "bastion",
+      "sourceOrder": 21,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/lexingtonthemes/brightlight",
+      "slug": "brightlight",
+      "sourceOrder": 19,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/lexingtonthemes/buio",
+      "slug": "buio",
+      "sourceOrder": 15,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/lexingtonthemes/carbon",
+      "slug": "carbon",
+      "sourceOrder": 12,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/lexingtonthemes/carriera",
+      "slug": "carriera",
+      "sourceOrder": 10,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/lexingtonthemes/carrington",
+      "slug": "carrington",
+      "sourceOrder": 7,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/lexingtonthemes/copperlane",
+      "slug": "copperlane",
+      "sourceOrder": 50,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/lexingtonthemes/dusk",
+      "slug": "dusk",
+      "sourceOrder": 136,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/lexingtonthemes/ellamae",
+      "slug": "ellamae",
+      "sourceOrder": 69,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/lexingtonthemes/enlightr",
+      "slug": "enlightr",
+      "sourceOrder": 132,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/lexingtonthemes/flabbergasted",
+      "slug": "flabbergasted",
+      "sourceOrder": 130,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/lexingtonthemes/flaco",
+      "slug": "flaco",
+      "sourceOrder": 82,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/lexingtonthemes/hemingway",
+      "slug": "hemingway",
+      "sourceOrder": 125,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/lexingtonthemes/hirewise",
+      "slug": "hirewise",
+      "sourceOrder": 124,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/lexingtonthemes/kotei",
+      "slug": "kotei",
+      "sourceOrder": 122,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/lexingtonthemes/matterhaus",
+      "slug": "matterhaus",
+      "sourceOrder": 117,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/lexingtonthemes/molle",
+      "slug": "molle",
+      "sourceOrder": 115,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/lexingtonthemes/mulberry",
+      "slug": "mulberry",
+      "sourceOrder": 114,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/lexingtonthemes/navy",
+      "slug": "navy",
+      "sourceOrder": 112,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/lexingtonthemes/newport",
+      "slug": "newport",
+      "sourceOrder": 111,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/lexingtonthemes/northbound",
+      "slug": "northbound",
+      "sourceOrder": 109,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/lexingtonthemes/outkast",
+      "slug": "outkast",
+      "sourceOrder": 108,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/lexingtonthemes/phanatik",
+      "slug": "phanatik",
+      "sourceOrder": 107,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/lexingtonthemes/primapersona",
+      "slug": "primapersona",
+      "sourceOrder": 106,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/lexingtonthemes/profoliox",
+      "slug": "profoliox",
+      "sourceOrder": 104,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/lexingtonthemes/quartiere",
+      "slug": "quartiere",
+      "sourceOrder": 77,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/lexingtonthemes/riflesso",
+      "slug": "riflesso",
+      "sourceOrder": 102,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/lexingtonthemes/rosewood",
+      "slug": "rosewood",
+      "sourceOrder": 101,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/lexingtonthemes/sandstone",
+      "slug": "sandstone",
+      "sourceOrder": 91,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/lexingtonthemes/semplice",
+      "slug": "semplice",
+      "sourceOrder": 100,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/lexingtonthemes/simplexity",
+      "slug": "simplexity",
+      "sourceOrder": 99,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/lexingtonthemes/snowpeak",
+      "slug": "snowpeak",
+      "sourceOrder": 98,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/lexingtonthemes/spaziobianco",
+      "slug": "spaziobianco",
+      "sourceOrder": 97,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/lexingtonthemes/streamer",
+      "slug": "streamer",
+      "sourceOrder": 96,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/lexingtonthemes/studiomax",
+      "slug": "studiomax",
+      "sourceOrder": 95,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/lexingtonthemes/trendspotter",
+      "slug": "trendspotter",
+      "sourceOrder": 94,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/lexingtonthemes/vanta",
+      "slug": "vanta",
+      "sourceOrder": 93,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/lexingtonthemes/westend",
+      "slug": "westend",
+      "sourceOrder": 18,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/lexingtonthemes/williamsburg",
+      "slug": "williamsburg",
+      "sourceOrder": 92,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/lexingtonthemes/zeroindex",
+      "slug": "zeroindex",
+      "sourceOrder": 88,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/magic-ui/agent",
+      "slug": "agent",
+      "sourceOrder": 105,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/magic-ui/blog",
+      "slug": "blog",
+      "sourceOrder": 103,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/magic-ui/changelog",
+      "slug": "changelog",
+      "sourceOrder": 110,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": true
+    },
+    {
+      "sourcePath": "templates/premium/magic-ui/codeforge",
+      "slug": "codeforge",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/magic-ui/devtool",
+      "slug": "devtool",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/magic-ui/mobile",
+      "slug": "mobile",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/magic-ui/portfolio",
+      "slug": "portfolio",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/magic-ui/saas",
+      "slug": "saas",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/magic-ui/startup",
+      "slug": "startup",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/nextjstemplates/agency",
+      "slug": "agency",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/nextjstemplates/ai-starter-kit",
+      "slug": "ai-starter-kit",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/nextjstemplates/ai-tool",
+      "slug": "ai-tool",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/nextjstemplates/appline",
+      "slug": "appline",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/nextjstemplates/base",
+      "slug": "base",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/nextjstemplates/crypto",
+      "slug": "crypto",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/nextjstemplates/doggystickers",
+      "slug": "doggystickers",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/nextjstemplates/finorio-saas-landing",
+      "slug": "finorio-saas-landing",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/nextjstemplates/gostartup",
+      "slug": "gostartup",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/nextjstemplates/landing-template-nextui",
+      "slug": "landing-template-nextui",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/nextjstemplates/next-saas-starter",
+      "slug": "next-saas-starter",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/nextjstemplates/next-startd",
+      "slug": "next-startd",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/nextjstemplates/nextadmin",
+      "slug": "nextadmin",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/nextjstemplates/nextblog",
+      "slug": "nextblog",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/nextjstemplates/nextly",
+      "slug": "nextly",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/nextjstemplates/nextmerce-saas-ecommerce",
+      "slug": "nextmerce-saas-ecommerce",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/nextjstemplates/nextra-docs-template",
+      "slug": "nextra-docs-template",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/nextjstemplates/notion-blog",
+      "slug": "notion-blog",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/nextjstemplates/play",
+      "slug": "play",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/nextjstemplates/plutonium",
+      "slug": "plutonium",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/nextjstemplates/react-portfolio",
+      "slug": "react-portfolio",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/nextjstemplates/saas-ui",
+      "slug": "saas-ui",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/nextjstemplates/sandocs",
+      "slug": "sandocs",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/nextjstemplates/solid",
+      "slug": "solid",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/nextjstemplates/stablo",
+      "slug": "stablo",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/nextjstemplates/startup-nextjs",
+      "slug": "startup-nextjs",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/nextjstemplates/startup-pro",
+      "slug": "startup-pro",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/nextjstemplates/tailwind-nextjs-starter-blog",
+      "slug": "tailwind-nextjs-starter-blog",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/nextjstemplates/tx-shadcn",
+      "slug": "tx-shadcn",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/nextjstemplates/unft-marketplace",
+      "slug": "unft-marketplace",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/shadcnblocks/aspect",
+      "slug": "aspect",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/shadcnblocks/charter",
+      "slug": "charter",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/shadcnblocks/echo",
+      "slug": "echo",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/shadcnblocks/hatch",
+      "slug": "hatch",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/shadcnblocks/hive",
+      "slug": "hive",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/shadcnblocks/kinto",
+      "slug": "kinto",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/shadcnblocks/lumen",
+      "slug": "lumen",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/shadcnblocks/mainline",
+      "slug": "mainline",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/shadcnblocks/metafi",
+      "slug": "metafi",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/shadcnblocks/plasma",
+      "slug": "plasma",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/shadcnblocks/relative",
+      "slug": "relative",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/shadcnblocks/scalar",
+      "slug": "scalar",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/shadcnblocks/sonic",
+      "slug": "sonic",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/shadcnblocks/streamline",
+      "slug": "streamline",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/shadcnblocks/zippay",
+      "slug": "zippay",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/shipxen/emerald-ai",
+      "slug": "emerald-ai",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/shipxen/front-centre",
+      "slug": "front-centre",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/shipxen/gnomie-ai",
+      "slug": "gnomie-ai",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/shipxen/minimum-via",
+      "slug": "minimum-via",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/shipxen/screenshot-two",
+      "slug": "screenshot-two",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/shipxen/specta",
+      "slug": "specta",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/tailgrids/aichat",
+      "slug": "aichat",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/tailgrids/aispace",
+      "slug": "aispace",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/tailgrids/appspace",
+      "slug": "appspace",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/tailgrids/bizspace",
+      "slug": "bizspace",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/tailgrids/cms",
+      "slug": "cms",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/tailgrids/dashspace",
+      "slug": "dashspace",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/tailgrids/filemanager",
+      "slug": "filemanager",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/tailgrids/fincash",
+      "slug": "fincash",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/tailgrids/fundex",
+      "slug": "fundex",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/tailgrids/lytic",
+      "slug": "lytic",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/tailgrids/nexstudio",
+      "slug": "nexstudio",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/tailgrids/originx",
+      "slug": "originx",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/tailgrids/saasly",
+      "slug": "saasly",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/tailgrids/saasspace",
+      "slug": "saasspace",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/tailgrids/synthai",
+      "slug": "synthai",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/tailgrids/techself",
+      "slug": "techself",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/tailgrids/writemate",
+      "slug": "writemate",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/tailwindcss/catalyst",
+      "slug": "catalyst",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/tailwindcss/commit",
+      "slug": "commit",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/tailwindcss/compass",
+      "slug": "compass",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/tailwindcss/keynote",
+      "slug": "keynote",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/tailwindcss/oatmeal-saas-kit",
+      "slug": "oatmeal-saas-kit",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/tailwindcss/pocket",
+      "slug": "pocket",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/tailwindcss/primer",
+      "slug": "primer",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/tailwindcss/protocol",
+      "slug": "protocol",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/tailwindcss/radiant",
+      "slug": "radiant",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/tailwindcss/salient",
+      "slug": "salient",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/tailwindcss/studio",
+      "slug": "studio",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/tailwindcss/syntax",
+      "slug": "syntax",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/tailwindcss/transmit",
+      "slug": "transmit",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/themefisher/andromeda-light-nextjs",
+      "slug": "andromeda-light-nextjs",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/themefisher/andromeda-nextjs",
+      "slug": "andromeda-nextjs",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/themefisher/atemp-nextjs",
+      "slug": "atemp-nextjs",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/themefisher/bigspring-light-nextjs",
+      "slug": "bigspring-light-nextjs",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/themefisher/bigspring-nextjs",
+      "slug": "bigspring-nextjs",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/themefisher/bookworm-light-nextjs",
+      "slug": "bookworm-light-nextjs",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/themefisher/clarity",
+      "slug": "clarity",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/themefisher/cleaner-nextjs",
+      "slug": "cleaner-nextjs",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/themefisher/cloudpeak-nextjs",
+      "slug": "cloudpeak-nextjs",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/themefisher/copper-nextjs",
+      "slug": "copper-nextjs",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/themefisher/darkrise-nextjs",
+      "slug": "darkrise-nextjs",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/themefisher/devgent-nextjs",
+      "slug": "devgent-nextjs",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/themefisher/dexler-nextjs",
+      "slug": "dexler-nextjs",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/themefisher/finprox-nextjs",
+      "slug": "finprox-nextjs",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/themefisher/fortify-nextjs",
+      "slug": "fortify-nextjs",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/themefisher/glasto",
+      "slug": "glasto",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/themefisher/mobit",
+      "slug": "mobit",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/themefisher/neonspark-nextjs",
+      "slug": "neonspark-nextjs",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/themefisher/nextspace-nextjs",
+      "slug": "nextspace-nextjs",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/themefisher/novai-nextjs",
+      "slug": "novai-nextjs",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/themefisher/optimize-nextjs",
+      "slug": "optimize-nextjs",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/themefisher/optivus-nextjs",
+      "slug": "optivus-nextjs",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/themefisher/quickdir-nextjs",
+      "slug": "quickdir-nextjs",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/themefisher/relux-nextjs",
+      "slug": "relux-nextjs",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/themefisher/seoptic-nextjs",
+      "slug": "seoptic-nextjs",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/themefisher/spydea-nextjs",
+      "slug": "spydea-nextjs",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/premium/themefisher/visionex-nextjs",
+      "slug": "visionex-nextjs",
+      "sourceOrder": null,
+      "sourceLastUpdated": null,
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/raw-form-design-system",
+      "slug": "raw-form-design-system",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/realmagic-ticker-scroll",
+      "slug": "realmagic-ticker-scroll",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-07-21T18:25:23+05:30",
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/red-sun-editorial-template",
+      "slug": "red-sun-editorial-template",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-07-03T00:22:03+05:30",
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/season-04-brutalist-store",
+      "slug": "season-04-brutalist-store",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/softly-wellness",
+      "slug": "softly-wellness",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/stacking-cards-portfolio",
+      "slug": "stacking-cards-portfolio",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/sticky-content-switch",
+      "slug": "sticky-content-switch",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/super-design-industrial-system",
+      "slug": "super-design-industrial-system",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/super-travel-luxury-landing",
+      "slug": "super-travel-luxury-landing",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/superdesign-architectural-type",
+      "slug": "superdesign-architectural-type",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/superdesign-cinematic-agency",
+      "slug": "superdesign-cinematic-agency",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/superdesign-crimson-craft",
+      "slug": "superdesign-crimson-craft",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/superdesign-design-on-reality",
+      "slug": "superdesign-design-on-reality",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/superdesign-editorial-grid",
+      "slug": "superdesign-editorial-grid",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/superdesign-editorial-manifesto",
+      "slug": "superdesign-editorial-manifesto",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/superdesign-invite-waitlist",
+      "slug": "superdesign-invite-waitlist",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-07-03T00:22:03+05:30",
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/superdesign-midnight-editorial",
+      "slug": "superdesign-midnight-editorial",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/superdesign-modern-atmospheric",
+      "slug": "superdesign-modern-atmospheric",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/superdesign-modern-obsidian",
+      "slug": "superdesign-modern-obsidian",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/superdesign-neo-brutalist-acid",
+      "slug": "superdesign-neo-brutalist-acid",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/superdesign-obsidian-lime",
+      "slug": "superdesign-obsidian-lime",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/superdesign-red-noir-landing",
+      "slug": "superdesign-red-noir-landing",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-07-16T12:23:33+05:30",
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/superdesign-studio-editorial",
+      "slug": "superdesign-studio-editorial",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/superdesign-technical-system",
+      "slug": "superdesign-technical-system",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/synapse-design-system",
+      "slug": "synapse-design-system",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/terroir-tasting-room",
+      "slug": "terroir-tasting-room",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "templates/vertical-clip-text-slide",
+      "slug": "vertical-clip-text-slide",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "ui-design/academia-classical-showcase",
+      "slug": "academia-classical-showcase",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "ui-design/ai-budget-tracking-landing-page-velara-al",
+      "slug": "ai-budget-tracking-landing-page-velara-al",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-07-03T00:22:04+05:30",
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "ui-design/aperture-minimalist-dark",
+      "slug": "aperture-minimalist-dark",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-07-03T00:22:04+05:30",
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "ui-design/art-deco-gatsby-showcase",
+      "slug": "art-deco-gatsby-showcase",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "ui-design/aurora-flow-landing",
+      "slug": "aurora-flow-landing",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-07-16T21:42:20+05:30",
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "ui-design/bauhaus-form-follows-function",
+      "slug": "bauhaus-form-follows-function",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-07-16T19:46:42+05:30",
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "ui-design/bitcoin-defi-aurum",
+      "slug": "bitcoin-defi-aurum",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-07-03T00:22:04+05:30",
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "ui-design/bold-typography-design-system",
+      "slug": "bold-typography-design-system",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-07-03T00:22:04+05:30",
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "ui-design/botanical-organic-serif",
+      "slug": "botanical-organic-serif",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-07-16T19:25:09+05:30",
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "ui-design/clay-design-system",
+      "slug": "clay-design-system",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-07-03T00:22:04+05:30",
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "ui-design/copy-machine-pixel-perfect",
+      "slug": "copy-machine-pixel-perfect",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-07-03T00:22:04+05:30",
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "ui-design/copy-machine-setup",
+      "slug": "copy-machine-setup",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-07-03T00:22:04+05:30",
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "ui-design/corporate-trust-design-system",
+      "slug": "corporate-trust-design-system",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-07-03T00:22:04+05:30",
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "ui-design/cyberpunk-glitch-design-system",
+      "slug": "cyberpunk-glitch-design-system",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "ui-design/finsyc-finance-landing",
+      "slug": "finsyc-finance-landing",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-07-03T00:22:04+05:30",
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "ui-design/flatline-design-system",
+      "slug": "flatline-design-system",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-07-03T00:22:04+05:30",
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "ui-design/handcraft-paper-ui",
+      "slug": "handcraft-paper-ui",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-07-03T00:22:04+05:30",
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "ui-design/industrial-skeuomorphism",
+      "slug": "industrial-skeuomorphism",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-07-21T18:19:03+05:30",
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "ui-design/kinetic-typography-poster",
+      "slug": "kinetic-typography-poster",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-07-16T12:23:33+05:30",
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "ui-design/lumen-design-system",
+      "slug": "lumen-design-system",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-07-03T00:22:04+05:30",
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "ui-design/lumina-minimalist-modern",
+      "slug": "lumina-minimalist-modern",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-07-03T00:22:04+05:30",
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "ui-design/luxury-editorial-design-system",
+      "slug": "luxury-editorial-design-system",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-07-03T00:22:04+05:30",
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "ui-design/material-you-showcase",
+      "slug": "material-you-showcase",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-07-03T00:22:04+05:30",
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "ui-design/maximalism-dopamine-system",
+      "slug": "maximalism-dopamine-system",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-07-03T00:22:04+05:30",
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "ui-design/neo-brutalism-loud-system",
+      "slug": "neo-brutalism-loud-system",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-07-03T00:22:04+05:30",
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "ui-design/neumorphism-soft-ui",
+      "slug": "neumorphism-soft-ui",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-08-06T12:50:36+05:30",
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "ui-design/newsprint-editorial-press",
+      "slug": "newsprint-editorial-press",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-07-03T00:22:04+05:30",
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "ui-design/playful-geometric-design-system",
+      "slug": "playful-geometric-design-system",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-07-03T00:22:04+05:30",
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "ui-design/retro-90s-nostalgia-design-system",
+      "slug": "retro-90s-nostalgia-design-system",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-07-03T00:22:04+05:30",
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "ui-design/scaffold-ready-splash",
+      "slug": "scaffold-ready-splash",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-07-03T00:22:04+05:30",
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "ui-design/serif-editorial-design-system",
+      "slug": "serif-editorial-design-system",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-07-03T00:22:04+05:30",
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "ui-design/swiss-design-system",
+      "slug": "swiss-design-system",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-07-03T00:22:04+05:30",
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "ui-design/vaporwave-outrun-design-system",
+      "slug": "vaporwave-outrun-design-system",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-07-03T00:22:04+05:30",
+      "sourceListedCurrent": false
+    },
+    {
+      "sourcePath": "ui-design/verdant-organic-design-system",
+      "slug": "verdant-organic-design-system",
+      "sourceOrder": null,
+      "sourceLastUpdated": "2026-07-03T00:22:04+05:30",
+      "sourceListedCurrent": false
+    }
+  ]
+}

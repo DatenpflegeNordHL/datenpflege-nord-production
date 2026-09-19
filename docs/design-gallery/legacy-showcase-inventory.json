@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "auditedAt": "2026-09-18",
+  "source": {"repository":"DatenpflegeNordHL/website-final","branch":"agent/nordwerk-design-gallery","commit":"f1612b5","upstreamRepository":"pulkitxm/claude-directory","upstreamCommit":"9b5ad43b1450fe6b28a42a9cb8115498d5c56e2a"},
+  "inventory": {"projects":546,"completePosterVideoPairs":546,"promptFiles":541,"mediaBytes":2543917029,"categories":{"3d-games":2,"animations-loaders":12,"components-ui":15,"hero-sections":41,"landing-pages":98,"portfolios":14,"shaders":84,"templates":246,"ui-design":34}},
+  "releaseGate": {"approved":0,"review":0,"rejected":0,"unknown":546,"publiclyUsable":0,"reasons":["Keine pro Projekt nachvollziehbare Lizenzfreigabe im alten Katalog.","Alle 546 Einträge hatten reviewStatus=pending und mediaStatus=pending_sync.","199 Einträge tragen den Risikohinweis premium_template.","Fünf Einträge enthalten keinen Projekt-Prompt als Herkunftshinweis.","Die alte öffentliche Galerie war von einem externen Medien-Manifest unter media.datenpflege-nord.de abhängig."]},
+  "policy":"Alte Einträge bleiben ausschließlich Referenzdaten. Ohne dokumentierte Rechte-, Marken-, Asset- und Medienprüfung werden keine Poster, Videos, Links, Demos oder Template-Inhalte veröffentlicht."
+}

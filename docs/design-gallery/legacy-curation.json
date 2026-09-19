@@ -1,0 +1,820 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "repository": "pulkitxm/claude-directory",
+    "commit": "9b5ad43b1450fe6b28a42a9cb8115498d5c56e2a",
+    "license": "MIT"
+  },
+  "selection": {
+    "count": 24,
+    "approvalScope": "editorial-inspiration-only"
+  },
+  "excluded": {
+    "premiumOrCommercial": 199,
+    "remainingUnreviewedLegacyRecords": 522,
+    "externalUrlOrTrackerPromptCandidates": [
+      "animations-loaders/container-scroll-animation",
+      "animations-loaders/scroll-expansion-hero",
+      "components-ui/aurora-sign-up",
+      "components-ui/core-features-gradient-cards",
+      "components-ui/gradient-bars-background",
+      "shaders/volumetric-beams-shader"
+    ]
+  },
+  "directions": [
+    {
+      "id": "editorial-animations-loaders-bloom-nested-squares",
+      "legacyReference": {
+        "id": "animations-loaders/bloom-nested-squares",
+        "sourcePath": "animations-loaders/bloom-nested-squares",
+        "repository": "pulkitxm/claude-directory",
+        "commit": "9b5ad43b1450fe6b28a42a9cb8115498d5c56e2a",
+        "upstreamLicense": "MIT",
+        "promptGitBlobSha": "10b830edacf8f8da9d7e02118ed19da40c8d110b",
+        "legacyStatus": "unknown",
+        "legacyMedia": {
+          "poster": {
+            "status": "not_used_pending_sync",
+            "bytes": 107947,
+            "format": ".jpg"
+          },
+          "video": {
+            "status": "not_used_pending_sync",
+            "bytes": 17026359,
+            "format": ".mp4"
+          },
+          "reason": "Only an independently authored editorial direction is public; legacy media and source files are never published."
+        },
+        "screening": {
+          "premiumOrCommercialHint": false,
+          "riskFlags": [],
+          "promptPresent": true,
+          "promptExternalUrls": false,
+          "promptTrackers": false,
+          "originalMediaPublished": false
+        }
+      }
+    },
+    {
+      "id": "editorial-components-ui-animated-dots-rain",
+      "legacyReference": {
+        "id": "components-ui/animated-dots-rain",
+        "sourcePath": "components-ui/animated-dots-rain",
+        "repository": "pulkitxm/claude-directory",
+        "commit": "9b5ad43b1450fe6b28a42a9cb8115498d5c56e2a",
+        "upstreamLicense": "MIT",
+        "promptGitBlobSha": "5b98df89453419ba4024efddf5ae89cddb420868",
+        "legacyStatus": "unknown",
+        "legacyMedia": {
+          "poster": {
+            "status": "not_used_pending_sync",
+            "bytes": 18067,
+            "format": ".jpg"
+          },
+          "video": {
+            "status": "not_used_pending_sync",
+            "bytes": 3953502,
+            "format": ".mp4"
+          },
+          "reason": "Only an independently authored editorial direction is public; legacy media and source files are never published."
+        },
+        "screening": {
+          "premiumOrCommercialHint": false,
+          "riskFlags": [],
+          "promptPresent": true,
+          "promptExternalUrls": false,
+          "promptTrackers": false,
+          "originalMediaPublished": false
+        }
+      }
+    },
+    {
+      "id": "editorial-components-ui-background-paths-hero",
+      "legacyReference": {
+        "id": "components-ui/background-paths-hero",
+        "sourcePath": "components-ui/background-paths-hero",
+        "repository": "pulkitxm/claude-directory",
+        "commit": "9b5ad43b1450fe6b28a42a9cb8115498d5c56e2a",
+        "upstreamLicense": "MIT",
+        "promptGitBlobSha": "b5f3ee07addafba093c34adc50272bea3fbe65f0",
+        "legacyStatus": "unknown",
+        "legacyMedia": {
+          "poster": {
+            "status": "not_used_pending_sync",
+            "bytes": 72538,
+            "format": ".jpg"
+          },
+          "video": {
+            "status": "not_used_pending_sync",
+            "bytes": 2228295,
+            "format": ".mp4"
+          },
+          "reason": "Only an independently authored editorial direction is public; legacy media and source files are never published."
+        },
+        "screening": {
+          "premiumOrCommercialHint": false,
+          "riskFlags": [],
+          "promptPresent": true,
+          "promptExternalUrls": false,
+          "promptTrackers": false,
+          "originalMediaPublished": false
+        }
+      }
+    },
+    {
+      "id": "editorial-components-ui-gradient-dots-background",
+      "legacyReference": {
+        "id": "components-ui/gradient-dots-background",
+        "sourcePath": "components-ui/gradient-dots-background",
+        "repository": "pulkitxm/claude-directory",
+        "commit": "9b5ad43b1450fe6b28a42a9cb8115498d5c56e2a",
+        "upstreamLicense": "MIT",
+        "promptGitBlobSha": "ed7148de1c0cdc242d0c1f5ca6bc465b1e411e81",
+        "legacyStatus": "unknown",
+        "legacyMedia": {
+          "poster": {
+            "status": "not_used_pending_sync",
+            "bytes": 107949,
+            "format": ".jpg"
+          },
+          "video": {
+            "status": "not_used_pending_sync",
+            "bytes": 10773630,
+            "format": ".mp4"
+          },
+          "reason": "Only an independently authored editorial direction is public; legacy media and source files are never published."
+        },
+        "screening": {
+          "premiumOrCommercialHint": false,
+          "riskFlags": [],
+          "promptPresent": true,
+          "promptExternalUrls": false,
+          "promptTrackers": false,
+          "originalMediaPublished": false
+        }
+      }
+    },
+    {
+      "id": "editorial-components-ui-terminal-cli-control-deck",
+      "legacyReference": {
+        "id": "components-ui/terminal-cli-control-deck",
+        "sourcePath": "components-ui/terminal-cli-control-deck",
+        "repository": "pulkitxm/claude-directory",
+        "commit": "9b5ad43b1450fe6b28a42a9cb8115498d5c56e2a",
+        "upstreamLicense": "MIT",
+        "promptGitBlobSha": "3eb09e33904054effab49429d3723cb655256791",
+        "legacyStatus": "unknown",
+        "legacyMedia": {
+          "poster": {
+            "status": "not_used_pending_sync",
+            "bytes": 129979,
+            "format": ".jpg"
+          },
+          "video": {
+            "status": "not_used_pending_sync",
+            "bytes": 5140104,
+            "format": ".mp4"
+          },
+          "reason": "Only an independently authored editorial direction is public; legacy media and source files are never published."
+        },
+        "screening": {
+          "premiumOrCommercialHint": false,
+          "riskFlags": [],
+          "promptPresent": true,
+          "promptExternalUrls": false,
+          "promptTrackers": false,
+          "originalMediaPublished": false
+        }
+      }
+    },
+    {
+      "id": "editorial-shaders-abstract-glassy-shader",
+      "legacyReference": {
+        "id": "shaders/abstract-glassy-shader",
+        "sourcePath": "shaders/abstract-glassy-shader",
+        "repository": "pulkitxm/claude-directory",
+        "commit": "9b5ad43b1450fe6b28a42a9cb8115498d5c56e2a",
+        "upstreamLicense": "MIT",
+        "promptGitBlobSha": "657f7a3aa861912ef2a555d647dfd356a74933f9",
+        "legacyStatus": "unknown",
+        "legacyMedia": {
+          "poster": {
+            "status": "not_used_pending_sync",
+            "bytes": 74941,
+            "format": ".jpg"
+          },
+          "video": {
+            "status": "not_used_pending_sync",
+            "bytes": 3763453,
+            "format": ".mp4"
+          },
+          "reason": "Only an independently authored editorial direction is public; legacy media and source files are never published."
+        },
+        "screening": {
+          "premiumOrCommercialHint": false,
+          "riskFlags": [],
+          "promptPresent": true,
+          "promptExternalUrls": false,
+          "promptTrackers": false,
+          "originalMediaPublished": false
+        }
+      }
+    },
+    {
+      "id": "editorial-shaders-aurora-borealis-shader",
+      "legacyReference": {
+        "id": "shaders/aurora-borealis-shader",
+        "sourcePath": "shaders/aurora-borealis-shader",
+        "repository": "pulkitxm/claude-directory",
+        "commit": "9b5ad43b1450fe6b28a42a9cb8115498d5c56e2a",
+        "upstreamLicense": "MIT",
+        "promptGitBlobSha": "edd5a50ea8bf76566ec0da9c61bd6d058e9c604f",
+        "legacyStatus": "unknown",
+        "legacyMedia": {
+          "poster": {
+            "status": "not_used_pending_sync",
+            "bytes": 49494,
+            "format": ".jpg"
+          },
+          "video": {
+            "status": "not_used_pending_sync",
+            "bytes": 2362920,
+            "format": ".mp4"
+          },
+          "reason": "Only an independently authored editorial direction is public; legacy media and source files are never published."
+        },
+        "screening": {
+          "premiumOrCommercialHint": false,
+          "riskFlags": [],
+          "promptPresent": true,
+          "promptExternalUrls": false,
+          "promptTrackers": false,
+          "originalMediaPublished": false
+        }
+      }
+    },
+    {
+      "id": "editorial-shaders-blue-meshy-shader-lab",
+      "legacyReference": {
+        "id": "shaders/blue-meshy-shader-lab",
+        "sourcePath": "shaders/blue-meshy-shader-lab",
+        "repository": "pulkitxm/claude-directory",
+        "commit": "9b5ad43b1450fe6b28a42a9cb8115498d5c56e2a",
+        "upstreamLicense": "MIT",
+        "promptGitBlobSha": "f1f5c09301b023bb27023de411f7379816607960",
+        "legacyStatus": "unknown",
+        "legacyMedia": {
+          "poster": {
+            "status": "not_used_pending_sync",
+            "bytes": 56466,
+            "format": ".jpg"
+          },
+          "video": {
+            "status": "not_used_pending_sync",
+            "bytes": 4023881,
+            "format": ".mp4"
+          },
+          "reason": "Only an independently authored editorial direction is public; legacy media and source files are never published."
+        },
+        "screening": {
+          "premiumOrCommercialHint": false,
+          "riskFlags": [],
+          "promptPresent": true,
+          "promptExternalUrls": false,
+          "promptTrackers": false,
+          "originalMediaPublished": false
+        }
+      }
+    },
+    {
+      "id": "editorial-shaders-flowing-waves-shader",
+      "legacyReference": {
+        "id": "shaders/flowing-waves-shader",
+        "sourcePath": "shaders/flowing-waves-shader",
+        "repository": "pulkitxm/claude-directory",
+        "commit": "9b5ad43b1450fe6b28a42a9cb8115498d5c56e2a",
+        "upstreamLicense": "MIT",
+        "promptGitBlobSha": "592e1ac2e3fe485942759f4b7812e8e4521449ff",
+        "legacyStatus": "unknown",
+        "legacyMedia": {
+          "poster": {
+            "status": "not_used_pending_sync",
+            "bytes": 94769,
+            "format": ".jpg"
+          },
+          "video": {
+            "status": "not_used_pending_sync",
+            "bytes": 13931932,
+            "format": ".mp4"
+          },
+          "reason": "Only an independently authored editorial direction is public; legacy media and source files are never published."
+        },
+        "screening": {
+          "premiumOrCommercialHint": false,
+          "riskFlags": [],
+          "promptPresent": true,
+          "promptExternalUrls": false,
+          "promptTrackers": false,
+          "originalMediaPublished": false
+        }
+      }
+    },
+    {
+      "id": "editorial-shaders-grain-gradient-corners-lab",
+      "legacyReference": {
+        "id": "shaders/grain-gradient-corners-lab",
+        "sourcePath": "shaders/grain-gradient-corners-lab",
+        "repository": "pulkitxm/claude-directory",
+        "commit": "9b5ad43b1450fe6b28a42a9cb8115498d5c56e2a",
+        "upstreamLicense": "MIT",
+        "promptGitBlobSha": "0034a59d632ac665c23eb23a32f4276d204e3530",
+        "legacyStatus": "unknown",
+        "legacyMedia": {
+          "poster": {
+            "status": "not_used_pending_sync",
+            "bytes": 77614,
+            "format": ".jpg"
+          },
+          "video": {
+            "status": "not_used_pending_sync",
+            "bytes": 8299306,
+            "format": ".mp4"
+          },
+          "reason": "Only an independently authored editorial direction is public; legacy media and source files are never published."
+        },
+        "screening": {
+          "premiumOrCommercialHint": false,
+          "riskFlags": [],
+          "promptPresent": true,
+          "promptExternalUrls": false,
+          "promptTrackers": false,
+          "originalMediaPublished": false
+        }
+      }
+    },
+    {
+      "id": "editorial-shaders-mesh-gradient-shader-hero",
+      "legacyReference": {
+        "id": "shaders/mesh-gradient-shader-hero",
+        "sourcePath": "shaders/mesh-gradient-shader-hero",
+        "repository": "pulkitxm/claude-directory",
+        "commit": "9b5ad43b1450fe6b28a42a9cb8115498d5c56e2a",
+        "upstreamLicense": "MIT",
+        "promptGitBlobSha": "ec5e5f17bc694c412d450315d5a8302c414a084c",
+        "legacyStatus": "unknown",
+        "legacyMedia": {
+          "poster": {
+            "status": "not_used_pending_sync",
+            "bytes": 68778,
+            "format": ".jpg"
+          },
+          "video": {
+            "status": "not_used_pending_sync",
+            "bytes": 2381303,
+            "format": ".mp4"
+          },
+          "reason": "Only an independently authored editorial direction is public; legacy media and source files are never published."
+        },
+        "screening": {
+          "premiumOrCommercialHint": false,
+          "riskFlags": [],
+          "promptPresent": true,
+          "promptExternalUrls": false,
+          "promptTrackers": false,
+          "originalMediaPublished": false
+        }
+      }
+    },
+    {
+      "id": "editorial-shaders-morphing-light-shader",
+      "legacyReference": {
+        "id": "shaders/morphing-light-shader",
+        "sourcePath": "shaders/morphing-light-shader",
+        "repository": "pulkitxm/claude-directory",
+        "commit": "9b5ad43b1450fe6b28a42a9cb8115498d5c56e2a",
+        "upstreamLicense": "MIT",
+        "promptGitBlobSha": "2778a04071e5da0596158939bedae5459e2a7969",
+        "legacyStatus": "unknown",
+        "legacyMedia": {
+          "poster": {
+            "status": "not_used_pending_sync",
+            "bytes": 61055,
+            "format": ".jpg"
+          },
+          "video": {
+            "status": "not_used_pending_sync",
+            "bytes": 4640598,
+            "format": ".mp4"
+          },
+          "reason": "Only an independently authored editorial direction is public; legacy media and source files are never published."
+        },
+        "screening": {
+          "premiumOrCommercialHint": false,
+          "riskFlags": [],
+          "promptPresent": true,
+          "promptExternalUrls": false,
+          "promptTrackers": false,
+          "originalMediaPublished": false
+        }
+      }
+    },
+    {
+      "id": "editorial-shaders-radial-aperture-shader",
+      "legacyReference": {
+        "id": "shaders/radial-aperture-shader",
+        "sourcePath": "shaders/radial-aperture-shader",
+        "repository": "pulkitxm/claude-directory",
+        "commit": "9b5ad43b1450fe6b28a42a9cb8115498d5c56e2a",
+        "upstreamLicense": "MIT",
+        "promptGitBlobSha": "d2d1771970d964c0017d833de686d46d4b34e7d2",
+        "legacyStatus": "unknown",
+        "legacyMedia": {
+          "poster": {
+            "status": "not_used_pending_sync",
+            "bytes": 70012,
+            "format": ".jpg"
+          },
+          "video": {
+            "status": "not_used_pending_sync",
+            "bytes": 6256286,
+            "format": ".mp4"
+          },
+          "reason": "Only an independently authored editorial direction is public; legacy media and source files are never published."
+        },
+        "screening": {
+          "premiumOrCommercialHint": false,
+          "riskFlags": [],
+          "promptPresent": true,
+          "promptExternalUrls": false,
+          "promptTrackers": false,
+          "originalMediaPublished": false
+        }
+      }
+    },
+    {
+      "id": "editorial-ui-design-aperture-minimalist-dark",
+      "legacyReference": {
+        "id": "ui-design/aperture-minimalist-dark",
+        "sourcePath": "ui-design/aperture-minimalist-dark",
+        "repository": "pulkitxm/claude-directory",
+        "commit": "9b5ad43b1450fe6b28a42a9cb8115498d5c56e2a",
+        "upstreamLicense": "MIT",
+        "promptGitBlobSha": "6861fc2eed77f2d0f7d814e30d70398e1fe580b2",
+        "legacyStatus": "unknown",
+        "legacyMedia": {
+          "poster": {
+            "status": "not_used_pending_sync",
+            "bytes": 61965,
+            "format": ".jpg"
+          },
+          "video": {
+            "status": "not_used_pending_sync",
+            "bytes": 6586082,
+            "format": ".mp4"
+          },
+          "reason": "Only an independently authored editorial direction is public; legacy media and source files are never published."
+        },
+        "screening": {
+          "premiumOrCommercialHint": false,
+          "riskFlags": [],
+          "promptPresent": true,
+          "promptExternalUrls": false,
+          "promptTrackers": false,
+          "originalMediaPublished": false
+        }
+      }
+    },
+    {
+      "id": "editorial-ui-design-bauhaus-form-follows-function",
+      "legacyReference": {
+        "id": "ui-design/bauhaus-form-follows-function",
+        "sourcePath": "ui-design/bauhaus-form-follows-function",
+        "repository": "pulkitxm/claude-directory",
+        "commit": "9b5ad43b1450fe6b28a42a9cb8115498d5c56e2a",
+        "upstreamLicense": "MIT",
+        "promptGitBlobSha": "8dd4fcb1266965449ffc16fc3569ec7368b0d1f7",
+        "legacyStatus": "unknown",
+        "legacyMedia": {
+          "poster": {
+            "status": "not_used_pending_sync",
+            "bytes": 110929,
+            "format": ".jpg"
+          },
+          "video": {
+            "status": "not_used_pending_sync",
+            "bytes": 4735741,
+            "format": ".mp4"
+          },
+          "reason": "Only an independently authored editorial direction is public; legacy media and source files are never published."
+        },
+        "screening": {
+          "premiumOrCommercialHint": false,
+          "riskFlags": [],
+          "promptPresent": true,
+          "promptExternalUrls": false,
+          "promptTrackers": false,
+          "originalMediaPublished": false
+        }
+      }
+    },
+    {
+      "id": "editorial-ui-design-bold-typography-design-system",
+      "legacyReference": {
+        "id": "ui-design/bold-typography-design-system",
+        "sourcePath": "ui-design/bold-typography-design-system",
+        "repository": "pulkitxm/claude-directory",
+        "commit": "9b5ad43b1450fe6b28a42a9cb8115498d5c56e2a",
+        "upstreamLicense": "MIT",
+        "promptGitBlobSha": "8133b0495b906a38c8196ad60a183e5f187921c2",
+        "legacyStatus": "unknown",
+        "legacyMedia": {
+          "poster": {
+            "status": "not_used_pending_sync",
+            "bytes": 53550,
+            "format": ".jpg"
+          },
+          "video": {
+            "status": "not_used_pending_sync",
+            "bytes": 5286501,
+            "format": ".mp4"
+          },
+          "reason": "Only an independently authored editorial direction is public; legacy media and source files are never published."
+        },
+        "screening": {
+          "premiumOrCommercialHint": false,
+          "riskFlags": [],
+          "promptPresent": true,
+          "promptExternalUrls": false,
+          "promptTrackers": false,
+          "originalMediaPublished": false
+        }
+      }
+    },
+    {
+      "id": "editorial-ui-design-botanical-organic-serif",
+      "legacyReference": {
+        "id": "ui-design/botanical-organic-serif",
+        "sourcePath": "ui-design/botanical-organic-serif",
+        "repository": "pulkitxm/claude-directory",
+        "commit": "9b5ad43b1450fe6b28a42a9cb8115498d5c56e2a",
+        "upstreamLicense": "MIT",
+        "promptGitBlobSha": "32c7d6773533f357bd28a191a5a7882d0a971dcc",
+        "legacyStatus": "unknown",
+        "legacyMedia": {
+          "poster": {
+            "status": "not_used_pending_sync",
+            "bytes": 69649,
+            "format": ".jpg"
+          },
+          "video": {
+            "status": "not_used_pending_sync",
+            "bytes": 10159393,
+            "format": ".mp4"
+          },
+          "reason": "Only an independently authored editorial direction is public; legacy media and source files are never published."
+        },
+        "screening": {
+          "premiumOrCommercialHint": false,
+          "riskFlags": [],
+          "promptPresent": true,
+          "promptExternalUrls": false,
+          "promptTrackers": false,
+          "originalMediaPublished": false
+        }
+      }
+    },
+    {
+      "id": "editorial-ui-design-corporate-trust-design-system",
+      "legacyReference": {
+        "id": "ui-design/corporate-trust-design-system",
+        "sourcePath": "ui-design/corporate-trust-design-system",
+        "repository": "pulkitxm/claude-directory",
+        "commit": "9b5ad43b1450fe6b28a42a9cb8115498d5c56e2a",
+        "upstreamLicense": "MIT",
+        "promptGitBlobSha": "2542c9d8a5b3a3dd3752b70d0d90cd7fcc5cc043",
+        "legacyStatus": "unknown",
+        "legacyMedia": {
+          "poster": {
+            "status": "not_used_pending_sync",
+            "bytes": 77680,
+            "format": ".jpg"
+          },
+          "video": {
+            "status": "not_used_pending_sync",
+            "bytes": 5060360,
+            "format": ".mp4"
+          },
+          "reason": "Only an independently authored editorial direction is public; legacy media and source files are never published."
+        },
+        "screening": {
+          "premiumOrCommercialHint": false,
+          "riskFlags": [],
+          "promptPresent": true,
+          "promptExternalUrls": false,
+          "promptTrackers": false,
+          "originalMediaPublished": false
+        }
+      }
+    },
+    {
+      "id": "editorial-ui-design-handcraft-paper-ui",
+      "legacyReference": {
+        "id": "ui-design/handcraft-paper-ui",
+        "sourcePath": "ui-design/handcraft-paper-ui",
+        "repository": "pulkitxm/claude-directory",
+        "commit": "9b5ad43b1450fe6b28a42a9cb8115498d5c56e2a",
+        "upstreamLicense": "MIT",
+        "promptGitBlobSha": "06e9cc4f469f1db787847fae9c07de3bb1070d1c",
+        "legacyStatus": "unknown",
+        "legacyMedia": {
+          "poster": {
+            "status": "not_used_pending_sync",
+            "bytes": 94864,
+            "format": ".jpg"
+          },
+          "video": {
+            "status": "not_used_pending_sync",
+            "bytes": 3547580,
+            "format": ".mp4"
+          },
+          "reason": "Only an independently authored editorial direction is public; legacy media and source files are never published."
+        },
+        "screening": {
+          "premiumOrCommercialHint": false,
+          "riskFlags": [],
+          "promptPresent": true,
+          "promptExternalUrls": false,
+          "promptTrackers": false,
+          "originalMediaPublished": false
+        }
+      }
+    },
+    {
+      "id": "editorial-ui-design-industrial-skeuomorphism",
+      "legacyReference": {
+        "id": "ui-design/industrial-skeuomorphism",
+        "sourcePath": "ui-design/industrial-skeuomorphism",
+        "repository": "pulkitxm/claude-directory",
+        "commit": "9b5ad43b1450fe6b28a42a9cb8115498d5c56e2a",
+        "upstreamLicense": "MIT",
+        "promptGitBlobSha": "a4bfbb86181a64f474ee6d96649ee27976984a81",
+        "legacyStatus": "unknown",
+        "legacyMedia": {
+          "poster": {
+            "status": "not_used_pending_sync",
+            "bytes": 72921,
+            "format": ".jpg"
+          },
+          "video": {
+            "status": "not_used_pending_sync",
+            "bytes": 8579193,
+            "format": ".mp4"
+          },
+          "reason": "Only an independently authored editorial direction is public; legacy media and source files are never published."
+        },
+        "screening": {
+          "premiumOrCommercialHint": false,
+          "riskFlags": [],
+          "promptPresent": true,
+          "promptExternalUrls": false,
+          "promptTrackers": false,
+          "originalMediaPublished": false
+        }
+      }
+    },
+    {
+      "id": "editorial-ui-design-luxury-editorial-design-system",
+      "legacyReference": {
+        "id": "ui-design/luxury-editorial-design-system",
+        "sourcePath": "ui-design/luxury-editorial-design-system",
+        "repository": "pulkitxm/claude-directory",
+        "commit": "9b5ad43b1450fe6b28a42a9cb8115498d5c56e2a",
+        "upstreamLicense": "MIT",
+        "promptGitBlobSha": "3770a23e3050e8b5bba372604667b3730251070e",
+        "legacyStatus": "unknown",
+        "legacyMedia": {
+          "poster": {
+            "status": "not_used_pending_sync",
+            "bytes": 60431,
+            "format": ".jpg"
+          },
+          "video": {
+            "status": "not_used_pending_sync",
+            "bytes": 6358030,
+            "format": ".mp4"
+          },
+          "reason": "Only an independently authored editorial direction is public; legacy media and source files are never published."
+        },
+        "screening": {
+          "premiumOrCommercialHint": false,
+          "riskFlags": [],
+          "promptPresent": true,
+          "promptExternalUrls": false,
+          "promptTrackers": false,
+          "originalMediaPublished": false
+        }
+      }
+    },
+    {
+      "id": "editorial-ui-design-serif-editorial-design-system",
+      "legacyReference": {
+        "id": "ui-design/serif-editorial-design-system",
+        "sourcePath": "ui-design/serif-editorial-design-system",
+        "repository": "pulkitxm/claude-directory",
+        "commit": "9b5ad43b1450fe6b28a42a9cb8115498d5c56e2a",
+        "upstreamLicense": "MIT",
+        "promptGitBlobSha": "53496f14043a51505216659550db7f61d0628477",
+        "legacyStatus": "unknown",
+        "legacyMedia": {
+          "poster": {
+            "status": "not_used_pending_sync",
+            "bytes": 53051,
+            "format": ".jpg"
+          },
+          "video": {
+            "status": "not_used_pending_sync",
+            "bytes": 7040195,
+            "format": ".mp4"
+          },
+          "reason": "Only an independently authored editorial direction is public; legacy media and source files are never published."
+        },
+        "screening": {
+          "premiumOrCommercialHint": false,
+          "riskFlags": [],
+          "promptPresent": true,
+          "promptExternalUrls": false,
+          "promptTrackers": false,
+          "originalMediaPublished": false
+        }
+      }
+    },
+    {
+      "id": "editorial-ui-design-swiss-design-system",
+      "legacyReference": {
+        "id": "ui-design/swiss-design-system",
+        "sourcePath": "ui-design/swiss-design-system",
+        "repository": "pulkitxm/claude-directory",
+        "commit": "9b5ad43b1450fe6b28a42a9cb8115498d5c56e2a",
+        "upstreamLicense": "MIT",
+        "promptGitBlobSha": "10b1144de09802a968d11c0cc881844b113958ab",
+        "legacyStatus": "unknown",
+        "legacyMedia": {
+          "poster": {
+            "status": "not_used_pending_sync",
+            "bytes": 76162,
+            "format": ".jpg"
+          },
+          "video": {
+            "status": "not_used_pending_sync",
+            "bytes": 4774410,
+            "format": ".mp4"
+          },
+          "reason": "Only an independently authored editorial direction is public; legacy media and source files are never published."
+        },
+        "screening": {
+          "premiumOrCommercialHint": false,
+          "riskFlags": [],
+          "promptPresent": true,
+          "promptExternalUrls": false,
+          "promptTrackers": false,
+          "originalMediaPublished": false
+        }
+      }
+    },
+    {
+      "id": "editorial-ui-design-verdant-organic-design-system",
+      "legacyReference": {
+        "id": "ui-design/verdant-organic-design-system",
+        "sourcePath": "ui-design/verdant-organic-design-system",
+        "repository": "pulkitxm/claude-directory",
+        "commit": "9b5ad43b1450fe6b28a42a9cb8115498d5c56e2a",
+        "upstreamLicense": "MIT",
+        "promptGitBlobSha": "37344dc47fe9e0d978445830f740aa00b1ccb3f7",
+        "legacyStatus": "unknown",
+        "legacyMedia": {
+          "poster": {
+            "status": "not_used_pending_sync",
+            "bytes": 71645,
+            "format": ".jpg"
+          },
+          "video": {
+            "status": "not_used_pending_sync",
+            "bytes": 7694688,
+            "format": ".mp4"
+          },
+          "reason": "Only an independently authored editorial direction is public; legacy media and source files are never published."
+        },
+        "screening": {
+          "premiumOrCommercialHint": false,
+          "riskFlags": [],
+          "promptPresent": true,
+          "promptExternalUrls": false,
+          "promptTrackers": false,
+          "originalMediaPublished": false
+        }
+      }
+    }
+  ],
+  "supersededBy": "docs/design-gallery/showcase-source-manifest.json",
+  "note": "Historischer Curation-Report; aktueller Rechte-, Medien- und Public-Status steht ausschließlich im showcase-source-manifest.json."
+}
