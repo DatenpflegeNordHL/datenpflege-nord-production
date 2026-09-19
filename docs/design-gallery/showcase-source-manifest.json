@@ -10,7 +10,7 @@
   },
   "media": {
     "publicRoot": "/srv/nordwerk-gallery/media",
-    "publicBase": "https://dpnzander.tail99cc3d.ts.net/gallery-media",
+    "publicBase": "https://media.datenpflege-nord.de/gallery-media",
     "privateRoot": "/srv/nordwerk-gallery/media-private-20260918",
     "nginxLoopback": "127.0.0.1:8090"
   },

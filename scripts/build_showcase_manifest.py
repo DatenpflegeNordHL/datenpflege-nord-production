@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+import html
 import hashlib
 import json
 import subprocess
@@ -10,7 +11,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 UPSTREAM_REPO = "pulkitxm/claude-directory"
 UPSTREAM_SNAPSHOT_COMMIT = "9b5ad43b1450fe6b28a42a9cb8115498d5c56e2a"
-PUBLIC_MEDIA_BASE = "https://dpnzander.tail99cc3d.ts.net/gallery-media"
+PUBLIC_MEDIA_BASE = "https://media.datenpflege-nord.de/gallery-media"
+INITIAL_STATIC_COUNT = 12
+INITIAL_STATIC_START = "<!-- showcase-initial:start -->"
+INITIAL_STATIC_END = "<!-- showcase-initial:end -->"
 OWNED_DEMOS = {
     "nordic-editorial": ("dpn-editorial-nordic-editorial", "nordic-hero.svg", "/website-showcase/demo/nordic-editorial/"),
     "human-service": ("dpn-editorial-human-service", "service-hero.svg", "/website-showcase/demo/human-service/"),
@@ -81,6 +85,39 @@ def valid_media(path: Path, kind: str, expected_bytes: int) -> bool:
     with path.open("rb") as stream:
         head = stream.read(64)
     return head.startswith(b"\xff\xd8\xff") if kind == "poster" else b"ftyp" in head
+
+
+def update_static_initial_cards(page: Path, projects: list[dict]) -> None:
+    source = page.read_text(encoding="utf-8")
+    if INITIAL_STATIC_START not in source or INITIAL_STATIC_END not in source:
+        raise RuntimeError("showcase initial-card markers are missing")
+    cards = []
+    for project in projects[:INITIAL_STATIC_COUNT]:
+        poster = project["poster"]
+        cards.append(
+            '<article class="showcase-card" data-project-id="{id}">'
+            '<span class="showcase-card__media">'
+            '<img src="{src}" alt="{alt}" width="{width}" height="{height}" loading="lazy" decoding="async">'
+            '</span>'
+            '<span class="showcase-card__body">'
+            '<span class="showcase-card__category">{label} · {category}</span>'
+            '<span class="showcase-card__title">{name}</span>'
+            '</span>'
+            '</article>'.format(
+                id=html.escape(str(project["id"]), quote=True),
+                src=html.escape(str(poster["src"]), quote=True),
+                alt=html.escape(str(poster.get("alt") or f'Website-Vorschau: {project["name"]}'), quote=True),
+                width=int(poster.get("width") or 960),
+                height=int(poster.get("height") or 600),
+                label=html.escape(str(project["publicLabel"])),
+                category=html.escape(str(project["category"])),
+                name=html.escape(str(project["name"])),
+            )
+        )
+    replacement = INITIAL_STATIC_START + "\n        " + "\n        ".join(cards) + "\n        " + INITIAL_STATIC_END
+    before, rest = source.split(INITIAL_STATIC_START, 1)
+    _, after = rest.split(INITIAL_STATIC_END, 1)
+    page.write_text(before + replacement + after, encoding="utf-8")
 
 def main() -> int:
     p = argparse.ArgumentParser()
@@ -303,6 +340,7 @@ def main() -> int:
     }
     args.manifest.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     args.catalogue.write_text(json.dumps(catalogue, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    update_static_initial_cards(ROOT / "website-showcase" / "index.html", public_projects)
     checksum_path = args.manifest.with_name("showcase-public-media.sha256")
     checksum_path.write_text("\n".join(sorted(sha_lines)) + "\n", encoding="utf-8")
     print(json.dumps({"manifest": str(args.manifest), "catalogue": str(args.catalogue), "checksums": str(checksum_path), "summary": manifest["summary"]}, ensure_ascii=False))

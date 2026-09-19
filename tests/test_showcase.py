@@ -16,7 +16,7 @@ class ShowcaseCatalogueTests(unittest.TestCase):
         data = json.loads(CATALOGUE.read_text(encoding="utf-8"))
         self.assertTrue(data["publicationPolicy"]["currentUpstreamDirectoryIsLegacyGate"])
         self.assertTrue(data["publicationPolicy"]["rightsMetadataIsInformational"])
-        self.assertEqual(data["publicationPolicy"]["mediaOrigin"], "https://dpnzander.tail99cc3d.ts.net/gallery-media")
+        self.assertEqual(data["publicationPolicy"]["mediaOrigin"], "https://media.datenpflege-nord.de/gallery-media")
         self.assertEqual(data["summary"]["publicProjects"], 377)
         self.assertEqual(data["summary"]["publicLegacyProjects"], 371)
         self.assertEqual(data["summary"]["publicShowcaseEntries"], 377)
@@ -34,8 +34,8 @@ class ShowcaseCatalogueTests(unittest.TestCase):
             self.assertTrue(project["poster"]["src"])
             self.assertFalse(project["indexable"])
             if project["video"]:
-                self.assertTrue(project["video"]["src"].startswith("https://dpnzander.tail99cc3d.ts.net/gallery-media/"))
-                self.assertEqual(urlparse(project["video"]["src"]).hostname, "dpnzander.tail99cc3d.ts.net")
+                self.assertTrue(project["video"]["src"].startswith("https://media.datenpflege-nord.de/gallery-media/"))
+                self.assertEqual(urlparse(project["video"]["src"]).hostname, "media.datenpflege-nord.de")
                 self.assertEqual(project["sourceType"], "legacy")
                 self.assertEqual(project["publicLabel"], "Video-Preview")
                 self.assertIn("rightsStatus", project)
@@ -143,6 +143,8 @@ class ShowcaseCatalogueTests(unittest.TestCase):
     def test_video_lifecycle_is_interaction_only_and_single_active(self):
         source = (ROOT / "assets" / "showcase.js").read_text(encoding="utf-8")
         page = PAGE.read_text(encoding="utf-8")
+        self.assertEqual(page.count('class="showcase-card"'), 12)
+        self.assertIn("Die ersten 12 Website-Beispiele sind direkt sichtbar.", page)
         self.assertIn('video.preload = "none"', source)
         self.assertIn("const LOAD_STEPS = [12, 24, 48]", source)
         self.assertIn("const LATE_BATCH_COUNT = 48", source)

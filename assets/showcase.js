@@ -1,7 +1,7 @@
 (() => {
   "use strict";
 
-  const projectsUrl = "/website-showcase/showcase-projects.json?v=08e77c47a8bd37cb2b049f1203cb228d7f659ea3a8a7281cd52c9919b86cd462";
+  const projectsUrl = "/website-showcase/showcase-projects.json?v=8f75a7813c638eccea8b759f0afae84355c9c0c7cb2f086ad28754e93564df5e";
   const INITIAL_COUNT = 12;
   const LOAD_STEPS = [12, 24, 48];
   const LATE_BATCH_COUNT = 48;
