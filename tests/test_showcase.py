@@ -26,8 +26,8 @@ class ShowcaseCatalogueTests(unittest.TestCase):
     def test_home_navigation_links_to_showcase(self):
         home = (ROOT / "index.html").read_text(encoding="utf-8")
         home_en = (ROOT / "en" / "index.html").read_text(encoding="utf-8")
-        self.assertIn('<a href="/website-showcase/">Beispiele</a>', home)
-        self.assertIn('<a href="/website-showcase/">Examples</a>', home_en)
+        self.assertIn('<a href="/website-showcase/">Websites</a>', home)
+        self.assertIn('<a href="/website-showcase/">Websites</a>', home_en)
 
     def test_human_service_mobile_grid_cannot_force_horizontal_overflow(self):
         source = (ROOT / "assets" / "showcase-demos.css").read_text(encoding="utf-8")

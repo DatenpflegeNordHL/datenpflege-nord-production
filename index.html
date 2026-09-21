@@ -97,7 +97,7 @@
   ]
 }
   </script>
-  <link rel="stylesheet" href="/assets/home.css?v=cf3709efd87c82faa0e58dd3a1125c643eaea5670e054828034f8502698a1678">
+  <link rel="stylesheet" href="/assets/home.css?v=5ccd6324fd7c35ee6086f6b104665967c99edfa60d20153a4820580568d4eb83">
   <link rel="stylesheet" href="/assets/profile-card.css?v=f7ff965005e5615754c7fa8a18dc5326467e526c5a11ff3ed6a3a6203b2e0692">
 </head>
 <body>
@@ -107,7 +107,7 @@
     <a class="brand" href="/" aria-label="DatenpflegeNord Startseite" data-i18n-aria="brandAria"><img class="brand-logo" src="/assets/branding/datenpflegenord-logo.svg?v=88b9beeee9d274dcd409a0619a7014ed645445b81d38e26d835290a779933344" width="523" height="104" alt=""></a>
     <nav class="nav-links" aria-label="Hauptnavigation" data-i18n-aria="navAria">
       <a href="#arbeit" data-i18n="navServices">Leistungen</a>
-      <a href="/website-showcase/">Beispiele</a>
+      <a href="/website-showcase/">Websites</a>
       <a href="#profil" data-i18n="navProfile">Profil</a>
       <a href="#kontakt" data-i18n="navContact">Kontakt</a>
     </nav>
@@ -126,6 +126,17 @@
       </video>
       <div class="shell hero-inner">
         <div class="hero-copy">
+          <div class="hero-promo">
+            <button class="promo-pill" id="promoPill" type="button" aria-describedby="promoInfo" aria-expanded="false">
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 2.8l1.25 4.4a4.9 4.9 0 0 0 3.4 3.4l4.4 1.25-4.4 1.25a4.9 4.9 0 0 0-3.4 3.4L12 20.9l-1.25-4.4a4.9 4.9 0 0 0-3.4-3.4l-4.4-1.25 4.4-1.25a4.9 4.9 0 0 0 3.4-3.4L12 2.8Z"/></svg>
+              <span>Aktuell: 75 % Neukundenrabatt</span>
+              <span class="promo-pill-chevron" aria-hidden="true">⌄</span>
+            </button>
+            <div class="promo-popover" id="promoInfo" role="tooltip" hidden>
+              <strong>75 % Neukundenrabatt</strong>
+              <p>Der Rabatt wird bei Ihrer ersten Anfrage automatisch vorgemerkt und bei der Angebotserstellung berücksichtigt. Der konkrete Endpreis und die Berechnungsgrundlage werden vor Beauftragung transparent ausgewiesen.</p>
+            </div>
+          </div>
           <p class="hero-label" data-i18n="heroLabel">SOFTWAREENTWICKLUNG · WEBENTWICKLUNG · KI-AUTOMATISIERUNG</p>
           <h1 id="hero-title" aria-label="Softwareentwicklung, Webentwicklung &amp; KI-Automatisierung aus Lübeck." data-i18n-aria="heroText">
             <span id="typeText" aria-hidden="true" data-i18n="heroText">Softwareentwicklung, Webentwicklung &amp; KI-Automatisierung aus Lübeck.</span><span class="cursor" id="typeCursor" aria-hidden="true"></span>
@@ -136,6 +147,12 @@
             <a class="pill" href="#arbeit">Leistungen ansehen</a>
             <a class="pill pill-dark" href="#kontakt">Kontakt aufnehmen ↗</a>
           </div>
+          <a class="hero-showcase-card" href="/website-showcase/">
+            <span class="hero-showcase-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><rect x="4.5" y="6.5" width="23" height="19" rx="2.5"/><path d="M5 11h22M9 9h.01M12 9h.01M15 9h.01M10 16h12M10 20h8"/></svg></span>
+            <span class="hero-showcase-divider" aria-hidden="true"></span>
+            <span class="hero-showcase-copy"><strong>Website-Inspirationen</strong><span>Designrichtungen ansehen</span></span>
+            <span class="hero-showcase-chevron" aria-hidden="true">›</span>
+          </a>
         </div>
       </div>
     </section>
@@ -324,6 +341,6 @@
   </footer>
 
   <noscript><p class="shell">Die Seite funktioniert ohne JavaScript; nur der GitHub-Feed und die Statistik bleiben auf dem statischen Stand.</p></noscript>
-  <script src="/assets/home-de.js?v=7b21569dee4d0f474e631a37b0fe31b4eb49a05b73576f4ffc2d076a8e6f84fb" defer></script>
+  <script src="/assets/home-de.js?v=2fa9a903443ccfc9efc527d7ba6249a57b28f0aa20a5a11a761e3f264a620b79" defer></script>
 </body>
 </html>

@@ -30,7 +30,7 @@ class HeroBrowserTests(unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls):
-        for session in ("dpn-hero-layout", "dpn-hero-reduced", "dpn-hero-nojs"):
+        for session in ("dpn-hero-layout", "dpn-hero-promo", "dpn-contact-flow", "dpn-hero-reduced", "dpn-hero-nojs"):
             subprocess.run([BROWSER, "--session", session, "close"], capture_output=True, text=True)
         cls.server.shutdown()
         cls.server.server_close()
@@ -64,6 +64,9 @@ class HeroBrowserTests(unittest.TestCase):
             summary:document.querySelector(".hero-summary").textContent.trim(),
             entity:document.querySelector(".hero-entity").textContent.trim(),
             ctas:document.querySelectorAll(".hero-pills a").length,
+            promoTag:document.querySelector("#promoPill").tagName,
+            promoExpanded:document.querySelector("#promoPill").getAttribute("aria-expanded"),
+            showcaseHref:document.querySelector(".hero-showcase-card").getAttribute("href"),
             typeText:document.querySelector("#typeText").textContent.trim(),
             reduce:matchMedia("(prefers-reduced-motion: reduce)").matches,
             finePointer:matchMedia("(pointer:fine)").matches
@@ -74,7 +77,7 @@ class HeroBrowserTests(unittest.TestCase):
     def test_hero_layout_at_required_viewports(self):
         session = "dpn-hero-layout"
         desktop = None
-        for width, height in ((1440, 1000), (390, 844), (320, 720)):
+        for width, height in ((1440, 1000), (1024, 900), (768, 900), (430, 900), (390, 844), (360, 800), (320, 720)):
             with self.subTest(width=width):
                 self.browser(session, "set", "viewport", str(width), str(height))
                 self.browser(session, "open", self.url)
@@ -94,6 +97,9 @@ class HeroBrowserTests(unittest.TestCase):
                 self.assertTrue(state["summary"])
                 self.assertTrue(state["entity"])
                 self.assertEqual(state["ctas"], 2)
+                self.assertEqual(state["promoTag"], "BUTTON")
+                self.assertEqual(state["promoExpanded"], "false")
+                self.assertEqual(state["showcaseHref"], "/website-showcase/")
                 if width == 1440:
                     desktop = state
         self.assertIsNotNone(desktop)
@@ -101,7 +107,66 @@ class HeroBrowserTests(unittest.TestCase):
             self.assertTrue(desktop["sourceAttr"].startswith("/assets/hero/mainframe-hero.mp4?v="))
         else:
             self.assertIsNone(desktop["sourceAttr"])
-        print("HERO_BROWSER_QA_PASS: 1440/390/320 layout, legacy-copy veil and video visibility verified; video load follows pointer:fine gate")
+        print("HERO_BROWSER_QA_PASS: 1440/1024/768/430/390/360/320 layout, CTA hierarchy, legacy-copy veil and video visibility verified")
+
+    def test_promo_pointer_keyboard_escape_and_outside_close(self):
+        session = "dpn-hero-promo"
+        self.browser(session, "set", "viewport", "390", "844")
+        self.browser(session, "open", self.url)
+        self.browser(session, "wait", "500")
+
+        self.browser(session, "click", "#promoPill")
+        opened = json.loads(self.browser(session, "eval", '''(()=>{
+          const pill=document.querySelector("#promoPill");
+          const info=document.querySelector("#promoInfo");
+          const box=info.getBoundingClientRect();
+          return {expanded:pill.getAttribute("aria-expanded"),hidden:info.hidden,right:box.right,width:innerWidth,tag:pill.tagName};
+        })()'''))
+        self.assertEqual(opened["tag"], "BUTTON")
+        self.assertEqual(opened["expanded"], "true")
+        self.assertFalse(opened["hidden"])
+        self.assertLessEqual(opened["right"], opened["width"])
+
+        self.browser(session, "press", "Escape")
+        self.assertEqual(self.browser(session, "get", "attr", "#promoPill", "aria-expanded"), "false")
+
+        focus_state = json.loads(self.browser(session, "eval", '''(()=>{
+          const pill=document.querySelector("#promoPill"); pill.blur(); pill.focus();
+          return {expanded:pill.getAttribute("aria-expanded"),hidden:document.querySelector("#promoInfo").hidden};
+        })()'''))
+        self.assertEqual(focus_state, {"expanded": "true", "hidden": False})
+        self.browser(session, "press", "Tab")
+        self.assertEqual(self.browser(session, "get", "attr", "#promoPill", "aria-expanded"), "false")
+
+        self.browser(session, "click", "#promoPill")
+        self.browser(session, "click", ".brand")
+        self.assertEqual(self.browser(session, "get", "attr", "#promoPill", "aria-expanded"), "false")
+        print("PROMO_INTERACTION_QA_PASS: pointer/tap, focus, Escape, blur and outside close verified")
+
+    def test_contact_payload_carries_promo_and_showcase_prefill_survives(self):
+        session = "dpn-contact-flow"
+        self.browser(session, "set", "viewport", "390", "844")
+        self.browser(session, "open", self.url)
+        self.browser(session, "wait", "800")
+        self.browser(session, "eval", '''(()=>{window.fetch=async(url,init)=>{window.__contactRequest={url,body:JSON.parse(init.body)};return new Response('{"ok":true}',{status:200,headers:{"Content-Type":"application/json"}})}})()''')
+        self.browser(session, "fill", "#name", "QA Test")
+        self.browser(session, "fill", "#email", "qa@example.com")
+        self.browser(session, "select", "#topic", "website")
+        self.browser(session, "fill", "#message", "Browser integration test")
+        self.browser(session, "eval", 'document.querySelector("#contactForm").requestSubmit()')
+        self.browser(session, "wait", "700")
+        request = json.loads(self.browser(session, "eval", "window.__contactRequest"))
+        self.assertEqual(request["url"], "/api/contact")
+        self.assertEqual(request["body"]["promo"], "new_customer_75")
+        self.assertEqual(request["body"]["message"], "Browser integration test")
+
+        self.browser(session, "open", f"{self.url}?topic=website&design=quiet-luxury&designName=Quiet%20Luxury#kontakt")
+        self.browser(session, "wait", "300")
+        context = json.loads(self.browser(session, "eval", '''({topic:document.querySelector("#topic").value,message:document.querySelector("#message").value,search:location.search})'''))
+        self.assertEqual(context["topic"], "website")
+        self.assertIn("Quiet Luxury", context["message"])
+        self.assertEqual(context["search"], "")
+        print("CONTACT_FLOW_QA_PASS: normal fields, structured promo payload and showcase prefill verified")
 
     def test_reduced_motion_keeps_static_poster(self):
         session = "dpn-hero-reduced"

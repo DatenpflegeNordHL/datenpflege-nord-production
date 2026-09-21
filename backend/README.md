@@ -1,6 +1,6 @@
 # Contact backend production inventory
 
-The versioned `contact_api.py` is byte-for-byte identical to the production file at `/opt/dpn-contact/contact_api.py` as audited on 2026-08-25 (SHA-256 `4f969d53d0295c554bf51cc3e67606813b243aa0ade792d37d08b62304cc6c4f`).
+The production file at `/opt/dpn-contact/contact_api.py` was audited on 2026-08-25 with SHA-256 `4f969d53d0295c554bf51cc3e67606813b243aa0ade792d37d08b62304cc6c4f`. The versioned source is the reviewed deployment candidate and may differ until its own backend migration is completed.
 
 Production topology:
 
@@ -12,6 +12,7 @@ Production topology:
 - secret source: root-owned `/etc/datenpflege-nord-contact.env`, mode `0600`
 - rate limit: five accepted attempts per source IP per 600-second in-memory window
 - request limits: nginx 64 KiB and application `Content-Length` maximum 65,536 bytes
+- optional promotion metadata: only the allowlisted `new_customer_75` value is accepted and added to the internal mail body
 
 ## Safe migration/deployment procedure
 
