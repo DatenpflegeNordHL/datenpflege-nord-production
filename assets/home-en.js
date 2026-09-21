@@ -257,6 +257,34 @@ window.DPN = {
 
       applyShowcaseContactContext();
 
+      const promoPill = document.getElementById("promoPill");
+      const promoInfo = document.getElementById("promoInfo");
+      const setPromoOpen = open => {
+        if (!promoPill || !promoInfo) return;
+        promoPill.setAttribute("aria-expanded", String(open));
+        promoInfo.hidden = !open;
+      };
+      if (promoPill && promoInfo) {
+        const promo = promoPill.closest(".hero-promo");
+        promo?.addEventListener("mouseenter", () => setPromoOpen(true));
+        promo?.addEventListener("mouseleave", () => setPromoOpen(false));
+        promoPill.addEventListener("focus", () => setPromoOpen(true));
+        promoPill.addEventListener("blur", () => setPromoOpen(false));
+        promoPill.addEventListener("click", event => {
+          event.stopPropagation();
+          setPromoOpen(true);
+        });
+        document.addEventListener("click", event => {
+          if (!promo?.contains(event.target)) setPromoOpen(false);
+        });
+        document.addEventListener("keydown", event => {
+          if (event.key === "Escape" && promoPill.getAttribute("aria-expanded") === "true") {
+            setPromoOpen(false);
+            promoPill.focus();
+          }
+        });
+      }
+
       document.getElementById("contactForm").addEventListener("submit", async event => {
         event.preventDefault();
 
@@ -284,7 +312,8 @@ window.DPN = {
           email: String(data.get("email") || "").trim(),
           topic: String(data.get("topic") || "other"),
           message: String(data.get("message") || "").trim(),
-          website: String(data.get("website") || "")
+          website: String(data.get("website") || ""),
+          promo: "new_customer_75"
         };
 
         if (payload.message.length < 5) {

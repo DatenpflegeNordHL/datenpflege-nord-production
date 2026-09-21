@@ -31,6 +31,10 @@ TOPICS = {
     "other": "Sonstiges",
 }
 
+PROMOS = {
+    "new_customer_75": "75 % Neukundenrabatt",
+}
+
 EMAIL_RE = re.compile(r"^[^@\s]{1,64}@[^@\s]{1,190}$")
 
 RATE_LIMIT = 5
@@ -147,6 +151,7 @@ class Handler(BaseHTTPRequestHandler):
         email = str(data.get("email", "")).strip()
         topic_key = str(data.get("topic", "other")).strip()
         message = str(data.get("message", "")).strip()
+        promo_key = str(data.get("promo", "")).strip()
 
         if not (2 <= len(name) <= 120):
             return self.json_response(
@@ -172,15 +177,24 @@ class Handler(BaseHTTPRequestHandler):
                 {"ok": False, "error": "invalid_message"}
             )
 
+        if promo_key and promo_key not in PROMOS:
+            return self.json_response(
+                400,
+                {"ok": False, "error": "invalid_promo"}
+            )
+
         topic = TOPICS[topic_key]
+        promo = PROMOS.get(promo_key)
 
         subject = f"Website-Anfrage: {topic}"
 
+        promo_line = f"Aktion: {promo} ({promo_key})\n\n" if promo else ""
         text = (
             "Neue Anfrage über datenpflege-nord.de\n\n"
             f"Name: {name}\n"
             f"E-Mail: {email}\n"
             f"Thema: {topic}\n\n"
+            f"{promo_line}"
             "Nachricht:\n"
             f"{message}\n"
         )
