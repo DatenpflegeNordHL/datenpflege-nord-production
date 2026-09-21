@@ -394,7 +394,9 @@
     }
 
     @media (max-width: 900px) {
-      .nav-links { display: none; }
+      .nav-links { position: absolute; top: calc(100% - 6px); left: 0; }
+      .nav-links a { display: none; }
+      .nav-links a[href="/website-showcase/"] { display: inline-flex; }
       .hero::before {
         background:
           linear-gradient(180deg, rgba(244,243,239,1) 0 80px, rgba(244,243,239,.98) 100px, rgba(244,243,239,.72) 145px, rgba(244,243,239,.28) 185px, rgba(244,243,239,0) 230px),
