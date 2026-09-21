@@ -66,8 +66,8 @@ No intentional cluster has two primary owners. Standalone API, generic KI headte
 
 Top immediate SAFE NOW opportunities:
 
-1. Correct the public `DatenpflegeNordHL` GitHub identity: it is a **User** profile, not an Organization. The public API currently exposes Lübeck and `Datenpflege Nord`, five public repositories, but no profile website and no bio. Add the canonical domain and concise truthful scope without exposing the private production repository.
-2. Strengthen useful public documentation around the self-owned `Codex-Looper` project; do not create empty repositories for links and do not present forks as own projects.
+1. Keep the public `DatenpflegeNordHL` GitHub identity accurate: it is a **User** profile, not an Organization. Link the canonical domain and describe the real scope without exposing private repositories.
+2. Use only directly verifiable upstream pull requests as public technical proof. Own internal projects, customer repositories and raw repository counts are not authority evidence.
 3. Continue substantive upstream OSS contributions and prepare permission-based project references where role and publication rights are explicit.
 
 High-value targets after entity resolution include DigitalHub.SH, DiWiSH, the one correct Google Business entity, OMR Reviews/ProvenExpert where profile maintenance and genuine reviews are appropriate, plus a small number of relevant local citations. IT-Region Schleswig-Holstein is explicitly treated as potentially fee-bearing for a new enterprise account, not as a free backlink tactic.

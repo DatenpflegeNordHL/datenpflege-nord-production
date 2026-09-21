@@ -14,7 +14,6 @@
 <link href="https://datenpflege-nord.de/" hreflang="x-default" rel="alternate"/>
 <link href="/favicon.svg?v=4dd2d3542be7938c73cade275b84ef035fdc9ac3a65b6f098a6a170ec434c524" rel="icon" type="image/svg+xml"/>
 <link href="/apple-touch-icon.png?v=2fc105afd3410fa60ea6303b3f1bfe07845c1837c9103fc81dbe70ed3fcae4b0" rel="apple-touch-icon" sizes="180x180"/>
-<link crossorigin="" href="https://api.github.com" rel="preconnect"/>
 <meta content="en_GB" property="og:locale"/>
 <meta content="de_DE" property="og:locale:alternate"/>
 <meta content="website" property="og:type"/>
@@ -94,7 +93,7 @@
   ]
 }
   </script>
-  <link rel="stylesheet" href="/assets/home.css?v=cf3709efd87c82faa0e58dd3a1125c643eaea5670e054828034f8502698a1678">
+  <link rel="stylesheet" href="/assets/home.css?v=dc7ff933d011fb5f2a78d0c46a09652f1c61ff6e1369db5eb674bb2a5e62a671">
   <link rel="stylesheet" href="/assets/profile-card.css?v=f7ff965005e5615754c7fa8a18dc5326467e526c5a11ff3ed6a3a6203b2e0692">
 </head>
 <body>
@@ -148,19 +147,6 @@
 
 
 
-<section aria-label="GitHub statistics" class="stats-strip" data-i18n-aria="statsAria" id="stats">
-<div class="shell stats-grid">
-<div class="stat-intro">
-<span class="stat-label" data-i18n="statsIntroLabel">Public track record</span>
-<p data-i18n="statsIntroText">Live values are added in the browser. The GitHub references below remain directly verifiable even without the live request.</p>
-</div>
-<div class="stat"><span class="stat-label" data-i18n="statReposLabel">Public repos</span><strong data-stat="repos">—</strong><span data-i18n="statReposSub">public on GitHub</span></div>
-<div class="stat"><span class="stat-label" data-i18n="statPrsLabel">Pull requests</span><strong data-stat="prs">—</strong><span data-i18n="statPrsSub">submitted publicly</span></div>
-<div class="stat"><span class="stat-label" data-i18n="statProjectsLabel">Recent repos</span><strong data-stat="projects">—</strong><span data-i18n="statProjectsSub">in the activity window</span></div>
-<div class="stat"><span class="stat-label" data-i18n="statExternalLabel">Open source</span><strong data-stat="external">—</strong><span data-i18n="statExternalSub">external repositories</span></div>
-</div>
-</section>
-
 <section aria-labelledby="github-title" class="section" id="github">
 <div class="shell github-layout">
 <aside aria-labelledby="work-title" class="service-column reveal" id="arbeit">
@@ -206,47 +192,68 @@
 <div class="feed-box reveal">
 <div class="feed-head">
 <div>
-<span class="eyebrow" data-i18n="feedEyebrow">Public development work</span>
-<h2 data-i18n-html="feedTitle" id="github-title">Technical work.<br>Publicly verifiable.</h2>
+<span class="eyebrow">Public development work</span>
+<h2 id="github-title">Upstream contributions.<br>Directly verifiable.</h2>
 </div>
-<p class="section-copy" data-i18n="feedCopy">Public pull requests and repositories provide a verifiable view of how we work with our own and existing codebases. Open-source contributions are shown as technical work samples, not client projects.</p>
+<p class="section-copy">Selected contributions to established open-source projects. We show verifiable pull requests and their current status. Internal projects and client repositories remain private.</p>
 </div>
 <div class="feed-toolbar">
-<div class="feed-live"><span aria-hidden="true" class="live-dot"></span><span aria-live="polite" data-i18n="feedStatusStatic" id="feedStatus">Public activity · static snapshot</span></div>
-<div class="feed-note" data-i18n="feedNote">Live data replaces this SEO fallback in the browser</div>
+<div class="feed-live">Verified 21 Sep 2026</div>
+<div class="feed-note">Curated · direct links to upstream pull requests</div>
 </div>
-<div class="feed-list" id="githubFeed">
+<section class="feed-group" aria-labelledby="merged-contributions-en">
+<div class="feed-group-title"><h3 id="merged-contributions-en">Accepted / merged</h3><span>5 contributions</span></div>
+<div class="feed-list">
 <a class="feed-item" href="https://github.com/open-jarvis/OpenJarvis/pull/708" rel="noopener noreferrer" target="_blank">
-<span class="feed-index mono">01</span>
-<span class="feed-kind"><span class="feed-badge" data-i18n="prMerged">PR merged</span><span class="feed-scope" data-i18n="scopeExternal">Open source</span></span>
-<span class="feed-main"><span class="feed-repo">open-jarvis/OpenJarvis</span><h3 data-i18n="staticFeed1">Preserve Gemini tool calls during streaming</h3></span>
-<span class="feed-meta"><span data-i18n="current">Checked 15 Sep 2026</span><span class="feed-arrow">↗</span></span>
+<span class="feed-index mono">01</span><span class="feed-kind"><span class="feed-badge">Merged</span><span class="feed-scope">Open source</span></span>
+<div class="feed-main"><span class="feed-repo">open-jarvis/OpenJarvis · PR #708</span><h3>Preserve Gemini tool calls during streaming</h3></div>
+<span class="feed-meta"><span>10 Aug 2026</span><span class="feed-arrow">↗</span></span>
 </a>
-<a class="feed-item" href="https://github.com/open-jarvis/OpenJarvis/pull/702" rel="noopener noreferrer" target="_blank">
-<span class="feed-index mono">02</span>
-<span class="feed-kind"><span class="feed-badge" data-i18n="prClosed">PR closed</span><span class="feed-scope" data-i18n="scopeExternal">Open source</span></span>
-<span class="feed-main"><span class="feed-repo">open-jarvis/OpenJarvis</span><h3 data-i18n="staticFeed2">Parse skill sources correctly from TOML</h3></span>
-<span class="feed-meta"><span data-i18n="current">Checked 15 Sep 2026</span><span class="feed-arrow">↗</span></span>
+<a class="feed-item" href="https://github.com/open-jarvis/OpenJarvis/pull/921" rel="noopener noreferrer" target="_blank">
+<span class="feed-index mono">02</span><span class="feed-kind"><span class="feed-badge">Merged</span><span class="feed-scope">Open source</span></span>
+<div class="feed-main"><span class="feed-repo">open-jarvis/OpenJarvis · PR #921</span><h3>Keep desktop installation working on Python 3.10</h3></div>
+<span class="feed-meta"><span>4 Sep 2026</span><span class="feed-arrow">↗</span></span>
 </a>
-<a class="feed-item" href="https://github.com/DatenpflegeNordHL/Codex-Looper/pull/24" rel="noopener noreferrer" target="_blank">
-<span class="feed-index mono">03</span>
-<span class="feed-kind"><span class="feed-badge" data-i18n="prMerged">PR merged</span><span class="feed-scope" data-i18n="scopeOwn">Own project</span></span>
-<span class="feed-main"><span class="feed-repo">DatenpflegeNordHL/Codex-Looper</span><h3 data-i18n="staticFeed3">Add README hero and front-page navigation</h3></span>
-<span class="feed-meta"><span data-i18n="current">Checked 15 Sep 2026</span><span class="feed-arrow">↗</span></span>
+<a class="feed-item" href="https://github.com/open-jarvis/OpenJarvis/pull/936" rel="noopener noreferrer" target="_blank">
+<span class="feed-index mono">03</span><span class="feed-kind"><span class="feed-badge">Merged</span><span class="feed-scope">Open source</span></span>
+<div class="feed-main"><span class="feed-repo">open-jarvis/OpenJarvis · PR #936</span><h3>Resolve MLX model IDs before inference</h3></div>
+<span class="feed-meta"><span>4 Sep 2026</span><span class="feed-arrow">↗</span></span>
 </a>
-<a class="feed-item" href="https://github.com/DatenpflegeNordHL/Codex-Looper/pull/23" rel="noopener noreferrer" target="_blank">
-<span class="feed-index mono">04</span>
-<span class="feed-kind"><span class="feed-badge" data-i18n="prMerged">PR merged</span><span class="feed-scope" data-i18n="scopeOwn">Own project</span></span>
-<span class="feed-main"><span class="feed-repo">DatenpflegeNordHL/Codex-Looper</span><h3 data-i18n="staticFeed4">Add public repository hygiene files</h3></span>
-<span class="feed-meta"><span data-i18n="current">Checked 15 Sep 2026</span><span class="feed-arrow">↗</span></span>
+<a class="feed-item" href="https://github.com/ccfos/nightingale/pull/3367" rel="noopener noreferrer" target="_blank">
+<span class="feed-index mono">04</span><span class="feed-kind"><span class="feed-badge">Merged</span><span class="feed-scope">Open source</span></span>
+<div class="feed-main"><span class="feed-repo">ccfos/nightingale · PR #3367</span><h3>Use the configured PostgreSQL database in InitClient</h3></div>
+<span class="feed-meta"><span>4 Sep 2026</span><span class="feed-arrow">↗</span></span>
 </a>
-<a class="feed-item" href="https://github.com/DatenpflegeNordHL/Codex-Looper/pull/22" rel="noopener noreferrer" target="_blank">
-<span class="feed-index mono">05</span>
-<span class="feed-kind"><span class="feed-badge" data-i18n="prMerged">PR merged</span><span class="feed-scope" data-i18n="scopeOwn">Own project</span></span>
-<span class="feed-main"><span class="feed-repo">DatenpflegeNordHL/Codex-Looper</span><h3 data-i18n="staticFeed5">Publish project overview and contribution guides</h3></span>
-<span class="feed-meta"><span data-i18n="current">Checked 15 Sep 2026</span><span class="feed-arrow">↗</span></span>
+<a class="feed-item" href="https://github.com/blacklanternsecurity/bbot/pull/3415" rel="noopener noreferrer" target="_blank">
+<span class="feed-index mono">05</span><span class="feed-kind"><span class="feed-badge">Merged</span><span class="feed-scope">Open source</span></span>
+<div class="feed-main"><span class="feed-repo">blacklanternsecurity/bbot · PR #3415</span><h3>Clarify the Version Updater workflow name</h3></div>
+<span class="feed-meta"><span>31 Aug 2026</span><span class="feed-arrow">↗</span></span>
 </a>
 </div>
+</section>
+<section class="feed-group" aria-labelledby="review-contributions-en">
+<div class="feed-group-title"><h3 id="review-contributions-en">In review</h3><span>3 open pull requests</span></div>
+<div class="feed-list">
+<a class="feed-item" href="https://github.com/vllm-project/router/pull/287" rel="noopener noreferrer" target="_blank">
+<span class="feed-index mono">06</span>
+<span class="feed-kind"><span class="feed-badge feed-badge-open">In review</span><span class="feed-scope">Open source</span></span>
+<div class="feed-main"><span class="feed-repo">vllm-project/router · PR #287</span><h3>Advance sequence read offset after append_text</h3></div>
+<span class="feed-meta"><span>Open</span><span class="feed-arrow">↗</span></span>
+</a>
+<a class="feed-item" href="https://github.com/vllm-project/router/pull/288" rel="noopener noreferrer" target="_blank">
+<span class="feed-index mono">07</span>
+<span class="feed-kind"><span class="feed-badge feed-badge-open">In review</span><span class="feed-scope">Open source</span></span>
+<div class="feed-main"><span class="feed-repo">vllm-project/router · PR #288</span><h3>Unicode offset handling for log probabilities</h3></div>
+<span class="feed-meta"><span>Open</span><span class="feed-arrow">↗</span></span>
+</a>
+<a class="feed-item" href="https://github.com/vllm-project/router/pull/289" rel="noopener noreferrer" target="_blank">
+<span class="feed-index mono">08</span>
+<span class="feed-kind"><span class="feed-badge feed-badge-open">In review</span><span class="feed-scope">Open source</span></span>
+<div class="feed-main"><span class="feed-repo">vllm-project/router · PR #289</span><h3>Clean worker indexes on re-registration</h3></div>
+<span class="feed-meta"><span>Open</span><span class="feed-arrow">↗</span></span>
+</a>
+</div>
+</section>
 </div>
 </div>
 </div>
@@ -293,7 +300,7 @@
 </div>
 </div>
 </section>
-</div></main>
+</main>
 <footer class="footer">
 <div class="shell footer-inner">
 <span>© <span id="year">2026</span> DatenpflegeNord · Green Vector Energo GmbH</span>
@@ -302,7 +309,7 @@
 </div>
 </div>
 </footer>
-<noscript><p class="shell">The page works without JavaScript; only the GitHub feed and statistics remain on their static fallback.</p></noscript>
-<script src="/assets/home-en.js?v=eb5d01e41002ce5ebac1ca1eb360b355b84474e972f16148f42a9be7c36c543e" defer></script>
+<noscript><p class="shell">The page also works without JavaScript.</p></noscript>
+<script src="/assets/home-en.js?v=94cb809d80836b9a82cdd8f25d43e6749eecefb354d5c9d11732b44a6292dd8d" defer></script>
 </body>
 </html>
