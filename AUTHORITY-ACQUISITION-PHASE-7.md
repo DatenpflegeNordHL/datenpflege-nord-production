@@ -2,13 +2,15 @@
 
 Stand: 2026-09-15. Planning only. No profile, membership, review request, outreach message or external listing was created in this phase.
 
+Aktualisiert am 2026-09-21: Für den öffentlichen GitHub-Auftritt gelten nur noch verifizierbare Beiträge zu fremden Upstream-Projekten als technische Referenz. Eigene interne Projekte und Kunden-Repositories werden nicht als öffentliche Authority-Assets geführt.
+
 Baseline: SE Ranking reported approximately **0 referring domains** for `datenpflege-nord.de` in the validated Phase-6 evidence. The goal is therefore not backlink volume. The goal is a small set of trustworthy referring domains and entity mentions that a real buyer could encounter and that can be maintained without contradictory company data.
 
 Quality gate: reject PBNs, bulk directory packages, paid dofollow schemes, automated profile spam, irrelevant foreign directories, artificial reciprocal exchanges and links that require invented offices, clients, reviews, certifications or memberships.
 
 ## Fresh checks used for this plan
 
-- Public GitHub API, 2026-09-15: `DatenpflegeNordHL` resolves as a **User**, not an Organization. The public account reports location `Lübeck`, company `Datenpflege Nord`, five public repositories, but currently no profile website (`blog`) and no bio. `Codex-Looper` has a useful description and project homepage. `immo-hoehn.de` is public but has no public description/homepage in the API result; because the name appears customer-related, it must not be used as authority proof without publication/attribution permission. Public forks must not be presented as own projects.
+- Public GitHub API, rechecked 2026-09-21: `DatenpflegeNordHL` resolves as a **User**, not an Organization. Public forks are not presented as owned projects; only verifiable upstream pull requests are used as public technical proof. Customer and internal repositories are excluded from authority claims.
 - DigitalHub.SH Matching Portal: current page states that the matching service is free and allows companies in the Schleswig-Holstein digital economy to expose Open-Source solutions/competence to public institutions and associations: <https://digitalhub.sh/de/matching-portal>.
 - DiWiSH: current membership page advertises member profiles, editorial articles, events and regional digital-network visibility; membership is a real relationship, not a backlink purchase: <https://www.diwish.de/mitgliedschaft.html>. The job portal is currently available to Schleswig-Holstein digital companies independently of membership: <https://www.diwish.de/registrierung.html>.
 - IT-Region Schleswig-Holstein: company profiles, news, jobs and events are available, but its current terms state that creating a new enterprise account incurs fees; only a user account or assignment to an existing company account is free: <https://it-region-sh.de/> and <https://it-region-sh.de/agb/>.
@@ -24,7 +26,6 @@ These actions can be pursued without asserting a completed legal rename. They st
 | Target / entity | Category | Relevance | Likely link / mention type | Brand / entity risk | Effort | Expected authority value | Referral potential | Availability status | Next action | Priority |
 |---|---|---|---|---|---|---|---|---|---|---|
 | GitHub public profile `DatenpflegeNordHL` | C. PARTNER / PROFILE | Direct public technical identity already linked from the website | Profile website + concise factual bio + public project graph | Low if current brand/legal relationship is described accurately; do not call it an Organization | Low | High entity/technical corroboration | Medium | AVAILABLE NOW | Add canonical website and short factual bio; keep private production repo private | P0 |
-| `DatenpflegeNordHL/Codex-Looper` | B. TECH / OSS | Real maintained public tool with description and GitHub Pages homepage | Repository description, README/docs and project-site link to canonical brand | Low | Low/medium | Medium/high technical authority | Medium | AVAILABLE NOW | Audit README/project site for accurate canonical domain, authorship and useful docs; no SEO-only text | P0 |
 | OpenJarvis upstream contribution history | B. TECH / OSS | Existing public upstream PR activity is already referenced by the site | Merged PR/commit/contributor reference where upstream naturally exposes it | Low if only verified merged/contributed work is claimed | Medium | High when contribution is substantive | Low/medium | REQUIRES CONTRIBUTION | Continue only with safe, real contributions; record merged status and upstream URL before using as proof | P1 |
 | Relevant upstream projects actually used by DatenpflegeNord | B. TECH / OSS | Real fixes/docs in used technology ecosystems can create durable technical mentions | Contributor/PR/release-note links | Low | Medium/high | High for strong ecosystems | Low/medium | REQUIRES CONTRIBUTION | Prefer a small number of accepted fixes/docs over profile creation; no empty repos or badge farming | P1 |
 | Permissioned customer/project reference pages | E. PROJECT / REFERENCE | Highest commercial proof when a real delivered project may be named | Project credit/case reference from customer or partner page | Medium: requires explicit publication permission and exact role | Medium | High | High | REQUIRES APPLICATION | Build a permission checklist: customer consent, exact scope, destination URL, no sitewide followed credit requirement | P1 |
@@ -57,14 +58,14 @@ The two tables above are the prioritized **top 20**. Reserve outside the top 20:
 
 1. Treat `https://github.com/DatenpflegeNordHL` as a public **user profile**, not an organization profile. Correcting that language is an entity-quality improvement in itself.
 2. The profile has a clear low-risk gap: canonical website and bio are empty. Filling those with the truthful DatenpflegeNord brand, Lübeck/Schleswig-Holstein and actual software/web/AI scope is higher value than creating another repository.
-3. `Codex-Looper` is currently the strongest self-owned public technical asset because it has a specific description and project homepage. Improve useful documentation first.
+3. Self-owned internal tools and customer repositories are not used as public technical authority proof. Keep the public evidence focused on upstream work that can be verified directly.
 4. Forks of third-party projects are not standalone authority proof. Only the account's actual contributions to those upstream projects should be referenced.
 5. A public repository whose name appears customer-related must not become a backlink/case-study tactic by default. Verify public-repository intent, customer permission and permissible attribution before using it in marketing or authority content.
 6. Do not create an empty `.github`, package or demo repository solely to obtain another indexable page. A profile README is useful only if it materially explains the real public work.
 
 ## Acquisition order
 
-1. **Now:** correct the public GitHub profile identity and canonical website; audit `Codex-Looper` docs for genuine useful cross-reference.
+1. **Now:** keep the public GitHub profile identity and canonical website accurate; show only verified upstream contributions and their actual status.
 2. **Now:** continue a small number of substantive upstream OSS contributions and keep verified contribution evidence.
 3. **Now:** prepare a permission-based project-reference process and pursue only references that a real customer/partner is comfortable publishing.
 4. **After Issue #13:** verify/claim the one correct Google local entity, then DigitalHub.SH and DiWiSH because they combine regional/entity value with real referral potential.

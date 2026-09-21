@@ -15,8 +15,7 @@ Reject PBNs, bulk directory packages, paid dofollow schemes, sitewide spam, auto
 ## SAFE NOW
 
 - truthful GitHub profile/profile README and canonical website reference;
-- Codex-Looper documentation/metadata improvements tied to real functionality;
-- verified merged upstream OSS contributions;
+- verified upstream OSS contributions with merged and open/in-review status clearly separated;
 - useful technical documentation and contribution evidence;
 - permissioned real project references;
 - editorial/event participation that reflects an actual contribution.
