@@ -231,6 +231,32 @@ window.DPN = {
         }
       };
 
+      const applyShowcaseContactContext = () => {
+        const url = new URL(window.location.href);
+        const topic = url.searchParams.get("topic");
+        const design = url.searchParams.get("design")?.trim();
+        const designName = url.searchParams.get("designName")?.trim();
+        if (topic !== "website" || !design || design.length > 256) return;
+
+        const topicField = document.getElementById("topic");
+        const messageField = document.getElementById("message");
+        if (!(topicField instanceof HTMLSelectElement) || !(messageField instanceof HTMLTextAreaElement)) return;
+
+        topicField.value = "website";
+        if (designName && designName.length <= 200) {
+          messageField.value = window.DPN_I18N.language === "en"
+            ? `I'm interested in the “${designName}” design direction as inspiration for a custom website.`
+            : `Ich interessiere mich für die Designrichtung „${designName}“ als Orientierung für eine eigene Website.`;
+        }
+
+        url.searchParams.delete("topic");
+        url.searchParams.delete("design");
+        url.searchParams.delete("designName");
+        history.replaceState({}, "", `${url.pathname}${url.search}${url.hash}`);
+      };
+
+      applyShowcaseContactContext();
+
       document.getElementById("contactForm").addEventListener("submit", async event => {
         event.preventDefault();
 

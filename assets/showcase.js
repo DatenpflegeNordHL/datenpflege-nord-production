@@ -133,12 +133,13 @@
     dialogImage.src = project.poster.src;
     dialogImage.alt = project.poster.alt || `Website-Vorschau: ${project.name}`;
     dialogImage.hidden = false;
-    const demo = dialog.querySelector("[data-dialog-demo]");
-    demo.hidden = !project.demo;
-    if (project.demo) demo.href = project.demo;
-    else demo.removeAttribute("href");
     const contact = dialog.querySelector("[data-dialog-contact]");
-    contact.href = "/#kontakt";
+    const contactUrl = new URL("/", window.location.origin);
+    contactUrl.searchParams.set("topic", "website");
+    contactUrl.searchParams.set("design", project.id);
+    contactUrl.searchParams.set("designName", project.name);
+    contactUrl.hash = "kontakt";
+    contact.href = `${contactUrl.pathname}${contactUrl.search}${contactUrl.hash}`;
     if (project.video?.src && !reduceMotion.matches && !saveData) {
       dialogVideo.poster = project.poster.src;
       dialogVideo.src = project.video.src;

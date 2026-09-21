@@ -163,6 +163,29 @@ class ShowcaseCatalogueTests(unittest.TestCase):
             self.assertNotIn("http://", source)
             self.assertNotIn("https://", source)
 
+    def test_dialog_has_one_contact_cta_with_structured_form_handoff(self):
+        page = PAGE.read_text(encoding="utf-8")
+        showcase_script = (ROOT / "assets" / "showcase.js").read_text(encoding="utf-8")
+        home_de = (ROOT / "assets" / "home-de.js").read_text(encoding="utf-8")
+        home_en = (ROOT / "assets" / "home-en.js").read_text(encoding="utf-8")
+
+        self.assertNotIn("data-dialog-demo", page)
+        self.assertNotIn("Template-Demo öffnen", page)
+        self.assertEqual(page.count("data-dialog-contact"), 1)
+        self.assertIn("Diesen Stil anfragen", page)
+        self.assertNotIn("[data-dialog-demo]", showcase_script)
+        self.assertIn('contactUrl.searchParams.set("topic", "website")', showcase_script)
+        self.assertIn('contactUrl.searchParams.set("design", project.id)', showcase_script)
+        self.assertIn('contactUrl.searchParams.set("designName", project.name)', showcase_script)
+
+        for source in (home_de, home_en):
+            self.assertIn('topicField.value = "website"', source)
+            self.assertIn("messageField.value =", source)
+            self.assertIn("Designrichtung „${designName}“", source)
+            self.assertIn("design direction as inspiration for a custom website", source)
+            self.assertIn('url.searchParams.delete("designName")', source)
+            self.assertIn('history.replaceState({}, "",', source)
+
     def test_video_lifecycle_is_interaction_only_and_single_active(self):
         source = (ROOT / "assets" / "showcase.js").read_text(encoding="utf-8")
         page = PAGE.read_text(encoding="utf-8")
