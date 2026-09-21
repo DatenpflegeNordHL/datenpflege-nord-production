@@ -1,13 +1,12 @@
 # CSP rollout state
 
-Production currently serves `Content-Security-Policy-Report-Only` at the Cloudflare edge. The policy is compatible with the currently deployed release by allowing only the exact SHA-256 hashes of its inline script/style blocks and the two existing GitHub runtime hosts. Executable inline JavaScript is not broadly allowed.
+Production currently serves an enforcing `Content-Security-Policy` at the Cloudflare edge. The live policy observed on 2026-09-21 allows only same-origin images (`img-src 'self' data:`) and same-origin media (`media-src 'self'`). The Website Showcase intentionally publishes its legacy preview posters and videos from the dedicated origin `https://media.datenpflege-nord.de`, so the current edge policy blocks those resources.
 
-The repository branch removes all executable inline scripts, inline `<style>` blocks, style attributes and the `raw.githubusercontent.com` media dependency. Because repository changes must not be deployed directly from this hardening task, enforcement must wait for the pull request to be reviewed, merged and deployed.
-
-After that deployment, replace the report-only value with the following target policy:
+The reviewed target policy is versioned in `ops/cloudflare/content-security-policy.txt`. Relative to the currently observed Production policy it changes only these directives:
 
 ```text
-default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self' mailto:; connect-src 'self' https://api.github.com; img-src 'self' data:; media-src 'self'; font-src 'self'; manifest-src 'self'; script-src 'self'; script-src-attr 'none'; style-src 'self'; style-src-attr 'none'; upgrade-insecure-requests
+img-src 'self' data: https://media.datenpflege-nord.de;
+media-src 'self' https://media.datenpflege-nord.de;
 ```
 
-Keep it in report-only mode for a browser pass over all seven routes, including contact-form validation, GitHub feed refresh, reduced-motion emulation and fine-pointer hero scrubbing. Switch the header name to `Content-Security-Policy` only when the console and network log contain no CSP violations and no functional JavaScript errors. Do not add `unsafe-inline`, `raw.githubusercontent.com` or broader GitHub origins back to the target policy.
+Do not add wildcard origins, broad HTTPS allowances or `unsafe-inline`. Applying or changing the Cloudflare response-header rule remains a production human gate and requires separate explicit authorization. Before promotion, browser-test the exact candidate policy against the Website Showcase and the existing public site, then repeat the public edge verification after the authorized release.

@@ -9,9 +9,32 @@ MANIFEST = ROOT / "docs" / "design-gallery" / "showcase-source-manifest.json"
 CHECKSUMS = ROOT / "docs" / "design-gallery" / "showcase-public-media.sha256"
 SOURCE_ORDER = ROOT / "docs" / "design-gallery" / "claude-directory-current-order.json"
 PAGE = ROOT / "website-showcase" / "index.html"
+CSP_POLICY = ROOT / "ops" / "cloudflare" / "content-security-policy.txt"
 
 
 class ShowcaseCatalogueTests(unittest.TestCase):
+    def test_cloudflare_csp_policy_allows_only_the_showcase_media_origin(self):
+        policy = CSP_POLICY.read_text(encoding="utf-8").strip()
+        self.assertIn("img-src 'self' data: https://media.datenpflege-nord.de", policy)
+        self.assertIn("media-src 'self' https://media.datenpflege-nord.de", policy)
+        self.assertNotIn("img-src *", policy)
+        self.assertNotIn("media-src *", policy)
+        stripped = policy.replace("https://media.datenpflege-nord.de", "").replace("https://api.github.com", "")
+        self.assertNotIn("https:", stripped)
+        self.assertNotIn("'unsafe-inline'", policy)
+
+    def test_home_navigation_links_to_showcase(self):
+        home = (ROOT / "index.html").read_text(encoding="utf-8")
+        home_en = (ROOT / "en" / "index.html").read_text(encoding="utf-8")
+        self.assertIn('<a href="/website-showcase/">Beispiele</a>', home)
+        self.assertIn('<a href="/website-showcase/">Examples</a>', home_en)
+
+    def test_human_service_mobile_grid_cannot_force_horizontal_overflow(self):
+        source = (ROOT / "assets" / "showcase-demos.css").read_text(encoding="utf-8")
+        self.assertIn(".service-hero{grid-template-columns:minmax(0,1fr)}", source)
+        self.assertIn(".service-hero__copy,.service-hero__portrait{min-width:0}", source)
+        self.assertIn(".service-hero h1{font-size:clamp(2.5rem,13vw,4.2rem)}", source)
+
     def test_public_catalogue_contains_exact_current_directory_plus_owned_demos(self):
         data = json.loads(CATALOGUE.read_text(encoding="utf-8"))
         self.assertTrue(data["publicationPolicy"]["currentUpstreamDirectoryIsLegacyGate"])
