@@ -35,7 +35,12 @@
     script.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(GA_ID)}`;
     script.addEventListener("load", () => {
       window.gtag("js", new Date());
-      window.gtag("config", GA_ID);
+      window.gtag("config", GA_ID, {
+        cookie_expires: 180 * 24 * 60 * 60,
+        cookie_update: false,
+        allow_google_signals: false,
+        allow_ad_personalization_signals: false
+      });
     }, { once: true });
     script.addEventListener("error", () => {
       analyticsLoaded = false;
