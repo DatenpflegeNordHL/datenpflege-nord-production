@@ -45,6 +45,7 @@ class AnalyticsConsentTests(unittest.TestCase):
             'cookie_update: false',
             'allow_google_signals: false',
             'allow_ad_personalization_signals: false',
+            'window.location.pathname.startsWith("/datenschutz")',
         ]
         for marker in required:
             with self.subTest(marker=marker):
