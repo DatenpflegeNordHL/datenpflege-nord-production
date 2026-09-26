@@ -138,6 +138,7 @@
 
     const necessary = document.createElement("button");
     necessary.type = "button";
+    necessary.dataset.dpnConsentChoice = "necessary";
     necessary.textContent = copy.necessary;
     necessary.addEventListener("click", () => {
       const hadAnalytics = Boolean(readConsent()?.analytics) || analyticsLoaded;
@@ -150,6 +151,7 @@
 
     const accept = document.createElement("button");
     accept.type = "button";
+    accept.dataset.dpnConsentChoice = "analytics";
     accept.textContent = copy.accept;
     accept.addEventListener("click", () => {
       saveConsent(true);
