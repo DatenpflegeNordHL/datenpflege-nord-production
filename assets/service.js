@@ -77,7 +77,7 @@
 
   const deleteAnalyticsCookies = () => {
     const names = document.cookie
-      .split(";")
+      .split(/;/)
       .map((part) => part.trim().split("=")[0])
       .filter((name) => name === "_ga" || name.startsWith("_ga_"));
 
@@ -152,7 +152,7 @@
       dialog.close();
     });
 
-    form.append(necessary, document.createTextNode(" "), accept);
+    form.append(necessary, accept);
     dialog.append(title, text, privacy, form);
 
     dialog.addEventListener("cancel", (event) => {
