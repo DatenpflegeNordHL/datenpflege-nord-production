@@ -198,8 +198,13 @@
       loadAnalytics();
       return;
     }
-    if (consent?.analytics === false) return;
+    if (consent?.analytics === false) {
+      deleteAnalyticsCookies();
+      return;
+    }
 
+    // Clean up cookies left by the previous always-on GA deployment before asking again.
+    deleteAnalyticsCookies();
     openSettings();
   };
 
