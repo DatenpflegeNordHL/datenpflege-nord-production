@@ -185,7 +185,7 @@
       openSettings();
     });
 
-    const target = document.querySelector(".footer-links") || document.querySelector("footer");
+    const target = document.querySelector(".footer-links, .showcase-footer__links") || document.querySelector("footer");
     if (target) target.appendChild(link);
   };
 
