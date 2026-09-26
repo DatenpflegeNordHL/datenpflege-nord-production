@@ -30,7 +30,7 @@ class HeroBrowserTests(unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls):
-        for session in ("dpn-hero-layout", "dpn-hero-promo", "dpn-contact-flow", "dpn-hero-reduced", "dpn-hero-nojs"):
+        for session in ("dpn-hero-layout", "dpn-hero-promo", "dpn-contact-flow", "dpn-hero-reduced", "dpn-hero-nojs", "dpn-consent"):
             subprocess.run([BROWSER, "--session", session, "close"], capture_output=True, text=True)
         cls.server.shutdown()
         cls.server.server_close()
@@ -40,6 +40,17 @@ class HeroBrowserTests(unittest.TestCase):
         return subprocess.check_output(
             [BROWSER, "--session", session, *args], text=True
         ).strip()
+
+    def prepare_necessary_consent(self, session):
+        self.browser(session, "open", self.url)
+        self.browser(session, "eval", r'''(()=>{
+          localStorage.setItem("dpn_consent_v1", JSON.stringify({
+            version: 1,
+            analytics: false,
+            savedAt: Date.now()
+          }));
+          return "ok";
+        })()''')
 
     def hero_state(self, session):
         script = r'''(()=>{
@@ -76,6 +87,7 @@ class HeroBrowserTests(unittest.TestCase):
 
     def test_hero_layout_at_required_viewports(self):
         session = "dpn-hero-layout"
+        self.prepare_necessary_consent(session)
         desktop = None
         for width, height in ((1440, 1000), (1024, 900), (768, 900), (430, 900), (390, 844), (360, 800), (320, 720)):
             with self.subTest(width=width):
@@ -111,6 +123,7 @@ class HeroBrowserTests(unittest.TestCase):
 
     def test_promo_pointer_keyboard_escape_and_outside_close(self):
         session = "dpn-hero-promo"
+        self.prepare_necessary_consent(session)
         self.browser(session, "set", "viewport", "390", "844")
         self.browser(session, "open", self.url)
         self.browser(session, "wait", "500")
@@ -145,6 +158,7 @@ class HeroBrowserTests(unittest.TestCase):
 
     def test_contact_payload_carries_promo_and_showcase_prefill_survives(self):
         session = "dpn-contact-flow"
+        self.prepare_necessary_consent(session)
         self.browser(session, "set", "viewport", "390", "844")
         self.browser(session, "open", self.url)
         self.browser(session, "wait", "800")
@@ -168,8 +182,84 @@ class HeroBrowserTests(unittest.TestCase):
         self.assertEqual(context["search"], "")
         print("CONTACT_FLOW_QA_PASS: normal fields, structured promo payload and showcase prefill verified")
 
+    def test_consent_blocks_analytics_until_explicit_choice(self):
+        session = "dpn-consent"
+        self.browser(session, "network", "route", "**/googletagmanager.com/**", "--abort")
+        self.browser(session, "network", "route", "**/google-analytics.com/**", "--abort")
+        self.browser(session, "open", self.url)
+        self.browser(session, "eval", 'localStorage.removeItem("dpn_consent_v1")')
+        self.browser(session, "open", self.url)
+        self.browser(session, "wait", "300")
+
+        initial = json.loads(self.browser(session, "eval", r'''(()=>{
+          const dialog=document.querySelector("#dpn-consent-dialog");
+          return {
+            open:!!dialog?.open,
+            googleScript:!!document.querySelector('script[src*="googletagmanager.com"]'),
+            gaCookie:document.cookie.split(/;/).some(part=>part.trim().startsWith("_ga")),
+            choice:localStorage.getItem("dpn_consent_v1")
+          };
+        })()'''))
+        self.assertEqual(initial, {
+            "open": True,
+            "googleScript": False,
+            "gaCookie": False,
+            "choice": None,
+        })
+
+        self.browser(session, "click", "#dpn-consent-dialog button:first-of-type")
+        rejected = json.loads(self.browser(session, "eval", r'''(()=>{
+          const saved=JSON.parse(localStorage.getItem("dpn_consent_v1"));
+          return {
+            open:document.querySelector("#dpn-consent-dialog").open,
+            analytics:saved.analytics,
+            googleScript:!!document.querySelector('script[src*="googletagmanager.com"]')
+          };
+        })()'''))
+        self.assertEqual(rejected, {
+            "open": False,
+            "analytics": False,
+            "googleScript": False,
+        })
+
+        self.browser(session, "click", "[data-dpn-consent-settings]")
+        self.browser(session, "click", "#dpn-consent-dialog button:nth-of-type(2)")
+        self.browser(session, "wait", "100")
+        accepted = json.loads(self.browser(session, "eval", r'''(()=>{
+          const saved=JSON.parse(localStorage.getItem("dpn_consent_v1"));
+          return {
+            open:document.querySelector("#dpn-consent-dialog").open,
+            analytics:saved.analytics,
+            googleScript:!!document.querySelector('script[src*="googletagmanager.com"]')
+          };
+        })()'''))
+        self.assertEqual(accepted, {
+            "open": False,
+            "analytics": True,
+            "googleScript": True,
+        })
+
+        self.browser(session, "click", "[data-dpn-consent-settings]")
+        self.browser(session, "click", "#dpn-consent-dialog button:first-of-type")
+        self.browser(session, "wait", "300")
+        revoked = json.loads(self.browser(session, "eval", r'''(()=>{
+          const saved=JSON.parse(localStorage.getItem("dpn_consent_v1"));
+          return {
+            analytics:saved.analytics,
+            googleScript:!!document.querySelector('script[src*="googletagmanager.com"]'),
+            gaCookie:document.cookie.split(/;/).some(part=>part.trim().startsWith("_ga"))
+          };
+        })()'''))
+        self.assertEqual(revoked, {
+            "analytics": False,
+            "googleScript": False,
+            "gaCookie": False,
+        })
+        print("CONSENT_QA_PASS: GA4 blocked before consent, reject respected, accept gated, revocation reloads clean")
+
     def test_reduced_motion_keeps_static_poster(self):
         session = "dpn-hero-reduced"
+        self.prepare_necessary_consent(session)
         self.browser(session, "set", "viewport", "1440", "1000")
         self.browser(session, "set", "media", "light", "reduced-motion")
         self.browser(session, "open", self.url)
@@ -183,6 +273,7 @@ class HeroBrowserTests(unittest.TestCase):
 
     def test_no_js_fallback_keeps_content_and_poster(self):
         session = "dpn-hero-nojs"
+        self.prepare_necessary_consent(session)
         self.browser(session, "open", "about:blank")
         self.browser(session, "network", "route", "**/assets/home-de.js*", "--abort")
         self.browser(session, "set", "viewport", "390", "844")
