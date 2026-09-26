@@ -41,6 +41,10 @@ class AnalyticsConsentTests(unittest.TestCase):
             'showModal()',
             'document.createElement("script")',
             'https://www.googletagmanager.com/gtag/js?id=',
+            'cookie_expires: 180 * 24 * 60 * 60',
+            'cookie_update: false',
+            'allow_google_signals: false',
+            'allow_ad_personalization_signals: false',
         ]
         for marker in required:
             with self.subTest(marker=marker):
@@ -57,6 +61,8 @@ class AnalyticsConsentTests(unittest.TestCase):
         self.assertIn("§ 25 Abs. 1 TDDDG", html)
         self.assertIn("dpn_consent_v1", html)
         self.assertIn("Datenschutz-Einstellungen", html)
+        self.assertIn("180 Tage", html)
+        self.assertIn("EU-US Data Privacy Framework", html)
 
 
 if __name__ == "__main__":
