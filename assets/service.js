@@ -210,7 +210,11 @@
 
     // Clean up cookies left by the previous always-on GA deployment before asking again.
     deleteAnalyticsCookies();
-    openSettings();
+
+    // Keep the privacy notice readable before a consent decision.
+    if (!window.location.pathname.startsWith("/datenschutz")) {
+      openSettings();
+    }
   };
 
   if (document.readyState === "loading") {
