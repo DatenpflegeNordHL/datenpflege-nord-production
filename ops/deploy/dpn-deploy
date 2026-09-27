@@ -55,6 +55,7 @@ ALLOWED_PUBLIC_FILES=(
     "datenschutz/index.html"
     "robots.txt"
     "sitemap.xml"
+    "9e0274df67fe428c82aa3891ad857f2d.txt"
     "favicon.svg"
     "apple-touch-icon.png"
     "og-datenpflege-nord.png"
