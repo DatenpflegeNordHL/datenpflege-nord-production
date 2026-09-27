@@ -19,8 +19,14 @@ class ShowcaseCatalogueTests(unittest.TestCase):
         self.assertIn("media-src 'self' https://media.datenpflege-nord.de", policy)
         self.assertNotIn("img-src *", policy)
         self.assertNotIn("media-src *", policy)
-        stripped = policy.replace("https://media.datenpflege-nord.de", "").replace("https://api.github.com", "")
-        self.assertNotIn("https:", stripped)
+        directives = {parts[0]: parts[1:] for item in policy.split(";") if (parts := item.split())}
+        self.assertEqual(directives["script-src"], ["'self'", "https://www.googletagmanager.com"])
+        self.assertEqual(directives["connect-src"], ["'self'", "https://api.github.com", "https://www.google-analytics.com", "https://region1.google-analytics.com"])
+        self.assertEqual(directives["img-src"], ["'self'", "data:", "https://media.datenpflege-nord.de", "https://www.googletagmanager.com"])
+        self.assertEqual(directives["media-src"], ["'self'", "https://media.datenpflege-nord.de"])
+        self.assertEqual(directives["default-src"], ["'self'"])
+        self.assertEqual(directives["style-src"], ["'self'"])
+        self.assertNotIn("*", policy)
         self.assertNotIn("'unsafe-inline'", policy)
 
     def test_home_navigation_links_to_showcase(self):

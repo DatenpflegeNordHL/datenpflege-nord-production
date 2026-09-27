@@ -46,3 +46,18 @@ The corresponding GitHub Actions workflow:
 - does not persist checkout credentials after the repository has been fetched
 
 The push trigger does not protect Git history. GitHub-native protection is unavailable for this private repository under the chosen plan. Production instead requires the separately installed signed-tag/CI/exact-SHA compensating gate in `ops/deploy/P0-RELEASE-AUTHORIZATION.md`; until server acceptance, Issue #10 remains OPEN P0.
+
+Analytics consent browser acceptance uses test-only Playwright/Chromium tooling:
+
+```bash
+python scripts/verify_analytics_browser.py --output /tmp/analytics-consent-qa.json
+```
+
+Hosted CI installs the pinned test tooling and executes this gate. Locally, use
+an isolated tooling environment; `DPN_CHROMIUM_EXECUTABLE` can select an existing
+browser. The runner serves the release allowlist with the versioned CSP, fetches
+the real Google script, intercepts collection/diagnostic requests, and substitutes
+GitHub feed test responses. It checks six pages, eight widths, fresh/rejected/
+accepted/revoked decisions, reload, duplicate execution, keyboard access, storage
+failure, cross-tab revocation and in-flight script loading. It never submits a
+contact form or proves delivery/reporting in the Google property.
