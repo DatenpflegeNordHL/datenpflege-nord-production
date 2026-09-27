@@ -1,0 +1,473 @@
+{
+  "scope": "local candidate; real Google script; intercepted collection",
+  "cases": [
+    {
+      "path": "/",
+      "fresh": "PASS",
+      "reject": "PASS",
+      "accept": "PASS",
+      "duplicate": "PASS",
+      "reload": "PASS",
+      "revoke": "PASS",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "/en/",
+      "fresh": "PASS",
+      "reject": "PASS",
+      "accept": "PASS",
+      "duplicate": "PASS",
+      "reload": "PASS",
+      "revoke": "PASS",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "/softwareentwicklung-luebeck/",
+      "fresh": "PASS",
+      "reject": "PASS",
+      "accept": "PASS",
+      "duplicate": "PASS",
+      "reload": "PASS",
+      "revoke": "PASS",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "/ki-automatisierung-luebeck/",
+      "fresh": "PASS",
+      "reject": "PASS",
+      "accept": "PASS",
+      "duplicate": "PASS",
+      "reload": "PASS",
+      "revoke": "PASS",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "/website-showcase/",
+      "fresh": "PASS",
+      "reject": "PASS",
+      "accept": "PASS",
+      "duplicate": "PASS",
+      "reload": "PASS",
+      "revoke": "PASS",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "/datenschutz/",
+      "fresh": "PASS",
+      "reject": "PASS",
+      "accept": "PASS",
+      "duplicate": "PASS",
+      "reload": "PASS",
+      "revoke": "PASS",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "storage": "blocked",
+      "result": "PASS"
+    },
+    {
+      "storage": "corrupt",
+      "result": "PASS"
+    },
+    {
+      "cross_tab_revoke": "PASS"
+    },
+    {
+      "in_flight_revoke": "PASS"
+    },
+    {
+      "no_js": "/",
+      "result": "PASS"
+    },
+    {
+      "no_js": "/en/",
+      "result": "PASS"
+    }
+  ],
+  "responsive": [
+    {
+      "path": "/",
+      "width": 320,
+      "result": "PASS",
+      "overflow": false,
+      "dialogFits": true
+    },
+    {
+      "path": "/",
+      "width": 360,
+      "result": "PASS",
+      "overflow": false,
+      "dialogFits": true
+    },
+    {
+      "path": "/",
+      "width": 390,
+      "result": "PASS",
+      "overflow": false,
+      "dialogFits": true
+    },
+    {
+      "path": "/",
+      "width": 430,
+      "result": "PASS",
+      "overflow": false,
+      "dialogFits": true
+    },
+    {
+      "path": "/",
+      "width": 768,
+      "result": "PASS",
+      "overflow": false,
+      "dialogFits": true
+    },
+    {
+      "path": "/",
+      "width": 1024,
+      "result": "PASS",
+      "overflow": false,
+      "dialogFits": true
+    },
+    {
+      "path": "/",
+      "width": 1440,
+      "result": "PASS",
+      "overflow": false,
+      "dialogFits": true
+    },
+    {
+      "path": "/",
+      "width": 1920,
+      "result": "PASS",
+      "overflow": false,
+      "dialogFits": true
+    },
+    {
+      "path": "/en/",
+      "width": 320,
+      "result": "PASS",
+      "overflow": false,
+      "dialogFits": true
+    },
+    {
+      "path": "/en/",
+      "width": 360,
+      "result": "PASS",
+      "overflow": false,
+      "dialogFits": true
+    },
+    {
+      "path": "/en/",
+      "width": 390,
+      "result": "PASS",
+      "overflow": false,
+      "dialogFits": true
+    },
+    {
+      "path": "/en/",
+      "width": 430,
+      "result": "PASS",
+      "overflow": false,
+      "dialogFits": true
+    },
+    {
+      "path": "/en/",
+      "width": 768,
+      "result": "PASS",
+      "overflow": false,
+      "dialogFits": true
+    },
+    {
+      "path": "/en/",
+      "width": 1024,
+      "result": "PASS",
+      "overflow": false,
+      "dialogFits": true
+    },
+    {
+      "path": "/en/",
+      "width": 1440,
+      "result": "PASS",
+      "overflow": false,
+      "dialogFits": true
+    },
+    {
+      "path": "/en/",
+      "width": 1920,
+      "result": "PASS",
+      "overflow": false,
+      "dialogFits": true
+    },
+    {
+      "path": "/softwareentwicklung-luebeck/",
+      "width": 320,
+      "result": "PASS",
+      "overflow": false,
+      "dialogFits": true
+    },
+    {
+      "path": "/softwareentwicklung-luebeck/",
+      "width": 360,
+      "result": "PASS",
+      "overflow": false,
+      "dialogFits": true
+    },
+    {
+      "path": "/softwareentwicklung-luebeck/",
+      "width": 390,
+      "result": "PASS",
+      "overflow": false,
+      "dialogFits": true
+    },
+    {
+      "path": "/softwareentwicklung-luebeck/",
+      "width": 430,
+      "result": "PASS",
+      "overflow": false,
+      "dialogFits": true
+    },
+    {
+      "path": "/softwareentwicklung-luebeck/",
+      "width": 768,
+      "result": "PASS",
+      "overflow": false,
+      "dialogFits": true
+    },
+    {
+      "path": "/softwareentwicklung-luebeck/",
+      "width": 1024,
+      "result": "PASS",
+      "overflow": false,
+      "dialogFits": true
+    },
+    {
+      "path": "/softwareentwicklung-luebeck/",
+      "width": 1440,
+      "result": "PASS",
+      "overflow": false,
+      "dialogFits": true
+    },
+    {
+      "path": "/softwareentwicklung-luebeck/",
+      "width": 1920,
+      "result": "PASS",
+      "overflow": false,
+      "dialogFits": true
+    },
+    {
+      "path": "/ki-automatisierung-luebeck/",
+      "width": 320,
+      "result": "PASS",
+      "overflow": false,
+      "dialogFits": true
+    },
+    {
+      "path": "/ki-automatisierung-luebeck/",
+      "width": 360,
+      "result": "PASS",
+      "overflow": false,
+      "dialogFits": true
+    },
+    {
+      "path": "/ki-automatisierung-luebeck/",
+      "width": 390,
+      "result": "PASS",
+      "overflow": false,
+      "dialogFits": true
+    },
+    {
+      "path": "/ki-automatisierung-luebeck/",
+      "width": 430,
+      "result": "PASS",
+      "overflow": false,
+      "dialogFits": true
+    },
+    {
+      "path": "/ki-automatisierung-luebeck/",
+      "width": 768,
+      "result": "PASS",
+      "overflow": false,
+      "dialogFits": true
+    },
+    {
+      "path": "/ki-automatisierung-luebeck/",
+      "width": 1024,
+      "result": "PASS",
+      "overflow": false,
+      "dialogFits": true
+    },
+    {
+      "path": "/ki-automatisierung-luebeck/",
+      "width": 1440,
+      "result": "PASS",
+      "overflow": false,
+      "dialogFits": true
+    },
+    {
+      "path": "/ki-automatisierung-luebeck/",
+      "width": 1920,
+      "result": "PASS",
+      "overflow": false,
+      "dialogFits": true
+    },
+    {
+      "path": "/website-showcase/",
+      "width": 320,
+      "result": "PASS",
+      "overflow": false,
+      "dialogFits": true
+    },
+    {
+      "path": "/website-showcase/",
+      "width": 360,
+      "result": "PASS",
+      "overflow": false,
+      "dialogFits": true
+    },
+    {
+      "path": "/website-showcase/",
+      "width": 390,
+      "result": "PASS",
+      "overflow": false,
+      "dialogFits": true
+    },
+    {
+      "path": "/website-showcase/",
+      "width": 430,
+      "result": "PASS",
+      "overflow": false,
+      "dialogFits": true
+    },
+    {
+      "path": "/website-showcase/",
+      "width": 768,
+      "result": "PASS",
+      "overflow": false,
+      "dialogFits": true
+    },
+    {
+      "path": "/website-showcase/",
+      "width": 1024,
+      "result": "PASS",
+      "overflow": false,
+      "dialogFits": true
+    },
+    {
+      "path": "/website-showcase/",
+      "width": 1440,
+      "result": "PASS",
+      "overflow": false,
+      "dialogFits": true
+    },
+    {
+      "path": "/website-showcase/",
+      "width": 1920,
+      "result": "PASS",
+      "overflow": false,
+      "dialogFits": true
+    },
+    {
+      "path": "/datenschutz/",
+      "width": 320,
+      "result": "PASS",
+      "overflow": false,
+      "dialogFits": true
+    },
+    {
+      "path": "/datenschutz/",
+      "width": 360,
+      "result": "PASS",
+      "overflow": false,
+      "dialogFits": true
+    },
+    {
+      "path": "/datenschutz/",
+      "width": 390,
+      "result": "PASS",
+      "overflow": false,
+      "dialogFits": true
+    },
+    {
+      "path": "/datenschutz/",
+      "width": 430,
+      "result": "PASS",
+      "overflow": false,
+      "dialogFits": true
+    },
+    {
+      "path": "/datenschutz/",
+      "width": 768,
+      "result": "PASS",
+      "overflow": false,
+      "dialogFits": true
+    },
+    {
+      "path": "/datenschutz/",
+      "width": 1024,
+      "result": "PASS",
+      "overflow": false,
+      "dialogFits": true
+    },
+    {
+      "path": "/datenschutz/",
+      "width": 1440,
+      "result": "PASS",
+      "overflow": false,
+      "dialogFits": true
+    },
+    {
+      "path": "/datenschutz/",
+      "width": 1920,
+      "result": "PASS",
+      "overflow": false,
+      "dialogFits": true
+    }
+  ],
+  "requests": [
+    {
+      "host": "www.googletagmanager.com",
+      "path": "/gtag/js",
+      "measurement_id": [
+        "G-NHB0PGPYTW"
+      ],
+      "event": null
+    },
+    {
+      "host": "region1.google-analytics.com",
+      "path": "/g/collect",
+      "measurement_id": [
+        "G-NHB0PGPYTW"
+      ],
+      "event": [
+        "page_view"
+      ]
+    },
+    {
+      "host": "region1.google-analytics.com",
+      "path": "/g/collect",
+      "measurement_id": [
+        "G-KLH4MV8H8M"
+      ],
+      "event": [
+        "page_view"
+      ]
+    }
+  ],
+  "intercepted_beacon_aborts": {
+    "count": 24,
+    "explanation": "Mocked Chromium keepalive/beacon responses may be cancelled; requests never sent to GA."
+  },
+  "result": "PASS",
+  "limitations": [
+    "Collection and diagnostic requests intercepted, delivery/property reporting not tested.",
+    "GitHub feed responses replaced with deterministic fixtures for repeated viewport tests.",
+    "Previously captured consented events can flush during revocation reload; future documents do not load Analytics.",
+    "Cross-tab steady-state test waits for initial consented collection before measuring new requests.",
+    "Mailto fallback checked without submitting a message or launching a mail client."
+  ]
+}

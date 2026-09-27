@@ -37,6 +37,14 @@ jobs:
           "$RUNNER_TEMP/dpn-browser/node_modules/.bin/agent-browser" install --with-deps
           echo "DPN_AGENT_BROWSER=$RUNNER_TEMP/dpn-browser/node_modules/.bin/agent-browser" >> "$GITHUB_ENV"
 
+      - name: Install analytics browser test tooling
+        run: |
+          python -m pip install playwright==1.63.0
+          python -m playwright install --with-deps chromium
+
+      - name: Verify analytics consent with real Chromium
+        run: python scripts/verify_analytics_browser.py --output "$RUNNER_TEMP/analytics-consent-qa.json"
+
       - name: Run deterministic site checks
         run: |
           bash -n ops/deploy/dpn-deploy
@@ -57,5 +65,6 @@ jobs:
           node --check assets/home-de.js
           node --check assets/home-en.js
           node --check assets/service.js
+          node --check assets/analytics-consent.js
           python ops/deploy/verify_release_candidate.py --repo . --commit "$(git rev-parse HEAD)"
           git diff --check
