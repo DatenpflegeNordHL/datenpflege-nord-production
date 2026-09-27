@@ -65,6 +65,8 @@ ALLOWED_PUBLIC_FILES=(
     "assets/legal.css"
     "assets/service.css"
     "assets/service.js"
+    "assets/analytics-consent.js"
+    "assets/analytics-consent.css"
     "assets/authority.css"
     "assets/authority.js"
     "assets/profile-card.css"
