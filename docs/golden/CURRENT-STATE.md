@@ -15,7 +15,7 @@ Do not rewrite Phase-7 work merely for freshness or style. Change frozen content
 
 ## Site architecture
 
-The static audit currently expects 10 canonical HTML pages. Search ownership for the commercial and authority pages is defined in `SEARCH-OWNERSHIP.md`. Legal and language-support pages remain part of the canonical set but do not own acquisition clusters.
+The static and Golden audits currently check 17 HTML pages: 11 canonical pages and six noindex showcase demos. Search ownership for the commercial and authority pages is defined in `SEARCH-OWNERSHIP.md`. Legal and language-support pages remain part of the canonical set but do not own acquisition clusters.
 
 ## Open gates
 
